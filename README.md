@@ -4,7 +4,7 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
 
-* [Template](https://warrenwoodhouse.github.io/maps/template) <small>[Code](https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/template/index.html)</small>
+* [Template](https://warrenwoodhouse.github.io/maps/template) <small>[(Code)](https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/template/index.html)</small>
 * Assassin's Creed
 * Assassin's Creed II
 * Assassin's Creed: Brotherhood
