@@ -1,6 +1,9 @@
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
+# Subscribe
+Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/)
+
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
 
@@ -75,8 +78,11 @@ Here is the full list of Interactive Maps. Enjoy!
 * The Elder Scrolls V: Skyrim: Anniversary Edition
 * Mad Max
 
-# Static Maps
-[CLICK HERE](https://warrenwoodhouse.blogspot.com/maps/static) to see all of the static maps.
+# Static Game Maps
+[CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
 
 # Real Life Maps
-[CLICK HERE](https://warrenwoodhouse.blogspot.com/maps/reallife) to see all of the real life maps that I've created.
+[CLICK HERE](https://warrenwoodhouse.github.io/maps/reallife) to see all of the real life maps that I've created.
+
+# Map Icons
+[CLICK HERE](https://github.com/warrenwoodhouse/mapicons) to see all of the various map icons used for my maps.
