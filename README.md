@@ -1,6 +1,9 @@
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
+# Issues
+* [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/maps/issues/8) (help wanted)
+
 # Subscribe
 Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/)
 
