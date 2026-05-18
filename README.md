@@ -53,6 +53,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * Borderlands 2
 * Control
 * Control: Resonant
+* [Coronation Street: Street Finder Map by The Sun Newspaper](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet/streetfinder/index.html)
 * Alan Wake Remastered
 * Alan Wake II
 * God of War (2018)
