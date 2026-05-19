@@ -16,16 +16,15 @@
         var map = L.map('map').setView([45.5018869, -73.5673919], 18);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© Map by Warren Woodhouse. Made using LeafletJS and OpenStreetMap'
+            attribution: '© Map by Warren Woodhouse. Made using LeafletJS and OpenStreetMap contributors'
         }).addTo(map);
 
-        var locations = [
-  ["Montréal", 45.5018869, -73.5673919], {icon: Icon}
-  ["The Clarington Hotel", 45.5062781, -73.5553576], {icon: Icon}
-  ["The Lake (Mentioned Only)", 45.4988179, -73.5973997], {icon: Icon}
-  ["Paul Morgan's House (Mentioned Only)", 39.2748959, -80.3323467], {icon: Icon}
-  ["Edith & Lindsey Franklin's House (Mentioned Only)", 44.4838810, -73.2194091], {icon: Icon}
-];
+        var marker = L.marker(["Montréal", 45.5018869, -73.5673919]).addTo(map) {icon: Icon};
+        var marker = L.marker(["The Clarington Hotel", 45.5062781, -73.5553576]).addTo(map) {icon: Icon};
+        var marker = L.marker(["The Lake -Mentioned Only-", 45.4988179, -73.5973997]).addTo(map) {icon: Icon};
+        var marker = L.marker(["Paul Morgan's House -Mentioned Only-", 39.2748959, -80.3323467], {icon: Icon};
+        var marker = L.marker(["Edith & Lindsey Franklin's House -Mentioned Only-", 44.4838810, -73.2194091], {icon: Icon};
+        ];
 
       for (var i = 0; i < locations.length; i++) {
   marker = new L.marker([locations[i][1], locations[i][2]])
