@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warren Woodhouse: Fallout 4 Interactive Map</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <style>
+        /* Make the map fill the entire browser window */
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #1a1a1a; }
+        #map { height: 100vh; width: 100vw; }
+        
+        /* Optional: Style the popups to look a bit more "Pip-Boy" green */
+        .leaflet-popup-content-wrapper { background-color: #0c140c; color: #14ff14; border: 1px solid #14ff14; }
+        .leaflet-popup-tip { background-color: #0c140c; }
+    </style>
+</head>
+<body>
+  <p>This map is still a work in progress.</p>
+
+    <div id="map"></div>
+
+    <script>
+        // 1. Initialize the map using L.CRS.Simple for a flat game map
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -2,
+            maxZoom: 2
+        });
+
+        // 2. Set the dimensions of your Fallout 4 map image (in pixels)
+        // Change these values to match the exact width and height of your image.
+        const width = 4000;
+        const height = 4000;
+
+        // 3. Define the geographical bounds based on the image size
+        // Leaflet CRS.Simple uses [y, x] coordinates, so it maps from [0,0] to [height, width]
+        const bounds = [[0, 0], [height, width]];
+
+        // 4. Add the image overlay
+        // Replace 'maps-fallout4.PNG' with the path to your actual map image
+        L.imageOverlay('maps-fallout4.PNG', bounds).addTo(map);
+
+        // 5. Tell the map to fit exactly within these bounds on load
+        map.fitBounds(bounds);
+
+        // 6. Define some sample Commonwealth locations
+        // Coordinates must be adjusted to fit your specific image grid [y, x]
+        const locations = [
+            { name: "Sanctuary Hills", coords: [3500, 500], info: "The Sole Survivor's pre-war home." },
+            { name: "Diamond City", coords: [2000, 2000], info: "The Great Green Jewel of the Commonwealth." },
+            { name: "Goodneighbor", coords: [1950, 2200], info: "Of the people, for the people." },
+            { name: "The Glowing Sea", coords: [500, 500], info: "Highly irradiated zone. Proceed with caution!" },
+            { name: "Prydwen", coords: [1800, 3200], info: "Brotherhood of Steel mobile headquarters." }
+        ];
+
+        // 7. Loop through the locations and add markers to the map
+        locations.forEach(loc => {
+            L.marker(loc.coords)
+             .addTo(map)
+             .bindPopup(`<b>${loc.name}</b><br/>${loc.info}`);
+        });
+
+        // 8. Utility Tool: Click the map to get coordinates
+        // This makes it easy to plot new markers! Open your browser console to see the values.
+        map.on('click', function(e) {
+            console.log(`New Marker Coordinates: [${Math.round(e.latlng.lat)}, ${Math.round(e.latlng.lng)}]`);
+        });
+    </script>
+</body>
+</html>
