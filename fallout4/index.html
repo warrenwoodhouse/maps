@@ -2,75 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warren Woodhouse: Fallout 4 Interactive Map</title>
-    
+    <title>Fallout 4 Interactive Map [WIP]</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
     <style>
-        /* Make the map fill the entire browser window */
-        body, html { margin: 0; padding: 0; height: 100%; background-color: #1a1a1a; }
-        #map { height: 100vh; width: 100vw; }
-        
-        /* Optional: Style the popups to look a bit more "Pip-Boy" green */
-        .leaflet-popup-content-wrapper { background-color: #0c140c; color: #14ff14; border: 1px solid #14ff14; }
-        .leaflet-popup-tip { background-color: #0c140c; }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+            background-color: #111; /* Dark background for off-map areas */
+        }
+        .leaflet-popup-content-wrapper {
+            background: #2a2a2a;
+            color: #14ff14; /* Classic Fallout Terminal Green */
+            border: 1px solid #14ff14;
+            border-radius: 4px;
+        }
+        .leaflet-popup-tip {
+            background: #2a2a2a;
+        }
     </style>
 </head>
 <body>
-  <p style="color:white;">This map is still a work in progress.</p>
-  <p style="color:white;">If you would like to help, please <a href="https://warrenwoodhouse.blogspot.com/contact">CLICK HERE</a>.</p>
 
     <div id="map"></div>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // 1. Initialize the map using L.CRS.Simple for a flat game map
+        // 1. Define Map Dimensions
+        const mapWidth = 2048;
+        const mapHeight = 2048;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
         const map = L.map('map', {
             crs: L.CRS.Simple,
-            minZoom: -2,
-            maxZoom: 2
+            minZoom: -1,  // Allows zooming out further than the image
+            maxZoom: 3
         });
 
-        // 2. Set the dimensions of your Fallout 4 map image (in pixels)
-        // Change these values to match the exact width and height of your image.
-        const width = 2048;
-        const height = 2048;
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
 
-        // 3. Define the geographical bounds based on the image size
-        // Leaflet CRS.Simple uses [y, x] coordinates, so it maps from [0,0] to [height, width]
-        const bounds = [[0, 0], [height, width]];
-
-        // 4. Add the image overlay
-        // Replace 'maps-fallout4.PNG' with the path to your actual map image
+        // 4. Load the 2048x2048 Image Overlay
+        // IMPORTANT: Replace 'maps-fallout4.PNG' with your actual image file name
         L.imageOverlay('maps-fallout4.PNG', bounds).addTo(map);
-
-        // 5. Tell the map to fit exactly within these bounds on load
         map.fitBounds(bounds);
 
-        // 6. Define some sample Commonwealth locations
-        // Coordinates must be adjusted to fit your specific image grid [y, x]
+        // 5. Create Layer Groups for Filters
+        const settlements = L.layerGroup();
+        const vaults = L.layerGroup();
+        const landmarks = L.layerGroup();
+
+        // 6. Location Database
+        // Y = Vertical axis (0 is bottom, 2048 is top)
+        // X = Horizontal axis (0 is left, 2048 is right)
+        // These coordinates are estimates to show you the scaling on a 2048 grid.
         const locations = [
-            { name: "Sanctuary Hills", coords: [476.5, 179.5], info: "The Sole Survivor's pre-war home." },
-            { name: "Diamond City", coords: [965.5, 1086.5], info: "The Great Green Jewel of the Commonwealth." },
-            { name: "Goodneighbor", coords: [1264.5, 949], info: "Of the people, for the people." },
-            { name: "Edge of the Glowing Sea", coords: [667, 1466.5], info: "Highly irradiated zone. Proceed with caution!" },
-            { name: "Prydwen", coords: [1504, 923], info: "The Brotherhood of Steel mobile headquarters." }
-            { name: "Abernathy Farm", coords: [507.5, 337.5], info: "Farmstead." }
+            // Settlements
+            { id: "S-001", name: "Sanctuary Hills", type: "settlement", y: 1800, x: 400 },
+            { id: "S-002", name: "Red Rocket Truck Stop", type: "settlement", y: 1750, x: 450 },
+            { id: "S-003", name: "The Castle", type: "settlement", y: 600, x: 1700 },
+            { id: "S-004", name: "Spectacle Island", type: "settlement", y: 300, x: 1900 },
+            
+            // Vaults
+            { id: "V-111", name: "Vault 111", type: "vault", y: 1850, x: 350 },
+            { id: "V-081", name: "Vault 81", type: "vault", y: 850, x: 750 },
+            { id: "V-114", name: "Vault 114", type: "vault", y: 950, x: 1250 },
+            { id: "V-095", name: "Vault 95", type: "vault", y: 250, x: 500 },
+
+            // Major Landmarks
+            { id: "L-001", name: "Diamond City", type: "landmark", y: 900, x: 1000 },
+            { id: "L-002", name: "Goodneighbor", type: "landmark", y: 1000, x: 1200 },
+            { id: "L-003", name: "Concord", type: "landmark", y: 1650, x: 500 },
+            { id: "L-004", name: "Lexington", type: "landmark", y: 1400, x: 700 },
+            { id: "L-005", name: "Crater of Atom (Glowing Sea)", type: "landmark", y: 150, x: 200 }
         ];
 
-        // 7. Loop through the locations and add markers to the map
+        // 7. Loop Through Data to Create Markers
         locations.forEach(loc => {
-            L.marker(loc.coords)
-             .addTo(map)
-             .bindPopup(`<b>${loc.name}</b><br/>${loc.info}`);
+            // Leaflet requires [Y, X] for marker placement
+            const marker = L.marker([loc.y, loc.x])
+                .bindPopup(`<strong>${loc.name}</strong><br>Location ID: ${loc.id}`);
+            
+            // Route the marker to the correct filter group based on its type
+            if (loc.type === "settlement") {
+                marker.addTo(settlements);
+            } else if (loc.type === "vault") {
+                marker.addTo(vaults);
+            } else if (loc.type === "landmark") {
+                marker.addTo(landmarks);
+            }
         });
 
-        // 8. Utility Tool: Click the map to get coordinates
-        // This makes it easy to plot new markers! Open your browser console to see the values.
-        map.on('click', function(e) {
-            console.log(`New Marker Coordinates: [${Math.round(e.latlng.lat)}, ${Math.round(e.latlng.lng)}]`);
-        });
+        // 8. Add Default Layers to the Map
+        settlements.addTo(map);
+        vaults.addTo(map);
+        landmarks.addTo(map);
+
+        // 9. Build the Filter Control Menu
+        const filterControls = {
+            "Settlements": settlements,
+            "Vaults": vaults,
+            "Major Landmarks": landmarks
+        };
+
+        // Add the toggle menu to the top right of the map
+        L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
+
     </script>
 </body>
 </html>
