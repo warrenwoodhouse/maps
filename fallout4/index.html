@@ -19,7 +19,8 @@
     </style>
 </head>
 <body>
-  <p>This map is still a work in progress.</p>
+  <p style="color:white;">This map is still a work in progress.</p>
+  <p style="color:white;">If you would like to help, please <a href="https://warrenwoodhouse.blogspot.com/contact">CLICK HERE</a>.</p>
 
     <div id="map"></div>
 
@@ -33,8 +34,8 @@
 
         // 2. Set the dimensions of your Fallout 4 map image (in pixels)
         // Change these values to match the exact width and height of your image.
-        const width = 4000;
-        const height = 4000;
+        const width = 3618;
+        const height = 3674;
 
         // 3. Define the geographical bounds based on the image size
         // Leaflet CRS.Simple uses [y, x] coordinates, so it maps from [0,0] to [height, width]
@@ -50,7 +51,7 @@
         // 6. Define some sample Commonwealth locations
         // Coordinates must be adjusted to fit your specific image grid [y, x]
         const locations = [
-            { name: "Sanctuary Hills", coords: [3500, 500], info: "The Sole Survivor's pre-war home." },
+            { name: "Sanctuary Hills", coords: [3600, 500], info: "The Sole Survivor's pre-war home." },
             { name: "Diamond City", coords: [2000, 2000], info: "The Great Green Jewel of the Commonwealth." },
             { name: "Goodneighbor", coords: [1950, 2200], info: "Of the people, for the people." },
             { name: "The Glowing Sea", coords: [500, 500], info: "Highly irradiated zone. Proceed with caution!" },
