@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Fallout 4 Interactive Map [WIP]</title>
+    <title>Warren Woodhouse: Fallout 4 Interactive Map [WIP]</title>
+    <link rel="icon" type="image/x-icon" href="https://warrenwoodhouse.blogspot.com/favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body {
@@ -27,6 +28,9 @@
     </style>
 </head>
 <body>
+    <p style="color:white;">This map is a work in progress.</p>
+    <p style="color:white;">If the map isn't loading, give it 5-10 minutes for the mapping data to sync after an update that I've made.</p>
+    <p style="color:white;"><a href="https://warrenwoodhouse.blogspot.com/maps/interactive">CLICK HERE</a> to see more Interactive Maps by Warren Woodhouse.</p>
 
     <div id="map"></div>
 
@@ -62,23 +66,27 @@
         // These coordinates are estimates to show you the scaling on a 2048 grid.
         const locations = [
             // Settlements
-            { id: "S-001", name: "Sanctuary Hills", type: "settlement", y: 1800, x: 400 },
-            { id: "S-002", name: "Red Rocket Truck Stop", type: "settlement", y: 1750, x: 450 },
-            { id: "S-003", name: "The Castle", type: "settlement", y: 600, x: 1700 },
-            { id: "S-004", name: "Spectacle Island", type: "settlement", y: 300, x: 1900 },
+            { id: "1", name: "Sanctuary Hills", type: "settlement", y: 476.5, x: 179.5 },
+            { id: "3", name: "Red Rocket Truck Stop", type: "settlement", y: 562.5, x: 237.5 },
+            { id: "108", name: "The Castle", type: "settlement", y: 1474.5, x: 1218 },
+            { id: "228", name: "Spectacle Island", type: "settlement", y: 1684, x: 1317.5 },
+            { id: "6", name: "Abernathy Farm", type: "settlement", y: 507.5, x: 337.5 },
+            { id: "34", name: "Greentop Nursery", type: "settlement", y: 1330, x: 338 },
+            { id: "252", name: "Home Plate", type: "settlement", y: 972.375, x: 1064.625 },
+            { id: "79", name: "Covenant", type: "settlement", y: 1040, x: 495 },
             
             // Vaults
-            { id: "V-111", name: "Vault 111", type: "vault", y: 1850, x: 350 },
-            { id: "V-081", name: "Vault 81", type: "vault", y: 850, x: 750 },
-            { id: "V-114", name: "Vault 114", type: "vault", y: 950, x: 1250 },
-            { id: "V-095", name: "Vault 95", type: "vault", y: 250, x: 500 },
+            { id: "2", name: "Vault 111", type: "vault", y: 409.5, x: 146 },
+            { id: "81", name: "Vault 81", type: "vault", y: 809.5, x: 1037.5 },
+            { id: "114", name: "Vault 114", type: "vault", y: 1171.5, x: 986.5 },
+            { id: "95", name: "Vault 95", type: "vault", y: 722, x: 1548.5 },
 
             // Major Landmarks
-            { id: "L-001", name: "Diamond City", type: "landmark", y: 900, x: 1000 },
-            { id: "L-002", name: "Goodneighbor", type: "landmark", y: 1000, x: 1200 },
-            { id: "L-003", name: "Concord", type: "landmark", y: 1650, x: 500 },
-            { id: "L-004", name: "Lexington", type: "landmark", y: 1400, x: 700 },
-            { id: "L-005", name: "Crater of Atom (Glowing Sea)", type: "landmark", y: 150, x: 200 }
+            { id: "66", name: "Diamond City", type: "landmark", y: 965.5, x: 1086.5 },
+            { id: "78", name: "Goodneighbor", type: "landmark", y: 1264.5, x: 949 },
+            { id: "42", name: "Concord", type: "landmark", y: 636, x: 297.5 },
+            { id: "48", name: "Lexington", type: "landmark", y: 846, x: 544.5 },
+            { id: "234", name: "Edge of the Glowing Sea", type: "landmark", y: 667, x: 1466.5 }
         ];
 
         // 7. Loop Through Data to Create Markers
