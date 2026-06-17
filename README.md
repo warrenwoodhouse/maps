@@ -7,6 +7,11 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 # Subscribe
 Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/)
 
+# Blog
+<rss>https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss</rss>
+
+[CLICK HERE](https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss) to read the latest posts in the feed file if the above code doesn't show them.
+
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
 
@@ -53,7 +58,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * Borderlands 2
 * Control
 * Control: Resonant
-* [Coronation Street: Street Finder Map by The Sun Newspaper](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet/streetfinder/index.html)
+* [Coronation Street: Street Finder Map by The Sun Newspaper](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet/streetfinder)
 * Alan Wake Remastered
 * Alan Wake II
 * God of War (2018)
@@ -77,7 +82,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * inFAMOUS: First Light
 * Fallout 3: Game of the Year Edition
 * Fallout: New Vegas: Ultimate Edition
-* Fallout 4: Anniversary Edition
+* [Fallout 4: Anniversary Edition](https://warrenwoodhouse.github.io/maps/fallout4)
 * The Elder Scrolls IV: Oblivion Remastered
 * The Elder Scrolls V: Skyrim: Anniversary Edition
 * Mad Max
