@@ -5,13 +5,10 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 * [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/maps/issues/8) (help wanted)
 
 # Subscribe
-Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/)
+Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/search/label/maps)
 
 # Blog
-<iframe src="https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss" height="95%" width="100%">
-</iframe>
-
-[CLICK HERE](https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss) to read the latest posts in the feed file if the above code doesn't show them.
+[CLICK HERE](https://warrenwoodhouse.blogspot.com/search/label/maps) to read the latest posts in the blog category.
 
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
