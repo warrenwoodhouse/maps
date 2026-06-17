@@ -8,7 +8,8 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/)
 
 # Blog
-<rss>https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss</rss>
+<iframe src="view-source:https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss" height="95%" width="100%">
+</iframe>
 
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/feeds/posts/default/-/maps?alt=rss) to read the latest posts in the feed file if the above code doesn't show them.
 
