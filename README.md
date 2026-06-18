@@ -98,7 +98,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * The Awesome Adventures of Captain Spirit
 * Life is Strange 2
 * Life is Strange: True Colors
-* [Life is Strange: Double Exposure](https://github.com/warrenwoodhouse/maps/blob/main/lifeisstrange/doubleexposure)
+* [Life is Strange: Double Exposure](https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure)
 * Life is Strange: Reunion
 * Red Dead Redemption
 * Red Dead Redemption II
