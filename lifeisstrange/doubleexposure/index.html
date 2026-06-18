@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Warren Woodhouse: Life is Strange: Double Exposure Interactive Map [WIP]</title>
+    <link rel="icon" type="image/x-icon" href="https://warrenwoodhouse.blogspot.com/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+            background-color: #111; /* Dark background for off-map areas */
+        }
+        .leaflet-popup-content-wrapper {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+        .leaflet-popup-tip {
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <p style="color:white;">This map is a work in progress.</p>
+    <p style="color:white;">If the map isn't loading, give it 5-10 minutes for the mapping data to sync after an update that I've made.</p>
+    <p style="color:white;"><a href="https://warrenwoodhouse.blogspot.com/maps/interactive">CLICK HERE</a> to see more Interactive Maps by Warren Woodhouse.</p>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 1. Define Map Dimensions
+        const mapWidth = 762;
+        const mapHeight = 1333;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,  // Allows zooming out further than the image
+            maxZoom: 3
+        });
+
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
+
+        // 4. Load the 762x1333 Image Overlay
+        // IMPORTANT: Replace 'maps-lifeisstrange-doubleexposure.jpeg' with your actual image file name
+        L.imageOverlay('maps-lifeisstrange-doubleexposure.jpeg', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        // 5. Create Layer Groups for Filters
+        const regions = L.layerGroup();
+
+        // 6. Location Database
+        // Y = Vertical axis (0 is bottom, 762 is top)
+        // X = Horizontal axis (0 is left, 1333 is right)
+        // These coordinates are estimates to show you the scaling on a 1333 grid.
+        const locations = [
+            // Markers
+            { id: "1", name: "FAB Building", type: "markers", y: 0, x: 0 },
+            { id: "2", name: "The Quad", type: "markers", y: 100, x: 100 },
+            { id: "3", name: "The Snapping Turtle", type: "markers", y: 200, x: 200 },
+            { id: "4", name: "The Overlook", type: "markers", y: 300, x: 300 }
+        ];
+
+        // 7. Loop Through Data to Create Markers
+        locations.forEach(loc => {
+            // Leaflet requires [Y, X] for marker placement
+            const marker = L.marker([loc.y, loc.x])
+                .bindPopup(`<strong>${loc.name}</strong><br>Location ID: ${loc.id}`);
+            
+            // Route the marker to the correct filter group based on its type
+            if (loc.type === "markers") {
+                marker.addTo(markers);
+            }
+        });
+
+        // 8. Add Default Layers to the Map
+        markers.addTo(map);
+
+        // 9. Build the Filter Control Menu
+        const filterControls = {
+            "Markers": markers
+        };
+
+        // Add the toggle menu to the top right of the map
+        L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
+
+    </script>
+</body>
+</html>
