@@ -84,6 +84,13 @@ Here is the full list of Interactive Maps. Enjoy!
 * The Elder Scrolls IV: Oblivion Remastered
 * The Elder Scrolls V: Skyrim: Anniversary Edition
 * Mad Max
+** [Regions](https://warrenwoodhouse.github.io/maps/madmax2015/regions)
+* Life is Strange
+* [Life is Strange: Double Exposure](https://github.com/warrenwoodhouse/maps/blob/main/lifeisstrange/doubleexposure)
+* Red Dead Redemption
+* Red Dead Redemption II
+** City of Saint Denis - City Railway
+** City of Saint Denis - Street Names
 
 # Static Game Maps
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
