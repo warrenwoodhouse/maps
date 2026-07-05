@@ -123,6 +123,8 @@ I'll add some here
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/reallife) to see all of the real life maps that I've created.
 
 * [Ouseburn Farm Water Feature by Warren Woodhouse (Map)](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature)
+* [Fallout 1 Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/fallout)
+* [This Bed We Made Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade)
 
 # Map Icons
 [CLICK HERE](https://github.com/warrenwoodhouse/mapicons) to see all of the various map icons used for my maps.
