@@ -59,12 +59,7 @@
         const settlements = L.layerGroup();
         const vaults = L.layerGroup();
         const landmarks = L.layerGroup();
-
-        // Map Icons
-        var settlementIcon = new LeafIcon({iconUrl: 'icons-settlement.PNG'}),
-            vaultIcon = new LeafIcon({iconUrl: 'icons-vault.WEBP'}),
-            landmarkIcon = new LeafIcon({iconUrl: 'icons-landmark.png'});
-
+        
         // --- HELPER FUNCTIONS ---
 
 // Convert standard (X, Y) pixel coordinates to Leaflet LatLng
@@ -140,7 +135,7 @@ map.on('click', function(e) {
         const filterControls = {
             "Settlements": settlements,
             "Vaults": vaults,
-            "Major Landmarks": landmarks
+            "Major Landmarks": landmarks,
         };
 
         // Add the toggle menu to the top right of the map
