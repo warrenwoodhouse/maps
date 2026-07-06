@@ -36,31 +36,52 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // 1. Define Map Dimensions
+        // Define Map Dimensions
         const mapWidth = 2048;
         const mapHeight = 2048;
 
-        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        // Initialize Map with CRS.Simple (for flat images instead of globes)
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: -1,  // Allows zooming out further than the image
             maxZoom: 3
         });
 
-        // 3. Set Bounds [Bottom-Left, Top-Right]
-        const bounds = [[0, 0], [mapHeight, mapWidth]];
+        // Set Bounds. Top-Left is [0, 0], Bottom-Right is [-2048, 2048]
+        const bounds = [[0, 0], [-mapHeight, mapWidth]];
 
-        // 4. Load the 2048x2048 Image Overlay
+        // Load the 2048x2048 Image Overlay
         // IMPORTANT: Replace 'maps-fallout4.PNG' with your actual image file name
-        L.imageOverlay('maps-fallout4.PNG', bounds).addTo(map);
+        const image = L.imageOverlay('maps-fallout4.PNG', bounds).addTo(map);
         map.fitBounds(bounds);
 
-        // 5. Create Layer Groups for Filters
+        // Create Layer Groups for Filters
         const settlements = L.layerGroup();
         const vaults = L.layerGroup();
         const landmarks = L.layerGroup();
 
-        // 6. Location Database
+        // --- HELPER FUNCTIONS ---
+
+// Convert standard (X, Y) pixel coordinates to Leaflet LatLng
+function xyToLatLng(x, y) {
+    return L.latLng(-y, x);
+}
+
+// Convert a Leaflet LatLng object back to standard (X, Y) pixels
+function latLngToXY(latlng) {
+    return {
+        x: Math.round(latlng.lng),
+        y: Math.round(-latlng.lat)
+    };
+}
+
+// Example: Clicking the map logs the exact (X, Y) pixel
+map.on('click', function(e) {
+    const pixelCoords = latLngToXY(e.latlng);
+    console.log(`You clicked on Pixel X: ${pixelCoords.x}, Y: ${pixelCoords.y}`);
+});
+        
+        // Location Database
         // Y = Vertical axis (0 is bottom, 2048 is top)
         // X = Horizontal axis (0 is left, 2048 is right)
         // These coordinates are estimates to show you the scaling on a 2048 grid.
@@ -89,7 +110,7 @@
             { id: "234", name: "Edge of the Glowing Sea", type: "landmark", y: -1466.5, x: 667 }
         ];
 
-        // 7. Loop Through Data to Create Markers
+        // Loop Through Data to Create Markers
         locations.forEach(loc => {
             // Leaflet requires [Y, X] for marker placement
             const marker = L.marker([loc.y, loc.x])
@@ -105,12 +126,12 @@
             }
         });
 
-        // 8. Add Default Layers to the Map
+        // Add Default Layers to the Map
         settlements.addTo(map);
         vaults.addTo(map);
         landmarks.addTo(map);
 
-        // 9. Build the Filter Control Menu
+        // Build the Filter Control Menu
         const filterControls = {
             "Settlements": settlements,
             "Vaults": vaults,
