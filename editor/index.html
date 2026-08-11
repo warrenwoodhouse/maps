@@ -1,0 +1,206 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map Editor - Maps - Warren Woodhouse</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet Draw CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    #toolbar {
+      background: #1e293b;
+      color: #fff;
+      padding: 10px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .title {
+      font-weight: 600;
+      font-size: 15px;
+      margin-right: auto;
+    }
+    button, label.btn {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    button:hover, label.btn:hover { background: #2563eb; }
+    button.danger { background: #ef4444; }
+    button.danger:hover { background: #dc2626; }
+    #map3 {
+      flex: 1;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toolbar">
+    <span class="title">Map Editor (Target: <code>#map3</code>)</span>
+    <button onclick="saveToLocalStorage()">Save Map</button>
+    <button onclick="loadFromLocalStorage()">Load Map</button>
+    <button onclick="exportGeoJSON()">Export GeoJSON</button>
+    <label class="btn" for="importFile">Import GeoJSON</label>
+    <input type="file" id="importFile" accept=".json,.geojson" style="display:none;" onchange="importGeoJSON(event)">
+    <button class="danger" onclick="clearMap()">Clear All</button>
+  </div>
+
+  <!-- Required target element id="map3" -->
+  <div id="map3"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet Draw JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+  <script>
+    // 1. Initialize map on element with id 'map3'
+    const map3 = L.map('map3').setView([51.505, -0.09], 13);
+
+    // 2. Tile Layer (OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map3);
+
+    // 3. FeatureGroup to hold drawn and editable layers
+    const drawnItems = new L.FeatureGroup();
+    map3.addLayer(drawnItems);
+
+    // 4. Leaflet Draw Control Configuration
+    const drawControl = new L.Control.Draw({
+      edit: {
+        featureGroup: drawnItems,
+        remove: true
+      },
+      draw: {
+        polyline: { shapeOptions: { color: '#3b82f6', weight: 4 } },
+        polygon: { shapeOptions: { color: '#10b981', fillColor: '#10b981', fillOpacity: 0.3 } },
+        rectangle: { shapeOptions: { color: '#f59e0b', fillColor: '#f59e0b', fillOpacity: 0.3 } },
+        circle: { shapeOptions: { color: '#8b5cf6', fillColor: '#8b5cf6', fillOpacity: 0.3 } },
+        marker: {
+          draggable: true
+        },
+        circlemarker: false
+      }
+    });
+    map3.addControl(drawControl);
+
+    // 5. Handle creation of elements
+    map3.on(L.Draw.Event.CREATED, function (e) {
+      const layer = e.layer;
+      
+      // Make markers draggable if created via marker tool
+      if (layer instanceof L.Marker) {
+        layer.dragging.enable();
+      }
+
+      // Bind a simple editable popup to created elements
+      layer.bindPopup('<b>Shape Created</b><br>Right click or use edit toolbar to modify.');
+      drawnItems.addLayer(layer);
+    });
+
+    // 6. Save layers to LocalStorage
+    function saveToLocalStorage() {
+      const data = drawnItems.toGeoJSON();
+      localStorage.setItem('map3_editor_data', JSON.stringify(data));
+      alert('Map features saved to LocalStorage!');
+    }
+
+    // 7. Load layers from LocalStorage
+    function loadFromLocalStorage() {
+      const stored = localStorage.getItem('map3_editor_data');
+      if (!stored) {
+        alert('No saved map state found in LocalStorage.');
+        return;
+      }
+      drawnItems.clearLayers();
+      const geojson = JSON.parse(stored);
+      
+      L.geoJSON(geojson, {
+        onEachFeature: function(feature, layer) {
+          if (layer instanceof L.Marker) {
+            layer.options.draggable = true;
+          }
+          drawnItems.addLayer(layer);
+        }
+      });
+      alert('Saved map state restored successfully.');
+    }
+
+    // 8. Export layers as downloadable GeoJSON file
+    function exportGeoJSON() {
+      const data = drawnItems.toGeoJSON();
+      if (data.features.length === 0) {
+        alert('No shapes or markers to export.');
+        return;
+      }
+      const jsonStr = JSON.stringify(data, null, 2);
+      const blob = new Blob([jsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'map3_export.geojson';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // 9. Import GeoJSON file
+    function importGeoJSON(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const geojson = JSON.parse(e.target.result);
+          drawnItems.clearLayers();
+          
+          L.geoJSON(geojson, {
+            onEachFeature: function(feature, layer) {
+              if (layer instanceof L.Marker) {
+                layer.options.draggable = true;
+              }
+              drawnItems.addLayer(layer);
+            }
+          });
+          alert('GeoJSON imported successfully!');
+        } catch (err) {
+          alert('Failed to parse GeoJSON file.');
+        }
+      };
+      reader.readAsText(file);
+      event.target.value = ''; // Reset input
+    }
+
+    // 10. Clear all elements
+    function clearMap() {
+      if (confirm('Clear all items from map3?')) {
+        drawnItems.clearLayers();
+      }
+    }
+  </script>
+</body>
+</html>
