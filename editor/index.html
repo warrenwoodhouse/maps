@@ -1,205 +1,513 @@
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Map Editor - Maps - Warren Woodhouse</title>
-  
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <!-- Leaflet Draw CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
-
   <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    :root {
+      --bg-color: #0f172a;
+      --panel-bg: #1e293b;
+      --panel-border: #334155;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-color); color: var(--text); height: 100vh; display: flex; overflow: hidden; }
+
+    /* Sidebar Controls */
+    #sidebar {
+      width: 360px;
+      background: var(--panel-bg);
+      border-right: 1px solid var(--panel-border);
       display: flex;
       flex-direction: column;
-      height: 100vh;
-    }
-    #toolbar {
-      background: #1e293b;
-      color: #fff;
-      padding: 10px 16px;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
       z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
     }
-    .title {
+
+    .sidebar-header {
+      padding: 16px;
+      border-bottom: 1px solid var(--panel-border);
+    }
+
+    .sidebar-header h2 { font-size: 1.1rem; font-weight: 600; color: #fff; }
+
+    .sidebar-content {
+      padding: 16px;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .control-group label {
+      font-size: 0.8rem;
       font-weight: 600;
-      font-size: 15px;
-      margin-right: auto;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
     }
-    button, label.btn {
-      background: #3b82f6;
+
+    input, select, button {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--panel-border);
+      background: #0f172a;
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus, select:focus { border-color: var(--accent); }
+
+    .row { display: flex; gap: 8px; }
+
+    button {
+      background: var(--accent);
       color: white;
+      font-weight: 600;
       border: none;
-      padding: 6px 14px;
-      border-radius: 4px;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
     }
-    button:hover, label.btn:hover { background: #2563eb; }
+
+    button:hover { background: var(--accent-hover); }
+    button.secondary { background: #334155; }
+    button.secondary:hover { background: #475569; }
     button.danger { background: #ef4444; }
     button.danger:hover { background: #dc2626; }
+
+    /* Marker Selector */
+    .icon-palette {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .icon-option {
+      height: 36px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon-option.selected { border-color: #fff; }
+
+    /* Map Stage Container */
+    #stage {
+      flex-grow: 1;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      position: relative;
+      overflow: auto;
+    }
+
+    /* Target Map Container */
     #map3 {
-      flex: 1;
       width: 100%;
+      height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: width 0.3s ease, height 0.3s ease;
+      background: #111;
+    }
+
+    /* Feature List Items */
+    .feature-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0f172a;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      border: 1px solid var(--panel-border);
     }
   </style>
 </head>
 <body>
 
-  <div id="toolbar">
-    <span class="title">Map Editor (Target: <code>#map3</code>)</span>
-    <button onclick="saveToLocalStorage()">Save Map</button>
-    <button onclick="loadFromLocalStorage()">Load Map</button>
-    <button onclick="exportGeoJSON()">Export GeoJSON</button>
-    <label class="btn" for="importFile">Import GeoJSON</label>
-    <input type="file" id="importFile" accept=".json,.geojson" style="display:none;" onchange="importGeoJSON(event)">
-    <button class="danger" onclick="clearMap()">Clear All</button>
+  <!-- Control Panel Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <h2>Leaflet Map Editor (<code>map3</code>)</h2>
+    </div>
+
+    <div class="sidebar-content">
+      
+      <!-- 1. Map Sizing -->
+      <div class="control-group">
+        <label>Map Canvas Dimensions</label>
+        <div class="row">
+          <input type="text" id="mapWidth" value="100%" placeholder="Width (e.g. 100%, 800px)" />
+          <input type="text" id="mapHeight" value="100%" placeholder="Height (e.g. 100%, 600px)" />
+        </div>
+        <button class="secondary" onclick="updateMapDimensions()">Apply Dimensions</button>
+      </div>
+
+      <!-- 2. Base Map / Custom Image Overlay -->
+      <div class="control-group">
+        <label>Base Layer / Custom Image Map</label>
+        <select id="tileSelect" onchange="changeTileLayer(this.value)">
+          <option value="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png">OpenStreetMap (Default)</option>
+          <option value="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png">CartoDB Voyager</option>
+          <option value="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png">CartoDB Dark Matter</option>
+          <option value="custom_image">Custom Image Overlay...</option>
+        </select>
+        <input type="file" id="imageUpload" accept="image/*" style="display:none;" onchange="loadCustomImageMap(event)" />
+      </div>
+
+      <!-- 3. Add Custom Markers -->
+      <div class="control-group">
+        <label>Select Marker Color</label>
+        <div class="icon-palette">
+          <div class="icon-option selected" style="background: #3b82f6;" data-color="#3b82f6" onclick="selectColor(this)"></div>
+          <div class="icon-option" style="background: #ef4444;" data-color="#ef4444" onclick="selectColor(this)"></div>
+          <div class="icon-option" style="background: #22c55e;" data-color="#22c55e" onclick="selectColor(this)"></div>
+          <div class="icon-option" style="background: #eab308;" data-color="#eab308" onclick="selectColor(this)"></div>
+          <div class="icon-option" style="background: #a855f7;" data-color="#a855f7" onclick="selectColor(this)"></div>
+        </div>
+        <input type="text" id="markerLabel" placeholder="Marker Title / Popup Text" />
+        <button onclick="enableAddMarkerMode()">Click Map to Place Marker</button>
+      </div>
+
+      <!-- 4. Save & Storage -->
+      <div class="control-group">
+        <label>Storage State</label>
+        <div class="row">
+          <button onclick="saveToLocalStorage()">Save Map</button>
+          <button class="secondary" onclick="loadFromLocalStorage()">Load Map</button>
+        </div>
+        <button class="danger" onclick="clearMap()">Clear All Features</button>
+      </div>
+
+      <!-- 5. Export Options -->
+      <div class="control-group">
+        <label>Export Options</label>
+        <button class="secondary" onclick="exportGeoJSON()">Export as GeoJSON</button>
+        <button class="secondary" onclick="exportJSON()">Export as JSON</button>
+        <button class="secondary" onclick="exportHTML()">Export as Standalone HTML (L.map('map3'))</button>
+      </div>
+
+      <!-- 6. Features List -->
+      <div class="control-group">
+        <label>Placed Features (<span id="featureCount">0</span>)</label>
+        <div id="featureList" style="display:flex; flex-direction:column; gap:6px;"></div>
+      </div>
+
+    </div>
   </div>
 
-  <!-- Required target element id="map3" -->
-  <div id="map3"></div>
+  <!-- Map Display Stage -->
+  <div id="stage">
+    <div id="map3"></div>
+  </div>
 
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <!-- Leaflet Draw JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-
   <script>
-    // 1. Initialize map on element with id 'map3'
+    // State management
+    let activeTileLayer = null;
+    let customImageOverlay = null;
+    let selectedColor = '#3b82f6';
+    let isAddingMarker = false;
+    let features = []; // Store marker definitions
+    let markerInstances = {}; // Map marker ID to Leaflet layer instance
+
+    // Initialize Leaflet Map bound explicitly to 'map3'
     const map3 = L.map('map3').setView([51.505, -0.09], 13);
 
-    // 2. Tile Layer (OpenStreetMap)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map3);
+    // Set Default Tile Layer
+    setTileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
 
-    // 3. FeatureGroup to hold drawn and editable layers
-    const drawnItems = new L.FeatureGroup();
-    map3.addLayer(drawnItems);
-
-    // 4. Leaflet Draw Control Configuration
-    const drawControl = new L.Control.Draw({
-      edit: {
-        featureGroup: drawnItems,
-        remove: true
-      },
-      draw: {
-        polyline: { shapeOptions: { color: '#3b82f6', weight: 4 } },
-        polygon: { shapeOptions: { color: '#10b981', fillColor: '#10b981', fillOpacity: 0.3 } },
-        rectangle: { shapeOptions: { color: '#f59e0b', fillColor: '#f59e0b', fillOpacity: 0.3 } },
-        circle: { shapeOptions: { color: '#8b5cf6', fillColor: '#8b5cf6', fillOpacity: 0.3 } },
-        marker: {
-          draggable: true
-        },
-        circlemarker: false
+    // Drop file directly onto stage for image overlay
+    const stage = document.getElementById('stage');
+    stage.addEventListener('dragover', (e) => e.preventDefault());
+    stage.addEventListener('drop', (e) => {
+      e.preventDefault();
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        processImageFile(e.dataTransfer.files[0]);
       }
     });
-    map3.addControl(drawControl);
 
-    // 5. Handle creation of elements
-    map3.on(L.Draw.Event.CREATED, function (e) {
-      const layer = e.layer;
-      
-      // Make markers draggable if created via marker tool
-      if (layer instanceof L.Marker) {
-        layer.dragging.enable();
-      }
-
-      // Bind a simple editable popup to created elements
-      layer.bindPopup('<b>Shape Created</b><br>Right click or use edit toolbar to modify.');
-      drawnItems.addLayer(layer);
-    });
-
-    // 6. Save layers to LocalStorage
-    function saveToLocalStorage() {
-      const data = drawnItems.toGeoJSON();
-      localStorage.setItem('map3_editor_data', JSON.stringify(data));
-      alert('Map features saved to LocalStorage!');
-    }
-
-    // 7. Load layers from LocalStorage
-    function loadFromLocalStorage() {
-      const stored = localStorage.getItem('map3_editor_data');
-      if (!stored) {
-        alert('No saved map state found in LocalStorage.');
-        return;
-      }
-      drawnItems.clearLayers();
-      const geojson = JSON.parse(stored);
-      
-      L.geoJSON(geojson, {
-        onEachFeature: function(feature, layer) {
-          if (layer instanceof L.Marker) {
-            layer.options.draggable = true;
-          }
-          drawnItems.addLayer(layer);
-        }
+    // Helper: Build SVG Icon Data URL
+    function createCustomIcon(color) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" width="24" height="36">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24c0-6.63-5.37-12-12-12z" fill="${color}" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4" fill="#ffffff"/>
+      </svg>`;
+      return L.icon({
+        iconUrl: 'data:image/svg+xml;utf8,' + encodeURIComponent(svg),
+        iconSize: [24, 36],
+        iconAnchor: [12, 36],
+        popupAnchor: [0, -32]
       });
-      alert('Saved map state restored successfully.');
     }
 
-    // 8. Export layers as downloadable GeoJSON file
-    function exportGeoJSON() {
-      const data = drawnItems.toGeoJSON();
-      if (data.features.length === 0) {
-        alert('No shapes or markers to export.');
-        return;
+    // Tile / Base Image Switching
+    function setTileLayer(url) {
+      if (activeTileLayer) map3.removeLayer(activeTileLayer);
+      if (customImageOverlay) { map3.removeLayer(customImageOverlay); customImageOverlay = null; }
+      activeTileLayer = L.tileLayer(url, { maxZoom: 19, attribution: '© OpenStreetMap' }).addTo(map3);
+    }
+
+    function changeTileLayer(val) {
+      if (val === 'custom_image') {
+        document.getElementById('imageUpload').click();
+      } else {
+        setTileLayer(val);
       }
-      const jsonStr = JSON.stringify(data, null, 2);
-      const blob = new Blob([jsonStr], { type: 'application/json' });
+    }
+
+    function loadCustomImageMap(e) {
+      const file = e.target.files[0];
+      if (file) processImageFile(file);
+    }
+
+    function processImageFile(file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const img = new Image();
+        img.onload = function () {
+          if (activeTileLayer) map3.removeLayer(activeTileLayer);
+          if (customImageOverlay) map3.removeLayer(customImageOverlay);
+
+          const bounds = map3.getBounds();
+          customImageOverlay = L.imageOverlay(event.target.result, bounds).addTo(map3);
+          map3.fitBounds(bounds);
+        };
+        img.src = event.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Dynamic Map Sizing
+    function updateMapDimensions() {
+      const width = document.getElementById('mapWidth').value;
+      const height = document.getElementById('mapHeight').value;
+      const mapEl = document.getElementById('map3');
+
+      mapEl.style.width = width;
+      mapEl.style.height = height;
+
+      // Notify Leaflet of size change
+      setTimeout(() => map3.invalidateSize(), 300);
+    }
+
+    // Marker Placement
+    function selectColor(el) {
+      document.querySelectorAll('.icon-option').forEach(opt => opt.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedColor = el.getAttribute('data-color');
+    }
+
+    function enableAddMarkerMode() {
+      isAddingMarker = true;
+      document.getElementById('stage').style.cursor = 'crosshair';
+    }
+
+    map3.on('click', function (e) {
+      if (!isAddingMarker) return;
+
+      const title = document.getElementById('markerLabel').value || 'New Feature';
+      addMarker(e.latlng.lat, e.latlng.lng, title, selectedColor, true);
+
+      isAddingMarker = false;
+      document.getElementById('stage').style.cursor = 'default';
+      document.getElementById('markerLabel').value = '';
+    });
+
+    function addMarker(lat, lng, title, color, isDraggable = true, id = null) {
+      const featureId = id || 'feat_' + Date.now();
+      const marker = L.marker([lat, lng], {
+        icon: createCustomIcon(color),
+        draggable: isDraggable
+      }).addTo(map3);
+
+      marker.bindPopup(`<b>${title}</b>`);
+
+      const featureData = { id: featureId, lat, lng, title, color };
+      features.push(featureData);
+      markerInstances[featureId] = marker;
+
+      // Handle drag end to update coordinates
+      marker.on('dragend', function (event) {
+        const position = marker.getLatLng();
+        featureData.lat = position.lat;
+        featureData.lng = position.lng;
+        renderFeatureList();
+      });
+
+      renderFeatureList();
+    }
+
+    function removeFeature(id) {
+      if (markerInstances[id]) {
+        map3.removeLayer(markerInstances[id]);
+        delete markerInstances[id];
+      }
+      features = features.filter(f => f.id !== id);
+      renderFeatureList();
+    }
+
+    function clearMap() {
+      features.forEach(f => {
+        if (markerInstances[f.id]) map3.removeLayer(markerInstances[f.id]);
+      });
+      features = [];
+      markerInstances = {};
+      renderFeatureList();
+    }
+
+    function renderFeatureList() {
+      const container = document.getElementById('featureList');
+      document.getElementById('featureCount').innerText = features.length;
+      container.innerHTML = '';
+
+      features.forEach(f => {
+        const div = document.createElement('div');
+        div.className = 'feature-item';
+        div.innerHTML = `
+          <span><strong style="color:${f.color}">●</strong> ${f.title}</span>
+          <button class="danger" style="width:auto; padding:2px 6px; font-size:0.75rem;" onclick="removeFeature('${f.id}')">Delete</button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    // Save/Load Local Storage
+    function saveToLocalStorage() {
+      localStorage.setItem('leaflet_editor_map3', JSON.stringify(features));
+      alert('Map state saved successfully!');
+    }
+
+    function loadFromLocalStorage() {
+      const stored = localStorage.getItem('leaflet_editor_map3');
+      if (stored) {
+        clearMap();
+        const parsed = JSON.parse(stored);
+        parsed.forEach(f => addMarker(f.lat, f.lng, f.title, f.color, true, f.id));
+      } else {
+        alert('No saved map found in local storage.');
+      }
+    }
+
+    // Exporters
+    function downloadBlob(content, filename, contentType) {
+      const blob = new Blob([content], { type: contentType });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = 'map3_export.geojson';
+      a.download = filename;
       a.click();
       URL.revokeObjectURL(url);
     }
 
-    // 9. Import GeoJSON file
-    function importGeoJSON(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        try {
-          const geojson = JSON.parse(e.target.result);
-          drawnItems.clearLayers();
-          
-          L.geoJSON(geojson, {
-            onEachFeature: function(feature, layer) {
-              if (layer instanceof L.Marker) {
-                layer.options.draggable = true;
-              }
-              drawnItems.addLayer(layer);
-            }
-          });
-          alert('GeoJSON imported successfully!');
-        } catch (err) {
-          alert('Failed to parse GeoJSON file.');
-        }
+    function exportGeoJSON() {
+      const geojson = {
+        type: "FeatureCollection",
+        features: features.map(f => ({
+          type: "Feature",
+          geometry: {
+            type: "Point",
+            coordinates: [f.lng, f.lat]
+          },
+          properties: {
+            title: f.title,
+            color: f.color
+          }
+        }))
       };
-      reader.readAsText(file);
-      event.target.value = ''; // Reset input
+      downloadBlob(JSON.stringify(geojson, null, 2), 'map3_export.geojson', 'application/json');
     }
 
-    // 10. Clear all elements
-    function clearMap() {
-      if (confirm('Clear all items from map3?')) {
-        drawnItems.clearLayers();
-      }
+    function exportJSON() {
+      downloadBlob(JSON.stringify(features, null, 2), 'map3_export.json', 'application/json');
+    }
+
+    function exportHTML() {
+      const currentWidth = document.getElementById('mapWidth').value;
+      const currentHeight = document.getElementById('mapHeight').value;
+      const center = map3.getCenter();
+      const zoom = map3.getZoom();
+
+      const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exported Leaflet Map ('map3')</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body { margin: 0; padding: 20px; font-family: sans-serif; background: #0f172a; color: #fff; }
+    #map3 {
+      width: ${currentWidth};
+      height: ${currentHeight};
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <h2>Exported Map ('map3')</h2>
+  <div id="map3"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\/script>
+  <script>
+    // Initialize map bound to 'map3'
+    const map3 = L.map('map3').setView([${center.lat}, ${center.lng}], ${zoom});
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map3);
+
+    // SVG Icon Builder
+    function createCustomIcon(color) {
+      const svg = \`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 36" width="24" height="36">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24c0-6.63-5.37-12-12-12z" fill="\${color}" stroke="#ffffff" stroke-width="2"/>
+        <circle cx="12" cy="12" r="4" fill="#ffffff"/>
+      </svg>\`;
+      return L.icon({
+        iconUrl: 'data:image/svg+xml;utf8,' + encodeURIComponent(svg),
+        iconSize: [24, 36],
+        iconAnchor: [12, 36],
+        popupAnchor: [0, -32]
+      });
+    }
+
+    // Embed Features
+    const features = ${JSON.stringify(features, null, 2)};
+
+    features.forEach(f => {
+      L.marker([f.lat, f.lng], { icon: createCustomIcon(f.color) })
+        .bindPopup(\`<b>\${f.title}</b>\`)
+        .addTo(map3);
+    });
+  <\/script>
+</body>
+</html>`;
+
+      downloadBlob(htmlContent, 'exported_map3.html', 'text/html');
     }
   </script>
 </body>
