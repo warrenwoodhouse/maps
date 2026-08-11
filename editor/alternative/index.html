@@ -1,0 +1,286 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Editor - Maps - Warren Woodhouse</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f4f4f9;
+        }
+
+        /* Sidebar Controls */
+        #sidebar {
+            width: 320px;
+            background: #ffffff;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow-y: auto;
+        }
+
+        h2 { margin-top: 0; font-size: 1.2rem; }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        label { font-weight: 600; font-size: 0.9rem; }
+        
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover { background: #0056b3; }
+        button.secondary { background: #6c757d; }
+        button.secondary:hover { background: #5a6268; }
+        button.success { background: #28a745; }
+        button.success:hover { background: #218838; }
+
+        hr { border: 0; border-top: 1px solid #ddd; margin: 10px 0; }
+
+        /* Map Container Area */
+        #map-wrapper {
+            flex: 1;
+            padding: 20px;
+            overflow: auto; /* Allows scrolling if map container is larger than window */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* The actual map target */
+        #map3 {
+            width: 800px;
+            height: 600px;
+            background: #e0e0e0;
+            border: 2px dashed #bbb;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sidebar">
+        <h2>Map Settings</h2>
+        
+        <div class="control-group">
+            <label for="imgUrl">Image URL</label>
+            <input type="text" id="imgUrl" placeholder="https://example.com/map.jpg" value="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80">
+        </div>
+        
+        <div class="control-group">
+            <label for="mapWidth">Container Width (px)</label>
+            <input type="number" id="mapWidth" value="800">
+        </div>
+        
+        <div class="control-group">
+            <label for="mapHeight">Container Height (px)</label>
+            <input type="number" id="mapHeight" value="600">
+        </div>
+
+        <button onclick="updateMapSettings()">Update Map Image & Size</button>
+        
+        <hr>
+
+        <h2>Tools</h2>
+        <button onclick="addMarker()">📍 Add Draggable Marker</button>
+        
+        <hr>
+        
+        <h2>Data Management</h2>
+        <button class="secondary" onclick="saveToLocal()">💾 Save to Local Storage</button>
+        <button class="secondary" onclick="loadFromLocal()">📂 Load from Local Storage</button>
+        <button class="success" onclick="exportData()">📥 Export JSON</button>
+    </div>
+
+    <div id="map-wrapper">
+        <div id="map3"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Global variables
+        let map;
+        let currentOverlay;
+        let markers = [];
+        let markerIdCounter = 0;
+
+        // Initialize L.map('map3') with CRS.Simple for flat image mapping
+        function initMap() {
+            map = L.map('map3', {
+                crs: L.CRS.Simple,
+                minZoom: -2,
+                maxZoom: 2
+            });
+
+            // Set initial bounds and apply settings
+            updateMapSettings();
+        }
+
+        // Apply size and image changes
+        function updateMapSettings() {
+            const url = document.getElementById('imgUrl').value;
+            const w = parseInt(document.getElementById('mapWidth').value, 10);
+            const h = parseInt(document.getElementById('mapHeight').value, 10);
+
+            // Update DOM container size
+            const mapContainer = document.getElementById('map3');
+            mapContainer.style.width = w + 'px';
+            mapContainer.style.height = h + 'px';
+            
+            // Tell Leaflet the container size has changed
+            map.invalidateSize();
+
+            // Calculate bounds: [bottom-left (y, x), top-right (y, x)]
+            // For simple CRS, it's typical to use [0,0] to [h, w]
+            const bounds = [[0, 0], [h, w]];
+
+            // Remove existing overlay if it exists
+            if (currentOverlay) {
+                map.removeLayer(currentOverlay);
+            }
+
+            // Add new image overlay
+            if (url) {
+                currentOverlay = L.imageOverlay(url, bounds).addTo(map);
+                map.fitBounds(bounds);
+            }
+        }
+
+        // Add a new draggable marker to the center of the current view
+        function addMarker(lat, lng, id = null) {
+            const center = map.getCenter();
+            const position = (lat !== undefined && lng !== undefined) ? [lat, lng] : [center.lat, center.lng];
+            
+            const markerId = id !== null ? id : markerIdCounter++;
+            
+            const marker = L.marker(position, {
+                draggable: true,
+                title: `Marker ${markerId}`
+            }).addTo(map);
+
+            // Attach ID to marker object for tracking
+            marker.customId = markerId;
+
+            // Bind a popup with a delete button
+            marker.bindPopup(`
+                <b>Marker ${markerId}</b><br>
+                <button onclick="removeMarker(${markerId})" style="margin-top:5px; padding:3px; font-size:12px;">Delete</button>
+            `);
+
+            // Update our state array when dragging ends
+            marker.on('dragend', function(e) {
+                updateMarkerState();
+            });
+
+            markers.push(marker);
+            updateMarkerState();
+        }
+
+        // Remove a specific marker
+        window.removeMarker = function(id) {
+            const markerIndex = markers.findIndex(m => m.customId === id);
+            if (markerIndex > -1) {
+                map.removeLayer(markers[markerIndex]);
+                markers.splice(markerIndex, 1);
+            }
+        };
+
+        // Keep internal array updated (useful for saving/exporting)
+        function updateMarkerState() {
+            // Nothing strictly needs to happen here as Leaflet holds the state,
+            // but this hook is useful if you wanted to trigger auto-saves.
+        }
+
+        // Gather all map data into an object
+        function getMapState() {
+            return {
+                url: document.getElementById('imgUrl').value,
+                width: document.getElementById('mapWidth').value,
+                height: document.getElementById('mapHeight').value,
+                markerData: markers.map(m => {
+                    const pos = m.getLatLng();
+                    return {
+                        id: m.customId,
+                        lat: pos.lat,
+                        lng: pos.lng
+                    };
+                })
+            };
+        }
+
+        // Save to browser Local Storage
+        function saveToLocal() {
+            const state = getMapState();
+            localStorage.setItem('leafletEditorData', JSON.stringify(state));
+            alert('Map state saved locally!');
+        }
+
+        // Load from browser Local Storage
+        function loadFromLocal() {
+            const saved = localStorage.getItem('leafletEditorData');
+            if (!saved) {
+                alert('No saved data found.');
+                return;
+            }
+
+            const state = JSON.parse(saved);
+            applyState(state);
+            alert('Map state loaded!');
+        }
+
+        // Restore map settings and markers from an object
+        function applyState(state) {
+            // Restore inputs
+            document.getElementById('imgUrl').value = state.url || '';
+            document.getElementById('mapWidth').value = state.width || 800;
+            document.getElementById('mapHeight').value = state.height || 600;
+
+            updateMapSettings();
+
+            // Clear existing markers
+            markers.forEach(m => map.removeLayer(m));
+            markers = [];
+            markerIdCounter = 0;
+
+            // Restore markers
+            if (state.markerData) {
+                state.markerData.forEach(md => {
+                    addMarker(md.lat, md.lng, md.id);
+                    if (md.id >= markerIdCounter) {
+                        markerIdCounter = md.id + 1;
+                    }
+                });
+            }
+        }
+
+        // Export data as a JSON file download
+        function exportData() {
+            const state = getMapState();
+            const dataStr = "data:text/json;ch
