@@ -12,7 +12,7 @@ Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.c
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/search/label/maps) to read the latest posts in the blog category.
 
 # Map Editor
-Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise]([https://github](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
+Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
 
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
