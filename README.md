@@ -125,6 +125,9 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Films - Interactive Maps
 I'll add some here
 
+## Historical - Interactive Maps
+* [Battle of Bunker Hill](https://warrenwoodhouse.github.io/maps/battleofbunkerhill)
+
 # Static Game Maps
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
 
@@ -137,3 +140,9 @@ I'll add some here
 
 # Map Icons
 [CLICK HERE](https://github.com/warrenwoodhouse/mapicons) to see all of the various map icons used for my maps.
+
+# License
+[CLICK HERE](https://warrenwoodhouse.blogspot.com/license) to read the License Agreement.
+
+# Copyright
+All maps and content herein &copy;2010-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express.
