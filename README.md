@@ -130,6 +130,9 @@ I'll add some here
 * [Fort Hill in Boston, MA.](https://warrenwoodhouse.github.io/maps/forthill)
 * [Fort Independence in Boston, MA.](https://warrenwoodhouse.github.io/maps/fortindependence)
 
+## Service - Interactive Maps
+[Northern Powergrid’s Power Cuts Map](https://warrenwoodhouse.github.io/maps/northernpowergrid/powercuts)
+
 # Static Game Maps
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
 
@@ -147,4 +150,4 @@ I'll add some here
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/license) to read the License Agreement.
 
 # Copyright
-All maps and content herein &copy;2010-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express.
+All maps and content herein &copy;2010-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express. Some maps are by others.
