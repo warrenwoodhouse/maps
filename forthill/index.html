@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Fort Hill in Boston, MA. Map - Historical Maps - Maps - Warren Woodhouse</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h3>Fort Hill in Boston, MA. Map - (Historical Maps) (Maps)</h3>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 4. Initialize the map
+        var map = L.map('map').setView([42.3561, -71.05302], 18);
+
+        // 5. Add OpenStreetMap Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors; Made using Leaflet; Map by Warren Woodhouse'
+        }).addTo(map);
+
+        // 6. Add a Marker
+        L.marker([42.3561, -71.05302]).addTo(map)
+            .bindPopup('Location of the Fort Hill in Boston, MA.')
+            .openPopup();
+    </script>
+</body>
+</html>
