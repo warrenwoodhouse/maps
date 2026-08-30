@@ -1,0 +1,156 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assassin's Creed Real Life Locations Map - Maps - Warren Woodhouse</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <!-- FontAwesome for custom icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        #map { width: 100vw; height: 100vh; }
+        
+        .custom-popup .leaflet-popup-content-wrapper {
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+        }
+        .custom-popup .leaflet-popup-tip {
+            background: #2c3e50;
+        }
+        .popup-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 5px;
+        }
+        .popup-desc {
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- Leaflet Omnivore for parsing KML (if user provides it) -->
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
+
+    <script>
+        // Initialize the map, centered around Europe/Middle East
+        var map = L.map('map').setView([41.8902, 12.4922], 4);
+
+        // Add standard OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Map inspired by Warrenwoodhouse'
+        }).addTo(map);
+
+        // Custom icon design
+        var acIcon = L.divIcon({
+            html: '<i class="fa-solid fa-location-dot fa-2x" style="color: #c0392b; text-shadow: 1px 1px 2px black;"></i>',
+            iconSize: [20, 20],
+            className: 'ac-custom-icon'
+        });
+
+        // Sample Data based on Assassin's Creed Real Life Locations
+        var locations = [
+            {
+                name: "Masyaf Castle",
+                lat: 35.0655,
+                lng: 36.3426,
+                desc: "The real-world headquarters of the Assassin Order, featured prominently in the first Assassin's Creed and Assassin's Creed Revelations."
+            },
+            {
+                name: "Monteriggioni",
+                lat: 43.3894,
+                lng: 11.2230,
+                desc: "A walled town in Tuscany, Italy. Known as the home of the Auditore family and the base of operations in Assassin's Creed II and Brotherhood."
+            },
+            {
+                name: "Colosseum",
+                lat: 41.8902,
+                lng: 12.4922,
+                desc: "The famous Roman amphitheatre. A major landmark you can scale and explore in Assassin's Creed: Brotherhood."
+            },
+            {
+                name: "Santa Maria del Fiore (Florence Cathedral)",
+                lat: 43.7731,
+                lng: 11.2560,
+                desc: "The majestic cathedral of Florence. Ezio Auditore scaled this iconic dome in Assassin's Creed II."
+            },
+            {
+                name: "Nassau, Bahamas",
+                lat: 25.0443,
+                lng: -77.3504,
+                desc: "A pirate republic and a central hub location in Assassin's Creed IV: Black Flag."
+            },
+            {
+                name: "Derinkuyu Underground City",
+                lat: 38.3735,
+                lng: 34.7350,
+                desc: "An ancient multi-level underground city in Cappadocia, Turkey. Featured in Assassin's Creed: Revelations."
+            },
+            {
+                name: "Attico Teatro Romano",
+                lat: 45.4475,
+                lng: 10.9944, 
+                desc: "The ancient Roman theatre located in Verona, Italy, referenced as a real-life point of interest in the lore maps."
+            }
+        ];
+
+        // Add markers to the map
+        locations.forEach(function(loc) {
+            var popupContent = '<div class="popup-title">' + loc.name + '</div>' +
+                               '<div class="popup-desc">' + loc.desc + '</div>';
+            
+            L.marker([loc.lat, loc.lng], { icon: acIcon })
+                .bindPopup(popupContent, { className: 'custom-popup' })
+                .addTo(map);
+        });
+
+        /*
+        // =====================================================================
+        // INSTRUCTIONS FOR LOADING THE FULL KML FROM GOOGLE MY MAPS
+        // =====================================================================
+        // 1. Go to the Google My Maps link: https://www.google.com/maps/d/viewer?mid=1yyWU7jFW3L7DVjDgZlFuHDTrtCY
+        // 2. Click the three dots (menu) next to the map title.
+        // 3. Select "Download KML" -> Check "Export as KML instead of KMZ".
+        // 4. Save the file as 'map_data.kml' in the same folder as this HTML file.
+        // 5. Uncomment the code below to automatically parse and load all icons, names, and descriptions from the KML file!
+        
+        var customLayer = L.geoJson(null, {
+            // Transform KML properties into popup content
+            onEachFeature: function(feature, layer) {
+                var name = feature.properties.name || "Unknown Location";
+                var desc = feature.properties.description || "";
+                var popupContent = '<div class="popup-title">' + name + '</div>' +
+                                   '<div class="popup-desc">' + desc + '</div>';
+                layer.bindPopup(popupContent, { className: 'custom-popup' });
+            }
+        });
+
+        // Load KML using Leaflet-Omnivore
+        // omnivore.kml('data.kml', null, customLayer).addTo(map);
+        */
+        
+    </script>
+</body>
+</html>
+<!--
+# Write to file
+file_path = "/index.html"
+with open(file_path, "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"File saved successfully at: {file_path}")
+-->
