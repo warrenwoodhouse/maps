@@ -126,7 +126,7 @@ Here is the full list of Interactive Maps. Enjoy!
 I'll add some here
 
 ## Historical - Interactive Maps
-* [Battle of Bunker Hill](https://warrenwoodhouse.github.io/maps/battleofbunkerhill)
+* [Battle of Bunker Hill, Charlestown, MA.](https://warrenwoodhouse.github.io/maps/battleofbunkerhill)
 * [Fort Hill in Boston, MA.](https://warrenwoodhouse.github.io/maps/forthill)
 * [Fort Independence in Boston, MA.](https://warrenwoodhouse.github.io/maps/fortindependence)
 
@@ -140,7 +140,8 @@ I'll add some here
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/reallife) to see all of the real life maps that I've created.
 
 * [Ouseburn Farm Water Feature by Warren Woodhouse (Map)](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature)
-* [Fallout 1 Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/fallout)
+* [Assassin’s Creed Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/assassinscreed/franchise)
+* [Fallout Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/fallout/franchise)
 * [This Bed We Made Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade)
 
 # Map Icons
@@ -150,4 +151,4 @@ I'll add some here
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/license) to read the License Agreement.
 
 # Copyright
-All maps and content herein &copy;2010-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express. Some maps are by others.
+All maps and content herein &copy;2001-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express. Some maps are by others.
