@@ -1,4 +1,6 @@
 # Warren Maps - Warren Woodhouse
+* [Jump to the list of interactive maps](https://github.com/warrenwoodhouse/maps/blob/main/README.md#interactive-maps)
+
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
