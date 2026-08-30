@@ -2,6 +2,9 @@
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
+# Contribute
+If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions)
+
 # Issues
 * [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/maps/issues/8) (help wanted)
 
@@ -13,6 +16,9 @@ Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.c
 
 # Map Editor
 Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
+
+# My Inspirations
+I get inspired from seeing maps by MapGenie, Game-Maps, historical paper maps and maps by legendary cartographers such as Gerardus Mercator, Piri Reis and Maria Tharp, all of which contributed to the creation of various historically accurate world maps.
 
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
@@ -87,16 +93,20 @@ Here is the full list of Interactive Maps. Enjoy!
 * Dishonored: Death of the Outsider
 * Thief (2015)
 * Thief: The Dark Prophet Remastered
-* The Outer Worlds: Spacer's Choice Edition
+* The Outer Worlds & The Outer Worlds: Spacer's Choice Edition
 * The Outer Worlds 2
 * inFAMOUS
 * inFAMOUS 2
 * inFAMOUS: Festival of Blood
 * inFAMOUS: First Light
 * inFAMOUS: Second Son
+* Fallout
+* Fallout 2
+* Fallout Tactics
 * Fallout 3: Game of the Year Edition & Fallout 3 Remake
 * Fallout: New Vegas: Ultimate Edition
 * [Fallout 4 & Fallout 4: Anniversary Edition](https://warrenwoodhouse.github.io/maps/fallout4)
+* Fallout 76
 * The Elder Scrolls IV: Oblivion & The Elder Scrolls IV: Oblivion Remastered
 * The Elder Scrolls V: Skyrim & The Elder Scrolls V: Skyrim: Anniversary Edition
 * [Mad Max (2015)](https://warrenwoodhouse.github.io/maps/madmax2015)
