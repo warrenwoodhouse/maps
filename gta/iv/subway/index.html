@@ -1,0 +1,153 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LTA Liberty City Subway Map - GTA IV Map - Maps - Warren Woodhouse</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .map-container {
+            position: relative;
+            max-width: 900px; /* Adjust this to change the display size */
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Marker Styles: Shaped as a diamond to match the map */
+        .station-marker {
+            position: absolute;
+            width: 1.2vw; /* Scales slightly with the viewport */
+            max-width: 14px;
+            max-height: 14px;
+            height: 1.2vw;
+            background-color: white;
+            border: 2px solid black;
+            transform: translate(-50%, -50%) rotate(45deg);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .station-marker:hover {
+            background-color: #ffcc00;
+            transform: translate(-50%, -50%) rotate(45deg) scale(1.5);
+            box-shadow: 0 0 8px rgba(0,0,0,0.5);
+            z-index: 11;
+        }
+
+        /* Tooltip Styles */
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 20;
+            white-space: nowrap;
+            /* Position slightly above the marker */
+            transform: translate(-50%, -30px);
+            font-weight: bold;
+        }
+        
+        .tooltip.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map-container" id="mapContainer">
+        <img src="image.jpeg" alt="Liberty City Subway Map">
+        <div id="tooltip" class="tooltip"></div>
+    </div>
+
+    <script>
+        // Approximate percentage-based coordinates (Top and Left) for responsive scaling
+        const stations = [
+            // Bohan
+            { name: "San Quentin Ave", top: 21.3, left: 34.3 },
+            { name: "Windmill St", top: 24.8, left: 42.5 },
+            
+            // Algonquin (West & Center)
+            { name: "Vauxite", top: 27.2, left: 10.3 },
+            { name: "Quartz West", top: 33.7, left: 10.3 },
+            { name: "Manganese West", top: 41.5, left: 10.3 },
+            { name: "Hematite", top: 50.8, left: 10.3 },
+            { name: "Frankfort Low", top: 25.5, left: 14.5 },
+            { name: "Frankfort Ave", top: 43.5, left: 14 },
+            { name: "Feldspar", top: 56.5, left: 15 },
+            { name: "Suffolk", top: 51.5, left: 17.5 },
+            { name: "City Hall", top: 59.5, left: 20.2 },
+            
+            // Algonquin (East & Inner)
+            { name: "Vespucci Circus", top: 24.2, left: 21 },
+            { name: "Frankfort High", top: 26.2, left: 21 },
+            { name: "North Park", top: 29.5, left: 21 },
+            { name: "Easton", top: 49.5, left: 22.8 },
+            { name: "East Park", top: 39, left: 25 },
+            { name: "Quartz East", top: 32.7, left: 26.8 },
+            { name: "Manganese East", top: 39, left: 26.8 },
+            { name: "Emerald", top: 54.3, left: 26.5 },
+            { name: "Castle Gardens", top: 62.5, left: 27.3 },
+
+            // Broker & Dukes
+            { name: "Hove Beach", top: 60.5, left: 50.8 },
+            { name: "Schottler", top: 51.3, left: 59.2 },
+            { name: "Huntington St", top: 43.7, left: 62.6 },
+            { name: "Lynch St", top: 43.7, left: 68.6 },
+            { name: "Francis International Airport", top: 43.7, left: 86.5 }
+        ];
+
+        const mapContainer = document.getElementById('mapContainer');
+        const tooltip = document.getElementById('tooltip');
+
+        // Generate markers dynamically
+        stations.forEach(station => {
+            const marker = document.createElement('div');
+            marker.className = 'station-marker';
+            
+            // Apply percentage coordinates
+            marker.style.top = station.top + '%';
+            marker.style.left = station.left + '%';
+
+            // Hover interactions (Show tooltip)
+            marker.addEventListener('mouseenter', () => {
+                tooltip.textContent = station.name;
+                tooltip.style.top = station.top + '%';
+                tooltip.style.left = station.left + '%';
+                tooltip.classList.add('visible');
+            });
+
+            marker.addEventListener('mouseleave', () => {
+                tooltip.classList.remove('visible');
+            });
+
+            // Click interaction
+            marker.addEventListener('click', () => {
+                alert(`You selected: ${station.name} Station`);
+            });
+
+            mapContainer.appendChild(marker);
+        });
+    </script>
+
+</body>
+</html>
