@@ -132,7 +132,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * [Saints Row Reboot (Saints Row (2022))](https://warrenwoodhouse.github.io/maps/saintsrow/reboot)
 
 ## TV Series - Interactive Maps
-* [Coronation Street]((https://warrenwoodhouse.github.io/maps/reallife/coronationstreet) (WIP)
+* [Coronation Street](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet) (WIP)
 * > [Street Finder Map by The Sun Newspaper (1996)](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet/streetfinder)
 
 ## Films - Interactive Maps
