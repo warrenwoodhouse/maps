@@ -1,3 +1,5 @@
+List by Warren Woodhouse
+
 # Games
 ## Fallout
 * Vault 13: 36.5784990, -118.2922600
@@ -29,6 +31,7 @@
 * Shi-Town Docks: 37.7968746, -122.3951261
 * Vault 13: 36.5784990, -118.2922600
 * Vault 15: 36.6766661, -117.0676047
+* Area 51 (Cut Content): 37.2333300, -115.8083300
 
 ## Fallout Tactics
 * Brahmin Wood: add
