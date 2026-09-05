@@ -33,6 +33,10 @@
             font-size: 0.95em;
             line-height: 1.4;
         }
+        .popup-id {
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -68,58 +72,67 @@
                 name: "MI6 Research Facility and Crash Site, Iceland",
                 lat: 64.403333,
                 lng: -17.585833,
-                desc: "A crash site over run by an elusive enemy organisation."
+                desc: "A crash site over run by an elusive enemy organisation.",
+                id: "1"
             },
             {
                 name: "MI6 Malta Training Ground",
                 lat: 35.9021876,
                 lng: 14.518689,
-                desc: "Training Grounds for New Recruits."
+                desc: "Training Grounds for New Recruits.",
+                id: "2"
             },
             {
                 name: "MI6 R&D Division, MI Building",
                 lat: 51.487222,
                 lng: -0.124167,
-                desc: "MI6 Headquarters in the heart of London."
+                desc: "MI6 Headquarters in the heart of London.",
+                id: "3"
             },
             {
                 name: "The ARCH Club",
-                lat: -0.124167,
+                lat: 51.497778,
                 lng: -0.099722,
-                desc: "Time to let your hair down in this nightclub."
+                desc: "Time to let your hair down in this nightclub.",
+                id: "4"
             },
             {
                 name: "Grand Carpathian Hotel, Slovakia",
                 lat: 49.118472,
                 lng: 20.062500,
-                desc: "Time to track down a blonde bloke at a chess game in this luxury hotel."
+                desc: "Time to track down a blonde bloke at a chess game in this luxury hotel.",
+                id: "5"
             },
             {
                 name: "Aleph and Transworld Wreck, Mauritania",
                 lat: 18.726389,
                 lng: -16.158056,
-                desc: "A shipwreck worth investigating."
+                desc: "A shipwreck worth investigating.",
+                id: "6"
             },
             {
                 name: "Work and Arts Museum / The Perch / Webb Industries",
                 lat: 51.511944,
                 lng: -0.127222, 
-                desc: "A sinister plot thickens..."
+                desc: "A sinister plot thickens...",
+                id: "7"
             },
             {
                 name: "The Pearl, Vietnam",
                 lat: 12.238889,
                 lng: 109.195000, 
-                desc: "An epic conclusion."
+                desc: "An epic conclusion.",
+                id: "8"
             }
         ];
 
         // Add markers to the map
         locations.forEach(function(loc) {
             var popupContent = '<div class="popup-title">' + loc.name + '</div>' +
+                               '<div class="popup-id">' + loc.id + '</div>' +
                                '<div class="popup-desc">' + loc.desc + '</div>';
             
-            L.marker([loc.lat, loc.lng], { icon: Icon })
+            L.marker([loc.lat, loc.lng, loc.id], { icon: Icon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });      
