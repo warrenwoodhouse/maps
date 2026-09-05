@@ -28,8 +28,11 @@ Here is the full list of Interactive Maps. Enjoy!
 * [Template](https://warrenwoodhouse.github.io/maps/template) <small>[(Code)](https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/template/index.html)</small>
 
 ## Games - Interactive Maps
+## Alan Wake - Games - Interactive Maps
 * Alan Wake & Alan Wake Remastered
 * Alan Wake II
+
+## Assassin’s Creed - Games - Interactive Maps
 * Assassin's Creed
 * Assassin's Creed II
 * Assassin's Creed: Brotherhood
@@ -68,40 +71,66 @@ Here is the full list of Interactive Maps. Enjoy!
 * > Valley of Memory DLC
 * Assassin's Creed: Shadows
 * > Claws of Awaji DLC
+
+## Borderlands - Games - Interactive Maps
 * Borderlands
 * Borderlands 2
+
+## Control - Games - Interactive Maps
 * Control & Control: Ultimate Edition
 * Control: Resonant
+
+## Everybody’s Gone To The Rapture - Games - Interactive Maps
 * [Everybody's Gone To The Rapture](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture)
+
+## God of War - Games - Interactive Maps
 * God of War (2018)
 * God of War: Ragnarök
 * God of War: Laufey
+
+## Horizon - Games - Interactive Maps
 * Horizon: Zero Dawn & Horizon: Zero Dawn Remastered
 * > The Frozen Wilds DLC
 * Horizon: Forbidden West: Complete Edition
 * > Burning Shores DLC
+
+## Grand Theft Auto - Games - Interactive Maps
 * Grand Theft Auto IV & Grand Theft Auto IV Remake
 * > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway) (WIP)
 * Grand Theft Auto V & Grand Theft Auto V: Next Gen Edition
 * > Grand Theft Auto Online
 * Grand Theft Auto VI
+
+## Noire - Games - Interactive Maps
 * L.A. Noire & L.A. Noire Remastered
+
+## Mass Effect - Games - Interactive Maps
 * Mass Effect & Mass Effect: Legendary Edition
 * Mass Effect 2 & Mass Effect 2: Legendary Edition
 * Mass Effect 3 & Mass Effect 3: Legendary Edition
 * Mass Effect: Andromeda
+
+## Dishonored - Games - Interactive Maps
 * Dishonored: Definitive Edition
 * Dishonored 2
 * Dishonored: Death of the Outsider
+
+## Thief - Games - Interactive Maps
 * Thief (2015)
 * Thief: The Dark Prophet Remastered
+
+## The Outer Worlds - Games - Interactive Maps
 * The Outer Worlds & The Outer Worlds: Spacer's Choice Edition
 * The Outer Worlds 2
+
+## inFAMOUS - Games - Interactive Maps
 * inFAMOUS
 * inFAMOUS 2
 * inFAMOUS: Festival of Blood
 * inFAMOUS: First Light
 * inFAMOUS: Second Son
+
+## Fallout - Games - Interactive Maps
 * Fallout
 * Fallout 2
 * Fallout Tactics
@@ -109,10 +138,16 @@ Here is the full list of Interactive Maps. Enjoy!
 * Fallout: New Vegas: Ultimate Edition
 * [Fallout 4 & Fallout 4: Anniversary Edition](https://warrenwoodhouse.github.io/maps/fallout4)
 * Fallout 76
+
+## The Elder Scrolls - Games - Interactive Maps
 * The Elder Scrolls IV: Oblivion & The Elder Scrolls IV: Oblivion Remastered
 * The Elder Scrolls V: Skyrim & The Elder Scrolls V: Skyrim: Anniversary Edition
+
+## Mad Max - Games - Interactive Maps
 * [Mad Max (2015)](https://warrenwoodhouse.github.io/maps/madmax2015)
 * > [Regions](https://warrenwoodhouse.github.io/maps/madmax2015/regions)
+
+## Life is Strange - Games - Interactive Maps
 * Life is Strange
 * Life is Strange: Before the Storm
 * The Awesome Adventures of Captain Spirit
@@ -120,10 +155,14 @@ Here is the full list of Interactive Maps. Enjoy!
 * Life is Strange: True Colors
 * [Life is Strange: Double Exposure](https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure)
 * Life is Strange: Reunion
+
+## Red Dead - Games - Interactive Maps
 * [Red Dead Redemption & Red Dead Redemption: Undead Nightmare](https://warrenwoodhouse.github.io/maps/reddead/redemption)
 * [Red Dead Redemption II & Red Dead Online](https://warrenwoodhouse.github.io/maps/reddead/redemptionii)
 * > [City Railway - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/cityrailway)
 * > [Street Names - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/streetnames)
+
+## Saints Row - Games - Interactive Maps
 * [Saints Row](https://warrenwoodhouse.github.io/maps/saintsrow)
 * [Saints Row 2](https://warrenwoodhouse.github.io/maps/saintsrow/2)
 * [Saints Row: The Third & Saints Row: The Third Remastered](https://warrenwoodhouse.github.io/maps/saintsrow/thethird)
@@ -153,10 +192,21 @@ I'll add some here
 # Real Life Maps
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/reallife) to see all of the real life maps that I've created.
 
-* [Ouseburn Farm Water Feature by Warren Woodhouse (Map)](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature)
+## Creations - Real Life Maps
+* [Ouseburn Farm Water Feature by Warren Woodhouse](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature)
+
+## Assassin’s Creed Franchise - Real Life Maps
 * [Assassin’s Creed Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/assassinscreed/franchise)
+
+## Fallout Franchise - Real Life Maps
 * [Fallout Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/fallout/franchise)
+
+## This Bed We Made Franchise - Real Life Maps
 * [This Bed We Made Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade)
+
+## James Bond 007 Franchise - Real Life Maps
+* [James Bond 007 Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/007)
+* > [007 First Light Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/007/firstlight)
 
 # Map Icons
 [CLICK HERE](https://github.com/warrenwoodhouse/mapicons) to see all of the various map icons used for my maps.
