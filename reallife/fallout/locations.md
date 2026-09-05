@@ -11,7 +11,24 @@
   * Shady Sands: 36.6060444, -118.0628654
 
 ## Fallout 2
-add locations here
+* Modoc: 41.6796500, -120.8969220
+* Broken Hills: 39.1035360, -117.9695650
+* Navarro: 39.1518430, -123.5419560
+* Klamath: 42.2248670, -121.7816700
+* New Reno: 39.5296330, -119.8138030
+* Desperado: 39.5291688, -119.8146442
+* Virgin Street: 39.5281622, -119.8136810
+* Redding: 40.5865400, -122.3916750
+* San Francisco: 37.7749300, -122.4194160
+* Sierra Army Depot: 40.2064960, -120.1182660
+* Mariposa Military Base: 37.4849300, -119.9662800
+* Town of New California Republic: 36.6060444, -118.0628654
+* Golden Gate Bridge: 37.8199286, -122.4782551
+* Chinatown: 37.7941378, -122.4077914
+* Steel Palace: 37.7951775, -122.4027787
+* Shi-Town Docks: 37.7968746, -122.3951261
+* Vault 13: 36.5784990, -118.2922600
+* Vault 15: 36.6766661, -117.0676047
 
 ## Fallout Tactics
 add locations here
