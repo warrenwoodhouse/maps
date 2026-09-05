@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Map 1 - Fallout Real Life Locations Map - Maps - Warren Woodhouse</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Load Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        body { padding: 0; margin: 0; }
+        #map { height: 100vh; width: 100vw; }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <!-- Load Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- Load Leaflet-Omnivore Plugin for KML parsing -->
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
+
+    <script>
+        // 1. Initialize the map (Centered roughly on North America)
+        var map = L.map('map').setView([39.8283, -98.5795], 4);
+
+        // 2. Add a base tile layer (OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors; Map Created By: <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>'
+        }).addTo(map);
+
+        // 3. Define a custom layer to handle the KML popups and styles
+        var customLayer = L.geoJson(null, {
+            // This function creates the popups using the data from Google My Maps
+            onEachFeature: function(feature, layer) {
+                if (feature.properties) {
+                    var popupContent = "";
+                    if (feature.properties.name) {
+                        popupContent += "<h3>" + feature.properties.name + "</h3>";
+                    }
+                    if (feature.properties.description) {
+                        popupContent += "<p>" + feature.properties.description + "</p>";
+                    }
+                    layer.bindPopup(popupContent);
+                }
+            }
+        });
+
+        // 4. Load the KML file downloaded from Google My Maps
+        // Make sure 'map1.kml' is in the same directory as this HTML file
+        var runLayer = omnivore.kml('map1.kml', null, customLayer)
+            .on('ready', function() {
+                // Once the KML is loaded, automatically zoom/pan to fit all markers
+                map.fitBounds(runLayer.getBounds());
+            })
+            .addTo(map);
+    </script>
+</body>
+</html>
