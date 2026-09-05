@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fallout 1 Real Life Map - Maps - Warren Woodhouse</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map { height: 500px; width: 100%; }
+    </style>
+</head>
+<body>
+    <h3></h3>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 4. Initialize the map
+        var map = L.map('map').setView([34.3109622, -118.2336634], 8);
+
+        // 5. Add OpenStreetMap Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // 6. Add a Marker
+        L.marker([36.5784990, -118.2922600]).addTo(map)
+            .bindPopup('Vault 13')
+            .openPopup();
+        L.marker([34.0522340, -118.2436850]).addTo(map)
+            .bindPopup('Boneyard')
+            .openPopup();
+        L.marker([34.8957960, -117.0172830]).addTo(map)
+            .bindPopup('The Hub')
+            .openPopup();
+        L.marker([35.3732920, -119.0187120]).addTo(map)
+            .bindPopup('Necropolis')
+            .openPopup();
+        L.marker([35.2709291, -119.3236519]).addTo(map)
+            .bindPopup('Vault 12')
+            .openPopup();
+        L.marker([35.6163490, -119.6942940]).addTo(map)
+            .bindPopup('Lost Hills')
+            .openPopup();
+        L.marker([37.4849377, -119.9662843]).addTo(map)
+            .bindPopup('Mariposa Military Base')
+            .openPopup();
+        L.marker([36.6766661, -117.0676047]).addTo(map)
+            .bindPopup('Vault 15')
+            .openPopup();
+        L.marker([36.6060444, -118.0628654]).addTo(map)
+            .bindPopup('Shady Sands')
+            .openPopup();
+    </script>
+</body>
+</html>
