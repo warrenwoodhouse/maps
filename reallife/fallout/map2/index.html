@@ -51,7 +51,7 @@
 
         // 4. Load the KML file downloaded from Google My Maps
         // Make sure 'map2.kml' is in the same directory as this HTML file
-        var runLayer = omnivore.kml('map2.kml', null, customLayer)
+        var runLayer = omnivore.kml('https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/reallife/fallout/map2/map2.kml', null, customLayer)
             .on('ready', function() {
                 // Once the KML is loaded, automatically zoom/pan to fit all markers
                 map.fitBounds(runLayer.getBounds());
