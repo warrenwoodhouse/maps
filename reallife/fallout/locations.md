@@ -1,14 +1,14 @@
 # Games
 ## Fallout
-  * Vault 13: 36.5784990, -118.2922600
-  * Boneyard: 34.0522340, -118.2436850
-  * The Hub: 34.8957960, -117.0172830
-  * Necropolis: 35.3732920, -119.0187120
-  * Vault 12: 35.2709291, -119.3236519
-  * Lost Hills: 35.6163490, -119.6942940
-  * Mariposa Military Base: 37.4849377, -119.9662843
-  * Vault 15: 36.6766661, -117.0676047
-  * Shady Sands: 36.6060444, -118.0628654
+* Vault 13: 36.5784990, -118.2922600
+* Boneyard: 34.0522340, -118.2436850
+* The Hub: 34.8957960, -117.0172830
+* Necropolis: 35.3732920, -119.0187120
+* Vault 12: 35.2709291, -119.3236519
+* Lost Hills: 35.6163490, -119.6942940
+* Mariposa Military Base: 37.4849377, -119.9662843
+* Vault 15: 36.6766661, -117.0676047
+* Shady Sands: 36.6060444, -118.0628654
 
 ## Fallout 2
 * Modoc: 41.6796500, -120.8969220
@@ -31,30 +31,90 @@
 * Vault 15: 36.6766661, -117.0676047
 
 ## Fallout Tactics
-add locations here
+* Brahmin Wood: add
+* Buena Vista: add
+* Canyon City: add
+* Cheyenne Mountain: add
+* Cold Water: add
+* Great Bend: add
+* Jefferson: add
+* Junction City: add
+* Kansas City: add
+* Macomb: add
+* Newton: add
+* Peoria: add
+* Quincy: add
+* Rock Falls: add
+* Springfield: add
+* St. Louis: add
+* Scott City: add
+* Vault 0 (Also Known As: Calculator's Lair): add
 
 ## Fallout Tactics: Brotherhood of Steel
-add locations here
-
-## Fallout Tactics: Brotherhood of Steel 2
-cancelled game
-
-add locations here
+* The Alamo
+* Austin
+* Carbon
+* The Corpse
+* Fort Worth
+* Los
+* Vault 39
+* Lubbock
+* Lone Star
+* Truck Stop
+* New Eden
 
 ## Fallout Exteme
 cancelled game
 
-add locations here
+* Fort Williamette: add
+* Mt. Hood: add
+* The Sound: add
+* Issaquah: add
+* Issaquah Nation Villages: add
+* Mt. St. Helens: add
+* Vault 6: add
+* Alaskan Pipeline: add
+* Seattle Underground: add
+* Seattle: add
+* Capitol Hill: add
+* Troll Warren: add
+* Kodiak Base: add
+* Anchorage: add
+* Aleutian Research Station: add
+* Port Liberty: add
+* The Herd Lands: add
+* Bering Strait: add
+* The Emperor’s Gardens: add
+* Abandoned Oil Refineries: add
+* Brotherhood Northern American Forward Operations Base: add
+* Brotherhood Re-education Camps: add
+* Satellite Relay Station Tango-Echo: add
+* The Great Convocation: add
+* The Forbidden City: add
+* Libertyville: add
+* Montauk Preserve: add
+* Beijing (Mentioned Only): add
 
 ## Project FO3: Van Buren
 cancelled game
 
-add locations here
+* Boulder (Stone City) (Dome City)
+* Denver (Dog City) (Dog Town)
+* Grand Canyon
+* Mesa Verde
+* New Canaan
+* New Jerusalem
+* Nursery
+* Reservation
+* Colorado River
 
 ## Project V13: Fallout Online
 cancelled game
 
-add locations here
+* Old Deserted City
+* Tesla Tower
+* Swamp
+* Frozen Shipyard
 
 ## Fallout 3
 add locations here
