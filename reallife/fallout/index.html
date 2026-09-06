@@ -88,34 +88,36 @@
             attribution: '© OpenStreetMap contributors | Map Created By: <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>'
         }).addTo(map);
 
-        // 3. Custom icon design           
+        // 3. Custom icon design          
         var MapIcon = L.Icon.extend({
-       options: {
-              shadowUrl:        [icon-unmarked.png],
-              iconSize:         [38,  95],
-              shadowSize:       [50,  64],
-              iconAnchor:       [22,  94],
-              shadowAnchor:     [4,  62],
-              popupAnchor:      [-3,  -76]
-        }
-});
+           options: {
+                 shadowUrl:        'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-unmarked.png',
+                 iconSize:         [38,  95],
+                 shadowSize:       [50,  64],
+                 iconAnchor:       [22,  94],
+                 shadowAnchor:     [4,  62],
+                 popupAnchor:      [-3,  -76]
+           }
+        });
 
-var settlementIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-settlement.png'}),
-       vaultIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault.png'}),
-       townIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-town.png'}),
-       landmarkIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-landmark.png'}),
-       eateryIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-eatery.png'}),
-       busstopIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-busstop.png'}),
-       lawIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-law.png'}),
-       cinemaIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-cinema.png'}),
-       shelterIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-shelter.png'}),
-       unmarkedIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-unmarked.png'}),
-       riverIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-river.png'}),
-       photoopIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-photoopportunity.png'}),
-       vaulttecIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vaulttec.png'}),
-       bosIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-bos.png'}),
-       milIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-military.png'}),
-       forestIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-forest.png'}),
+        var settlementIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-settlement.png'}),
+               vaultIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault.png'}),
+               townIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-town.png'}),
+               landmarkIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-landmark.png'}),
+               eateryIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-eatery.png'}),
+               busstopIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-busstop.png'}),
+               lawIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-law.png'}),
+               cinemaIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-cinema.png'}),
+               shelterIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-shelter.png'}),
+               unmarkedIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-unmarked.png'}),
+               riverIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-river.png'}),
+               photoopIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-photoopportunity.png'}),
+               vaulttecIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vaulttec.png'}),
+               bosIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-bos.png'}),
+               milIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-military.png'}),
+               forestIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-forest.png'}),
+               streetIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-street.png'}),
+               mountainIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-mountain.png'});
 
         // 4. Add a Marker array
         var locations = [
