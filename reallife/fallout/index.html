@@ -91,17 +91,19 @@
         // 3. Custom icon design          
         var MapIcon = L.Icon.extend({
            options: {
-                 shadowUrl:        'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-shadow.png',
                  iconSize:         [38,  95],
-                 shadowSize:       [50,  64],
                  iconAnchor:       [22,  94],
-                 shadowAnchor:     [4,  62],
                  popupAnchor:      [-3,  -76]
            }
         });
 
         var settlementIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-settlement.png'}),
                vaultIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault.png'}),
+               vault0Icon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault0.png'}),
+               vault12Icon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault12.png'}),
+               vault13Icon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault13.png'}),
+               vault15Icon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault15.png'}),
+               vault39Icon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault39.png'}),
                townIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-town.png'}),
                landmarkIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-landmark.png'}),
                eateryIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-eatery.png'}),
@@ -128,14 +130,14 @@
 
         // 4. Add a Marker array
         var locations = [
-            { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout", icon: vaultIcon },
+            { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout", icon: vault13Icon },
             { name: "Boneyard", lat: 34.0522340, lng: -118.2436850, type: "Settlement", game: "Fallout", icon: settlementIcon },
             { name: "The Hub", lat: 34.8957960, lng: -117.0172830, type: "Settlement", game: "Fallout", icon: settlementIcon },
             { name: "Necropolis", lat: 35.3732920, lng: -119.0187120, type: "Settlement", game: "Fallout", icon: settlementIcon },
-            { name: "Vault 12", lat: 35.2709291, lng: -119.3236519, type: "Vault", game: "Fallout", icon: vaultIcon },
+            { name: "Vault 12", lat: 35.2709291, lng: -119.3236519, type: "Vault", game: "Fallout", icon: vault12Icon },
             { name: "Lost Hills", lat: 35.6163490, lng: -119.6942940, type: "Brotherhood of Steel", game: "Fallout", icon: bosIcon },
             { name: "Mariposa Military Base", lat: 37.4849377, lng: -119.9662843, type: "Military Base", game: "Fallout", icon: milIcon },
-            { name: "Vault 15", lat: 36.6766661, lng: -117.0676047, type: "Vault", game: "Fallout", icon: vaultIcon },
+            { name: "Vault 15", lat: 36.6766661, lng: -117.0676047, type: "Vault", game: "Fallout", icon: vault15Icon },
             { name: "Shady Sands", lat: 36.6060444, lng: -118.0628654, type: "Settlement", game: "Fallout", icon: settlementIcon },
             { name: "Modoc", lat: 41.6796500, lng: -120.8969220, type: "Settlement", game: "Fallout 2", icon: settlementIcon  },
             { name: "Broken Hills", lat: 39.1035360, lng: -117.9695650, type: "Settlement", game: "Fallout 2", icon: settlementIcon },
@@ -157,7 +159,7 @@
             { name: "Buena Vista", lat: 38.8422178, lng: -106.1311288, type: "Settlement", game: "Fallout: Tactics", icon: settlementIcon },
             { name: "Canyon City", lat: 38.4494063, lng: -105.2253316, type: "Settlement", game: "Fallout: Tactics", icon: settlementIcon },
             { name: "Cheyenne Mountain", lat: 38.7372129, lng: -104.8808063, type: "Mountain", game: "Fallout: Tactics", icon: mountainIcon },
-            { name: "Vault 0", lat: 38.7372129, lng: -104.8808063, type: "Vault", game: "Fallout: Tactics", icon: vaultIcon },
+            { name: "Vault 0", lat: 38.7372129, lng: -104.8808063, type: "Vault", game: "Fallout: Tactics", icon: vault0Icon },
             { name: "Cold Water", lat: 37.2689131, lng: -99.3267808, type: "Settlement", game: "Fallout: Tactics", icon: settlementIcon },
             { name: "Great Bend", lat: 38.3644567, lng: -98.7648073, type: "Settlement", game: "Fallout: Tactics", icon: settlementIcon },
             { name: "Jefferson", lat: 38.5767017, lng: -92.1735164, type: "Settlement", game: "Fallout: Tactics", icon: settlementIcon },
@@ -177,7 +179,7 @@
             { name: "The Corpse", lat: 27.8005828, lng: -97.3963810, type: "Ruin, Naval Base", game: "Fallout: Tactics: Brotherhood of Steel", icon: milIcon },
             { name: "Fort Worth", lat: 32.7554883, lng: -97.3307658, type: "Brotherhood of Steel", game: "Fallout: Tactics: Brotherhood of Steel", icon: bosIcon },
             { name: "Los", lat: 32.7189902, lng: -101.9173774, type: "Settlement", game: "Fallout: Tactics: Brotherhood of Steel", icon: settlementIcon },
-            { name: "Vault 39", lat: 32.7189902, lng: -101.9173774, type: "Vault", game: "Fallout: Tactics: Brotherhood of Steel", icon: vaultIcon },
+            { name: "Vault 39", lat: 32.7189902, lng: -101.9173774, type: "Vault", game: "Fallout: Tactics: Brotherhood of Steel", icon: vault39Icon },
             { name: "Lubbock", lat: 33.5778631, lng: -101.8551665, type: "Settlement, Cut Content", game: "Fallout: Tactics: Brotherhood of Steel", icon: settlementIcon },
             { name: "Lone Star", lat: 32.4487364, lng: -99.7331439, type: "Settlement", game: "Fallout: Tactics: Brotherhood of Steel", icon: settlementIcon },
             { name: "Truck Stop", lat: 35.1177114, lng: -101.9071296, type: "Settlement", game: "Fallout: Tactics: Brotherhood of Steel", icon: settlementIcon },
