@@ -5,7 +5,7 @@
         <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-        <!-- FontAwesome for Custom Icons -->
+        <!-- FontAwesome for custom icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
@@ -399,7 +399,7 @@
                                '<div class="popup-type">' + loc.type + '</div>' +
                                '<div class="popup-game">' + loc.game + '</div>';
             
-            L.marker([loc.lat, loc.lng], { icon: custom-icon })
+            L.marker([loc.lat, loc.lng, loc.type, loc.game], { icon: Icon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });
