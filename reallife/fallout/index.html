@@ -88,27 +88,51 @@
             attribution: '© OpenStreetMap contributors | Map Created By: <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>'
         }).addTo(map);
 
-        // 3. Custom icon design
-        var foIcon = L.divIcon({
-            html: '<i class="fa-solid fa-location-dot fa-2x" style="color: #c0392b; text-shadow: 1px 1px 2px black;"></i>',
-            iconSize: [20, 20],
-            className: 'custom-icon'
-        });
+        // 3. Custom icon design           
+        var MapIcon = L.Icon.extend({
+       options: {
+              iconSize:                [38,  95],
+              shadowSize:          [50,  64],
+              iconAnchor:           [22,  94],
+              shadowAnchor:     [4,  62],
+              popupAnchor:       [-3,  -76]
+        }
+});
+
+var settlementIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-settlement.png'}),
+       vaultIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vault.png'}),
+       townIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-town.png'}),
+       landmarkIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-landmark.png'}),
+       eateryIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-eatery.png'}),
+       busstopIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-busstop.png'}),
+       lawIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-law.png'}),
+       cinemaIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-cinema.png'}),
+       shelterIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-shelter.png'}),
+       unmarkedIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-unmarked.png'}),
+       riverIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-river.png'}),
+       photoopIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-photoopportunity.png'}),
+       vaulttecIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-vaulttec.png'}),
+       bosIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-bos.png'}),
+       milIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-military.png'}),
+
+L.Icon = function (options) {
+     return new L.Icon(options);
+};
 
         // 4. Add a Marker array
         var locations = [
-            { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout" },
-            { name: "Boneyard", lat: 34.0522340, lng: -118.2436850, type: "Settlement", game: "Fallout" },
-            { name: "The Hub", lat: 34.8957960, lng: -117.0172830, type: "Settlement", game: "Fallout" },
-            { name: "Necropolis", lat: 35.3732920, lng: -119.0187120, type: "Settlement", game: "Fallout" },
-            { name: "Vault 12", lat: 35.2709291, lng: -119.3236519, type: "Vault", game: "Fallout" },
-            { name: "Lost Hills", lat: 35.6163490, lng: -119.6942940, type: "Brotherhood of Steel", game: "Fallout" },
-            { name: "Mariposa Military Base", lat: 37.4849377, lng: -119.9662843, type: "Military Base", game: "Fallout" },
-            { name: "Vault 15", lat: 36.6766661, lng: -117.0676047, type: "Vault", game: "Fallout" },
-            { name: "Shady Sands", lat: 36.6060444, lng: -118.0628654, type: "Settlement", game: "Fallout" },
-            { name: "Modoc", lat: 41.6796500, lng: -120.8969220, type: "Settlement", game: "Fallout 2" },
-            { name: "Broken Hills", lat: 39.1035360, lng: -117.9695650, type: "Settlement", game: "Fallout 2" },
-            { name: "Navarro", lat: 39.1518430, lng: -123.5419560, type: "Settlement", game: "Fallout 2" },
+            { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout", icon: vaultIcon },
+            { name: "Boneyard", lat: 34.0522340, lng: -118.2436850, type: "Settlement", game: "Fallout", icon: settlementIcon },
+            { name: "The Hub", lat: 34.8957960, lng: -117.0172830, type: "Settlement", game: "Fallout", icon: settlementIcon },
+            { name: "Necropolis", lat: 35.3732920, lng: -119.0187120, type: "Settlement", game: "Fallout", icon: settlementIcon },
+            { name: "Vault 12", lat: 35.2709291, lng: -119.3236519, type: "Vault", game: "Fallout", icon: vaultIcon },
+            { name: "Lost Hills", lat: 35.6163490, lng: -119.6942940, type: "Brotherhood of Steel", game: "Fallout", icon: bosIcon },
+            { name: "Mariposa Military Base", lat: 37.4849377, lng: -119.9662843, type: "Military Base", game: "Fallout", icon: milIcon },
+            { name: "Vault 15", lat: 36.6766661, lng: -117.0676047, type: "Vault", game: "Fallout", icon: vaultIcon },
+            { name: "Shady Sands", lat: 36.6060444, lng: -118.0628654, type: "Settlement", game: "Fallout", icon: settlementIcon },
+            { name: "Modoc", lat: 41.6796500, lng: -120.8969220, type: "Settlement", game: "Fallout 2", icon: settlementIcon  },
+            { name: "Broken Hills", lat: 39.1035360, lng: -117.9695650, type: "Settlement", game: "Fallout 2", icon: settlementIcon },
+            { name: "Navarro", lat: 39.1518430, lng: -123.5419560, type: "Settlement", game: "Fallout 2", icon: settlementIcon },
             { name: "Klamath", lat: 42.2248670, lng: -121.7816700, type: "Settlement", game: "Fallout 2" },
             { name: "New Reno", lat: 39.5296330, lng: -119.8138030, type: "Settlement", game: "Fallout 2" },
             { name: "Desperado", lat: 39.5291688, lng: -119.8146442, type: "Landmark", game: "Fallout 2" },
