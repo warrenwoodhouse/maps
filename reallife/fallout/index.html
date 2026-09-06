@@ -399,7 +399,7 @@
                                '<div class="popup-type">' + loc.type + '</div>' +
                                '<div class="popup-game">' + loc.game + '</div>';
             
-            L.marker([loc.lat, loc.lng], { icon: Icon })
+            L.marker([loc.lat, loc.lng], { icon: custom-icon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });
