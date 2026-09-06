@@ -58,7 +58,7 @@
         }).addTo(map);
 
         // 3. Custom icon design
-        var Icon = L.divIcon({
+        var foIcon = L.divIcon({
             html: '<i class="fa-solid fa-location-dot fa-2x" style="color: #c0392b; text-shadow: 1px 1px 2px black;"></i>',
             iconSize: [20, 20],
             className: 'custom-icon'
@@ -396,7 +396,7 @@
                                '<div class="popup-type">' + loc.type + '</div>' +
                                '<div class="popup-game">' + loc.game + '</div>';
             
-            L.marker([loc.lat, loc.lng, loc.type, loc.game], { icon: Icon })
+            L.marker([loc.lat, loc.lng, loc.type, loc.game], { icon: foIcon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });
