@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Fallout Real Life Map - Maps - Warren Woodhouse</title>
-       
+        
         <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
@@ -27,11 +27,7 @@
             border-bottom: 1px solid #34495e;
             padding-bottom: 5px;
         }
-        .popup-type {
-            font-size: 0.95em;
-            line-height: 1.4;
-        }
-        .popup-game {
+        .popup-type, .popup-game {
             font-size: 0.95em;
             line-height: 1.4;
         }
@@ -44,13 +40,10 @@
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- Leaflet Omnivore for parsing KML (if user provides it) -->
-    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
-    
     <!-- Map Data -->
     <script>
         // 1. Initialize the map
-        var map = L.map('map').setView([34.3109622, -118.2336634], 8);
+        var map = L.map('map').setView([34.3109622, -118.2336634], 6);
 
         // 2. Add standard OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -66,337 +59,61 @@
 
         // 4. Add a Marker
         var locations = [
-            {
-                name: "Vault 13",
-                lat: 36.5784990,
-                lng: 118.2922600,
-                type: "Vault",
-                game: "Fallout"
-            },
-            {
-                name: "Boneyard",
-                lat: 34.0522340,
-                lng: 118.2436850,
-                type: "Settlement",
-                game: "Fallout"
-            },
-            {
-                name: "The Hub",
-                lat: 34.8957960,
-                lng: 117.0172830,
-                type: "Settlement",
-                game: "Fallout"
-            },
-            {
-                name: "Necropolis",
-                lat: 35.3732920,
-                lng: 119.0187120,
-                type: "Settlement",
-                game: "Fallout"
-            },
-            {
-                name: "Vault 12",
-                lat: 35.2709291,
-                lng: 119.3236519,
-                type: "Vault",
-                game: "Fallout"
-            },
-            {
-                name: "Lost Hills",
-                lat: 35.6163490,
-                lng: 119.6942940,
-                type: "Brotherhood of Steel",
-                game: "Fallout"
-            },
-            {
-                name: "Mariposa Military Base",
-                lat: 37.4849377,
-                lng: 119.9662843,
-                type: "Military Base",
-                game: "Fallout"
-            },
-            {
-                name: "Vault 15",
-                lat: 36.6766661,
-                lng: 117.0676047,
-                type: "Vault",
-                game: "Fallout"
-            },
-            {
-                name: "Shady Sands",
-                lat: 36.6060444,
-                lng: 118.0628654,
-                type: "Settlement",
-                game: "Fallout"
-            },
-            {
-                name: "Modoc",
-                lat: 41.6796500,
-                lng: 120.8969220,
-                type: "Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "Broken Hills",
-                lat: 39.1035360,
-                lng: 117.9695650,
-                type: "Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "Navarro",
-                lat: 39.1518430,
-                lng: 123.5419560,
-                type: "Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "Klamath",
-                lat: 42.2248670,
-                lng: 121.7816700,
-                type: "Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "New Reno",
-                lat: 39.5296330,
-                lng: 119.8138030,
-                type: "Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "Desperado",
-                lat: 39.5291688,
-                lng: 119.8146442,
-                type: "Landmark",
-                game: "Fallout 2"
-            },
-            {
-                name: "Virgin Street",
-                lat: 39.5281622,
-                lng: 119.8136810,
-                type: "Street",
-                game: "Fallout 2"
-            },
-            {
-                name: "Redding",
-                lat: 40.5865400,
-                lng: 122.3916750,
-                type: "Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "San Francisco",
-                lat: 37.7749300,
-                lng: 122.4194160,
-                type: "Major Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "Sierra Army Depot",
-                lat: 40.2064960,
-                lng: 120.1182660,
-                type: "Military Base",
-                game: "Fallout 2"
-            },
-            {
-                name: "Mariposa Military Base",
-                lat: 37.4849300,
-                lng: 119.9662800,
-                type: "Military Base",
-                game: "Fallout 2"
-            },
-            {
-                name: "Town of New California Republic",
-                lat: 36.6060444,
-                lng: 118.0628654,
-                type: "Major Settlement",
-                game: "Fallout 2"
-            },
-            {
-                name: "Golden Gate Bridge",
-                lat: 37.8199286,
-                lng: 122.4782551,
-                type: "Landmark",
-                game: "Fallout 2"
-            },
-            {
-                name: "Chinatown",
-                lat: 37.7941378,
-                lng: 122.4077914,
-                type: "Landmark",
-                game: "Fallout 2"
-            },
-            {
-                name: "Steel Palace",
-                lat: 37.7951775,
-                lng: 122.4027787,
-                type: "Landmark",
-                game: "Fallout 2"
-            },
-            {
-                name: "Shi-Town Docks",
-                lat: 37.7968746,
-                lng: 122.3951261,
-                type: "Landmark",
-                game: "Fallout 2"
-            },
-            {
-                name: "Vault 13",
-                lat: 36.5784990,
-                lng: 118.2922600,
-                type: "Vault",
-                game: "Fallout 2"
-            },
-            {
-                name: "Vault 15",
-                lat: 36.6766661,
-                lng: 117.0676047,
-                type: "Vault",
-                game: "Fallout 2"
-            },
-            {
-                name: "Area 51",
-                lat: 37.2333300,
-                lng: 115.8083300,
-                type: "Landmark; Easter Egg; Cut Content",
-                game: "Fallout 2"
-            },
-            {
-                name: "Brahmin Wood",
-                lat: 42.2966861,
-                lng: 89.6212271,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Buena Vista",
-                lat: 38.8422178,
-                lng: 106.1311288,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Canyon City",
-                lat: 38.4494063,
-                lng: 105.2253316,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Cheyenne Mountain",
-                lat: 38.7372129,
-                lng: 104.8808063,
-                type: "Mountain",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Vault 0 (Also Known As: Calculator’s Lair)",
-                lat: 38.7372129,
-                lng: 104.8808063,
-                type: "Vault",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Cold Water",
-                lat: 37.2689131,
-                lng: 99.3267808,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Great Bend",
-                lat: 38.3644567,
-                lng: 98.7648073,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Jefferson",
-                lat: 38.5767017,
-                lng: 92.1735164,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Junction City",
-                lat: 39.0286093,
-                lng: 96.8313978,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Kansas City",
-                lat: 39.0997265,
-                lng: 94.5785667,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Macomb",
-                lat: 40.4592076,
-                lng: 90.6717971,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Newton",
-                lat: 38.0466779,
-                lng: 97.3450365,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Peoria",
-                lat: 40.6936488,
-                lng: 89.5889864,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Quincy",
-                lat: 39.9356016,
-                lng: 91.4098726,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Rock Falls",
-                lat: 41.7797533,
-                lng: 89.6889967,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Springfield",
-                lat: 39.7817213,
-                lng: 89.6501481,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "St. Louis",
-                lat: 38.6270025,
-                lng: 90.1994042,
-                type: "Major Settlement",
-                game: "Fallout: Tactics"
-            },
-            {
-                name: "Scott City",
-                lat: 38.4825192,
-                lng: 100.9070949,
-                type: "Settlement",
-                game: "Fallout: Tactics"
-            }
+            { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout" },
+            { name: "Boneyard", lat: 34.0522340, lng: -118.2436850, type: "Settlement", game: "Fallout" },
+            { name: "The Hub", lat: 34.8957960, lng: -117.0172830, type: "Settlement", game: "Fallout" },
+            { name: "Necropolis", lat: 35.3732920, lng: -119.0187120, type: "Settlement", game: "Fallout" },
+            { name: "Vault 12", lat: 35.2709291, lng: -119.3236519, type: "Vault", game: "Fallout" },
+            { name: "Lost Hills", lat: 35.6163490, lng: -119.6942940, type: "Brotherhood of Steel", game: "Fallout" },
+            { name: "Mariposa Military Base", lat: 37.4849377, lng: -119.9662843, type: "Military Base", game: "Fallout" },
+            { name: "Vault 15", lat: 36.6766661, lng: -117.0676047, type: "Vault", game: "Fallout" },
+            { name: "Shady Sands", lat: 36.6060444, lng: -118.0628654, type: "Settlement", game: "Fallout" },
+            { name: "Modoc", lat: 41.6796500, lng: -120.8969220, type: "Settlement", game: "Fallout 2" },
+            { name: "Broken Hills", lat: 39.1035360, lng: -117.9695650, type: "Settlement", game: "Fallout 2" },
+            { name: "Navarro", lat: 39.1518430, lng: -123.5419560, type: "Settlement", game: "Fallout 2" },
+            { name: "Klamath", lat: 42.2248670, lng: -121.7816700, type: "Settlement", game: "Fallout 2" },
+            { name: "New Reno", lat: 39.5296330, lng: -119.8138030, type: "Settlement", game: "Fallout 2" },
+            { name: "Desperado", lat: 39.5291688, lng: -119.8146442, type: "Landmark", game: "Fallout 2" },
+            { name: "Virgin Street", lat: 39.5281622, lng: -119.8136810, type: "Street", game: "Fallout 2" },
+            { name: "Redding", lat: 40.5865400, lng: -122.3916750, type: "Settlement", game: "Fallout 2" },
+            { name: "San Francisco", lat: 37.7749300, lng: -122.4194160, type: "Major Settlement", game: "Fallout 2" },
+            { name: "Sierra Army Depot", lat: 40.2064960, lng: -120.1182660, type: "Military Base", game: "Fallout 2" },
+            { name: "Mariposa Military Base", lat: 37.4849300, lng: -119.9662800, type: "Military Base", game: "Fallout 2" },
+            { name: "Town of New California Republic", lat: 36.6060444, lng: -118.0628654, type: "Major Settlement", game: "Fallout 2" },
+            { name: "Golden Gate Bridge", lat: 37.8199286, lng: -122.4782551, type: "Landmark", game: "Fallout 2" },
+            { name: "Chinatown", lat: 37.7941378, lng: -122.4077914, type: "Landmark", game: "Fallout 2" },
+            { name: "Steel Palace", lat: 37.7951775, lng: -122.4027787, type: "Landmark", game: "Fallout 2" },
+            { name: "Shi-Town Docks", lat: 37.7968746, lng: -122.3951261, type: "Landmark", game: "Fallout 2" },
+            { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout 2" },
+            { name: "Vault 15", lat: 36.6766661, lng: -117.0676047, type: "Vault", game: "Fallout 2" },
+            { name: "Area 51", lat: 37.2333300, lng: -115.8083300, type: "Landmark; Easter Egg; Cut Content", game: "Fallout 2" },
+            { name: "Brahmin Wood", lat: 42.2966861, lng: -89.6212271, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Buena Vista", lat: 38.8422178, lng: -106.1311288, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Canyon City", lat: 38.4494063, lng: -105.2253316, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Cheyenne Mountain", lat: 38.7372129, lng: -104.8808063, type: "Mountain", game: "Fallout: Tactics" },
+            { name: "Vault 0", lat: 38.7372129, lng: -104.8808063, type: "Vault", game: "Fallout: Tactics" },
+            { name: "Cold Water", lat: 37.2689131, lng: -99.3267808, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Great Bend", lat: 38.3644567, lng: -98.7648073, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Jefferson", lat: 38.5767017, lng: -92.1735164, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Junction City", lat: 39.0286093, lng: -96.8313978, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Kansas City", lat: 39.0997265, lng: -94.5785667, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Macomb", lat: 40.4592076, lng: -90.6717971, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Newton", lat: 38.0466779, lng: -97.3450365, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Peoria", lat: 40.6936488, lng: -89.5889864, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Quincy", lat: 39.9356016, lng: -91.4098726, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Rock Falls", lat: 41.7797533, lng: -89.6889967, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "Springfield", lat: 39.7817213, lng: -89.6501481, type: "Settlement", game: "Fallout: Tactics" },
+            { name: "St. Louis", lat: 38.6270025, lng: -90.1994042, type: "Major Settlement", game: "Fallout: Tactics" },
+            { name: "Scott City", lat: 38.4825192, lng: -100.9070949, type: "Settlement", game: "Fallout: Tactics" }
         ];
 
-        // 5. Add Custom Icons to the Map
+        // 5. Add Custom Icons to the Map (Fixed L.marker argument to [lat, lng])
         locations.forEach(function(loc) {
             var popupContent = '<div class="popup-title">' + loc.name + '</div>' +
                                '<div class="popup-type">' + loc.type + '</div>' +
                                '<div class="popup-game">' + loc.game + '</div>';
             
-            L.marker([loc.lat, loc.lng, loc.type, loc.game], { icon: foIcon })
+            L.marker([loc.lat, loc.lng], { icon: foIcon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });
