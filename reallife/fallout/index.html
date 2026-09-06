@@ -2,7 +2,13 @@
 <html>
 <head>
     <title>Fallout Real Life Map - Maps - Warren Woodhouse</title>
+       
+        <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+        <!-- FontAwesome for Custom Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
     <style>
         #map { height: 500px; width: 100%; }
     </style>
@@ -11,17 +17,27 @@
     <h3></h3>
     <div id="map"></div>
 
+    <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Map Data -->
     <script>
-        // 4. Initialize the map
+        // 1. Initialize the map
         var map = L.map('map').setView([34.3109622, -118.2336634], 8);
 
-        // 5. Add OpenStreetMap Tile Layer
+        // 2. Add standard OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+            attribution: '© OpenStreetMap contributors; Map Created By: <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>'
         }).addTo(map);
 
-        // 6. Add a Marker
+        // 3. Custom icon design
+        var Icon = L.divIcon({
+            html: '<i class="fa-solid fa-location-dot fa-2x" style="color: #c0392b; text-shadow: 1px 1px 2px black;"></i>',
+            iconSize: [20, 20],
+            className: 'custom-icon'
+        });
+
+        // 4. Add a Marker
         L.marker([36.5784990, -118.2922600]).addTo(map)
             .bindPopup('Vault 13 - FO1')
             .openPopup();
@@ -106,6 +122,12 @@
         L.marker([37.2333300, -115.8083300]).addTo(map)
             .bindPopup('Area 51 (Cut Content  - FO2')
             .openPopup();
+
+        // 5. Add Custom Icons to the Map
+        L.marker([lat, lng], { icon: Icon })
+                .bindPopup('')
+                .addTo(map);
+        });
     </script>
 </body>
 </html>
