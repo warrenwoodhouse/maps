@@ -34,24 +34,24 @@ List by Warren Woodhouse
 * Area 51 (Cut Content): 37.2333300, -115.8083300
 
 ## Fallout Tactics
-* Brahmin Wood: add
-* Buena Vista: add
-* Canyon City: add
-* Cheyenne Mountain: add
-* Cold Water: add
-* Great Bend: add
-* Jefferson: add
-* Junction City: add
-* Kansas City: add
-* Macomb: add
-* Newton: add
-* Peoria: add
-* Quincy: add
-* Rock Falls: add
-* Springfield: add
-* St. Louis: add
-* Scott City: add
-* Vault 0 (Also Known As: Calculator's Lair): add
+* Brahmin Wood: 42.2966861, -89.6212271
+* Buena Vista: 38.8422178, -106.1311288
+* Canyon City: 38.4494063, -105.2253316
+* Cheyenne Mountain: 38.7372129, -104.8808063
+* Cold Water: 37.2689131, -99.3267808
+* Great Bend: 38.3644567, -98.7648073
+* Jefferson: 38.5767017, -92.1735164
+* Junction City: 39.0286093, -96.8313978
+* Kansas City: 39.0997265, -94.5785667
+* Macomb: 40.4592076, -90.6717971
+* Newton: 38.0466779, -97.3450365
+* Peoria: 40.6936488, -89.5889864
+* Quincy: 39.9356016, -91.4098726
+* Rock Falls: 41.7797533, -89.6889967
+* Springfield: 39.7817213, -89.6501481
+* St. Louis: 38.6270025, -90.1994042
+* Scott City: 38.4825192, -100.9070949
+* Vault 0 (Also Known As: Calculator's Lair): 38.7372129, -104.8808063
 
 ## Fallout Tactics: Brotherhood of Steel
 * The Alamo
