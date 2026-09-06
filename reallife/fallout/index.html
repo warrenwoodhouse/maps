@@ -91,7 +91,7 @@
         // 3. Custom icon design          
         var MapIcon = L.Icon.extend({
            options: {
-                 shadowUrl:        'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-unmarked.png',
+                 shadowUrl:        'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-shadow.png',
                  iconSize:         [38,  95],
                  shadowSize:       [50,  64],
                  iconAnchor:       [22,  94],
@@ -117,6 +117,13 @@
                milIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-military.png'}),
                forestIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-forest.png'}),
                streetIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-street.png'}),
+               wetlandIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-wetlands.png'}),
+               steelpalaceIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-steelpalace.png'}),
+               redrocketIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-redrocket.png'}),
+               pierIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-pier.png'}),
+               factoryIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-factory.png'}),
+               goldengatebridgeIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-goldengatebridge.png'}),
+               observatoryIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-observatory.png'}),
                mountainIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-mountain.png'});
 
         // 4. Add a Marker array
@@ -141,9 +148,9 @@
             { name: "San Francisco", lat: 37.7749300, lng: -122.4194160, type: "Major Settlement", game: "Fallout 2", icon: settlementIcon },
             { name: "Sierra Army Depot", lat: 40.2064960, lng: -120.1182660, type: "Military Base", game: "Fallout 2", icon: milIcon },
             { name: "Town of New California Republic", lat: 36.6060444, lng: -118.0628654, type: "Major Settlement", game: "Fallout 2", icon: settlementIcon },
-            { name: "Golden Gate Bridge", lat: 37.8199286, lng: -122.4782551, type: "Landmark", game: "Fallout 2", icon: landmarkIcon },
+            { name: "Golden Gate Bridge", lat: 37.8199286, lng: -122.4782551, type: "Landmark", game: "Fallout 2", icon: goldengatebridgeIcon },
             { name: "Chinatown", lat: 37.7941378, lng: -122.4077914, type: "Landmark", game: "Fallout 2", icon: landmarkIcon },
-            { name: "Steel Palace", lat: 37.7951775, lng: -122.4027787, type: "Landmark", game: "Fallout 2", icon: landmarkIcon },
+            { name: "Steel Palace", lat: 37.7951775, lng: -122.4027787, type: "Landmark", game: "Fallout 2", icon: steelpalaceIcon },
             { name: "Shi-Town Docks", lat: 37.7968746, lng: -122.3951261, type: "Landmark", game: "Fallout 2", icon: landmarkIcon },
             { name: "Area 51", lat: 37.2333300, lng: -115.8083300, type: "Landmark; Easter Egg; Cut Content", game: "Fallout 2", icon: landmarkIcon },
             { name: "Brahmin Wood", lat: 42.2966861, lng: -89.6212271, type: "Settlement", game: "Fallout: Tactics", icon: settlementIcon },
