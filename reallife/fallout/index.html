@@ -115,10 +115,6 @@ var settlementIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/wa
        bosIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-bos.png'}),
        milIcon = new MapIcon({iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/reallife/fallout/icon-military.png'}),
 
-L.Icon = function (options) {
-     return new L.Icon(options);
-};
-
         // 4. Add a Marker array
         var locations = [
             { name: "Vault 13", lat: 36.5784990, lng: -118.2922600, type: "Vault", game: "Fallout", icon: vaultIcon },
@@ -190,9 +186,11 @@ L.Icon = function (options) {
                                '<div class="popup-type">' + loc.type + '</div>' +
                                '<div class="popup-game">' + loc.game + '</div>';
             
-            // Add marker to map and save reference inside the location object
-            // (Note: L.marker only accepts [lat, lng] for coordinates)
-            loc.markerObj = L.marker([loc.lat, loc.lng], { icon: foIcon })
+            // FIX: Use the specific icon from the array, or default to unmarkedIcon
+            var currentIcon = loc.icon ? loc.icon : unmarkedIcon;
+
+            // Add marker to map using the corrected icon variable
+            loc.markerObj = L.marker([loc.lat, loc.lng], { icon: currentIcon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
 
