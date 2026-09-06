@@ -10,7 +10,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     
     <style>
-        #map { height: 500px; width: 100%; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        #map { width: 100vw; height: 100vh; }
+
+        .custom-popup .leaflet-popup-content-wrapper {
+            background: #2c3e50;
+            color: #ecf0f1;
+            border-radius: 8px;
+        }
+        .custom-popup .leaflet-popup-tip {
+            background: #2c3e50;
+        }
+        .popup-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 5px;
+        }
+        .popup-type {
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        .popup-game {
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -38,94 +63,217 @@
         });
 
         // 4. Add a Marker
-        L.marker([36.5784990, -118.2922600]).addTo(map)
-            .bindPopup('Vault 13 - FO1')
-            .openPopup();
-        L.marker([34.0522340, -118.2436850]).addTo(map)
-            .bindPopup('Boneyard - FO1')
-            .openPopup();
-        L.marker([34.8957960, -117.0172830]).addTo(map)
-            .bindPopup('The Hub - FO1')
-            .openPopup();
-        L.marker([35.3732920, -119.0187120]).addTo(map)
-            .bindPopup('Necropolis - FO1')
-            .openPopup();
-        L.marker([35.2709291, -119.3236519]).addTo(map)
-            .bindPopup('Vault 12 - FO1')
-            .openPopup();
-        L.marker([35.6163490, -119.6942940]).addTo(map)
-            .bindPopup('Lost Hills - FO1')
-            .openPopup();
-        L.marker([37.4849377, -119.9662843]).addTo(map)
-            .bindPopup('Mariposa Military Base - FO1')
-            .openPopup();
-        L.marker([36.6766661, -117.0676047]).addTo(map)
-            .bindPopup('Vault 15 - FO1')
-            .openPopup();
-        L.marker([36.6060444, -118.0628654]).addTo(map)
-            .bindPopup('Shady Sands - FO1')
-            .openPopup();
-        L.marker([41.6796500, -120.8969220]).addTo(map)
-            .bindPopup('Modoc - FO2')
-            .openPopup();
-        L.marker([39.1035360, -117.9695650]).addTo(map)
-            .bindPopup('Broken Hills - FO2')
-            .openPopup();
-        L.marker([39.1518430, -123.5419560]).addTo(map)
-            .bindPopup('Navarro - FO2')
-            .openPopup();
-        L.marker([42.2248670, -121.7816700]).addTo(map)
-            .bindPopup('Klamath - FO2')
-            .openPopup();
-        L.marker([39.5296330, -119.8138030]).addTo(map)
-            .bindPopup('New Reno - FO2')
-            .openPopup();
-        L.marker([39.5291688, -119.8146442]).addTo(map)
-            .bindPopup('Desperado - FO2')
-            .openPopup();
-        L.marker([39.5281622, -119.8136810]).addTo(map)
-            .bindPopup('Virgin Street - FO2')
-            .openPopup();
-        L.marker([40.5865400, -122.3916750]).addTo(map)
-            .bindPopup('Redding - FO2')
-            .openPopup();
-        L.marker([37.7749300, -122.4194160]).addTo(map)
-            .bindPopup('San Francisco - FO2')
-            .openPopup();
-        L.marker([40.2064960, -120.1182660]).addTo(map)
-            .bindPopup('Sierra Army Depot - FO2')
-            .openPopup();
-        L.marker([37.4849300, -119.9662800]).addTo(map)
-            .bindPopup('Mariposa Military Base - FO2')
-            .openPopup();
-        L.marker([36.6060444, -118.0628654]).addTo(map)
-            .bindPopup('Town of New California Republic - FO2')
-            .openPopup();
-        L.marker([37.8199286, -122.4782551]).addTo(map)
-            .bindPopup('Golden Gate Bridge - FO2')
-            .openPopup();
-        L.marker([37.7941378, -122.4077914]).addTo(map)
-            .bindPopup('Chinatown - FO2')
-            .openPopup();
-        L.marker([37.7951775, -122.4027787]).addTo(map)
-            .bindPopup('Steel Palace - FO2')
-            .openPopup();
-        L.marker([37.7968746, -122.3951261]).addTo(map)
-            .bindPopup('Shi-Town Docks - FO2')
-            .openPopup();
-        L.marker([36.5784990, -118.2922600]).addTo(map)
-            .bindPopup('Vault 13  - FO2')
-            .openPopup();
-        L.marker([36.6766661, -117.0676047]).addTo(map)
-            .bindPopup('Vault 15  - FO2')
-            .openPopup();
-        L.marker([37.2333300, -115.8083300]).addTo(map)
-            .bindPopup('Area 51 (Cut Content  - FO2')
-            .openPopup();
+        var locations = [
+            /* Games */
+            /* Games - Fallout */
+            {
+                name: "Vault 13",
+                lat: 36.5784990,
+                lng: 118.2922600,
+                type: "Vault",
+                game: "Fallout"
+            },
+            {
+                name: "Boneyard",
+                lat: 34.0522340,
+                lng: 118.2436850,
+                type: "Settlement",
+                game: "Fallout"
+            },
+            {
+                name: "The Hub",
+                lat: 34.8957960,
+                lng: 117.0172830,
+                type: "Settlement",
+                game: "Fallout"
+            },
+            {
+                name: "Necropolis",
+                lat: 35.3732920,
+                lng: 119.0187120,
+                type: "Settlement",
+                game: "Fallout"
+            },
+            {
+                name: "Vault 12",
+                lat: 35.2709291,
+                lng: 119.3236519,
+                type: "Vault",
+                game: "Fallout"
+            },
+            {
+                name: "Lost Hills",
+                lat: 35.6163490,
+                lng: 119.6942940,
+                type: "Brotherhood of Steel",
+                game: "Fallout"
+            },
+            {
+                name: "Mariposa Military Base",
+                lat: 37.4849377,
+                lng: 119.9662843,
+                type: "Military Base",
+                game: "Fallout"
+            },
+            {
+                name: "Vault 15",
+                lat: 36.6766661,
+                lng: 117.0676047,
+                type: "Vault",
+                game: "Fallout"
+            },
+            {
+                name: "Shady Sands",
+                lat: 36.6060444,
+                lng: 118.0628654,
+                type: "Settlement",
+                game: "Fallout"
+            },
+
+            /* Games - Fallout 2 */
+            {
+                name: "Modoc",
+                lat: 41.6796500,
+                lng: 120.8969220,
+                type: "Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "Broken Hills",
+                lat: 39.1035360,
+                lng: 117.9695650,
+                type: "Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "Navarro",
+                lat: 39.1518430,
+                lng: 123.5419560,
+                type: "Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "Klamath",
+                lat: 42.2248670,
+                lng: 121.7816700,
+                type: "Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "New Reno",
+                lat: 39.5296330,
+                lng: 119.8138030,
+                type: "Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "Desperado",
+                lat: 39.5291688,
+                lng: 119.8146442,
+                type: "Landmark",
+                game: "Fallout 2"
+            },
+            {
+                name: "Virgin Street",
+                lat: 39.5281622,
+                lng: 119.8136810,
+                type: "Street",
+                game: "Fallout 2"
+            },
+            {
+                name: "Redding",
+                lat: 40.5865400,
+                lng: 122.3916750,
+                type: "Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "San Francisco",
+                lat: 37.7749300,
+                lng: 122.4194160,
+                type: "Major Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "Sierra Army Depot",
+                lat: 40.2064960,
+                lng: 120.1182660,
+                type: "Military Base",
+                game: "Fallout 2"
+            },
+            {
+                name: "Mariposa Military Base",
+                lat: 37.4849300,
+                lng: 119.9662800,
+                type: "Military Base",
+                game: "Fallout 2"
+            },
+            {
+                name: "Town of New California Republic",
+                lat: 36.6060444,
+                lng: 118.0628654,
+                type: "Major Settlement",
+                game: "Fallout 2"
+            },
+            {
+                name: "Golden Gate Bridge",
+                lat: 37.8199286,
+                lng: 122.4782551,
+                type: "Landmark",
+                game: "Fallout 2"
+            },
+            {
+                name: "Chinatown",
+                lat: 37.7941378,
+                lng: 122.4077914,
+                type: "Landmark",
+                game: "Fallout 2"
+            },
+            {
+                name: "Steel Palace",
+                lat: 37.7951775,
+                lng: 122.4027787,
+                type: "Landmark",
+                game: "Fallout 2"
+            },
+            {
+                name: "Shi-Town Docks",
+                lat: 37.7968746,
+                lng: 122.3951261,
+                type: "Landmark",
+                game: "Fallout 2"
+            },
+            {
+                name: "Vault 13",
+                lat: 36.5784990,
+                lng: 118.2922600,
+                type: "Vault",
+                game: "Fallout 2"
+            },
+            {
+                name: "Vault 15",
+                lat: 36.6766661,
+                lng: 117.0676047,
+                type: "Vault",
+                game: "Fallout 2"
+            },
+            {
+                name: "Area 51",
+                lat: 37.2333300,
+                lng: 115.8083300,
+                type: "Landmark; Easter Egg; Cut Content",
+                game: "Fallout 2"
+            },
+        ];
 
         // 5. Add Custom Icons to the Map
-        L.marker([lat, lng], { icon: Icon })
-                .bindPopup('')
+        locations.forEach(function(loc) {
+            var popupContent = '<div class="popup-title">' + loc.name + '</div>' +
+                               '<div class="popup-type">' + loc.type + '</div>' +
+                               '<div class="popup-game">' + loc.game + '</div>';
+            
+            L.marker([loc.lat, loc.lng], { icon: Icon })
+                .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });
     </script>
