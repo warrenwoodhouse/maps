@@ -70,33 +70,33 @@ List by Warren Woodhouse
 cancelled game
 
 * Fort Williamette: 44.9773010, -123.0356901
-* Mt. Hood: add
-* The Sound: add
-* Issaquah: add
-* Issaquah Nation Villages: add
-* Mt. St. Helens: add
-* Vault 6: add
-* Alaskan Pipeline: add
-* Seattle Underground: add
-* Seattle: add
-* Capitol Hill: add
-* Troll Warren: add
-* Kodiak Base: add
-* Anchorage: add
-* Aleutian Research Station: add
-* Port Liberty: add
-* The Herd Lands: add
-* Bering Strait: add
-* The Emperor’s Gardens: add
-* Abandoned Oil Refineries: add
-* Brotherhood Northern American Forward Operations Base: add
-* Brotherhood Re-education Camps: add
-* Satellite Relay Station Tango-Echo: add
-* The Great Convocation: add
-* The Forbidden City: add
-* Libertyville: add
-* Montauk Preserve: add
-* Beijing (Mentioned Only): add
+* Mt. Hood: 45.3736150, -121.6959510
+* The Sound: 47.7236535, -122.4713352
+* Issaquah: 47.5398305, -122.0411153
+* Issaquah Nation Villages: 47.5584317, -122.0588751
+* Mt. St. Helens: 46.1914006, -122.1955509
+* Vault 6: 46.2752687, -122.2172120
+* Alaskan Pipeline: 61.1682000, -149.1497300
+* Seattle Underground: 47.6023525, -122.3336804
+* Seattle: 47.6061389, -122.3328481
+* Capitol Hill: 47.6242661, -122.3210070
+* Troll Warren: 47.6511954, -122.3476932
+* Kodiak Base: 57.4912463, -153.4950220
+* Anchorage: 61.2175758, -149.8996785
+* Aleutian Research Station: 51.9907617, -176.6129135
+* Port Liberty: 47.7335809, -122.6469868
+* The Herd Lands: 42.7951536, 105.0323635
+* Bering Strait: 65.8938131, -168.3953957
+* The Emperor’s Gardens: 39.9215434, 116.3967034
+* Abandoned Oil Refineries: 23.8002145, 120.2157963
+* Brotherhood Northern American Forward Operations Base: 61.2536352, -149.8112528
+* Brotherhood Re-education Camps: 61.2335336, -149.8570204
+* Satellite Relay Station Tango-Echo: 61.2597100, -149.2963700
+* The Great Convocation: 65.7521798, -168.9242550
+* The Forbidden City: 39.9149297, 116.3908772
+* Libertyville: 58.7777778, -157.0530556
+* Montauk Preserve: 41.0381296, -71.9579247
+* Beijing (Mentioned Only): 39.9042110, 116.4073950
 
 ## Project FO3: Van Buren
 cancelled game
