@@ -54,22 +54,22 @@ List by Warren Woodhouse
 * Vault 0 (Also Known As: Calculator's Lair): 38.7372129, -104.8808063
 
 ## Fallout Tactics: Brotherhood of Steel
-* The Alamo
-* Austin
-* Carbon
-* The Corpse
-* Fort Worth
-* Los
-* Vault 39
-* Lubbock
-* Lone Star
-* Truck Stop
-* New Eden
+* The Alamo: 29.4260191, -98.4861544
+* Austin: 30.2671530, -97.7430608
+* Carbon: 32.2706904, -98.8286719
+* The Corpse: 27.8005828, -97.3963810
+* Fort Worth: 32.7554883, -97.3307658
+* Los: 32.7189902, -101.9173774
+* Vault 39: 32.7189902, -101.9173774
+* Lubbock: 33.5778631, -101.8551665
+* Lone Star: 32.4487364, -99.7331439
+* Truck Stop: 35.1177114, -101.9071296
+* New Eden: 26.9662460, -98.4795316
 
 ## Fallout Exteme
 cancelled game
 
-* Fort Williamette: add
+* Fort Williamette: 44.9773010, -123.0356901
 * Mt. Hood: add
 * The Sound: add
 * Issaquah: add
