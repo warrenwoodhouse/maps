@@ -493,15 +493,340 @@ Mentioned Only
 * Add
 
 ## Assassin’s Creed: Odyssey
-* Gateway to the Lost City: Minoan Ruins, Thera, Greece.
-* Cave of the Forgotten Isle: Forgotten Isle, Isle of Thisvi, Phokis, Greece.
-* Cave of Mt. Zas: Mount Zas, Naxos, Greece.
-* Cyclops Arges: Cyclops Arges, Nisyros, Greece.
-* Forge of Hephaistos: Ancient Forge, Andros, Greece.
-* Labyrinth of Lost Souls: Knossos Palace, Minos’ Legacy, Messara, Greece.
-* Lair of the Sphinx: Ruined Temple, Lake Kopais, Boeotia, Greece.
-* Myson Cave: Pandora’s Cove, Malis, Greece.
-* Petrified Temple: Dread Ruins, Lesbos, Greece.
+Greece
+Attika
+* Athenian Homeland
+* Capital: Athens
+
+Greater Athens
+* Athens
+* Areopagus
+* Panathenaia
+* Perikles’ Home
+* Monument of Hippolytos
+* Temple of Themis
+* Akropolis of Athens
+* > Priest House
+* > The Propylaia
+* > Statue of Athena
+* > Sanctuary of Artemis Brauronia (The Brauroneion)
+* > The Chalkotheke
+* > The Erechtheion Karyatids
+* > Olive Tree of Athena
+* > Sanctuary of Zeus Polieos
+* > Sanctuary of Pandion
+* > The Great Panathenaia
+* Altar of Dionysos
+* Temple of Dionysos
+* Temple of Zeus
+* Memorial of the Amazons
+* The Prytaneion
+* The Agora of Athens
+* > The Boule
+* > Stoa of Zeus
+* > Altar of the Twelve Gods
+* > South Stoa
+* > Fountain House
+* > Eponymous Heroes Monument
+* Garden of Hephaistos
+* Marble Workshop
+* House of Aphrodite
+* Statue of Demeter and Kore
+* Hermippos’ Residence (Also Known As: Poulytion’s Home)
+* Kerameikos of Athens
+
+Isle of Salamis
+* Salamis
+* Salamis Marble Quarry
+
+Aegina Island
+* Abandoned Camp
+
+Boeotia
+* Lair of the Sphinx: Ruined Temple, Lake Kopais
+
+Phokis
+* Add
+
+Lokris
+* Add
+
+Megaris
+* Add
+
+Korinthia
+* Add
+
+Argolis
+* Add
+
+Foundry of Hephaistos
+* Add
+
+Lakonia
+* Spartan Homeland
+* Capital: Sparta
+
+Sparta
+* Sparta
+* Temple of Athena Chalkioikos (Viewpoint)
+
+Praisai Island
+Zarax Point
+* Fort of Praisai
+
+Arkadia
+* Add
+
+Achaia
+* Add
+
+Elis
+* Capital: Elis
+
+Valley of Olympia
+* Olympia
+
+Messenia
+* Add
+
+Malis
+* Myson Cave: Pandora’s Cove
+
+Makedonia
+* Add
+
+Aegean Sea
+ Gulf of Kephallonia
+* Add
+
+Islet of Zeus
+* Islet of Zeus
+
+Strait of Kephallonia
+* Ktesipos's Shipwreck
+
+Kephallonia Island
+* Add
+
+Ithaka Island
+* Add
+
+Gulf of Korinth
+* Sunken Temple of Demeter
+* Prototype Trireme of Ameinokles
+* Alekto Shipwreck
+* Ketos Shipwreck
+* Poseidon's Fury
+
+Isle of Thisvi
+* Cave of the Forgotten Isle (Also Known As: Olympos)
+* > Forgotten Isle (Isu Vault)
+
+ISLAND NAME
+* Marooned Bandit Camp
+
+Pirate Island
+* Pirate Island
+
+Kythera Island
+Aphrodite’s Watch
+* Add
+
+Pilgrim Hill
+* Add
+
+Skandeia Bay
+* Add
+
+Chytra Atoll
+* Add
+
+Diakofti Island
+* Diakofti Ruins
+
+Obsidian Islands
+Hydrea Island
+* Add
+
+Melos Island
+* Add
+
+Paros Islands
+Paros Island
+* Paros Harbor
+* Temple of Athena
+* Athena's Watch (Viewpoint)
+* Sculptor's Warehouse
+* Fortified Marble Quarry
+
+Atoll Point
+* Alkaios Tomb
+
+Strongyli Island
+None
+
+Naxos Islands
+Naxos Island
+* Unmarked Isu Vault: Cave of Mt. Zas, Zas’s Overwatch
+
+ISLAND NAME
+Alektryon's Rest
+
+Andros Island
+* Forge of Hephaistos (Also Known As: Ancient Forge)
+
+Pirate Islands
+Seriphos Island
+* Add
+
+Keos Island
+* Add
+
+Lestris Island
+* Add
+
+Ikaria Island
+* Add
+
+Southern Sporades Islands
+Kos Island
+* Add
+
+Samos Island
+* Add
+
+Kradia Isle
+* Add
+
+Silver Islands
+Delos Island
+* Add
+
+Mykonos Island
+* Add
+
+Barracuda Island
+* Add
+
+Prasonisia Island
+* Add
+
+Volcanic Islands
+Nisyros Island
+* Cyclops Arges
+
+Anaphi Island
+* Ash Hills
+* Mount Bigla
+
+Thera Island
+* Caldera of Fate
+* > Gateway to the Lost City (Isu Vault): Minoan Ruin, Thera, Greece.
+* Pasta's Ruins
+
+Krete Island
+Messara
+Little Egypt
+* Kydonia
+* Daktyls Depleted Mine
+* Erike's Bluffs (Viewpoint)
+* Temple of Britomartis
+
+Fertile Battleground
+* Phaistos Hills (Viewpoint)
+
+Zeus’s Playground
+* Summit of Mount Ida (Viewpoint)
+* Statues of O Potamos (Viewpoint)
+* Temple of Artemis Diktynna (Viewpoint)
+
+Minos’s Legacy
+* Gortyn
+* Gortyn Waterfall (Viewpoint)
+* Add (Viewpoint)
+* Labyrinth of Lost Souls: Knossos Palace
+* Knossos Palace
+
+Octopus Bay
+* Add
+* Heraklion
+* Village Anax's House (Viewpoint)
+
+Pephka
+Minotaur Hills
+* Lato
+* Lato Harbor
+* Devotion of Edou Aradou (Viewpoint)
+
+Dikte Plateau
+* Warrior's Rest
+
+Pirate Point
+* The Arena
+
+Abantis Islands
+Skyros Island
+* Add
+
+Euboea Island
+* Add
+
+Petrified Islands
+Lesbos Island
+* Petrified Temple: Dread Ruins
+
+Chios Island
+* Add
+
+Hephaistos Islands
+Lemnos Island
+* Add
+
+Thasos Island
+* Add
+
+Korfu Island
+* Add
+
+Mountains
+* Mount Ainos: at Lightning Zeus
+* Mount Helikon: at Standing Pillar
+* Mount Parnassos: at ADD
+* Mount Athena: at Athens Akropolis Sanctuary
+* Mount Pentelikos: at Mt. Pentelikos Marble Quarry
+* Mount Silver: at Silver Mountain
+* Mount Koryphum: at Mount Koryphum
+* Mount Korinthia: at Akrokorinith
+* Mount Isthmus: at Grave of Sisyphos
+* Mount Kithairon: at Abandoned Watchtower
+* Mount Geraneia: at Fort Geraneia
+* Mount Koryphe: at Mount Koryphe
+* Mount Kyllene: at ADD
+* Mount Erymanthos: at Valley of Olympia
+* Mount Panachaikos: at Mount Panachaikos
+* Mount Psophis: at Mount Psophis
+* Mount Taygetos: at ADD
+* Mount Pylos: at Vista of Pylos
+* Mount Zas: at Sanctuary of Mt. Zas
+* Mount Bigla: at Anaphi Island
+* Mount Ida: at Summit of Mount Ida
+* Mount Dirfi: at Dirfi Peak
+* Mount Istiaia: at Istiaia Peak
+* Mount Pangeon: at ADD
+
+Isu Sites
+* Forgotten Isle (Cyclops's Lair): Cave of the Forgotten Isle, Isle of Thisvi
+* Ancient Forge: Abandoned Forest, Andros Island
+* Petrified Temple (Medusa's Lair): Petrified Forest, Petrified Valley, Lesbos Island
+* Labyrinth of Lost Souls (Minotaur's Lair): Knossos Palace, Minos's Legacy, Messara, Krete Island
+* Gateway to the Lost City (Atlantis): Pasta's Ruins, Caldera of Fate, Thera Island
+* Add (Sphinx's Lair): add, Lake Kopais, Boeotia, Mainland Greece
+* Add
+* Add
+* Add
+* Add
+* Unmarked Isu Vault: Cave of Mt. Zas, Zas’s Overwatch, Naxos Island, Naxos, Greece.
 
 ### Assassin’s Creed: Odyssey: Lost Tales of Greece DLC
 * Add
