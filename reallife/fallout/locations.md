@@ -110,14 +110,15 @@ cancelled game
 * Nursery: 38.5753940, -107.7415960
 * Reservation: 35.8440580, -106.2871620
 * Colorado River: 35.5408576, -114.6643023
+* Caesar’s Land: 39.5500507, -105.7820674
 
 ## Project V13: Fallout Online
 cancelled game
 
-* Old Deserted City
-* Tesla Tower
-* Swamp
-* Frozen Shipyard
+* Old Deserted City: 47.6061389, -122.3328481
+* Tesla Tower: 40.9480491, -72.8983589
+* Swamp: 47.6571817, -122.2873154
+* Frozen Shipyard: 47.5842061, -122.3515266
 
 ## Fallout 3
 add locations here
