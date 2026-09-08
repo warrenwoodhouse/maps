@@ -101,15 +101,15 @@ cancelled game
 ## Project FO3: Van Buren
 cancelled game
 
-* Boulder (Stone City) (Dome City)
-* Denver (Dog City) (Dog Town)
-* Grand Canyon
-* Mesa Verde
-* New Canaan
-* New Jerusalem
-* Nursery
-* Reservation
-* Colorado River
+* Boulder (Stone City) (Dome City): 40.0149856, -105.2705456
+* Denver (Dog City) (Dog Town): 39.7392358, -104.9902510
+* Grand Canyon: 36.1069650, -112.1129970
+* Mesa Verde: 37.1552515, -108.4642372
+* New Canaan: 41.2230000, -111.9738304
+* New Jerusalem: 40.7607793, -111.8910474
+* Nursery: 38.5753940, -107.7415960
+* Reservation: 35.8440580, -106.2871620
+* Colorado River: 35.5408576, -114.6643023
 
 ## Project V13: Fallout Online
 cancelled game
