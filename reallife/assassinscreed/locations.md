@@ -967,7 +967,11 @@ Isu Sites
 * Add
 
 ## Assassin’s Creed: Shadows
-* Add
+Japan
+* Tanjosan Myoyoji Temple
+* Tamba
+* Fukuchiyama Castle (Mentioned Only In: Work in Progress screenshot)
+* Shibuya Crossing (Mentioned Only)
 
 # Films
 ## Assassin’s Creed (2016)
