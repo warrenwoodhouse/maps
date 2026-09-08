@@ -103,6 +103,8 @@ Here is the full list of Interactive Maps. Enjoy!
 * Grand Theft Auto IV & Grand Theft Auto IV Remake (WIP)
 * > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway)
 * Grand Theft Auto V & Grand Theft Auto V: Next Gen Edition (WIP)
+* > Blueprint Map
+  > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gtav/blueprint/light)
 * > Grand Theft Auto Online (WIP)
 * Grand Theft Auto VI (WIP)
 
@@ -197,7 +199,16 @@ I'll add some here
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
 
 # Real Life Maps
-[CLICK HERE](https://warrenwoodhouse.github.io/maps/reallife) to see all of the real life maps that I've created.
+* [Assassin’s Creed Franchise](https://warrenwoodhouse.github.io/maps/reallife/assassinscreed)
+* [Fallout Franchise](https://warrenwoodhouse.github.io/maps/reallife/fallout)
+* Everybody’s Gone to the Rapture
+* [This Bed We Made Franchise](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade)
+* L.A. Noire
+* Atomfall
+* [007 Franchise](https://warrenwoodhouse.github.io/maps/reallife/007)
+* The Order 1886
+* Tomb Raider Franchise
+* Control Franchise
 
 ## Creations - Real Life Maps
 * [Ouseburn Farm Water Feature by Warren Woodhouse](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature)
