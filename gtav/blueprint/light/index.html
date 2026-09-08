@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTA V Light Blueprint Map - GTA V - Maps - Warren Woodhouse</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #1a1a1a;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script>
+        // Initialize the map using a Simple CRS (Coordinate Reference System) for flat images
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,
+            maxZoom: 3
+        });
+
+        // Define the bounds of the image. 
+        // [Y, X] format where Y is bottom-to-top and X is left-to-right.
+        // Adjusted for an approximate 4:5 aspect ratio (e.g., 1000px height, 820px width).
+        const bounds = [[0, 0], [1000, 820]];
+
+        // Load the image overlay using the exact filename requested
+        L.imageOverlay('https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/gtav/blueprint/light/map.png', bounds).addTo(map);
+
+        // Fit the map view to the image boundaries
+        map.fitBounds(bounds);
+
+        // --- Selectable Map Markers ---
+        // Coordinates are roughly estimated based on a [1000, 820] grid (Bottom-Left is 0,0)
+
+        const markers = [
+            { coords: [580, 220], title: "Fort Zancudo", text: "<b>Take Control</b><br>Titan, P.996 Lazer, Buzzard" },
+            { coords: [800, 310], title: "Frank Mathers", text: "<b>Frank Mathers</b><br>Between the crates." },
+            { coords: [630, 440], title: "Alien Glyphs", text: "<b>Alien Markings</b><br>THEY'RE HERE!" },
+            { coords: [430, 430], title: "Shoot for the stars", text: "<b>Galileo Observatory</b><br>Shoot for the stars." },
+            { coords: [50, 610], title: "Simeon's Docks", text: "<b>Terminal Docks</b><br>Simeon vehicles for fast cash." },
+            { coords: [600, 710], title: "CBL-Omega", text: "<b>CBL-Omega</b><br>Marker location." },
+            { coords: [150, 520], title: "Maze Bank", text: "<b>Maze Bank Tower</b><br>Take it to the pinnacle." }
+        ];
+
+        // Loop through the array and add each marker to the map
+        markers.forEach(markerData => {
+            L.marker(markerData.coords)
+             .addTo(map)
+             .bindPopup(markerData.text);
+        });
+
+    </script>
+</body>
+</html>
