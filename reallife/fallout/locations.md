@@ -33,7 +33,7 @@ List by Warren Woodhouse
 * Vault 15: 36.6766661, -117.0676047
 * Area 51 (Cut Content): 37.2333300, -115.8083300
 
-## Fallout Tactics
+## Fallout: Tactics
 * Brahmin Wood: 42.2966861, -89.6212271
 * Buena Vista: 38.8422178, -106.1311288
 * Canyon City: 38.4494063, -105.2253316
@@ -53,7 +53,7 @@ List by Warren Woodhouse
 * Scott City: 38.4825192, -100.9070949
 * Vault 0 (Also Known As: Calculator's Lair): 38.7372129, -104.8808063
 
-## Fallout Tactics: Brotherhood of Steel
+## Fallout: Tactics: Brotherhood of Steel
 * The Alamo: 29.4260191, -98.4861544
 * Austin: 30.2671530, -97.7430608
 * Carbon: 32.2706904, -98.8286719
@@ -66,7 +66,7 @@ List by Warren Woodhouse
 * Truck Stop: 35.1177114, -101.9071296
 * New Eden: 26.9662460, -98.4795316
 
-## Fallout Exteme
+## Fallout Extreme
 cancelled game
 
 * Fort Williamette: 44.9773010, -123.0356901
@@ -212,6 +212,12 @@ add locations here
 add locations here
 
 # Vaults
+* Demonstration Vault: add
+* Secret Vault: add
+* Nursery Vault: add
+* Vault of Tomorrow: add
+* Artemis I Vault: add
+* Vault 0: add
 * Vault 1: add
 
 # Films
