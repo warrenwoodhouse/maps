@@ -455,7 +455,25 @@ Mentioned Only
 * Add
 
 ### Assassin’s Creed: Valhalla: Crossover Stories DLC
-* Cave of Gold: Cave of Gold, Isle of Skye, Scotland.
+* Brother’s Point: Rubha nam Brathairean
+* Bride’s Veil Falls
+* Kiltaraglen: Portree
+* Fairy Pools
+* Fairy Glen: 57.58278° N, 6.32479° W
+* Tobhta: Kensaleyre
+* Dunvegan Village
+* Inverarish: 57.33523° N, 6.05959° W
+* Iron-Brew Mines: Loch Caroy
+* Cave of Gold: 57.64633° N, 6.42319° W
+* Brother’s Cave: 57.34521° N, 6.06647° W
+* Duntulum Camp: 57.68374° N, 6.33816° W
+* Mealt Falls
+* Camp Quiraing: Quiraing View
+* Isay Bandit Camp: Isle of Isay
+* Excavation Site: 57.56158° N, 6.62879° W
+* Dun Ardrreck: 57.34093° N, 6.57857° W
+* Cursed Church: 57.39168° N, 6.36031° W
+* Arnish Deadlock: 57.43920° N, 6.06645° W
 
 ## Assassin’s Creed: Mirage
 * Anbar Hideout
