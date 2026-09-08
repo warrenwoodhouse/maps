@@ -116,7 +116,94 @@ Oltrarno District
 * Add
 
 ## Assassin’s Creed: Revelations
-* Add
+Syria
+Orontes Valley
+Masyaf
+* Masyaf Castle
+* Unmarked Village
+
+Ottoman Empire
+Constantinople
+* Haliç (The Golden Horn)
+* Bosporus
+* The Great Chain
+* The Maiden’s Tower (Kız Kulesi): 41.021167, 29.00425
+
+Galata District, Constantinople
+* Galata Tower
+* Prosphoron Harbor
+* Neorion Harbor
+* Galata Mosque (Galata Camii)
+
+Bayezid District, Constantinople
+* Bayezid Mosque (Bayezid Camii)
+* Little Hagia Sophia Mosque (Kuçuk Ayasofya Camii)
+* Zeyrek Mosque (Zeyrek Camii)
+* Rose Mosque (Gul Camii)
+* Myrelaion Church (Myrelaion Kilise)
+* South Port
+
+Imperial District, Constantinople
+* The Grand Bazaar
+* Old Bedesten (Mentioned Only)
+* Piri Reis
+* Hagia Sophia Mosque (Ayasofya Camii)
+* Sublime Porte (Mentioned Only): 41.011111, 28.978056
+* Hippodrome
+* Forum of Constantine
+* Basilica Cistern (Yerebatan Sarnıcı)
+* Forum of Theodosius
+* Harbor of Julian
+* Obelisk of Theodosius
+* Walled Obelisk
+* Kalenderhane Mosque
+* Great Nymphaeum
+* Cistern of Mocius
+* Sofia’s Shop
+
+Topkapi District, Constantinople
+* Topkapi Palace (Topkapı Sarayı)
+* Hagia Erene (Aya İrini)
+
+Arsenal District, Constantinople
+* Arsenal Gate
+* The Arsenal (Also Known As: Harbor of Theodosius) (Formerly: Harbor of Elutherios)
+
+Constantine District, Constantinople
+* Column of Marcian
+* Valens Aqueduct
+* Faith Mosque (Fatih Camii)
+* Forum of the Ox
+* River Lycus
+* Sancaktar Hayrettin Mosque (Renamed To: Mescidi Camii) (Sancaktar Hayrettin Camii)
+* Forum of Arcadius
+
+Byzantine Empire
+Anatolia
+Cappadocia
+* Cappadocia: add
+
+Mentioned Only
+* Wallachia: Valašské muzeum v přírodě – Valašská dědina, 634 Palackého, Rožnov pod Radhoštěm 756 61, Czechia.
+* Cyprus
+
+### Assassin’s Creed: Revelations: Vlad “The Impaler” Prison DLC
+The Impaler’s Tomb (Also Known As: Vlad “The Impaler” Tepes’ Tomb)
+
+### Assassin’s Creed: Revelations: Mediterranean Defense DLC
+* Alexandria (Sublocations: Isu Site: Bibloteca Alexandria)
+* Algiers (Sublocations: Penon Island)
+* Athens (Sublocations: Isu Site: Athena Akropolis)
+* Bursa
+* Damascus
+* Genoa
+* Jerusalem
+* Lisbon
+* Madrid
+* Marseille
+* Rhodes
+* Tripoli
+* Tunis
 
 ### Assassin’s Creed: Revelations: Mediterranean Traveler Maps Pack DLC
 * Siena
@@ -125,6 +212,14 @@ Oltrarno District
 * Jerusalem
 * Imperial: Imperial District, Istanbul
 * Dyers: Merchant District, Dyers
+
+### Assassin’s Creed: Revelations: The Lost Archive DLC
+* Illinois
+* Omaha
+* Chicago
+* Black Hills
+* Mt. Rushmore
+* New York City
 
 ## Assassin’s Creed: Initiates
 * Add
