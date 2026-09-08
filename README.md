@@ -216,7 +216,11 @@ I'll add some here
 * > [007 First Light Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/007/firstlight)
 
 # Map Icons
-[CLICK HERE](https://github.com/warrenwoodhouse/mapicons) to see all of the various map icons used for my maps.
+* [Fallout Map Icons](https://github.com/warrenwoodhouse/maps/tree/main/reallife/fallout)
+* [Assassin’s Creed Map Icons](https://github.com/warrenwoodhouse/maps/tree/main/reallife/assassinscreed)
+* [This Bed We Made Map Icons](https://github.com/warrenwoodhouse/maps/tree/main/reallife/thisbedwemade)
+* [Everybody’s Gone to the Rapture Map Icons](https://github.com/warrenwoodhouse/maps/tree/main/reallife/everybodysgonetotherapture)
+* [Map Icons](https://github.com/warrenwoodhouse/mapicons) (repository)
 
 # License
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/license) to read the License Agreement.
