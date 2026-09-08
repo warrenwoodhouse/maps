@@ -226,6 +226,9 @@ The Impaler’s Tomb (Also Known As: Vlad “The Impaler” Tepes’ Tomb)
 
 ## Assassin’s Creed III
 * Grand Temple (Isu Vault): Grand Temple, Turin, NY.
+* Boston Light
+* Charlestown Peninsula
+* Charles River
 
 ### Assassin’s Creed III: The Battle Hardened Pack DLC
 * Charlestown
@@ -234,6 +237,9 @@ The Impaler’s Tomb (Also Known As: Vlad “The Impaler” Tepes’ Tomb)
 
 ### Assassin’s Creed III: The Hidden Secrets Pack DLC
 * Lost Mayan Ruins
+
+### Assassin’s Creed III: The Tyranny of King Washington DLC
+* Add
 
 ## Assassin’s Creed: Liberation
 * Chichen Itza Temple (Isu Vault): Chichen Itza Temple, Chichen Itza, Yucatan Peninsula, Mexico.
