@@ -18,25 +18,29 @@
             attribution: '© OpenStreetMap contributors | Map By: <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>'
         }).addTo(map);
 
-        var marker = L.marker(["Montréal", 45.5018869, -73.5673919]).addTo(map) {icon: Icon};
-        var marker = L.marker(["The Clarington Hotel", 45.5062781, -73.5553576]).addTo(map) {icon: Icon};
-        var marker = L.marker(["The Lake -Mentioned Only-", 45.4988179, -73.5973997]).addTo(map) {icon: Icon};
-        var marker = L.marker(["Paul Morgan's House -Mentioned Only-", 39.2748959, -80.3323467], {icon: Icon};
-        var marker = L.marker(["Edith & Lindsey Franklin's House -Mentioned Only-", 44.4838810, -73.2194091], {icon: Icon};
+        // Define the custom icon first
+        var Icon = L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/icons/icon-thisbedwemade.png',
+            iconSize:     [38, 95], // size of the icon
+            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        });
+
+        // Define the locations array
+        var locations = [
+            ["Montréal", 45.5018869, -73.5673919],
+            ["The Clarington Hotel", 45.5062781, -73.5553576],
+            ["The Lake -Mentioned Only-", 45.4988179, -73.5973997],
+            ["Paul Morgan's House -Mentioned Only-", 39.2748959, -80.3323467],
+            ["Edith & Lindsey Franklin's House -Mentioned Only-", 44.4838810, -73.2194091]
         ];
 
-      for (var i = 0; i < locations.length; i++) {
-  marker = new L.marker([locations[i][1], locations[i][2]])
-    .bindPopup(locations[i][0])
-    .addTo(map);
-
-      var Icon = L.icon({
-    iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/icons/icon-thisbedwemade.png',
-
-    iconSize:     [38, 95], // size of the icon
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
+        // Add markers to map
+        for (var i = 0; i < locations.length; i++) {
+            marker = new L.marker([locations[i][1], locations[i][2]], {icon: Icon})
+                .bindPopup(locations[i][0])
+                .addTo(map);
+        }
     </script>
 </body>
 </html>
