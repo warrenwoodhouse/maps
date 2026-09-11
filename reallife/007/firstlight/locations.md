@@ -20,4 +20,7 @@ The locations listed below are for the interactive map I’m currently developin
 * Work and Arts Museum, London: 51.511944, -0.127222
 * The Perch, London: 51.511944, -0.127222
 * Webb Industries, London: 51.511944, -0.127222
-* The Pearl, Vietnam: 12.238889, 109.195000
+* Hạ Long Bay, Vietnam: 20.9, 107.2
+* The Pearl, Vietnam: 11.7086, 109.1989 | in-game GPS coordinates for The Pearl: 12.238889, 109.195000
+* Antarctica: add
+* Webb Industries, Antarctica: add
