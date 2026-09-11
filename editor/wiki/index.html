@@ -1,0 +1,362 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediaWiki Map Generator & Editor - Maps - Warren Woodhouse</title>
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; height: 100vh; display: flex; flex-direction: column; background: #121212; color: #e0e0e0; }
+    
+    header { background: #1f1f1f; padding: 12px 20px; border-bottom: 1px solid #333; display: flex; align-items: center; justify-content: space-between; }
+    header h1 { font-size: 1.2rem; color: #00d2ff; }
+    .api-bar { display: flex; gap: 8px; align-items: center; }
+    .api-bar input { padding: 6px 10px; background: #2a2a2a; border: 1px solid #444; color: #fff; border-radius: 4px; }
+    .btn { padding: 6px 14px; background: #0070f3; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; }
+    .btn:hover { background: #0051a8; }
+    .btn-success { background: #10b981; }
+    .btn-success:hover { background: #059669; }
+
+    .main-container { display: flex; flex: 1; overflow: hidden; }
+    
+    /* Sidebar */
+    .sidebar { width: 340px; background: #1a1a1a; border-right: 1px solid #333; display: flex; flex-direction: column; overflow-y: auto; }
+    .tab-section { padding: 16px; border-bottom: 1px solid #2a2a2a; }
+    .tab-section h2 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.5px; color: #888; margin-bottom: 12px; }
+    .form-group { margin-bottom: 10px; }
+    .form-group label { display: block; font-size: 0.8rem; color: #aaa; margin-bottom: 4px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px; background: #262626; border: 1px solid #3a3a3a; color: #fff; border-radius: 4px; font-size: 0.85rem; }
+    .form-group textarea { height: 60px; resize: vertical; }
+
+    /* Map Workspace */
+    #map { flex: 1; background: #0a0a0a; }
+
+    /* Output/Code Modal or Section */
+    .code-preview { height: 180px; background: #111; border-top: 1px solid #333; padding: 12px; font-family: monospace; font-size: 0.8rem; color: #00ff66; overflow-y: auto; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Fandom / MediaWiki Map Editor</h1>
+  <div class="api-bar">
+    <input type="text" id="wikiUrl" value="" placeholder="Wiki Base URL" style="width: 240px;">
+    <button class="btn" onclick="fetchMapList()">Load Wiki Maps</button>
+    <select id="mapList" onchange="loadSelectedMap()" style="padding: 6px; background: #2a2a2a; color: #fff; border: 1px solid #444; border-radius: 4px;">
+      <option value="">-- Select Map --</option>
+    </select>
+  </div>
+</header>
+
+<div class="main-container">
+  <!-- Sidebar Editor Controls -->
+  <div class="sidebar">
+    <!-- General Settings -->
+    <div class="tab-section">
+      <h2>1. Map Settings</h2>
+      <div class="form-group">
+        <label>Map Title (Namespace: Map:)</label>
+        <input type="text" id="mapTitle" value="My_Interactive_Map" placeholder="e.g. World_Map">
+      </div>
+      <div class="form-group">
+        <label>Background Image URL / File Name</label>
+        <input type="text" id="mapImage" value="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.png" onchange="updateMapBackground()">
+      </div>
+      <div class="form-group">
+        <label>Origin Point</label>
+        <select id="mapOrigin" onchange="updateMapBackground()">
+          <option value="top-left">Top-Left [0,0]</option>
+          <option value="bottom-left" selected>Bottom-Left [0,0]</option>
+        </select>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <div class="form-group" style="flex:1;">
+          <label>Width (X)</label>
+          <input type="number" id="boundWidth" value="1920" onchange="updateMapBackground()">
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label>Height (Y)</label>
+          <input type="number" id="boundHeight" value="1080" onchange="updateMapBackground()">
+        </div>
+      </div>
+    </div>
+
+    <!-- Category Manager -->
+    <div class="tab-section">
+      <h2>2. Marker Categories</h2>
+      <div class="form-group">
+        <label>Category Name</label>
+        <input type="text" id="catName" placeholder="e.g. Chests">
+      </div>
+      <div class="form-group">
+        <label>Category ID</label>
+        <input type="text" id="catId" placeholder="e.g. category_chests">
+      </div>
+      <button class="btn" style="width: 100%;" onclick="addCategory()">+ Add Category</button>
+      <div id="categoryListContainer" style="margin-top: 10px; font-size: 0.8rem; color: #ccc;"></div>
+    </div>
+
+    <!-- Active Marker Editor -->
+    <div class="tab-section">
+      <h2>3. Active Marker</h2>
+      <p style="font-size: 0.75rem; color: #888; margin-bottom: 8px;">Click anywhere on the map to place/move a marker.</p>
+      <div class="form-group">
+        <label>Marker Title</label>
+        <input type="text" id="markerTitle" placeholder="Marker Label">
+      </div>
+      <div class="form-group">
+        <label>Description (Wikitext supported)</label>
+        <textarea id="markerDesc" placeholder="Details or guide links..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Category</label>
+        <select id="markerCat"></select>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <div class="form-group" style="flex:1;">
+          <label>X Position</label>
+          <input type="number" id="markerX" readonly>
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label>Y Position</label>
+          <input type="number" id="markerY" readonly>
+        </div>
+      </div>
+      <button class="btn btn-success" style="width: 100%; margin-top: 4px;" onclick="saveActiveMarker()">Save Marker</button>
+    </div>
+
+    <!-- Actions -->
+    <div class="tab-section" style="border: none;">
+      <button class="btn btn-success" style="width: 100%; margin-bottom: 8px;" onclick="publishToWiki()">Publish Map via MediaWiki API</button>
+      <button class="btn" style="width: 100%; background: #444;" onclick="generateJSON()">Generate JSON Code</button>
+    </div>
+  </div>
+
+  <!-- Interactive Map Canvas -->
+  <div id="map"></div>
+</div>
+
+<!-- Raw JSON Schema Preview -->
+<div class="code-preview" id="jsonOutput">// MediaWiki JSON Schema output will appear here...</div>
+
+<script>
+  // App State
+  let mapInstance = null;
+  let imageOverlay = null;
+  let activeMarker = null;
+  let markersData = [];
+  let categoriesData = [{ id: 'default', name: 'General' }];
+
+  // Initialize Map
+  function initMap() {
+    const width = parseFloat(document.getElementById('boundWidth').value);
+    const height = parseFloat(document.getElementById('boundHeight').value);
+    const imgUrl = document.getElementById('mapImage').value;
+
+    if (mapInstance) {
+      mapInstance.remove();
+    }
+
+    // MediaWiki maps use L.CRS.Simple for flat image pixel coordinates
+    mapInstance = L.map('map', {
+      crs: L.CRS.Simple,
+      minZoom: -2,
+      maxZoom: 3
+    });
+
+    const bounds = [[0, 0], [height, width]];
+    imageOverlay = L.imageOverlay(imgUrl, bounds).addTo(mapInstance);
+    mapInstance.fitBounds(bounds);
+
+    // Map Click Listener to Create/Move Marker
+    mapInstance.on('click', function(e) {
+      const x = Math.round(e.latlng.lng);
+      const y = Math.round(e.latlng.lat);
+      
+      document.getElementById('markerX').value = x;
+      document.getElementById('markerY').value = y;
+
+      if (!activeMarker) {
+        activeMarker = L.marker([y, x], { draggable: true }).addTo(mapInstance);
+        activeMarker.on('drag', function(evt) {
+          const pos = evt.target.getLatLng();
+          document.getElementById('markerX').value = Math.round(pos.lng);
+          document.getElementById('markerY').value = Math.round(pos.lat);
+        });
+      } else {
+        activeMarker.setLatLng([y, x]);
+      }
+    });
+
+    renderCategoriesDropdown();
+  }
+
+  function updateMapBackground() {
+    initMap();
+    redrawAllMarkers();
+  }
+
+  // Category Logic
+  function addCategory() {
+    const name = document.getElementById('catName').value.trim();
+    const id = document.getElementById('catId').value.trim() || name.toLowerCase().replace(/\s+/g, '_');
+    if (!name) return;
+
+    categoriesData.push({ id, name });
+    document.getElementById('catName').value = '';
+    document.getElementById('catId').value = '';
+    renderCategoriesDropdown();
+  }
+
+  function renderCategoriesDropdown() {
+    const select = document.getElementById('markerCat');
+    const container = document.getElementById('categoryListContainer');
+    select.innerHTML = '';
+    container.innerHTML = '<strong>Categories:</strong><br>';
+
+    categoriesData.forEach(cat => {
+      select.innerHTML += `<option value="${cat.id}">${cat.name}</option>`;
+      container.innerHTML += `• ${cat.name} (<code>${cat.id}</code>)<br>`;
+    });
+  }
+
+  // Marker Save Logic
+  function saveActiveMarker() {
+    const x = parseFloat(document.getElementById('markerX').value);
+    const y = parseFloat(document.getElementById('markerY').value);
+    const title = document.getElementById('markerTitle').value.trim() || 'Untitled Pin';
+    const description = document.getElementById('markerDesc').value.trim();
+    const category = document.getElementById('markerCat').value;
+
+    if (isNaN(x) || isNaN(y)) {
+      alert('Please click on the map first to select coordinates!');
+      return;
+    }
+
+    const newMarker = {
+      id: Date.now(),
+      title,
+      description,
+      x,
+      y,
+      category
+    };
+
+    markersData.push(newMarker);
+    if (activeMarker) {
+      mapInstance.removeLayer(activeMarker);
+      activeMarker = null;
+    }
+
+    // Reset Form
+    document.getElementById('markerTitle').value = '';
+    document.getElementById('markerDesc').value = '';
+    document.getElementById('markerX').value = '';
+    document.getElementById('markerY').value = '';
+
+    redrawAllMarkers();
+    generateJSON();
+  }
+
+  function redrawAllMarkers() {
+    markersData.forEach(m => {
+      const pin = L.marker([m.y, m.x]).addTo(mapInstance);
+      pin.bindPopup(`<b>${m.title}</b><p>${m.description}</p><small>Category: ${m.category}</small>`);
+    });
+  }
+
+  // MediaWiki Schema Export
+  function buildWikiMapJSON() {
+    const width = parseFloat(document.getElementById('boundWidth').value);
+    const height = parseFloat(document.getElementById('boundHeight').value);
+    const origin = document.getElementById('mapOrigin').value;
+
+    return {
+      mapImage: document.getElementById('mapImage').value,
+      origin: origin,
+      mapBounds: [[0, 0], [width, height]],
+      categories: categoriesData,
+      markers: markersData
+    };
+  }
+
+  function generateJSON() {
+    const schema = buildWikiMapJSON();
+    document.getElementById('jsonOutput').textContent = JSON.stringify(schema, null, 2);
+  }
+
+  // MediaWiki API Interactions
+  async function fetchMapList() {
+    const wikiUrl = document.getElementById('wikiUrl').value.replace(/\/$/, "");
+    const apiUrl = `${wikiUrl}/api.php?action=query&list=allpages&apprefix=Map:&aplimit=50&format=json&origin=*`;
+
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      const mapSelect = document.getElementById('mapList');
+      mapSelect.innerHTML = '<option value="">-- Select Map --</option>';
+
+      if (data.query && data.query.allpages) {
+        data.query.allpages.forEach(page => {
+          mapSelect.innerHTML += `<option value="${page.title}">${page.title}</option>`;
+        });
+        alert(`Loaded ${data.query.allpages.length} maps from wiki.`);
+      }
+    } catch (err) {
+      alert('Failed to connect to MediaWiki API. Check CORS settings or Wiki URL.');
+      console.error(err);
+    }
+  }
+
+  async function loadSelectedMap() {
+    const pageTitle = document.getElementById('mapList').value;
+    if (!pageTitle) return;
+
+    const wikiUrl = document.getElementById('wikiUrl').value.replace(/\/$/, "");
+    const apiUrl = `${wikiUrl}/api.php?action=query&prop=revisions&titles=${encodeURIComponent(pageTitle)}&rvprop=content&rvslots=main&format=json&origin=*`;
+
+    try {
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      const pages = data.query.pages;
+      const pageId = Object.keys(pages)[0];
+      const content = pages[pageId].revisions[0].slots.main['*'];
+
+      const parsedMap = JSON.parse(content);
+      
+      // Load Schema into Editor State
+      document.getElementById('mapTitle').value = pageTitle.replace('Map:', '');
+      document.getElementById('mapImage').value = parsedMap.mapImage || '';
+      document.getElementById('mapOrigin').value = parsedMap.origin || 'bottom-left';
+      if (parsedMap.mapBounds) {
+        document.getElementById('boundWidth').value = parsedMap.mapBounds[1][0];
+        document.getElementById('boundHeight').value = parsedMap.mapBounds[1][1];
+      }
+      
+      categoriesData = parsedMap.categories || [{ id: 'default', name: 'General' }];
+      markersData = parsedMap.markers || [];
+
+      updateMapBackground();
+      generateJSON();
+    } catch (err) {
+      alert('Failed to parse Map JSON from page content.');
+      console.error(err);
+    }
+  }
+
+  async function publishToWiki() {
+    const wikiUrl = document.getElementById('wikiUrl').value.replace(/\/$/, "");
+    const title = 'Map:' + document.getElementById('mapTitle').value.trim();
+    const mapContent = JSON.stringify(buildWikiMapJSON(), null, 2);
+
+    alert(`To complete publishing to ${wikiUrl}:\n\n1. Copy the generated JSON below.\n2. Navigate to page: ${wikiUrl}/wiki/${title}\n3. Edit page and paste the JSON directly.`);
+    generateJSON();
+  }
+
+  // Initialize on launch
+  window.onload = initMap;
+</script>
+</body>
+</html>
