@@ -19,12 +19,31 @@ Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.c
 # Map Editor
 Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
 
+## Alternative Editors - Map Editor
+Here are some other editors and map generators by me as well!
+
+* [Alternative Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/alternative)
+* [MediaWiki Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/wiki)
+
 # My Inspirations
 I get inspired from seeing maps by MapGenie, Game-Maps, historical paper maps and maps by legendary cartographers such as Gerardus Mercator, Piri Reis and Maria Tharp, all of which contributed to the creation of various historically accurate world maps.
+
+# Community
+Join the Community!
+
+## Wiki
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki) to see Wiki Articles on our community wiki.
+
+## Projects
+[CLICK HERE](https://github.com/users/warrenwoodhouse/projects/3) to see GitHub projects related to this repository.
+
+## Discussions
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions)
 
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
 
+## Templates - Interactive Maps
 * [Template](https://warrenwoodhouse.github.io/maps/template) <small>[(Code)](https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/template/index.html)</small>
 
 ## Games - Interactive Maps
@@ -180,7 +199,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * [Saints Row Reboot (Saints Row (2022))](https://warrenwoodhouse.github.io/maps/saintsrow/reboot) (WIP)
 
 ## TV Series - Interactive Maps
-* [Coronation Street](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet) (WIP)
+* [Coronation Street](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet) (WIP, converting from Google MyMaps)
 * > [Street Finder Map by The Sun Newspaper (1996)](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet/streetfinder) (WIP)
 
 ## Films - Interactive Maps
@@ -188,9 +207,9 @@ I'll add some here
 
 ## Historical - Interactive Maps
 ### Boston, MA.
-* [Battle of Bunker Hill, Charlestown, MA.](https://warrenwoodhouse.github.io/maps/battleofbunkerhill)
-* [Fort Hill in Boston, MA.](https://warrenwoodhouse.github.io/maps/forthill)
-* [Fort Independence in Boston, MA.](https://warrenwoodhouse.github.io/maps/fortindependence)
+* [Battle of Bunker Hill, Charlestown, MA.](https://warrenwoodhouse.github.io/maps/battleofbunkerhill) (converted from Google MyMaps)
+* [Fort Hill in Boston, MA.](https://warrenwoodhouse.github.io/maps/forthill) (converted from Google MyMaps)
+* [Fort Independence in Boston, MA.](https://warrenwoodhouse.github.io/maps/fortindependence) (converted from Google MyMaps)
 
 ## Service - Interactive Maps
 [Northern Powergrid’s Power Cuts Map](https://warrenwoodhouse.github.io/maps/northernpowergrid/powercuts) (WIP)
@@ -199,19 +218,15 @@ I'll add some here
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
 
 # Real Life Maps
-* [Assassin’s Creed Franchise](https://warrenwoodhouse.github.io/maps/reallife/assassinscreed)
-* [Fallout Franchise](https://warrenwoodhouse.github.io/maps/reallife/fallout)
 * Everybody’s Gone to the Rapture
-* [This Bed We Made Franchise](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade)
-* L.A. Noire
+* L.A. Noire (WIP, converting from Google MyMaps)
 * Atomfall
-* [007 Franchise](https://warrenwoodhouse.github.io/maps/reallife/007)
 * The Order 1886
 * Tomb Raider Franchise
-* Control Franchise
+* Control Franchise (WIP, converting from Google MyMaps)
 
 ## Creations - Real Life Maps
-* [Ouseburn Farm Water Feature by Warren Woodhouse](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature)
+* [Ouseburn Farm Water Feature by Warren Woodhouse](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature) (converted from Google MyMaps)
 
 ## Assassin’s Creed Franchise - Real Life Maps
 * [Assassin’s Creed Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/assassinscreed/franchise) (WIP, converting from Google MyMaps)
@@ -220,7 +235,7 @@ I'll add some here
 * [Fallout Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/fallout/franchise) (WIP, converting from Google MyMaps)
 
 ## This Bed We Made Franchise - Real Life Maps
-* [This Bed We Made Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade) (WIP, converting from Google MyMaps)
+* [This Bed We Made Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade) (converted from Google MyMaps)
 
 ## James Bond 007 Franchise - Real Life Maps
 * [James Bond 007 Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/007) (WIP, converting from Google MyMaps)
