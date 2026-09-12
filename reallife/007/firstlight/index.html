@@ -37,6 +37,10 @@
             font-size: 0.95em;
             line-height: 1.4;
         }
+        .popup-type {
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body>
@@ -153,43 +157,71 @@
                 id: "12"
             },
             {
-                name: "University of Lisbon (Mentioned Only, Collectible Item)",
+                name: "University of Lisbon",
                 lat: 38.7509,
                 lng: -9.1566,
                 desc: "Mentioned on a collectible item.",
-                id: "13"
+                id: "13",
+                type: "Mentioned Only, Collectible item"
             },
             {
-                name: "University of Caracas (Mentioned Only, Collectible Item)",
+                name: "University of Caracas",
                 lat: 10.490833,
                 lng: -66.890556,
                 desc: "Mentioned on a Collectible item.",
-                id: "14"
+                id: "14",
+                type: "Mentioned Only, Collectible item"
             },
             {
-                name: "University of Leeds (Mentioned Only, Collectible Item)",
+                name: "University of Leeds",
                 lat: 53.807222,
                 lng: -1.551667,
                 desc: "Mentioned on a Collectible item.",
-                id: "15"
+                id: "15",
+                type: "Mentioned Only, Collectible item"
             },
             {
-                name: "RMA Sandhurst (Mentioned Only, Collectible item.",
+                name: "RMA Sandhurst",
                 lat: 51.340278,
                 lng: -0.768611,
                 desc: "Mentioned on a Collectle itrm.",
-                id: "16"
+                id: "16",
+                type: "Mentioned Only, Collectible item"
+            },
+            {
+                name: "Aiguilles Rouges",
+                lat: 45.9894438,
+                lng: 6.8747222,
+                desc: "This place holds a haunting memory for the titular character that we've all come to love.",
+                id: "17",
+                type: "Mentioned Only, Collectible item"
+            },
+            {
+                name: "Wycombe Abbey",
+                lat: 51.626111,
+                lng: -0.751667,
+                desc: "Cressida Bright's former Alma Matter before she enrolled at the University of Cambridge.",
+                id: "18",
+                type: "Mentioned Only, Collectible item"
+            },
+            {
+                name: "University of Cambridge",
+                lat: 52.2053,
+                lng: 0.1132,
+                desc: "Cressida Bright enrolled at Cambridge University after attending RMA Sandhurst.",
+                id: "19",
+                type: "Mentioned Only. Collectible item"
             }
-
         ];
 
         // Add markers to the map
         locations.forEach(function(loc) {
             var popupContent = '<div class="popup-title">' + loc.name + '</div>' +
                                '<div class="popup-id">' + loc.id + '</div>' +
-                               '<div class="popup-desc">' + loc.desc + '</div>';
+                               '<div class="popup-desc">' + loc.desc + '</div>' +
+                               '<div class="popup-type">' + loc.type + '</div>';
             
-            L.marker([loc.lat, loc.lng, loc.id], { icon: Icon })
+            L.marker([loc.lat, loc.lng, loc.id, loc.type], { icon: Icon })
                 .bindPopup(popupContent, { className: 'custom-popup' })
                 .addTo(map);
         });      
