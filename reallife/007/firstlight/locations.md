@@ -25,3 +25,8 @@ The locations listed below are for the interactive map I’m currently developin
 * Antarctica: -49.9512199, -12.3285873
 * Webb Industries, Antarctica: -77.5, 106
 * Cemetery: 51.5923509, -0.1809676
+
+## mentioned only - locations
+* University of Lisbon: add
+* University of Caracas: add
+* Assembly Street, London, UK: mentioned on (Intel) Caliban, unfortunately there is no such address
