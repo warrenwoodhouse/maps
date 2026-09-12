@@ -30,3 +30,9 @@ The locations listed below are for the interactive map I’m currently developin
 * University of Lisbon: add
 * University of Caracas: add
 * Assembly Street, London, UK: mentioned on (Intel) Caliban, unfortunately there is no such address
+* University of Leeds: add
+* Hoffman Clinic; Grunewaldgasse 24, Zürich
+* RMA Sandhurst: add
+* Aiguilles Rouges: add
+* Wycombe Abbey: add
+* University of Cambridge: add
