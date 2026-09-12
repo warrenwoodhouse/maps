@@ -14,7 +14,7 @@ The locations listed below are for the interactive map I’m currently developin
 * MI6 Training Ground, Malta: 35.9021876, 14.518689
 * MI6 Research & Development Division, MI6 HQ, SIS Building, London: below the SIS Building in London
 * The ARCH Club, London: 51.497778, -0.099722
-* Grand Carpathian Hotel, Slovakia: 49.118472, 20.062500
+* Grand Carpathian Hotel, Slovakia: 49.1193765, 20.0591794
 * Aleph, Mauritania, Africa: 18.726389, -16.158056
 * Transworld Wreck, Mauritania, Africa: 18.726389, -16.158056
 * Work and Arts Museum, London: 51.511944, -0.127222
@@ -22,5 +22,6 @@ The locations listed below are for the interactive map I’m currently developin
 * Webb Industries, London: 51.511944, -0.127222
 * Hạ Long Bay, Vietnam: 20.9, 107.2
 * The Pearl, Vietnam: 11.7086, 109.1989 | in-game GPS coordinates for The Pearl: 12.238889, 109.195000
-* Antarctica: add
-* Webb Industries, Antarctica: add
+* Antarctica: -49.9512199, -12.3285873
+* Webb Industries, Antarctica: -77.5, 106
+* Cemetery: 51.5923509, -0.1809676
