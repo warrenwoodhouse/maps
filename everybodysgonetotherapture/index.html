@@ -57,6 +57,17 @@
 
         // 5. Create Layer Groups for Filters
         const areas = L.layerGroup();
+        const publicfootpath = L.layerGroup();
+        const pub = L.layerGroup();
+        const surgery = L.layerGroup();
+        const radio = L.layerGroup();
+        const tealeaf = L.layerGroup();
+        const hiddenpaths = L.layerGroup();
+        const witcheshat = L.layerGroup();
+        const trainspotter = L.layerGroup();
+        const youarehere = L.layerGroup();
+        const codedmessages = L.layerGroup();
+        const chads = L.layerGroup();
 
         // 6. Location Database
         // Y = Vertical axis (0 is bottom, 1557 is top)
@@ -87,8 +98,10 @@
             // Route the marker to the correct filter group based on its type
             if (loc.type === "areas") {
                 marker.addTo(areas);
-                marker.addTo(youarehere);
+            } else if (loc.type === "radio") {
                 marker.addTo(radio);
+            } else if (loc.type === "youarehere") {
+                marker.addTo(youarehere);
             }
         });
 
@@ -97,17 +110,17 @@
 
         // 9. Build the Filter Control Menu
         const filterControls = {
-            "Areas": areas
-            "Public Footpath": publicfootpath
-            "Pub": pub
-            "Surgery": surgery
-            "Radio Enthusiast (Trophy)": radio
-            "Tea Leaf (Trophy)": tealeaf
-            "Hidden Paths (Trophy)": hiddenpaths
-            "Witches Hat (Trophy)": witcheshat
-            "Trainspotter (Trophy)": trainspotter
-            "You Are Here Maps": youarehere
-            "Coded Messages": codedmessages
+            "Areas": areas,
+            "Public Footpath": publicfootpath,
+            "Pub": pub,
+            "Surgery": surgery,
+            "Radio Enthusiast (Trophy)": radio,
+            "Tea Leaf (Trophy)": tealeaf,
+            "Hidden Paths (Trophy)": hiddenpaths,
+            "Witches Hat (Trophy)": witcheshat,
+            "Trainspotter (Trophy)": trainspotter,
+            "You Are Here Maps": youarehere,
+            "Coded Messages": codedmessages,
             "Chads (Trophy)": chads
         };
 
