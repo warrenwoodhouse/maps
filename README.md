@@ -54,12 +54,12 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Atomfall - Games - Interactive Maps
 * Atomfall
 * > Slatten Dale
-  > Sewer
-  > Wyndham Village
-  > Casterfell Woods
-  > Skethermoor
-  > [The Interchange](https://warrenwoodhouse.github.io/maps/atomfall/theinterchange)
-  > Windscale Power Plant
+* > Sewer
+* > Wyndham Village
+* > Casterfell Woods
+* > Skethermoor
+* > [The Interchange](https://warrenwoodhouse.github.io/maps/atomfall/theinterchange)
+* > Windscale Power Plant
 
 ## Assassin’s Creed - Games - Interactive Maps
 * Assassin's Creed
