@@ -1,0 +1,624 @@
+<html class="h-full bg-slate-950 text-slate-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Interchange - Atomfall Map - Maps - Warren Woodhouse</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            background-color: #0b0f19;
+        }
+
+        /* Leaflet Popup Styling */
+        .leaflet-popup-content-wrapper {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 0.75rem !important;
+            color: #f8fafc !important;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+            padding: 2px !important;
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(15, 23, 42, 0.95) !important;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+        }
+
+        .leaflet-popup-content {
+            margin: 0.75rem 1rem !important;
+            line-height: 1.4 !important;
+        }
+
+        .leaflet-container a.leaflet-popup-close-button {
+            color: #94a3b8 !important;
+            padding: 8px !important;
+        }
+
+        .leaflet-container a.leaflet-popup-close-button:hover {
+            color: #f8fafc !important;
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(239, 68, 68, 0.3);
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(239, 68, 68, 0.6);
+        }
+
+        /* Pulse animation for map pins */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.25); opacity: 0.3; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .marker-pulse {
+            animation: pulse-ring 2s infinite ease-in-out;
+        }
+
+        /* Toast Container */
+        #toast-container {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .toast {
+            background: #0f172a;
+            border: 1px solid #10b981;
+            color: #f8fafc;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-weight: 500;
+            font-size: 0.875rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="h-full w-full flex flex-col bg-slate-950 text-slate-100 antialiased selection:bg-red-500/30 selection:text-red-200">
+
+    <header class="h-14 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 flex items-center justify-between px-4 z-20 shrink-0">
+        <div class="flex items-center gap-3">
+            <button id="toggle-sidebar-btn" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 transition sm:hidden" title="Toggle Sidebar">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+            <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></div>
+                <h1 class="font-bold tracking-tight text-sm sm:text-base text-slate-100 flex items-center gap-2">
+                    <span>THE INTERCHANGE</span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-red-500/10 border border-red-500/30 text-red-400 font-mono hidden sm:inline-block">TACTICAL SURVEY</span>
+                </h1>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <!-- Custom map image loader input -->
+            <label for="image-upload" class="cursor-pointer px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-medium text-slate-300 flex items-center gap-1.5 transition" title="Load custom map image file">
+                <i data-lucide="image" class="w-3.5 h-3.5 text-red-400"></i>
+                <span class="hidden md:inline">Change Map Image</span>
+                <input type="file" id="image-upload" accept="image/*" class="hidden">
+            </label>
+
+            <!-- Reset view button -->
+            <button id="reset-view-btn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-medium text-slate-300 flex items-center gap-1.5 transition" title="Reset map zoom & position">
+                <i data-lucide="rotate-ccw" class="w-3.5 h-3.5 text-slate-400"></i>
+                <span class="hidden sm:inline">Reset View</span>
+            </button>
+
+            <!-- Active pin counter -->
+            <div class="px-2.5 py-1 rounded-lg bg-red-950/60 border border-red-800/40 text-xs font-mono text-red-300 flex items-center gap-1">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-red-500"></i>
+                <span id="pin-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <div class="flex-1 flex relative overflow-hidden">
+
+        <aside id="sidebar" class="w-80 bg-slate-900/95 border-r border-slate-800 flex flex-col z-10 transition-transform duration-300 ease-in-out absolute sm:relative inset-y-0 left-0 -translate-x-full sm:translate-x-0 h-full backdrop-blur-lg">
+            
+            <!-- Sidebar Header & Search Bar -->
+            <div class="p-4 border-b border-slate-800 flex flex-col gap-3">
+                <div class="relative">
+                    <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                    <input type="text" id="search-input" placeholder="Search markers..." class="w-full bg-slate-950 border border-slate-800 rounded-lg pl-9 pr-3 py-2 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-red-500/50 transition">
+                </div>
+
+                <!-- Categories filter pills -->
+                <div class="flex items-center gap-1 overflow-x-auto pb-1 text-xs">
+                    <button data-category="all" class="category-btn active px-2.5 py-1 rounded-md bg-red-600 text-white font-medium transition">All</button>
+                    <button data-category="doors" class="category-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Doors</button>
+                    <button data-category="poi" class="category-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">POIs</button>
+                    <button data-category="routes" class="category-btn px-2.5 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 transition">Routes</button>
+                </div>
+            </div>
+
+            <!-- Locations list -->
+            <div id="location-list" class="flex-1 overflow-y-auto p-3 flex flex-col gap-2">
+                <!-- Dynamically populated location cards -->
+            </div>
+
+            <!-- Sidebar Footer / Coordinate Tool -->
+            <div class="p-3 border-t border-slate-800 bg-slate-950/50 text-[11px] font-mono text-slate-400 flex items-center justify-between">
+                <span class="flex items-center gap-1.5">
+                    <i data-lucide="crosshair" class="w-3.5 h-3.5 text-red-500"></i>
+                    <span>Coords:</span>
+                </span>
+                <span id="coord-display" class="text-slate-300">Y: --, X: --</span>
+            </div>
+        </aside>
+
+        <main class="flex-1 relative h-full">
+            <div id="map"></div>
+
+            <!-- Floating Overlay instructions -->
+            <div class="absolute bottom-4 right-4 z-[500] pointer-events-none hidden md:flex flex-col gap-2">
+                <div class="bg-slate-900/90 border border-slate-800 rounded-lg p-2.5 backdrop-blur text-xs text-slate-300 shadow-xl flex items-center gap-2">
+                    <i data-lucide="info" class="w-4 h-4 text-red-400 shrink-0"></i>
+                    <span>Click any red marker to open popup & get shareable URL.</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Simple Coordinate Reference System (CRS.Simple) for flat maps
+        const bounds = [[0, 0], [1000, 1000]];
+        const defaultCenter = [500, 500];
+
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1.5,
+            maxZoom: 3,
+            zoomSnap: 0.25,
+            attributionControl: false
+        });
+
+        // Default map image source (user local asset or placeholder generator fallback)
+        let mapImageOverlay = null;
+
+        function createFallbackMapDataUrl() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 1200;
+            const ctx = canvas.getContext('2d');
+
+            // Dark schematic background
+            ctx.fillStyle = '#0f172a';
+            ctx.fillRect(0, 0, 1200, 1200);
+
+            // Grid pattern
+            ctx.strokeStyle = '#1e293b';
+            ctx.lineWidth = 1;
+            for (let x = 0; x < 1200; x += 60) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, 1200); ctx.stroke();
+            }
+            for (let y = 0; y < 1200; y += 60) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(1200, y); ctx.stroke();
+            }
+
+            // Draw central circular chamber schematic
+            ctx.strokeStyle = '#334155';
+            ctx.lineWidth = 4;
+            ctx.beginPath(); ctx.arc(600, 600, 320, 0, Math.PI * 2); ctx.stroke();
+            ctx.beginPath(); ctx.arc(600, 600, 80, 0, Math.PI * 2); ctx.stroke();
+
+            // Radial tunnels
+            for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 4) {
+                ctx.beginPath();
+                ctx.moveTo(600 + Math.cos(angle) * 80, 600 + Math.sin(angle) * 80);
+                ctx.lineTo(600 + Math.cos(angle) * 320, 600 + Math.sin(angle) * 320);
+                ctx.stroke();
+            }
+
+            // Title block in top right
+            ctx.fillStyle = '#cbd5e1';
+            ctx.font = 'bold 24px monospace';
+            ctx.fillText('THE INTERCHANGE', 820, 80);
+            ctx.font = '14px monospace';
+            ctx.fillStyle = '#64748b';
+            ctx.fillText('Floor Plan & Cave Survey', 820, 105);
+            ctx.fillText('British Atomic Research Division', 820, 125);
+
+            return canvas.toDataURL();
+        }
+
+        // Set initial map overlay with fallback handling for maps-atomfall-theinterchange.png
+        const defaultMapUrl = 'maps-atomfall-theinterchange.png';
+        mapImageOverlay = L.imageOverlay(defaultMapUrl, bounds).addTo(map);
+
+        // Fallback to schematic image if local IMG_3447.jpeg isn't loaded
+        const testImg = new Image();
+        testImg.onerror = function() {
+            console.log('Local map image IMG_3447.jpeg not found. Loading fallback schematic grid.');
+            map.removeLayer(mapImageOverlay);
+            mapImageOverlay = L.imageOverlay(createFallbackMapDataUrl(), bounds).addTo(map);
+        };
+        testImg.src = defaultMapUrl;
+
+        map.fitBounds(bounds);
+
+        const redTacticalIcon = L.divIcon({
+            className: 'custom-red-pin',
+            html: `
+                <div class="relative flex items-center justify-center w-8 h-8 -translate-x-1/2 -translate-y-full">
+                    <div class="absolute inset-0 rounded-full bg-red-500/30 border border-red-500 marker-pulse"></div>
+                    <div class="w-6 h-6 rounded-full bg-red-600 border-2 border-slate-900 shadow-lg flex items-center justify-center text-white">
+                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    </div>
+                </div>
+            `,
+            iconSize: [32, 32],
+            iconAnchor: [16, 32],
+            popupAnchor: [0, -32]
+        });
+
+        const mapLocations = [
+            {
+                id: 'cathedral',
+                name: 'Cathedral',
+                category: 'poi',
+                coords: [920, 160],
+                description: 'Upper Northern wing hall marked on survey map.'
+            },
+            {
+                id: 'wellington',
+                name: 'Wellington / Door 3',
+                category: 'doors',
+                coords: [780, 170],
+                description: 'Access portal Door 3 near Wellington shaft.'
+            },
+            {
+                id: 'wellhead',
+                name: 'Wellhead',
+                category: 'poi',
+                coords: [850, 310],
+                description: 'Circular wellhead chamber in the upper quadrant.'
+            },
+            {
+                id: 'door-2',
+                name: 'Door 2 & Camtruck',
+                category: 'doors',
+                coords: [740, 310],
+                description: 'Door 2 access point adjacent to camtruck position.'
+            },
+            {
+                id: 'central-rotunda',
+                name: 'Central Hub',
+                category: 'poi',
+                coords: [500, 480],
+                description: 'Main central interchange circular chamber and spoke tunnels.'
+            },
+            {
+                id: 'door-1-tunnel',
+                name: 'Door 1 / Tunnel',
+                category: 'doors',
+                coords: [360, 770],
+                description: 'Door 1 entry point leading to eastern tunnel breakthrough.'
+            },
+            {
+                id: 'skither-moor',
+                name: 'Skither Moor',
+                category: 'routes',
+                coords: [200, 920],
+                description: 'Eastern patrol route leading towards Skither Moor exit.'
+            },
+            {
+                id: 'door-4-slattendale',
+                name: 'Door 4 / Slattendale',
+                category: 'doors',
+                coords: [150, 210],
+                description: 'Door 4 position located near water & battery storage, heading to Slattendale.'
+            }
+        ];
+
+        const markerInstances = {};
+        let activeCategory = 'all';
+
+        function renderMarkers() {
+            mapLocations.forEach(loc => {
+                const marker = L.marker(loc.coords, { icon: redTacticalIcon }).addTo(map);
+                markerInstances[loc.id] = marker;
+
+                // Create popup HTML layout
+                const popupContent = document.createElement('div');
+                popupContent.className = 'p-1 min-w-[200px] flex flex-col gap-2';
+                
+                popupContent.innerHTML = `
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                        <span class="text-xs font-mono font-semibold uppercase text-red-400 tracking-wider">${loc.category}</span>
+                        <span class="text-[10px] font-mono text-slate-500">ID: ${loc.id}</span>
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-100">${loc.name}</h3>
+                        <p class="text-xs text-slate-400 mt-1">${loc.description}</p>
+                    </div>
+                    <div class="mt-2 pt-2 border-t border-slate-800 flex items-center justify-between gap-2">
+                        <button onclick="copyMarkerLink('${loc.id}')" class="w-full px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white rounded-md text-xs font-medium transition flex items-center justify-center gap-1.5 shadow-sm active:scale-95">
+                            <i data-lucide="share-2" class="w-3.5 h-3.5"></i>
+                            <span>Copy Share Link</span>
+                        </button>
+                    </div>
+                `;
+
+                marker.bindPopup(popupContent);
+
+                // Update URL hash when popup opens
+                marker.on('popupopen', () => {
+                    const newUrl = window.location.pathname + window.location.search + '#' + loc.id;
+                    window.history.replaceState(null, null, newUrl);
+                    highlightSidebarCard(loc.id);
+                    lucide.createIcons();
+                });
+
+                // Clear hash when popup closes
+                marker.on('popupclose', () => {
+                    if (window.location.hash === '#' + loc.id) {
+                        window.history.replaceState(null, null, window.location.pathname + window.location.search);
+                    }
+                    unhighlightSidebarCards();
+                });
+            });
+
+            document.getElementById('pin-count').innerText = mapLocations.length;
+        }
+
+        function renderSidebarList() {
+            const container = document.getElementById('location-list');
+            const searchVal = document.getElementById('search-input').value.toLowerCase();
+            container.innerHTML = '';
+
+            const filtered = mapLocations.filter(loc => {
+                const matchesCategory = activeCategory === 'all' || loc.category === activeCategory;
+                const matchesSearch = loc.name.toLowerCase().includes(searchVal) || loc.description.toLowerCase().includes(searchVal);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-slate-500 text-xs">
+                        No tactical markers found.
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach(loc => {
+                const card = document.createElement('div');
+                card.id = `sidebar-card-${loc.id}`;
+                card.className = 'sidebar-card p-3 rounded-lg bg-slate-950 border border-slate-800 hover:border-red-500/50 cursor-pointer transition flex flex-col gap-1 group';
+                
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-semibold text-slate-200 group-hover:text-red-400 transition">${loc.name}</span>
+                        <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-400">${loc.category}</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 line-clamp-2">${loc.description}</p>
+                    <div class="mt-1 flex items-center justify-between text-[10px] text-slate-500 font-mono">
+                        <span>Y:${loc.coords[0]} X:${loc.coords[1]}</span>
+                        <span class="text-red-400 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition">
+                            Focus <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                        </span>
+                    </div>
+                `;
+
+                card.onclick = () => {
+                    focusMarker(loc.id);
+                    if (window.innerWidth < 640) {
+                        toggleSidebar(false);
+                    }
+                };
+
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        function focusMarker(id) {
+            const targetMarker = markerInstances[id];
+            if (targetMarker) {
+                const coords = targetMarker.getLatLng();
+                map.flyTo(coords, 1, { animate: true, duration: 0.8 });
+                setTimeout(() => {
+                    targetMarker.openPopup();
+                }, 600);
+            }
+        }
+
+        function highlightSidebarCard(id) {
+            unhighlightSidebarCards();
+            const card = document.getElementById(`sidebar-card-${id}`);
+            if (card) {
+                card.classList.add('border-red-500', 'bg-red-950/20');
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function unhighlightSidebarCards() {
+            document.querySelectorAll('.sidebar-card').forEach(card => {
+                card.classList.remove('border-red-500', 'bg-red-950/20');
+            });
+        }
+
+        window.copyMarkerLink = function(id) {
+            const shareableUrl = window.location.origin + window.location.pathname + window.location.search + '#' + id;
+
+            // Fallback clipboard copying technique for standard cross-origin frames
+            const textarea = document.createElement('textarea');
+            textarea.value = shareableUrl;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+
+            try {
+                textarea.select();
+                document.execCommand('copy');
+                displayToast('Share link copied to clipboard!');
+            } catch (err) {
+                displayToast('Failed to copy link.');
+                console.error('Copy failed:', err);
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        };
+
+        function displayToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            
+            toast.innerHTML = `
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    if (container.contains(toast)) {
+                        container.removeChild(toast);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        map.on('mousemove', (e) => {
+            const y = Math.round(e.latlng.lat);
+            const x = Math.round(e.latlng.lng);
+            document.getElementById('coord-display').innerText = `Y: ${y}, X: ${x}`;
+        });
+
+        function checkUrlHash() {
+            const hash = window.location.hash.substring(1);
+            if (hash && markerInstances[hash]) {
+                focusMarker(hash);
+            }
+        }
+
+        // Search filter input listener
+        document.getElementById('search-input').addEventListener('input', renderSidebarList);
+
+        // Category buttons event listeners
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-red-600', 'text-white');
+                    b.classList.add('bg-slate-800', 'text-slate-300');
+                });
+                btn.classList.add('active', 'bg-red-600', 'text-white');
+                btn.classList.remove('bg-slate-800', 'text-slate-300');
+
+                activeCategory = btn.dataset.category;
+                renderSidebarList();
+            });
+        });
+
+        // Reset view button
+        document.getElementById('reset-view-btn').addEventListener('click', () => {
+            map.flyToBounds(bounds, { duration: 0.8 });
+            map.closePopup();
+        });
+
+        // Mobile sidebar toggle
+        const sidebar = document.getElementById('sidebar');
+        function toggleSidebar(show) {
+            if (show) {
+                sidebar.classList.remove('-translate-x-full');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+
+        document.getElementById('toggle-sidebar-btn').addEventListener('click', () => {
+            const isHidden = sidebar.classList.contains('-translate-x-full');
+            toggleSidebar(isHidden);
+        });
+
+        // Custom local map image file loader
+        document.getElementById('image-upload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    if (mapImageOverlay) {
+                        map.removeLayer(mapImageOverlay);
+                    }
+                    mapImageOverlay = L.imageOverlay(event.target.result, bounds).addTo(map);
+                    map.fitBounds(bounds);
+                    displayToast('Custom map image loaded!');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderMarkers();
+            renderSidebarList();
+            checkUrlHash();
+        });
+
+        window.addEventListener('hashchange', checkUrlHash);
+    </script>
+</body>
+</html>
