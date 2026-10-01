@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>City of Dunwall Map - Dishonored Interactive Map - Maps - Warren Woodhouse</title>
+    <link rel="icon" type="image/x-icon" href="https://warrenwoodhouse.blogspot.com/favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+            background-color: #111; /* Dark background for off-map areas */
+        }
+        .leaflet-popup-content-wrapper {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+        .leaflet-popup-tip {
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <p style="color:white;">City of Dunwall Map - Dishonored Interactive Map - Maps - Warren Woodhouse</p>
+    <p style="color:white;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps">CLICK HERE</a> to see more Interactive Maps.</p>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 1. Define Map Dimensions
+        const mapWidth = 1920;
+        const mapHeight = 1080;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,  // Allows zooming out further than the image
+            maxZoom: 3
+        });
+
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
+
+        // 4. Load the 1920x1080 Image Overlay
+        // IMPORTANT: Replace 'map.png' with your actual image file name
+        L.imageOverlay('map.png', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        // 5. Create Layer Groups for Filters
+        const landmark = L.layerGroup();
+        const river = L.layerGroup();
+        const district = L.layerGroup();
+        const island = L.layerGroup();
+
+        // 6. Location Database
+        // Y = Vertical axis (0 is bottom, 1920 is top)
+        // X = Horizontal axis (0 is left, 1080 is right)
+        // These coordinates are estimates to show you the scaling on a 1080 grid.
+        const landmark = [
+            // Landmarks
+            { id: "landmark-1", name: "Dunwall Tower", type: "landmark", y: 596, x: 1296 },
+            { id: "landmark-2", name: "Coldridge Prison", type: "landmark", y: 639, x: 1341 },
+            { id: "landmark-3", name: "The Hound Pits", type: "landmark", y: 462, x: 1489 },
+            { id: "landmark-4", name: "The Abbey of Everyman", type: "landmark", y: 343, x: 275 },
+            { id: "landmark-5", name: "The Overseer’s Office", type: "landmark", y: 340, x: 258 },
+            { id: "landmark-6", name: "Dunwall Distillery", type: "landmark", y: 442, x: 360 },
+            { id: "landmark-7", name: "The Golden Cat", type: "landmark", y: 451, x: 303 },
+            { id: "landmark-8", name: "Kaldwin’s Bridge", type: "landmark", y: 526, x: 914 },
+            { id: "landmark-9", name: "The Boyle Mansion", type: "landmark", y: 643, x: 963 },
+            { id: "landmark-10", name: "Clock Tower", type: "landmark", y: 705, x: 948 },
+            { id: "landmark-11", name: "Chamber of Commerce", type: "landmark", y: 420, x: 1654 }
+        ];
+
+         const river = [
+            // Rivers
+            { id: "river-1", name: "Wrenhaven River", type: "river", y: 555, x: 533 }
+        ];
+
+         const island = [
+            // Islands
+            { id: "island-1", name: "Kingsparrow Island", type: "island", y: 670, x: 1682 }
+        ];
+
+        const district = [
+            // Districts
+            { id: "district-1", name: "Royal Palace of Dunwall", type: "district", y: 596, x: 1296 },
+            { id: "district-2", name: "Distillery District", type: "district", y: 442, x: 360 },
+            { id: "district-3", name: "The Hound Pits Grounds", type: "district", y: 462, x: 1489 },
+            { id: "district-4", name: "Draper’s Ward", type: "district", y: 713, x: 324 }
+        ];
+
+        // 7. Loop Through Data to Create Markers
+        locations.forEach(loc => {
+            // Leaflet requires [Y, X] for marker placement
+            const marker = L.marker([loc.y, loc.x])
+                .bindPopup(`<strong>${loc.name}</strong><br>Location ID: ${loc.id}`);
+            
+            // Route the marker to the correct filter group based on its type
+            if (loc.type === "landmark") {
+                marker.addTo(landmark);
+            } else if (loc.type === "district") {
+                marker.addTo(district);
+            } else if (loc.type === "river") {
+                marker.addTo(river);
+            } else if (loc.type === "island") {
+                marker.addTo(island);
+        });
+
+        // 8. Add Default Layers to the Map
+        markers.addTo(map);
+
+        // 9. Build the Filter Control Menu
+        const filterControls = {
+            "Landmarks": landmark,
+            "Districts": district,
+            "Rivers": river,
+            "Islands": island
+        };
+
+        // Add the toggle menu to the top right of the map
+        L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
+
+    </script>
+</body>
+</html>
