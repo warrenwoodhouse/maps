@@ -111,6 +111,12 @@ Here is the full list of Interactive Maps. Enjoy!
 * Control & Control: Ultimate Edition
 * Control: Resonant
 
+## Dishonored - Games - Interactive Maps
+* Dishonored: Definitive Edition (WIP)
+* > [City of Dunwall](https://warrenwoodhouse.github.io/maps/dishonored/dunwall)
+* Dishonored 2 (WIP)
+* Dishonored: Death of the Outsider (WIP)
+
 ## Everybody’s Gone To The Rapture - Games - Interactive Maps
 * [Everybody's Gone To The Rapture](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture) (WIP)
 
@@ -142,11 +148,6 @@ Here is the full list of Interactive Maps. Enjoy!
 * Mass Effect 2 & Mass Effect 2: Legendary Edition (WIP)
 * Mass Effect 3 & Mass Effect 3: Legendary Edition (WIP)
 * Mass Effect: Andromeda (WIP)
-
-## Dishonored - Games - Interactive Maps
-* Dishonored: Definitive Edition (WIP)
-* Dishonored 2 (WIP)
-* Dishonored: Death of the Outsider (WIP)
 
 ## Thief - Games - Interactive Maps
 * Thief: The Dark Prophet & Thief: The Dark Prophet Remastered (WIP)
