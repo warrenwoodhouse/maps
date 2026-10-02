@@ -49,7 +49,6 @@
         const bounds = [[0, 0], [mapHeight, mapWidth]];
 
         // 4. Load the 1920x1080 Image Overlay
-        // IMPORTANT: Replace 'map.png' with your actual image file name
         L.imageOverlay('https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/map.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
@@ -106,23 +105,22 @@
 
         // 7. Loop Through Data to Create Markers
         locations.forEach(loc => {
-            // Leaflet requires [Y, X] for marker placement
             const marker = L.marker([loc.y, loc.x])
                 .bindPopup(`<strong>${loc.name}</strong><br>Location ID: ${loc.id}`);
-            
-            // Route the marker to the correct filter group based on its type
+
             if (loc.type === "poi") {
                 marker.addTo(poiGroup);
             } else if (loc.type === "bunker") {
-                marker.addTo(bunker group);
+                marker.addTo(bunkerGroup);
             } else if (loc.type === "cameraaccessory") {
                 marker.addTo(cameraaccessoryGroup);
             } else if (loc.type === "irphoto") {
-                marker.addTo(irphoto group);
+                marker.addTo(irphotoGroup);
             } else if (loc.type === "irlady") {
                 marker.addTo(irladyGroup);
             } else if (loc.type === "side") {
                 marker.addTo(sideGroup);
+            }
         });
 
         // 8. Add Default Layers to the Map
@@ -143,7 +141,6 @@
             "Side Quests": sideGroup
         };
 
-             // Add the toggle menu to the top right of the map
         L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
     </script>
 </body>
