@@ -148,6 +148,24 @@
         };
 
         L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
+
+        // 10. Bind a Marker with a Shareable URL
+        const shareUrl = `${window.location.origin}${window.location.pathname}?lat=${lat}&lng=${lng}&zoom=${zoom}`;
+              marker.bindPopup(`
+                                <b>Shared Location</b><br>
+                                <button onclick="navigator.clipboard.writeText('${shareUrl}'); alert('Link copied!');">
+                                Copy Share Link
+                                </button>
+                               `);
+            // Now add some Parameters on Loading of the Map
+               const params = new URLSearchParams(window.location.search);
+               const sharedLat = params.get('lat');
+               const sharedLng = params.get('lng');
+               const sharedZoom = params.get('zoom');
+                     if (sharedLat && sharedLng) {
+                         map.setView([sharedLat, sharedLng], sharedZoom || 13);
+                         L.marker([sharedLat, sharedLng]).addTo(map).bindPopup('This is the shared marker!').openPopup();
+                         }
     </script>
 </body>
 </html>
