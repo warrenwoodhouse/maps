@@ -92,97 +92,10 @@
             { id: "poi-6", name: "The Lake", type: "poi", y: 736, x: 1374 },
             { id: "poi-7", name: "The Island", type: "poi", y: 624, x: 1708 },
             { id: "poi-8", name: "Wine Cellar - Family Home", type: "poi", y: 736, x: 276 },
-            { id: "poi-9", name: "House in The Woods", type: "poi",Here is the complete, updated HTML file. It uses URL query parameters (`?marker=id` and `?filters=group1,group2`) to support shareable links for individual markers and filter states.
-
-When a user toggles filters or opens a marker popup, the browser URL automatically updates without reloading the page. Each popup includes a **Copy Link** button that copies a direct URL targeting that exact marker and filter setup.
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Martha is Dead Interactive Map - Maps - Warren Woodhouse</title>
-    <link rel="icon" type="image/x-icon" href="[https://warrenwoodhouse.blogspot.com/favicon.ico](https://warrenwoodhouse.blogspot.com/favicon.ico)">
-    <link rel="stylesheet" href="[https://unpkg.com/leaflet@1.9.4/dist/leaflet.css](https://unpkg.com/leaflet@1.9.4/dist/leaflet.css)" />
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-        }
-        #map {
-            width: 100vw;
-            height: 100vh;
-            background-color: #111;
-            font-size: 20px;
-        }
-        .leaflet-popup-content-wrapper {
-            background: #ffffff;
-            color: #000000;
-            border: 1px solid #000000;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        .leaflet-popup-tip {
-            background: #ffffff;
-        }
-        .share-btn {
-            margin-top: 8px;
-            padding: 6px 12px;
-            background-color: #007bff;
-            color: #ffffff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .share-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div id="map"></div>
-
-    <script src="[https://unpkg.com/leaflet@1.9.4/dist/leaflet.js](https://unpkg.com/leaflet@1.9.4/dist/leaflet.js)"></script>
-    <script>
-        // 1. Define Map Dimensions & Bounds
-        const mapWidth = 1920;
-        const mapHeight = 1080;
-        const bounds = [[0, 0], [mapHeight, mapWidth]];
-
-        // 2. Initialize Map
-        const map = L.map('map', {
-            crs: L.CRS.Simple,
-            minZoom: -1,
-            maxZoom: 3
-        });
-
-        // 3. Load Image Overlay
-        L.imageOverlay('[https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/map.png](https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/map.png)', bounds).addTo(map);
-
-        // 4. Create Layer Groups
-        const filterGroups = {
-            poi: { name: "Point of Interest", group: L.layerGroup() },
-            bunker: { name: "Bunkers", group: L.layerGroup() },
-            cameraaccessory: { name: "Camera Accessory", group: L.layerGroup() },
-            irphoto: { name: "IR Photo", group: L.layerGroup() },
-            irlady: { name: "IR Lady", group: L.layerGroup() },
-            side: { name: "Side Quests", group: L.layerGroup() }
-        };
-
-        // 5. Location Database
-        const locations = [
-            { id: "poi-1", name: "Family Home", type: "poi", y: 858, x: 132 },
-            { id: "poi-2", name: "Family Church", type: "poi", y: 638, x: 252 },
-            { id: "poi-3", name: "The Cemetery", type: "poi", y: 88, x: 288 },
-            { id: "poi-4", name: "Crossroads", type: "poi", y: 494, x: 180 },
-            { id: "poi-5", name: "Family Graveyard", type: "poi", y: 982, x: 510 },
-            { id: "poi-6", name: "The Lake", type: "poi", y: 736, x: 1374 },
-            { id: "poi-7", name: "The Island", type: "poi", y: 624, x: 1708 },
-            { id: "poi-8", name: "Wine Cellar - Family Home", type: "poi", y: 736, x: 276 },
             { id: "poi-9", name: "House in The Woods", type: "poi", y: 778, x: 472 },
+            // Bunkers
             { id: "bunker-1", name: "Bunker", type: "bunker", y: 1018, x: 1372 },
+            // Camera Accessories
             { id: "cameraaccessory-1", name: "100 ISO Film (Chapter: The Room)", type: "cameraaccessory", y: 768, x: 206 },
             { id: "cameraaccessory-2", name: "Flash (Chapter: The Room)", type: "cameraaccessory", y: 858, x: 114 },
             { id: "cameraaccessory-3", name: "Tripod (Chapter: The Rolls)", type: "cameraaccessory", y: 764, x: 317 },
@@ -191,16 +104,19 @@ When a user toggles filters or opens a marker popup, the browser URL automatical
             { id: "cameraaccessory-6", name: "25 ISO Film (Chapter: The Woods)", type: "cameraaccessory", y: 845, x: 117 },
             { id: "cameraaccessory-7", name: "Focal Lens x0.5, Macro Lens & Focal Lens x2 (Chapter: The Woods)", type: "cameraaccessory", y: 774, x: 196 },
             { id: "cameraaccessory-8", name: "Red Filter (Chapter: The Woods)", type: "cameraaccessory", y: 760, x: 209 },
+            // IR Photos
             { id: "irphoto-1", name: "IR Photo 1", type: "irphoto", y: 749, x: 332 },
             { id: "irphoto-2", name: "IR Photo 2", type: "irphoto", y: 621, x: 251 },
             { id: "irphoto-3", name: "IR Photo 3", type: "irphoto", y: 477, x: 160 },
             { id: "irphoto-4", name: "IR Photo 4", type: "irphoto", y: 784, x: 1116 },
             { id: "irphoto-5", name: "IR Photo 5", type: "irphoto", y: 746, x: 656 },
             { id: "irphoto-6", name: "IR Photo 6", type: "irphoto", y: 532, x: 371 },
+            // IR Lady
             { id: "irlady-1", name: "IR Lady 1", type: "irlady", y: 871, x: 269 },
             { id: "irlady-2", name: "IR Lady 2", type: "irlady", y: 519, x: 309 },
             { id: "irlady-3", name: "IR Lady 3", type: "irlady", y: 786, x: 448 },
             { id: "irlady-4", name: "IR Lady 4", type: "irlady", y: 844, x: 793 },
+            // Side Quests
             { id: "side-1", name: "Telegraph Pole (Side Quest: Lapo’s quest)", type: "side", y: 570, x: 186 },
             { id: "side-2", name: "Telegraph Machine (Side Quest: Lapo’s quest)", type: "side", y: 906, x: 64 }
         ];
