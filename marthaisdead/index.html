@@ -145,27 +145,6 @@
 
              // Add the toggle menu to the top right of the map
         L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
-
-     // 10. Add a Watermark to the map as an Overlay
-       L.Control.Watermark = L.Control.extend({ onAdd: function(map) {
-      var img = L.DomUtil.create('img');
-
-      img src = 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/banner.png';
-     img.style.width = '200px';
-
-    return img;
-},
-
-onRemove: function(map) {
-    // Nothing to do here
-}
-});
-
-   L.control.watermark = function(opts) {
-      return new L.Control.Watermark(opts);
-}
-
-  L.control.watermark({ position: 'bottom-left' }).addTo(map);
     </script>
 </body>
 </html>
