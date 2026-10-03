@@ -1,5 +1,5 @@
 # Warren Maps - Warren Woodhouse
-* [Jump to the list of interactive maps](https://github.com/warrenwoodhouse/maps#interactive-maps)
+* [Jump to the list of interactive maps](#interactive-maps)
 
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
@@ -44,7 +44,7 @@ Join the Community!
 Here is the full list of Interactive Maps. Enjoy!
 
 ## Templates - Interactive Maps
-* [Template](https://warrenwoodhouse.github.io/maps/template) <small>[(Code)](https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/template/index.html)</small>
+* [Template](https://warrenwoodhouse.github.io/maps/template) [(Code)](https://github.com/warrenwoodhouse/maps/raw/refs/heads/main/template/index.html)
 
 ## Games - Interactive Maps
 ## Alan Wake - Games - Interactive Maps
@@ -133,7 +133,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway)
 * Grand Theft Auto V & Grand Theft Auto V: Next Gen Edition (WIP)
 * > Blueprint Map
-  > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gtav/blueprint/light)
+* > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gtav/blueprint/light)
 * > Grand Theft Auto Online (WIP)
 * Grand Theft Auto VI (WIP)
 
