@@ -1,0 +1,90 @@
+// Points of Interests
+* Valis Observatory: y: 192, x: 887
+* Yaughton Stores: add
+* Yaughton Park: add
+* Yaughton Playground: add
+* Welcome to Yaughton Sign: add
+* Robert Graves Auto Repair: add
+* Yaughton Doctors Surgery: add
+* Yaughton Community Center: add
+* Tipworth Gorge: add
+* Tipworth Junction: add
+* The Grange: add
+* Tipworth Hall: add
+* Appleton’s Mill: add
+* Black Dog Run Valley: add
+* Yaughton & Tipworth Station: add
+* Lakeside Holiday Camp: add
+* Forley’s Builders Merchants: add
+* Holly’s Café: add
+* Little Tipworth Petrol Station: add
+* St. Hubert’s Church: add
+* Frank’s House: add
+* Stephen’s House: add
+* Howard’s House: add
+* Stephen’s Bunker: add
+* Valis Energy Station: add
+* Valley Farm Wholesales: add
+* Tipworth & Haverton Agricultural Wholesalers: add
+* Wendy’s House: add
+* Valis Observatory - Tower 1: add
+* Valis Observatory - Tower 2: add
+* Valis Observatory - Tower 3: add
+* Valis Observatory - Tower 4: add
+* Valis Observatory - Tower 5: add
+* Valis Observatory - Tower 6: add
+
+// Books
+1. Add
+2. Add
+3. Add
+4. Add
+
+// Radios
+1. Add
+
+// You Are Here
+1. Add
+
+// Memory
+1. Add
+
+// Motion Events
+1. Add
+
+// Chads
+1. Add
+
+// Hidden Paths
+1. Add
+
+// Waters & Rivers
+* Haverton Waters: add
+* Kynaston’s Pond: add
+* River Yaugh: add
+* Yaughton Pond: add
+
+// Lookout Points
+* Add
+
+// Regions
+* Add
+
+// Caravans (Tea Leaf Trophy)
+1. Add
+
+// Microwaves (Ready Meal Trophy)
+1. Add
+
+// Phones & Telephone Boxes
+* Add
+
+// Public Houses
+* The Stars at Night: add
+* The Seventh Whistler: add
+
+// Witches Hat Playground Item (Perpetual Motion Trophy)
+* Add
+
+// Computers
+* Add
