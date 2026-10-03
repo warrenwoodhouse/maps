@@ -11,9 +11,9 @@
 <meta name="og:type" content="application">
 <meta name="og:url" content="https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture">
 <meta name="og:image" content="https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/favicon.ico">
-<meta name="og:site_name" content="Martha is Dead Interactive Map - Maps - Warren Woodhouse">
-<meta name="og:description" content="An interactive map for the game Martha is Dead, complete with points of interest, trophies/achievements, puzzle solutions and more.">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Martha is Dead Interactive Map - Maps - Warren Woodhouse","url":"https://warrenwoodhouse.github.io/maps/marthaisdead"}</script>
+<meta name="og:site_name" content="Everybody's Gone To The Rapture Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:description" content="An interactive map for the game Everybody's Gone To The Rapture, complete with points of interest, trophies/achievements and more.">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Everybody's Gone To The Rapture Interactive Map - Maps - Warren Woodhouse","url":"https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture"}</script>
 
 <!-- APPLE META DATA -->
 <meta name="apple-mobile-web-app-title" content="Everybody's Gone To The Rapture Map">
@@ -162,12 +162,8 @@
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-caravan.png',
                 iconSize: [32, 32]
             }),
-            observatory: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-observatory.png',
-                iconSize: [32, 32]
-            }),
-            hiddenpath: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-hiddenpath.png',
+            lookout: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-lookout.png',
                 iconSize: [32, 32]
             })
         };
@@ -175,41 +171,26 @@
         // 6. Location Database
         const locations = [
             // Points of Interests
-            { id: "poi-1", name: "Family Home", type: "poi", y: 858, x: 132 },
-            { id: "poi-2", name: "Family Church", type: "poi", y: 638, x: 252 },
-            { id: "poi-3", name: "The Cemetery", type: "poi", y: 88, x: 288 },
-            { id: "poi-4", name: "Crossroads", type: "poi", y: 494, x: 180 },
-            { id: "poi-5", name: "Family Graveyard", type: "poi", y: 982, x: 510 },
-            { id: "poi-6", name: "The Lake", type: "poi", y: 736, x: 1374 },
-            { id: "poi-7", name: "The Island", type: "poi", y: 624, x: 1708 },
-            { id: "poi-8", name: "Wine Cellar - Family Home", type: "poi", y: 736, x: 276 },
-            { id: "poi-9", name: "House in The Woods", type: "poi", y: 778, x: 472 },
-            // Bunkers
-            { id: "bunker-1", name: "Bunker", type: "bunker", y: 1018, x: 1372 },
-            // Camera Accessories
-            { id: "cameraaccessory-1", name: "100 ISO Film (Chapter: The Room)", type: "cameraaccessory", y: 768, x: 206 },
-            { id: "cameraaccessory-2", name: "Flash (Chapter: The Room)", type: "cameraaccessory", y: 858, x: 114 },
-            { id: "cameraaccessory-3", name: "Tripod (Chapter: The Rolls)", type: "cameraaccessory", y: 764, x: 317 },
-            { id: "cameraaccessory-4", name: "Infrared Lens & Film (Chapter: The Rolls)", type: "cameraaccessory", y: 798, x: 229 },
-            { id: "cameraaccessory-5", name: "Macro Lens, Orange Filter & Blue Filter (Chapter: The Rolls)", type: "cameraaccessory", y: 763, x: 225 },
-            { id: "cameraaccessory-6", name: "25 ISO Film (Chapter: The Woods)", type: "cameraaccessory", y: 845, x: 117 },
-            { id: "cameraaccessory-7", name: "Focal Lens x0.5, Macro Lens & Focal Lens x2 (Chapter: The Woods)", type: "cameraaccessory", y: 774, x: 196 },
-            { id: "cameraaccessory-8", name: "Red Filter (Chapter: The Woods)", type: "cameraaccessory", y: 760, x: 209 },
-            // IR Photos
-            { id: "irphoto-1", name: "IR Photo 1", type: "irphoto", y: 749, x: 332 },
-            { id: "irphoto-2", name: "IR Photo 2", type: "irphoto", y: 621, x: 251 },
-            { id: "irphoto-3", name: "IR Photo 3", type: "irphoto", y: 477, x: 160 },
-            { id: "irphoto-4", name: "IR Photo 4", type: "irphoto", y: 784, x: 1116 },
-            { id: "irphoto-5", name: "IR Photo 5", type: "irphoto", y: 746, x: 656 },
-            { id: "irphoto-6", name: "IR Photo 6", type: "irphoto", y: 532, x: 371 },
-            // IR Lady
-            { id: "irlady-1", name: "IR Lady 1", type: "irlady", y: 871, x: 269 },
-            { id: "irlady-2", name: "IR Lady 2", type: "irlady", y: 519, x: 309 },
-            { id: "irlady-3", name: "IR Lady 3", type: "irlady", y: 786, x: 448 },
-            { id: "irlady-4", name: "IR Lady 4", type: "irlady", y: 844, x: 793 },
-            // Side Quests
-            { id: "side-1", name: "Telegraph Pole (Side Quest: Lapo's quest)", type: "side", y: 570, x: 186 },
-            { id: "side-2", name: "Telegraph Machine (Side Quest: Lapo's quest)", type: "side", y: 906, x: 64 }
+            { id: "poi-1", name: "Valis Observatory", type: "poi", y: 192, x: 887 },
+            { id: "poi-2", name: "Yaughton Doctors Surgery", type: "poi", y: 342, x: 491 },
+            // Phones & Telephone Boxes
+            { id: "phone-1", name: "Phone", type: "phone", y: 281, x: 667 },
+            // You Are Here Maps
+            { id: "youarehere-1", name: "You Are Here", type: "youarehere", y: 204, x: 775 },
+            // Chads
+              // add markers here
+            // Radios
+            { id: "radio-1", name: "Radio", type: "radio", y: 208, x: 771 },
+            { id: "radio-2", name: "Radio", type: "radio", y: 852, x: 454 },
+            { id: "radio-3", name: "Radio", type: "radio", y: 750, x: 639 },
+            { id: "radio-4", name: "Radio", type: "radio", y: 570, x: 490 },
+            { id: "radio-5", name: "Radio", type: "radio", y: 795, x: 1194 },
+            { id: "radio-6", name: "Radio", type: "radio", y: 895, x: 784 },
+            // Memories
+              // add markers here
+            // Public Houses
+            { id: "pub-1", name: "The Stars At Night", type: "pub", y: 252, x: 535 },
+            { id: "pub-2", name: "The Seventh Whistler", type: "pub", y: 933, x: 967 }
         ];
 
         // 6. Registry to look up markers by ID
