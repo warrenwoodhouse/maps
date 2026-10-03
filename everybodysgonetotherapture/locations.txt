@@ -1,11 +1,9 @@
 // Points of Interests
-* Valis Observatory: y: 192, x: 887
 * Yaughton Stores: add
 * Yaughton Park: add
 * Yaughton Playground: add
 * Welcome to Yaughton Sign: add
 * Robert Graves Auto Repair: add
-* Yaughton Doctors Surgery: y: 342, x: 491
 * Yaughton Community Center: add
 * Tipworth Gorge: add
 * Tipworth Junction: add
@@ -75,15 +73,10 @@
 * Book: y: 926, x: 654
 
 // Radios
-* Radio: y: 208, x: 771
-* Radio: y: 852, x: 454
-* Radio: y: 750, x: 639
-* Radio; y: 570, x: 490
-* Radio: y: 795, x: 1194
-* Radio: y: 895, x: 784
+* Radio: add
 
 // You Are Here
-* You Are Here: y: 204, x: 775
+* You Are Here: add
 
 // Memory
 * Add
@@ -121,10 +114,6 @@
 * Phone: y: 893, x: 999
 * Phone: y: 701, x: 1200
 * Phone: y: 656, x: 1079
-
-// Public Houses
-* The Stars at Night: y: 252, x: 535
-* The Seventh Whistler: y: 933, x: 967
 
 // Witches Hat Playground Item (Perpetual Motion Trophy)
 * Add
