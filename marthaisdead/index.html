@@ -117,17 +117,45 @@
 
         // 5. Create Layer Groups for Filters
         const filterGroups = {
-            poi: { name: "Point of Interest", group: L.layerGroup() },
+            poi: { name: "Points of Interests", group: L.layerGroup() },
             bunker: { name: "Bunkers", group: L.layerGroup() },
-            cameraaccessory: { name: "Camera Accessory", group: L.layerGroup() },
-            irphoto: { name: "IR Photo", group: L.layerGroup() },
+            cameraaccessory: { name: "Camera Accessories", group: L.layerGroup() },
+            irphoto: { name: "IR Photos", group: L.layerGroup() },
             irlady: { name: "IR Lady", group: L.layerGroup() },
             side: { name: "Side Quests", group: L.layerGroup() }
         };
 
+          // Create custom icons for each marker type
+          const customIcons = {
+             poi: L.icon({
+             iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/icon-marker.png',
+             iconSize: [32, 32]
+             }),
+             bunker: L.icon({
+             iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/icon-circle.png',
+             iconSize: [32, 32]
+             }),
+             cameraaccessory: L.icon({
+             iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/icon-marker.png',
+             iconSize: [32, 32]
+             }),
+             irphoto: L.icon({
+             iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/icon-marker.png',
+             iconSize: [32, 32]
+             }),
+             irlady: L.icon({
+             iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/icon-marker.png',
+             iconSize: [32, 32]
+             }),
+             side: L.icon({
+             iconUrl: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/main/marthaisdead/icon-circle.png',
+             iconSize: [32, 32]
+             })
+        };
+
         // 6. Location Database
         const locations = [
-            // Point of Interest
+            // Points of Interests
             { id: "poi-1", name: "Family Home", type: "poi", y: 858, x: 132 },
             { id: "poi-2", name: "Family Church", type: "poi", y: 638, x: 252 },
             { id: "poi-3", name: "The Cemetery", type: "poi", y: 88, x: 288 },
@@ -184,7 +212,7 @@
                 </div>
             `;
 
-            const marker = L.marker([loc.y, loc.x]).bindPopup(popupContent);
+            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.type]).bindPopup(popupContent);
             markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
 
             if (filterGroups[loc.type]) {
