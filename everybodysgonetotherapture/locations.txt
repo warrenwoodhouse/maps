@@ -1,3 +1,5 @@
+These locations are being migrated to the map. I’m listing them here so I can add them later
+
 // Points of Interests
 * Yaughton Stores: add
 * Yaughton Park: add
@@ -9,22 +11,22 @@
 * Tipworth Junction: add
 * The Grange: add
 * Tipworth Hall: add
-* Appleton’s Mill: add
+* Appleton’s Mill: y: 551, x: 963
 * Black Dog Run Valley: add
 * Yaughton & Tipworth Station: y: 992, x: 823
-* Lakeside Holiday Camp: add
-* Forley’s Builders Merchants: add
+* Lakeside Holiday Camp: y: 664, x: 1074
+* Forley’s Builders Merchants: y: 863, x: 1126
 * Holly’s Café: y: 885, x: 809
-* Little Tipworth Petrol Station: add
-* St. Hubert’s Church: add
-* Frank’s House: add
-* Stephen’s House: add
+* Little Tipworth Petrol Station: y: 883, x: 809
+* St. Hubert’s Church: y: 253, x: 317
+* Frank’s House: y: 692, x: 681
+* Stephen’s House: y: 870, x: 565
 * Howard’s House: y: 936, x: 664
-* Stephen’s Bunker: add
-* Valis Energy Station: add
-* Valley Farm Wholesales: add
+* Stephen’s Bunker: y: 910, x: 894
+* Valis Energy Station: y: 895, x: 891
+* Valley Farm Wholesales: y: 796, x: 981
 * Tipworth & Haverton Agricultural Wholesalers: y: 877, x: 706
-* Wendy’s House: add
+* Wendy’s House: y: 853, x: 464
 * Valis Observatory - Tower 1: add
 * Valis Observatory - Tower 2: add
 * Valis Observatory - Tower 3: add
