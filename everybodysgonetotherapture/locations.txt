@@ -11,19 +11,19 @@
 * Tipworth Hall: add
 * Appleton’s Mill: add
 * Black Dog Run Valley: add
-* Yaughton & Tipworth Station: add
+* Yaughton & Tipworth Station: y: 992, x: 823
 * Lakeside Holiday Camp: add
 * Forley’s Builders Merchants: add
-* Holly’s Café: add
+* Holly’s Café: y: 885, x: 809
 * Little Tipworth Petrol Station: add
 * St. Hubert’s Church: add
 * Frank’s House: add
 * Stephen’s House: add
-* Howard’s House: add
+* Howard’s House: y: 936, x: 664
 * Stephen’s Bunker: add
 * Valis Energy Station: add
 * Valley Farm Wholesales: add
-* Tipworth & Haverton Agricultural Wholesalers: add
+* Tipworth & Haverton Agricultural Wholesalers: y: 877, x: 706
 * Wendy’s House: add
 * Valis Observatory - Tower 1: add
 * Valis Observatory - Tower 2: add
@@ -99,8 +99,13 @@
 // Lookout Points
 * Lookout: y: 206, x: 717
 
-// Regions
-* Add
+// Areas
+* Valis Observatory: y: 255, x: 907
+* Yaughton: y: 173, x: 524
+* Tipworth Forest: y: 548, x: 442
+* Appleton’s Farm: y: 746, x: 850
+* Lakeside: y: 671, x: 1309
+* Little Tipworth: y: 857, x: 905
 
 // Caravans (Tea Leaf Trophy)
 * Add
