@@ -1,58 +1,58 @@
 Icons by Warren Woodhouse. Some icons are from game files and elsewhere online.
 
 # icon-area
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-area.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-area.png)
 
 # icon-church
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-church.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-church.png)
 
 # icon-pub
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-pub.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-pub.png)
 
 ## icon—pub-alt
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-pub-alt.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-pub-alt.png)
 
 # icon-water
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-water.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-water.png)
 
 # icon-marker
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-marker.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-marker.png)
 
 # icon-phone
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-phone.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-phone.png)
 
 ## icon-phone-alt
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-phone-alt.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-phone-alt.png)
 
 # icon-backtrack
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-backtrack.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-backtrack.png)
 
 # icon-chad
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-chad.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-chad.png)
 
 # icon-caravan
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-caravan.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-caravan.png)
 
 # icon-completionist
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-completionist.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-completionist.png)
 
 # icon-memory
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-memory.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-memory.png)
 
-from Everybody’s Gone To The Rapture Wiki
+icon-memory from Everybody’s Gone To The Rapture Wiki on Fandom. Used under the CC-BY-SA 4.0 license. The icon is a white image on a transparent background so it might not show up.
 
 # icon-radio
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-radio.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-radio.png)
 
-from Everybody’s Gone To The Rapture Wiki
+icon-radio from Everybody’s Gone To The Rapture Wiki on Fandom. Used under the CC-BY-SA 4.0 license.
 
 # icon-youarehere
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-youarehere.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-youarehere.png)
 
-from Everybody’s Gone To The Rapture Wiki
+icon-youarehere from Everybody’s Gone To The Rapture Wiki on Fandom. Used under the CC-BY-SA 4.0 license.
 
 # icon-book
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-book.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-book.png)
 
 # icon-trainspotter
-![Icon](https://raw.githubusercontent.com/warrenwoodhouse/maps/everybodysgonetotherapture/main/icon-trainspotter.png)
+![Icon](https://warrenwoodhouse.github.io/maps/everybodysgonetotherapture/icon-trainspotter.png)
