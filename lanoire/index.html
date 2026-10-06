@@ -148,7 +148,8 @@
             victim: { name: "Victims", group: L.layerGroup() },
             suspect: { name: "Suspects", group: L.layerGroup() },
             streetcrime: { name: "Street Crimes", group: L.layerGroup() },
-            landmark: { name: "Landmarks", group: L.layerGroup() }
+            landmark: { name: "Landmarks", group: L.layerGroup() },
+            bridge: { name: "Bridges", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -179,6 +180,10 @@
             }),
             landmark: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-landmark.png',
+                iconSize: [32, 32]
+            }),
+            bridge: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-bridge.png',
                 iconSize: [32, 32]
             })
         };
@@ -223,7 +228,14 @@
             { id: "landmark-27", name: "Musso & Franks", type: "landmark", y: 3278, x: 530, image: "" },
             { id: "landmark-28", name: "Max Factor Building", type: "landmark", y: 3241, x: 419, image: "" },
             { id: "landmark-29", name: "Grauman’s Theater", type: "landmark", y: 3290, x: 331, image: "" },
-            { id: "landmark-30", name: "Hotel Roosevelt", type: "landmark", y: 3256, x: 299, image: "" }
+            { id: "landmark-30", name: "Hotel Roosevelt", type: "landmark", y: 3256, x: 299, image: "" },
+            // Bridges
+            { id: "bridge-1", name: "4th Street Viaduct", type: "bridge", y: 775, x: 4282, image: "" },
+            { id: "bridge-2", name: "6th Street Viaduct", type: "bridge", y: 656, x: 4299, image: "" },
+            { id: "bridge-3", name: "7th Street Viaduct", type: "bridge", y: 489, x: 4328, image: "" },
+            { id: "bridge-4", name: "Olympic Boulevard Viaduct", type: "bridge", y: 120, x: 4398, image: "" },
+            { id: "bridge-5", name: "Aliso Viaduct", type: "bridge", y: 1262, x: 4288, image: "" },
+            { id: "bridge-6", name: "1st Street Bridge", type: "bridge", y: 1045, x: 4238, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
