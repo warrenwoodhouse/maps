@@ -1,0 +1,329 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+<!-- ICONS META DATA -->
+<link rel="icon" href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" type="image/ico"/>
+<link rel="shortcut icon" href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" type="image/ico"/>
+
+<!-- OPENGRAPH META DATA -->
+<meta name="og:title" content="Martha is Dead Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:type" content="application">
+<meta name="og:url" content="https://warrenwoodhouse.github.io/maps/marthaisdead">
+<meta name="og:image" content="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico">
+<meta name="og:site_name" content="Martha is Dead Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:description" content="An interactive map for the game Martha is Dead, complete with points of interest, trophies/achievements, puzzle solutions and more.">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Martha is Dead Interactive Map - Maps - Warren Woodhouse","url":"https://warrenwoodhouse.github.io/maps/marthaisdead"}</script>
+
+<!-- APPLE META DATA -->
+<meta name="apple-mobile-web-app-title" content="Martha is Dead Map">
+<!-- New in iOS6 -->
+<link rel="apple-mobile-web-app" href="https://warrenwoodhouse.github.io/maps/marthaisdead">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" color="#000000">
+<meta name="theme-color" content="#090909-gradient" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000-translucent" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="https://warrenwoodhouse.github.io/site/site.webmanifest" crossorigin="use-credentials" id="manifest-link" />
+<link rel="icon" type="image/ico" href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" sizes="96x96" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<meta name="apple-touch-fullscreen" content="yes">
+<link href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" rel="apple-touch-icon" type="image/ico">
+<link href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" rel="apple-ipad-icon" type="image/ico" sizes="72x72">
+<link href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" rel="apple-touch-startup-image" type="image/ico" sizes="152x152">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/marthaisdead/favicon.ico" type="image/ico"/>
+
+<!-- MICROSOFT META DATA -->
+<meta name="mssmarttagspreventparsing" content="true">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="msapplication-starturl" content="https://warrenwoodhouse.github.io/maps/marthaisdead">
+<meta name="msapplication-window" content="width=800;height=600">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="application-name" content="Martha is Dead Map">
+<meta name="msapplication-tooltip" content="An interactive map for the game Martha is Dead, complete with points of interest, trophies/achievements, puzzle solutions and more.">
+<meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
+<meta name="news_keywords" content="Martha is Dead Interactive Map, Martha is Dead, MiD, #MiD, #MarthaisDead, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps">
+  
+  <title>Martha is Dead Interactive Map - Maps - Warren Woodhouse</title>
+  <meta name="description" content="An interactive map for the game Martha is Dead, complete with points of interest, collectibles, trophies/achievements, puzzle solutions and more.">
+  <meta name="keywords" content="Martha is Dead Interactive Map, Martha is Dead, MiD, #MiD, #MarthaisDead, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps, free maps, interactive maps, game guides">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+            background-color: #111;
+            font-size: 20px;
+        }
+        .filterControls {
+            font-size: 19px;
+        }
+        .leaflet-popup-content-wrapper {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 19px;
+            max-width: 350px;
+        }
+        .leaflet-popup-tip {
+            background: #ffffff;
+            font-size: 19px;
+        }
+        .popup-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .popup-text {
+            margin: 8px 0;
+        }
+        .popup-text strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .popup-text small {
+            display: block;
+            color: #666;
+            font-size: 14px;
+        }
+        .share-btn {
+            margin-top: 8px;
+            padding: 6px 12px;
+            background-color: #111;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 19px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .share-btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <p style="color:white; margin: 10px;">Martha is Dead Interactive Map - Maps - Warren Woodhouse</p>
+    <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 1. Define Map Dimensions
+        const mapWidth = 1920;
+        const mapHeight = 1080;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,
+            maxZoom: 3
+        });
+
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
+
+        // 4. Load the 1920x1080 Image Overlay
+        L.imageOverlay('https://warrenwoodhouse.github.io/maps/marthaisdead/map.png', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        // 5. Create Layer Groups for Filters
+        const filterGroups = {
+            poi: { name: "Points of Interests", group: L.layerGroup() },
+            bunker: { name: "Bunkers", group: L.layerGroup() },
+            cameraaccessory: { name: "Camera Accessories", group: L.layerGroup() },
+            irphoto: { name: "IR Photos", group: L.layerGroup() },
+            irlady: { name: "IR Lady", group: L.layerGroup() },
+            side: { name: "Side Quests", group: L.layerGroup() }
+        };
+
+        // Create custom icons for each marker type
+        const customIcons = {
+            poi: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/marthaisdead/icon-marker.png',
+                iconSize: [32, 32]
+            }),
+            bunker: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/marthaisdead/icon-marker.png',
+                iconSize: [32, 32]
+            }),
+            cameraaccessory: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/marthaisdead/icon-marker.png',
+                iconSize: [32, 32]
+            }),
+            irphoto: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/marthaisdead/icon-marker.png',
+                iconSize: [32, 32]
+            }),
+            irlady: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/marthaisdead/icon-marker.png',
+                iconSize: [32, 32]
+            }),
+            side: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/marthaisdead/icon-marker.png',
+                iconSize: [32, 32]
+            })
+        };
+
+        // 6. Location Database
+        const locations = [
+            // Points of Interests
+            { id: "poi-1", name: "Family Home", type: "poi", y: 858, x: 132, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/home.png" },
+            { id: "poi-2", name: "Family Church", type: "poi", y: 638, x: 252, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/church.png" },
+            { id: "poi-3", name: "The Cemetery", type: "poi", y: 88, x: 288, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/cemetery.png" },
+            { id: "poi-4", name: "Crossroads", type: "poi", y: 494, x: 180, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/crossroads.png" },
+            { id: "poi-5", name: "Family Graveyard", type: "poi", y: 982, x: 510, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/graveyard.png" },
+            { id: "poi-6", name: "The Lake", type: "poi", y: 736, x: 1374, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/lake.png" },
+            { id: "poi-7", name: "The Island", type: "poi", y: 624, x: 1708, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/island.png" },
+            { id: "poi-8", name: "Wine Cellar - Family Home", type: "poi", y: 736, x: 276, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/winecellar.png" },
+            { id: "poi-9", name: "House in The Woods", type: "poi", y: 778, x: 472, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/houseinthewoods.png" },
+            { id: "poi-10", name: "Bicycle Pump", type: "poi", y: 826, x: 60, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/bikepump.png" },
+            { id: "poi-11", name: "Bicycle", type: "poi", y: 818, x: 241, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/bike.png" },
+            // Bunkers
+            { id: "bunker-1", name: "Bunker", type: "bunker", y: 1018, x: 1372, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/bunker.png" },
+            // Camera Accessories
+            { id: "cameraaccessory-1", name: "100 ISO Film (Chapter: The Room)", type: "cameraaccessory", y: 768, x: 206, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/100isofilm.png" },
+            { id: "cameraaccessory-2", name: "Flash (Chapter: The Room)", type: "cameraaccessory", y: 858, x: 114, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/flash.png" },
+            { id: "cameraaccessory-3", name: "Tripod (Chapter: The Rolls)", type: "cameraaccessory", y: 764, x: 317, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/tripod.png" },
+            { id: "cameraaccessory-4", name: "Infrared Lens & Film (Chapter: The Rolls)", type: "cameraaccessory", y: 798, x: 229, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irlensfilm.png" },
+            { id: "cameraaccessory-5", name: "Macro Lens, Orange Filter & Blue Filter (Chapter: The Rolls)", type: "cameraaccessory", y: 763, x: 225, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/macrofilters.png" },
+            { id: "cameraaccessory-6", name: "25 ISO Film (Chapter: The Woods)", type: "cameraaccessory", y: 845, x: 117, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/25isofilm.png" },
+            { id: "cameraaccessory-7", name: "Focal Lens x0.5, Macro Lens & Focal Lens x2 (Chapter: The Woods)", type: "cameraaccessory", y: 774, x: 196, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/focallens.png" },
+            { id: "cameraaccessory-8", name: "Red Filter (Chapter: The Woods)", type: "cameraaccessory", y: 760, x: 209, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/redfilter.png" },
+            // IR Photos
+            { id: "irphoto-1", name: "IR Photo 1", type: "irphoto", y: 749, x: 332, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irphoto1.png" },
+            { id: "irphoto-2", name: "IR Photo 2", type: "irphoto", y: 621, x: 251, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irphoto2.png" },
+            { id: "irphoto-3", name: "IR Photo 3", type: "irphoto", y: 477, x: 160, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irphoto3.png" },
+            { id: "irphoto-4", name: "IR Photo 4", type: "irphoto", y: 784, x: 1116, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irphoto4.png" },
+            { id: "irphoto-5", name: "IR Photo 5", type: "irphoto", y: 746, x: 656, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irphoto5.png" },
+            { id: "irphoto-6", name: "IR Photo 6", type: "irphoto", y: 532, x: 371, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irphoto6.png" },
+            // IR Lady
+            { id: "irlady-1", name: "IR Lady 1", type: "irlady", y: 871, x: 269, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irlady1.png" },
+            { id: "irlady-2", name: "IR Lady 2", type: "irlady", y: 519, x: 309, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irlady2.png" },
+            { id: "irlady-3", name: "IR Lady 3", type: "irlady", y: 786, x: 448, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irlady3.png" },
+            { id: "irlady-4", name: "IR Lady 4", type: "irlady", y: 844, x: 793, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/irlady4.png" },
+            // Side Quests
+            { id: "side-1", name: "Telegraph Pole (Side Quest: Lapo's quest)", type: "side", y: 570, x: 186, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/telegraphpole.png" },
+            { id: "side-2", name: "Telegraph Machine (Side Quest: Lapo's quest)", type: "side", y: 906, x: 64, image: "https://warrenwoodhouse.github.io/maps/marthaisdead/images/telegraphmachine.png" }
+        ];
+
+        // 6. Registry to look up markers by ID
+        const markerRegistry = {};
+        let currentOpenMarkerId = null;
+
+        // 7. Initialize URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlMarkerId = urlParams.get('marker');
+        const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
+
+        // 8. Add Markers & Populate Layer Groups
+        locations.forEach(loc => {
+            const popupContent = `
+                <div>
+                    ${loc.image ? `<img src="${loc.image}" alt="${loc.name}" class="popup-image" onerror="this.style.display='none'">` : ''}
+                    <div class="popup-text">
+                        <strong>${loc.name}</strong>
+                        <small>ID: ${loc.id}</small>
+                    </div>
+                    <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
+                </div>
+            `;
+
+            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.type] }).bindPopup(popupContent);
+            markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
+
+            if (filterGroups[loc.type]) {
+                marker.addTo(filterGroups[loc.type].group);
+            }
+
+            // Update URL when a marker popup is opened/closed
+            marker.on('popupopen', () => {
+                currentOpenMarkerId = loc.id;
+                updateURL();
+            });
+
+            marker.on('popupclose', () => {
+                if (currentOpenMarkerId === loc.id) {
+                    currentOpenMarkerId = null;
+                    updateURL();
+                }
+            });
+        });
+
+        // 9. Apply Active Filter Groups to Map
+        const layerControls = {};
+        Object.keys(filterGroups).forEach(key => {
+            const groupInfo = filterGroups[key];
+            layerControls[groupInfo.name] = groupInfo.group;
+
+            // If filters are specified in URL, enable matching ones; otherwise enable all by default
+            if (!urlFilters || urlFilters.includes(key)) {
+                groupInfo.group.addTo(map);
+            }
+        });
+
+        // Add Leaflet Layer Control
+        L.control.layers(null, layerControls, { collapsed: false }).addTo(map);
+
+        // Listen for filter toggle events to sync URL
+        map.on('overlayadd overlayremove', updateURL);
+
+        // 10. Functions to Handle URL State & Copying
+        function updateURL() {
+            const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
+            const params = new URLSearchParams();
+
+            if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
+                params.set('filters', activeFilters.join(','));
+            }
+
+            if (currentOpenMarkerId) {
+                params.set('marker', currentOpenMarkerId);
+            }
+
+            const queryString = params.toString();
+            const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function copyShareableUrl(markerId) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('marker', markerId);
+            
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                alert('Shareable link copied to clipboard!');
+            }).catch(err => {
+                console.error('Error copying link: ', err);
+            });
+        }
+
+        // 11. Initial View & Deep Linking Setup
+        if (urlMarkerId && markerRegistry[urlMarkerId]) {
+            const target = markerRegistry[urlMarkerId];
+            
+            // Ensure the parent layer group is visible
+            if (!map.hasLayer(filterGroups[target.type].group)) {
+                filterGroups[target.type].group.addTo(map);
+            }
+
+            map.setView(target.coords, 1);
+            target.marker.openPopup();
+        } else {
+            map.fitBounds(bounds);
+        }
+    </script>
+</body>
+</html>
