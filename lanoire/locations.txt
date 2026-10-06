@@ -1,5 +1,5 @@
 // Points of Interests
-add
+* P.E. Freight Depot: y: 490, x: 3916
 
 // Cases
 icon-case
@@ -39,8 +39,12 @@ add
 // Persons of Interests
 icon-poi
 
+add
+
 // Partners
 icon-partner
+
+add
 
 // Police Stations
 icon-policestation
@@ -90,7 +94,7 @@ add
 // Bridges
 icon-bridge
 
-add
+* 7th Street Viaduct: y: 489, x: 4328
 
 // Tunnels
 icon-tunnel
@@ -140,7 +144,36 @@ add
 // Landmarks
 icon-landmark
 
-add
+* 4th Street Viaduct: y: 775, x: 4282
+* 6th Street Viaduct: y: 656, x: 4299
+* National Biscuit Company: y: 528, x: 4129
+* L.A. Cold Storage: y: 890, x: 3918
+* Union Station: y: 1401, x: 4006
+* El Pueblo de Los Angeles: y: 1416, x: 3926
+* Chinatown: y: 1785, x: 3987
+* Hall of Records: y: 1327, x: 3752
+* Angels Flight: y: 1205, x: 3558
+* The Bradbury Building: y: 1161, x: 3609
+* L.A. Public Library: y: 1145, x: 3355
+* Pershing Square: y: 1063, x: 3433
+* Main Street Terminal: y: 903, x: 3538
+* R.K.O. Theater: y: 890, x: 3321
+* Los Angeles Examiner: y: 686, x: 3206
+* Intolerance Set: y: 1057, x: 3063
+* Christ Crown of Thorns: y: 1007, x: 2942
+* The Mayfair Hotel: y: 1218, x: 2918
+* The Good Samaritan Hospital: y: 1302, x: 3005
+* MacArthur Park: y: 1495, x: 2574
+* Park Plaza: y: 1587, x: 2503
+* L.A. County Museum: y: 1408, x: 2300
+* Westlake Tar Pits: y: 1285, x: 2269
+* Bullocks Wiltshire: y: 1603, x: 2187
+* Brown Derby: y: 3217, x: 847
+* Crossroads of the World: y: 3128, x: 534
+* Musso & Franks: y: 3278, x: 530
+* Max Factor Building: y: 3241, x: 419
+* Grauman’s Theater: y: 3290, x: 331
+* Hotel Roosevelt: y: 3256, x: 299
 
 // Golden Film Reels
 icon-goldenfilmreel
@@ -223,7 +256,7 @@ icon-newcollectionsdlc-novel
 add
 
 // Points of Interests (The VR Case Files)
-icon-pointofinterest
+icon-thevrcasefiles
 
 add
 
@@ -244,5 +277,30 @@ add
 
 // Real Life Locations Only
 icon-realfilminglocations
+
+add
+
+// Patrol Desk
+icon-desk-patrol
+
+add
+
+// Traffic Desk
+icon-desk-traffic
+
+add
+
+// Homicide Desk
+icon-desk-homicide
+
+add
+
+// Vice Desk
+icon-desk-vice
+
+add
+
+// Arson Desk
+icon-desk-arson
 
 add
