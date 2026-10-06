@@ -143,11 +143,12 @@
         // 5. Create Layer Groups for Filters
         const filterGroups = {
             poi: { name: "Points of Interests", group: L.layerGroup() },
-            cases: { name: "Cases", group: L.layerGroup() },
-            storycases: { name: "Story Cases", group: L.layerGroup() },
-            victims: { name: "Victims", group: L.layerGroup() },
-            suspects: { name: "Suspects", group: L.layerGroup() },
-            streetcrimes: { name: "Street Crimes", group: L.layerGroup() }
+            case: { name: "Cases", group: L.layerGroup() },
+            storycase: { name: "Story Cases", group: L.layerGroup() },
+            victim: { name: "Victims", group: L.layerGroup() },
+            suspect: { name: "Suspects", group: L.layerGroup() },
+            streetcrime: { name: "Street Crimes", group: L.layerGroup() },
+            landmark: { name: "Landmarks", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -156,27 +157,27 @@
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-marker.png',
                 iconSize: [32, 32]
             }),
-            cases: L.icon({
+            case: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-case.png',
                 iconSize: [32, 32]
             }),
-            storycases: L.icon({
+            storycase: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-storycase.png',
                 iconSize: [32, 32]
             }),
-            victims: L.icon({
+            victim: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-victim.png',
                 iconSize: [32, 32]
             }),
-            suspects: L.icon({
+            suspect: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-suspect.png',
                 iconSize: [32, 32]
             }),
-            streetcrimes: L.icon({
+            streetcrime: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-streetcrime.png',
                 iconSize: [32, 32]
             }),
-            landmarks: L.icon({
+            landmark: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-landmark.png',
                 iconSize: [32, 32]
             })
