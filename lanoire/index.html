@@ -151,7 +151,8 @@
             landmark: { name: "Landmarks", group: L.layerGroup() },
             bridge: { name: "Bridges", group: L.layerGroup() },
             tunnel: { name: "Tunnels", group: L.layerGroup() },
-            park: { name: "Parks", group: L.layerGroup() }
+            park: { name: "Parks", group: L.layerGroup() },
+            hospital: { name: "Hospitals", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -195,6 +196,7 @@
             park: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-park.png',
                 iconSize: [32, 32]
+            hospital.L.icon({
             })
         };
 
@@ -257,6 +259,15 @@
             { id: "tunnel-5", name: "Cesar Chavez Avenue Tunnel", type: "tunnel", y: 1433, x: 4126, image: "" },
             { id: "tunnel-6", name: "Train Tunnel", type: "tunnel", y: 1569, x: 3773, image: "" },
             { id: "tunnel-7", name: "Pedestrian Subway Tunnel", type: "tunnel", y: 1137, x: 3468, image: "" }
+            // Parks
+            { id: "park-1", name: "Pershing Square", type: "park", y: 1061, x: 3432, image: "" },
+            { id: "park-2", name: "MacArthur Park", type: "park", y: 1507, x: 2560, image: "" },
+            { id: "park-3", name: "El Pueblo de Los Angeles", type: "park", y: 1416, x: 3926, image: "" },
+            { id: "park-4", name: "City Hall Park", type: "park", y: 1255, x: 3761, image: "" },
+            { id: "park-5", name: "Spring Street Park", type: "park", y: 1039, x: 3577, image: "" },
+            { id: "park-6", name: "Lafayette Park", type: "park", y: 1648, x: 2344, image: "" },
+            { id: "park-7", name: "Shatto Park", type: "park", y: 1829, x: 2107, image: "" },
+            { id: "park-8", name: "City Park", type: "park", y: 1287, x: 3245, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
