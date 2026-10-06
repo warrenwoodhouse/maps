@@ -1,0 +1,248 @@
+// Points of Interests
+add
+
+// Cases
+icon-case
+
+add
+
+// Story Cases
+icon-case
+
+add
+
+// Victims
+icon-poi
+
+add
+
+// Suspects
+icon-suspect
+
+add
+
+// Street Crime Cases
+icon-streetcrime
+
+add
+
+// Crime Scenes
+icon-crimescene
+
+add
+
+// Clues & Inspection Puzzles
+icon-clue
+
+add
+
+// Persons of Interests
+icon-poi
+
+// Partners
+icon-partner
+
+// Police Stations
+icon-policestation
+
+add
+
+// Gamewells
+icon-gamewell
+
+add
+
+// Telephones
+icon-telephone
+
+add
+
+// Streets & Roads
+icon-street
+
+add
+
+// Freeways
+icon-ushighway
+
+add
+
+// Parks
+icon-park
+
+add
+
+// Churches
+icon-church
+
+add
+
+// Rivers
+icon-river
+
+add
+
+// Lakes
+icon-lake
+
+add
+
+// Bridges
+icon-bridge
+
+add
+
+// Tunnels
+icon-tunnel
+
+add
+
+// Gas Stations
+icon-gasstation
+
+add
+
+// Cemeteries
+icon-cemetery
+
+add
+
+// Neighbourhoods
+icon-neighbourhood
+
+add
+
+// Districts
+icon-city
+
+add
+
+// Bus Routes
+icon-rightarrow
+
+add
+
+// Staircases & Interactions
+icon-staircase
+
+add
+
+// Parking
+icon-parking
+
+add
+
+// Government
+icon-government
+
+add
+
+// Landmarks
+icon-landmark
+
+add
+
+// Golden Film Reels
+icon-goldenfilmreel
+
+add
+
+// Weapons
+icon-weaponpickup
+
+add
+
+// Hidden Vehicles
+icon-hiddenvehicle
+
+add
+
+// Outfits
+icon-outfit
+
+add
+
+// Newspapers
+icon-newspaper
+
+add
+
+// Hidden Shields (The Badge Pursuit Challenge DLC)
+icon-thebadgepursuitchallengedlc-hiddenshield
+
+add
+
+// The Consul’s Car (Pre-Order DLC)
+icon-case
+
+add
+
+// A Slip of the Tongue (Pre-Order DLC)
+icon-case
+
+add
+
+// The Naked City (Pre-Order DLC)
+icon-case
+
+add
+
+// Reefer Madness (Pre-Order DLC)
+icon-case
+
+add
+
+// Nicholson Electroplating (Pre-Order DLC)
+icon-case
+
+add
+
+// Outfit (Pre-Order DLC)
+icon-outfit
+
+add
+
+// Outfit (Social Club)
+icon-outfit
+
+add
+
+// Outfit (Remastered Edition)
+icon-outfit
+
+add
+
+// Hidden Records (New Collections DLC)
+icon-newcollectionsdlc-record
+
+add
+
+// Hidden Novels (New Collections DLC)
+icon-newcollectionsdlc-novel
+
+add
+
+// Points of Interests (The VR Case Files)
+icon-pointofinterest
+
+add
+
+// Cases (The VR Case Files)
+icon-thevrcasefiles-mission
+
+add
+
+// Easter Eggs
+icon-easteregg
+
+add
+
+// Trophies & Achievements
+icon-trophy
+
+add
+
+// Real Life Locations Only
+icon-realfilminglocations
+
+add
