@@ -153,14 +153,15 @@
             tunnel: { name: "Tunnels", group: L.layerGroup() },
             park: { name: "Parks", group: L.layerGroup() },
             hospital: { name: "Hospitals", group: L.layerGroup() },
-            church: { name: "Churches", group: L.layerGroup() }
+            church: { name: "Churches", group: L.layerGroup() },
+            vehicle: { name: "Vehicles & Hidden Vehicles", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
         const customIcons = {
             poi: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-marker.png',
-                iconSize: [52, 52]
+                iconSize: [42, 42]
             }),
             case: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-case.png',
@@ -188,23 +189,27 @@
             }),
             bridge: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-bridge.png',
-                iconSize: [52, 52]
+                iconSize: [42, 42]
             }),
             tunnel: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-tunnel.png',
-                iconSize: [52, 52]
+                iconSize: [42, 42]
             }),
             park: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-park.png',
-                iconSize: [52, 52]
+                iconSize: [42, 42]
             }),
             hospital: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-hospital.png',
-                iconSize: [52, 52]
+                iconSize: [42, 42]
             }),
             church: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-church.png',
-                iconSize: [52, 52]
+                iconSize: [42, 42]
+            }),
+            vehicle: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-hiddenvehicle.png',
+                iconSize: [32, 32]
             })
         };
 
@@ -332,7 +337,39 @@
             { id: "church-3", name: "Our Lady Queen of Angels Catholic Church", type: "church", y: 1444, x: 3898, image: "" },
             { id: "church-4", name: "Main Street Church", type: "church", y: 1146, x: 3719, image: "" },
             { id: "church-5", name: "Cesar Chavez Avenue Mission Church", type: "church", y: 1542, x: 3860, image: "" },
-            { id: "church-6", name: "First Methodist Church", type: "church", y: 980, x: 3206, image: "" }
+            { id: "church-6", name: "First Methodist Church", type: "church", y: 980, x: 3206, image: "" },
+            // Vehicles & Hidden Vehicles
+            { id: "vehicle-1", name: "Nash Deluxe 600 Army", type: "vehicle", y: 381, x: 4495, image: "" },
+            { id: "vehicle-2", name: "Duesenberg Walker Coupe", type: "vehicle", y: 2856, x: 877, image: "" },
+            { id: "vehicle-3", name: "Airfield", type: "vehicle", y: 2054, x: 2469, image: "" },
+            { id: "vehicle-4", name: "Automobile Club of Southern California", type: "vehicle", y: 2845, x: 903, image: "" },
+            { id: "vehicle-5", name: "American LaFrance Fire Truck", type: "vehicle", y: 2515, x: 2027, image: "" },
+            { id: "vehicle-6", name: "Buick Ambulance", type: "vehicle", y: 1291, x: 3018, image: "" },
+            { id: "vehicle-7", name: "Ford Ambulance", type: "vehicle", y: 1293, x: 3660, image: "" },
+            { id: "vehicle-8", name: "International KB8", type: "vehicle", y: 2191, x: 1612, image: "" },
+            { id: "vehicle-9", name: "Buick Custom", type: "vehicle", y: 2473, x: 1889, image: "" },
+            { id: "vehicle-10", name: "Packard Clipper Eight", type: "vehicle", y: 1144, x: 3215, image: "" },
+            { id: "vehicle-11", name: "Plymouth Sedan", type: "vehicle", y: 1311, x: 3670, image: "" },
+            { id: "vehicle-12", name: "Buick Eight Convertible", type: "vehicle", y: 893, x: 3887, image: "" },
+            { id: "vehicle-13", name: "Ford Police Special", type: "vehicle", y: 597, x: 4177, image: "" },
+            { id: "vehicle-14", name: "DeSoto Custom Suburban Taxi", type: "vehicle", y: 1399, x: 3996, image: "" },
+            { id: "vehicle-15", name: "Studebaker Commander (Police)", type: "vehicle", y: 488, x: 3908, image: "" },
+            { id: "vehicle-16", name: "Studebaker Commander (Police)", type: "vehicle", y: 1265, x: 3853, image: "" },
+            { id: "vehicle-17", name: "Chevrolet Coroner’s Van", type: "vehicle", y: 1243, x: 3839, image: "" },
+            { id: "vehicle-18", name: "Voisin C7", type: "vehicle", y: 3134, x: 235, image: "" },
+            { id: "vehicle-19", name: "Buick Eight", type: "vehicle", y: 604, x: 4179, image: "" },
+            { id: "vehicle-20", name: "Buick 2DR", type: "vehicle", y: 597, x: 4180, image: "" },
+            { id: "vehicle-21", name: "Van", type: "vehicle", y: 602, x: 4189, image: "" },
+            { id: "vehicle-22", name: "Talbot GS26", type: "vehicle", y: 1322, x: 3110, image: "" },
+            { id: "vehicle-23", name: "Delahaye 135MS Cabriolet", type: "vehicle", y: 3431, x: 820, image: "" },
+            { id: "vehicle-24", name: "Cadillac Town Car", type: "vehicle", y: 2951, x: 1131, image: "" },
+            { id: "vehicle-25", name: "Davis", type: "vehicle", y: 2551, x: 1387, image: "" },
+            { id: "vehicle-26", name: "Delage D8 S Poutout", type: "vehicle", y: 2658, x: 1752, image: "" },
+            { id: "vehicle-27", name: "Cisitalia Coupe", type: "vehicle", y: 2542, x: 2056, image: "" },
+            { id: "vehicle-28", name: "Tucker Torpedo", type: "vehicle", y: 2291, x: 1470, image: "" },
+            { id: "vehicle-29", name: "Ford H-Boy", type: "vehicle", y: 2235, x: 1680, image: "" },
+            { id: "vehicle-30", name: "Chrysler Woody", type: "vehicle", y: 1486, x: 2047, image: "" },
+            { id: "vehicle-31", name: "Delage D8 120", type: "vehicle", y: 1245, x: 2742, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
