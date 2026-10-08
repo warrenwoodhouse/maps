@@ -153,7 +153,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * Mass Effect: Andromeda (WIP)
 
 ## Noire - Games - Interactive Maps
-* L.A. Noire & L.A. Noire Remastered](https://warrenwoodhouse.github.io/maps/lanoire) (WIP)
+* [L.A. Noire & L.A. Noire Remastered](https://warrenwoodhouse.github.io/maps/lanoire) (WIP)
 
 ## Thief - Games - Interactive Maps
 * Thief: The Dark Prophet & Thief: The Dark Prophet Remastered (WIP)
@@ -199,8 +199,8 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Red Dead - Games - Interactive Maps
 * [Red Dead Redemption & Red Dead Redemption: Undead Nightmare](https://warrenwoodhouse.github.io/maps/reddead/redemption) (WIP)
 * [Red Dead Redemption II & Red Dead Online](https://warrenwoodhouse.github.io/maps/reddead/redemptionii) (WIP)
-* > [City Railway - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/cityrailway)
-* > [Street Names - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/streetnames)
+* > [City Railway - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/cityrailway) (WIP)
+* > [Street Names - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/streetnames) (WIP)
 
 ## Saints Row - Games - Interactive Maps
 * [Saints Row](https://warrenwoodhouse.github.io/maps/saintsrow) (WIP)
@@ -233,11 +233,9 @@ I'll add some here
 
 # Real Life Maps
 * Everybody’s Gone to the Rapture
-* L.A. Noire (WIP, converting from Google MyMaps)
 * Atomfall
 * The Order 1886
 * Tomb Raider Franchise
-* Control Franchise (WIP, converting from Google MyMaps)
 
 ## Creations - Real Life Maps
 * [Ouseburn Farm Water Feature by Warren Woodhouse](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature) (converted from Google MyMaps)
@@ -245,11 +243,17 @@ I'll add some here
 ## Assassin’s Creed Franchise - Real Life Maps
 * [Assassin’s Creed Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/assassinscreed/franchise) (WIP, converting from Google MyMaps)
 
+## Control Franchise - Real Life Maps
+* [Control Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/control) (WIP, converting from Google MyMaps)
+
 ## Fallout Franchise - Real Life Maps
 * [Fallout Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/fallout/franchise) (WIP, converting from Google MyMaps)
 
+## Noire Franchise - Real Life Maps
+* [Noire Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/noire) (WIP, converting from Google MyMaps)
+
 ## This Bed We Made Franchise - Real Life Maps
-* [This Bed We Made Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade) (converted from Google MyMaps)
+* [This Bed We Made Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/thisbedwemade) (converted from Google MyMaps)
 
 ## James Bond 007 Franchise - Real Life Maps
 * [James Bond 007 Franchise Real Life Map](https://warrenwoodhouse.github.io/maps/reallife/007) (WIP, converting from Google MyMaps)
