@@ -153,7 +153,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * Mass Effect: Andromeda (WIP)
 
 ## Noire - Games - Interactive Maps
-* L.A. Noire & L.A. Noire Remastered (WIP)
+* L.A. Noire & L.A. Noire Remastered](https://warrenwoodhouse.github.io/maps/lanoire) (WIP)
 
 ## Thief - Games - Interactive Maps
 * Thief: The Dark Prophet & Thief: The Dark Prophet Remastered (WIP)
