@@ -154,7 +154,9 @@
             park: { name: "Parks", group: L.layerGroup() },
             hospital: { name: "Hospitals", group: L.layerGroup() },
             church: { name: "Churches", group: L.layerGroup() },
-            vehicle: { name: "Vehicles & Hidden Vehicles", group: L.layerGroup() }
+            vehicle: { name: "Vehicles & Hidden Vehicles", group: L.layerGroup() },
+            gamewell: { name: "Gamewells", group: L.layerGroup() },
+            phone: { name: "Telephones & Phone Booths", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -209,6 +211,14 @@
             }),
             vehicle: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-hiddenvehicle.png',
+                iconSize: [32, 32]
+            }),
+            gamewell: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-gamewell.png',
+                iconSize: [32, 32]
+            }),
+            phone: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-phone.png',
                 iconSize: [32, 32]
             })
         };
@@ -476,7 +486,27 @@
             { id: "vehicle-39", name: "Buick Super (Police)", type: "vehicle", y: 1306, x: 3664, image: "" },
             { id: "vehicle-40", name: "Nash 600 Super (Police)", type: "vehicle", y: 1307, x: 3663, image: "" },
             { id: "vehicle-41", name: "Ford Police Special", type: "vehicle", y: 489, x: 3906, image: "" },
-            { id: "vehicle-42", name: "Vehicle", type: "vehicle", y: 1324, x: 3947, image: "" }
+            { id: "vehicle-42", name: "Vehicle", type: "vehicle", y: 1324, x: 3947, image: "" },
+            // Gamewells
+            { id: "gamewell-1", name: "Gamewell", type: "gamewell", y: 1296, x: 3548, image: "" },
+            { id: "gamewell-2", name: "Gamewell", type: "gamewell", y: 1276, x: 3220, image: "" },
+            { id: "gamewell-3", name: "Gamewell", type: "gamewell", y: 1278, x: 3212, image: "" },
+            { id: "gamewell-4", name: "Gamewell", type: "gamewell", y: 1264, x: 3187, image: "" },
+            { id: "gamewell-5", name: "Gamewell", type: "gamewell", y: 1257, x: 3206, image: "" },
+            { id: "gamewell-6", name: "Gamewell", type: "gamewell", y: 1289, x: 3198, image: "" },
+            { id: "gamewell-7", name: "Gamewell", type: "gamewell", y: 1412, x: 3302, image: "" },
+            { id: "gamewell-8", name: "Gamewell", type: "gamewell", y: 1508, x: 3424, image: "" },
+            { id: "gamewell-9", name: "Gamewell", type: "gamewell", y: 1269, x: 3624, image: "" },
+            { id: "gamewell-10", name: "Gamewell", type: "gamewell", y: 1248, x: 3597, image: "" },
+            { id: "gamewell-11", name: "Gamewell", type: "gamewell", y: 1320, x: 3663, image: "" },
+            { id: "gamewell-12", name: "Gamewell", type: "gamewell", y: 1306, x: 3822, image: "" },
+            { id: "gamewell-13", name: "Gamewell", type: "gamewell", y: 1335, x: 3840, image: "" },
+            { id: "gamewell-14", name: "Gamewell", type: "gamewell", y: 1326, x: 3847, image: "" },
+            { id: "gamewell-15", name: "Gamewell", type: "gamewell", y: 1342, x: 3938, image: "" },
+            { id: "gamewell-16", name: "Gamewell", type: "gamewell", y: 549, x: 3939, image: "" },
+            { id: "gamewell-17", name: "Gamewell", type: "gamewell", y: 560, x: 3924, image: "" },
+            { id: "gamewell-18", name: "Gamewell", type: "gamewell", y: 1329, x: 3958, image: "" }
+            // Telephones & Phone Booths
         ];
 
         // 6. Registry to look up markers by ID
