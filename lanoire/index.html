@@ -156,7 +156,8 @@
             church: { name: "Churches", group: L.layerGroup() },
             vehicle: { name: "Vehicles & Hidden Vehicles", group: L.layerGroup() },
             gamewell: { name: "Gamewells", group: L.layerGroup() },
-            phone: { name: "Telephones & Phone Booths", group: L.layerGroup() }
+            phone: { name: "Telephones & Phone Booths", group: L.layerGroup() },
+            shield: { name: "Hidden Shields (Brass Shields) (The Badge Pursuit Challenge DLC)", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -219,6 +220,10 @@
             }),
             phone: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-phone.png',
+                iconSize: [32, 32]
+            }),
+            shield: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lanoire/icon-thebadgepursuitchallengedlc-hiddenshield.png',
                 iconSize: [32, 32]
             })
         };
