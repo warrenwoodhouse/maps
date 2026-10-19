@@ -4,6 +4,10 @@
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
+# Denotes
+* greyed out means it’s part of the same item
+* WIP means Work in Progress, not 100% ready so expect errors and issues with these
+
 # Contribute
 If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions)
 
@@ -131,9 +135,12 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Grand Theft Auto - Games - Interactive Maps
 * Grand Theft Auto IV & Grand Theft Auto IV Remake (WIP)
 * > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway)
+* > LCPD Crime Wave Heat Map
 * Grand Theft Auto V & Grand Theft Auto V: Next Gen Edition (WIP)
-* > Blueprint Map
-* > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gtav/blueprint/light)
+* > [Blueprint Map](https://warrenwoodhouse.github.io/maps/gta/v/blueprint) (WIP)
+* > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gta/v/blueprint/light) (WIP)
+* > Lenny Avery Real Estates Map
+* > Los Santos Freegans Map
 * > Grand Theft Auto Online (WIP)
 * Grand Theft Auto VI (WIP)
 
@@ -154,6 +161,7 @@ Here is the full list of Interactive Maps. Enjoy!
 
 ## Noire - Games - Interactive Maps
 * [L.A. Noire & L.A. Noire Remastered](https://warrenwoodhouse.github.io/maps/lanoire) (WIP)
+* S.F. Noire (TBD)
 
 ## Thief - Games - Interactive Maps
 * Thief: The Dark Prophet & Thief: The Dark Prophet Remastered (WIP)
@@ -175,8 +183,8 @@ Here is the full list of Interactive Maps. Enjoy!
 * Fallout 2 (WIP)
 * Fallout Tactics (WIP)
 * Fallout 3: Game of the Year Edition & Fallout 3 Remake (WIP)
-* Fallout: New Vegas: Ultimate Edition (WIP)
-* [Fallout 4 & Fallout 4: Anniversary Edition](https://warrenwoodhouse.github.io/maps/fallout4) (WIP)
+* [Fallout: New Vegas: Ultimate Edition](https://warrenwoodhouse.github.io/maps/fallout/newvegas) (WIP)
+* [Fallout 4 & Fallout 4: Anniversary Edition](https://warrenwoodhouse.github.io/maps/fallout/4) (WIP)
 * Fallout 76 (WIP)
 
 ## The Elder Scrolls - Games - Interactive Maps
@@ -199,7 +207,7 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Red Dead - Games - Interactive Maps
 * [Red Dead Redemption & Red Dead Redemption: Undead Nightmare](https://warrenwoodhouse.github.io/maps/reddead/redemption) (WIP)
 * [Red Dead Redemption II & Red Dead Online](https://warrenwoodhouse.github.io/maps/reddead/redemptionii) (WIP)
-* > [City Railway - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/cityrailway) (WIP)
+* > [City Railway - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/cityrailway)
 * > [Street Names - City of Saint Denis](https://warrenwoodhouse.github.io/maps/reddead/redemptionii/streetnames) (WIP)
 
 ## Saints Row - Games - Interactive Maps
