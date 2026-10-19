@@ -1,9 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Warren Woodhouse: Life is Strange: Double Exposure Interactive Map [WIP]</title>
-    <link rel="icon" type="image/x-icon" href="https://warrenwoodhouse.blogspot.com/favicon.ico">
+    
+<!-- ICONS META DATA -->
+<link rel="icon" href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" type="image/ico"/>
+<link rel="shortcut icon" href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" type="image/ico"/>
+
+<!-- OPENGRAPH META DATA -->
+<meta name="og:title" content="Life is Strange: Double Exposure Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:type" content="application">
+<meta name="og:url" content="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure">
+<meta name="og:image" content="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico">
+<meta name="og:site_name" content="Life is Strange: Double Exposure Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:description" content="An interactive map for the game Life is Strange: Double Exposure, which includes points of interests, collectibles and more.">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Life is Strange: Double Exposure Interactive Map - Maps - Warren Woodhouse","url":"https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure"}</script>
+
+<!-- APPLE META DATA -->
+<meta name="apple-mobile-web-app-title" content="LiS Double Exposure Map">
+<!-- New in iOS6 -->
+<link rel="apple-mobile-web-app" href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" color="#000000">
+<meta name="theme-color" content="#090909-gradient" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000-gradient" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="https://warrenwoodhouse.github.io/site/site.webmanifest" crossorigin="use-credentials" id="manifest-link" />
+<link rel="icon" type="image/ico" href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" sizes="96x96" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<meta name="apple-touch-fullscreen" content="yes">
+<link href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" rel="apple-touch-icon" type="image/ico">
+<link href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" rel="apple-ipad-icon" type="image/ico" sizes="72x72">
+<link href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" rel="apple-touch-startup-image" type="image/ico" sizes="152x152">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/favicon.ico" type="image/ico"/>
+
+<!-- MICROSOFT META DATA -->
+<meta name="mssmarttagspreventparsing" content="true">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="msapplication-starturl" content="https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure">
+<meta name="msapplication-window" content="width=800;height=600">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="application-name" content="LiS Double Exposure Map">
+<meta name="msapplication-tooltip" content="An interactive map for Life is Strange: Double Exposure, which includes points of interests, collectibles and more.">
+<meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
+<meta name="news_keywords" content="Life is Strange: Double Exposure Interactive Map, LiS Double Exposure Interactive Map, Life is Strange: Double Exposure, lifeisstrangedoubleexposure, #lifeisstrangedoubleexposure, #LifeisStrange, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps">
+  
+  <title>Life is Strange: Double Exposure Interactive Map - Maps - Warren Woodhouse</title>
+  <meta name="description" content="An interactive map for the game Life is Strange: Double Exposure, which includes points of interests, collectibles and more.">
+  <meta name="keywords" content="Life is Strange: Double Exposure Interactive Map, LiS Double Exposure Interactive Map, Life is Strange: Double Exposure, lifeisstrangedoubleexposure, #lifeisstrangedoubleexposure, #LifeisStrange, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps, game guides">
+    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body {
@@ -14,23 +57,66 @@
         #map {
             width: 100vw;
             height: 100vh;
-            background-color: #111; /* Dark background for off-map areas */
+            background-color: #111;
+            font-size: 20px;
+        }
+        .filterControls {
+            font-size: 19px;
         }
         .leaflet-popup-content-wrapper {
             background: #ffffff;
             color: #000000;
             border: 1px solid #000000;
             border-radius: 4px;
+            font-size: 19px;
+            max-width: 350px;
         }
         .leaflet-popup-tip {
             background: #ffffff;
+            font-size: 19px;
+        }
+        .popup-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .popup-text {
+            margin: 8px 0;
+        }
+        .popup-text strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .popup-text small {
+            display: block;
+            color: #666;
+            font-size: 14px;
+        }
+        .share-btn {
+            margin-top: 8px;
+            padding: 6px 12px;
+            background-color: #111;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 19px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .share-btn:hover {
+            background-color: #333;
         }
     </style>
 </head>
 <body>
-    <p style="color:white;">This map is a work in progress.</p>
-    <p style="color:white;">If the map isn't loading, give it 5-10 minutes for the mapping data to sync after an update that I've made.</p>
-    <p style="color:white;"><a href="https://warrenwoodhouse.blogspot.com/maps/interactive">CLICK HERE</a> to see more Interactive Maps by Warren Woodhouse.</p>
+    <p style="color:white; margin: 10px;">Life is Strange: Double Exposure Interactive Map - Maps - Warren Woodhouse</p>
+    <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
 
     <div id="map"></div>
 
@@ -43,56 +129,162 @@
         // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
         const map = L.map('map', {
             crs: L.CRS.Simple,
-            minZoom: -1,  // Allows zooming out further than the image
+            minZoom: -1,
             maxZoom: 3
         });
 
         // 3. Set Bounds [Bottom-Left, Top-Right]
         const bounds = [[0, 0], [mapHeight, mapWidth]];
 
-        // 4. Load the 762x1333 Image Overlay
-        // IMPORTANT: Replace 'maps-lifeisstrange-doubleexposure.jpeg' with your actual image file name
-        L.imageOverlay('maps-lifeisstrange-doubleexposure.jpeg', bounds).addTo(map);
+        // 4. Load the 1856x1036 Image Overlay
+        L.imageOverlay('https://raw.githubusercontent.com/warrenwoodhouse/maps/main/lifeisstrange/doubleexposure/map.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
         // 5. Create Layer Groups for Filters
-        const regions = L.layerGroup();
+        const filterGroups = {
+            poi: { name: "Points of Interests", group: L.layerGroup() },
+            collectible: { name: "Collectibles", group: L.layerGroup() },
+            puzzle: { name: "Puzzles", group: L.layerGroup() },
+            npc: { name: "NPCs", group: L.layerGroup() }
+        };
+
+        // Create custom icons for each marker type
+        const customIcons = {
+            poi: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/icon-marker.png',
+                iconSize: [32, 32]
+            }),
+            collectible: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/icon-marker-blue.png',
+                iconSize: [32, 32]
+            }),
+            puzzle: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/icon-marker-orange.png',
+                iconSize: [32, 32]
+            }),
+            npc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/lifeisstrange/doubleexposure/icon-marker.png',
+                iconSize: [32, 32]
+            })
+        };
 
         // 6. Location Database
-        // Y = Vertical axis (0 is bottom, 762 is top)
-        // X = Horizontal axis (0 is left, 1333 is right)
-        // These coordinates are estimates to show you the scaling on a 1333 grid.
         const locations = [
-            // Markers
-            { id: "1", name: "FAB Building", type: "markers", y: 0, x: 0 },
-            { id: "2", name: "The Quad", type: "markers", y: 100, x: 100 },
-            { id: "3", name: "The Snapping Turtle", type: "markers", y: 200, x: 200 },
-            { id: "4", name: "The Overlook", type: "markers", y: 300, x: 300 }
+            // Points of Interests
+            { id: "poi-1", name: "Fine Arts Building (FAB)", type: "poi", y: 721, x: 394, image: "" },
+            { id: "poi-2", name: "North Quad", type: "poi", y: 815, x: 287, image: "" },
+            { id: "poi-3", name: "Snapping Turtle", type: "poi", y: 718, x: 58, image: "" },
+            { id: "poi-4", name: "Everett Observatory", type: "poi", y: 1027, x: 735, image: "" },
+            { id: "poi-5", name: "Admin Building", type: "poi", y: 657, x: 402, image: "" }
+            // Collectibles
+            // Puzzles
+            // NPCs
         ];
 
-        // 7. Loop Through Data to Create Markers
+        // 6. Registry to look up markers by ID
+        const markerRegistry = {};
+        let currentOpenMarkerId = null;
+
+        // 7. Initialize URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlMarkerId = urlParams.get('marker');
+        const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
+
+        // 8. Add Markers & Populate Layer Groups
         locations.forEach(loc => {
-            // Leaflet requires [Y, X] for marker placement
-            const marker = L.marker([loc.y, loc.x])
-                .bindPopup(`<strong>${loc.name}</strong><br>Location ID: ${loc.id}`);
-            
-            // Route the marker to the correct filter group based on its type
-            if (loc.type === "markers") {
-                marker.addTo(markers);
+            const popupContent = `
+                <div>
+                    ${loc.image ? `<img src="${loc.image}" alt="${loc.name}" class="popup-image" onerror="this.style.display='none'">` : ''}
+                    <div class="popup-text">
+                        <strong>${loc.name}</strong>
+                        <small>ID: ${loc.id}</small>
+                    </div>
+                    <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
+                </div>
+            `;
+
+            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.type] }).bindPopup(popupContent);
+            markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
+
+            if (filterGroups[loc.type]) {
+                marker.addTo(filterGroups[loc.type].group);
+            }
+
+            // Update URL when a marker popup is opened/closed
+            marker.on('popupopen', () => {
+                currentOpenMarkerId = loc.id;
+                updateURL();
+            });
+
+            marker.on('popupclose', () => {
+                if (currentOpenMarkerId === loc.id) {
+                    currentOpenMarkerId = null;
+                    updateURL();
+                }
+            });
+        });
+
+        // 9. Apply Active Filter Groups to Map
+        const layerControls = {};
+        Object.keys(filterGroups).forEach(key => {
+            const groupInfo = filterGroups[key];
+            layerControls[groupInfo.name] = groupInfo.group;
+
+            // If filters are specified in URL, enable matching ones; otherwise enable all by default
+            if (!urlFilters || urlFilters.includes(key)) {
+                groupInfo.group.addTo(map);
             }
         });
 
-        // 8. Add Default Layers to the Map
-        markers.addTo(map);
+        // Add Leaflet Layer Control
+        L.control.layers(null, layerControls, { collapsed: false }).addTo(map);
 
-        // 9. Build the Filter Control Menu
-        const filterControls = {
-            "Markers": markers
-        };
+        // Listen for filter toggle events to sync URL
+        map.on('overlayadd overlayremove', updateURL);
 
-        // Add the toggle menu to the top right of the map
-        L.control.layers(null, filterControls, { collapsed: false }).addTo(map);
+        // 10. Functions to Handle URL State & Copying
+        function updateURL() {
+            const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
+            const params = new URLSearchParams();
 
+            if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
+                params.set('filters', activeFilters.join(','));
+            }
+
+            if (currentOpenMarkerId) {
+                params.set('marker', currentOpenMarkerId);
+            }
+
+            const queryString = params.toString();
+            const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function copyShareableUrl(markerId) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('marker', markerId);
+            
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                alert('Shareable link copied to the Notebook!');
+            }).catch(err => {
+                console.error('Error copying link: ', err);
+            });
+        }
+
+        // 11. Initial View & Deep Linking Setup
+        if (urlMarkerId && markerRegistry[urlMarkerId]) {
+            const target = markerRegistry[urlMarkerId];
+            
+            // Ensure the parent layer group is visible
+            if (!map.hasLayer(filterGroups[target.type].group)) {
+                filterGroups[target.type].group.addTo(map);
+            }
+
+            map.setView(target.coords, 1);
+            target.marker.openPopup();
+        } else {
+            map.fitBounds(bounds);
+        }
     </script>
 </body>
 </html>
