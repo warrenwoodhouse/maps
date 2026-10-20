@@ -600,7 +600,7 @@
         });
 
         // Add Leaflet Layer Control
-        L.control.layers(null, layerControls, { collapsed: false }).addTo(map);
+        L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
 
         // Listen for filter toggle events to sync URL
         map.on('overlayadd overlayremove', updateURL);
