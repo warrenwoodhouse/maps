@@ -117,6 +117,7 @@
 <body>
     <p style="color:white; margin: 10px;">Martha is Dead Interactive Map - Maps - Warren Woodhouse</p>
     <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
+    <p style="color:white; margin: 10px;">Select the icon to the right to open the Filters and select anywhere on the map to close the Filters list, making it easier for you to navigate.</p>
 
     <div id="map"></div>
 
@@ -276,7 +277,7 @@
         });
 
         // Add Leaflet Layer Control
-        L.control.layers(null, layerControls, { collapsed: false }).addTo(map);
+        L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
 
         // Listen for filter toggle events to sync URL
         map.on('overlayadd overlayremove', updateURL);
