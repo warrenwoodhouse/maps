@@ -232,7 +232,7 @@
         // 6. Location Database
         const locations = [
             // Points of Interests
-            { id: "poi-1", name: "P.E. Freight Depot", type: "poi", y: 490, x: 3916, image: "https://warrenwoodhouse.github.io/maps/lanoire/images/pefreight.png" },
+            { id: "poi-1", name: "P.E. Freight Depot", description: "Here is where you find a blue Lincoln Continental with loads of blood in it.", case: "Case: The Driver's Seat", type: "poi", y: 490, x: 3916, image: "https://warrenwoodhouse.github.io/maps/lanoire/images/pefreight.png" },
             { id: "poi-2", name: "Central Guns", type: "poi", y: 887, x: 3882, image: "" },
             { id: "poi-3", name: "Cavanagh’s Bar", type: "poi", y: 1295, x: 4055, image: "" },
             { id: "poi-4", name: "Mirror Press Diner", type: "poi", y: 1254, x: 3679, image: "" },
@@ -562,6 +562,8 @@
                     <div class="popup-text">
                         <strong>${loc.name}</strong>
                         <small>ID: ${loc.id}</small>
+                        <small>Description: ${loc.description}</small>
+                        <small>Case: ${loc.case}</small>
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
