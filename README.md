@@ -53,6 +53,7 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Games - Interactive Maps
 ## Alan Wake - Games - Interactive Maps
 * Alan Wake & Alan Wake Remastered
+* > [Bright Falls Visitors Map](https://warrenwoodhouse.github.io/maps/alanwake/brightfalls) (WIP)
 * Alan Wake II
 
 ## Atomfall - Games - Interactive Maps
@@ -62,7 +63,7 @@ Here is the full list of Interactive Maps. Enjoy!
 * > Wyndham Village
 * > Casterfell Woods
 * > Skethermoor
-* > [The Interchange](https://warrenwoodhouse.github.io/maps/atomfall/theinterchange)
+* > [The Interchange](https://warrenwoodhouse.github.io/maps/atomfall/theinterchange) (WIP)
 * > Windscale Power Plant
 
 ## Assassin’s Creed - Games - Interactive Maps
