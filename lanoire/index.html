@@ -84,6 +84,15 @@
             object-fit: cover;
             display: block;
         }
+        .popup-video {
+            width: 300px;
+            height: 170px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
         .popup-text {
             margin: 8px 0;
         }
@@ -559,11 +568,12 @@
             const popupContent = `
                 <div>
                     ${loc.image ? `<img src="${loc.image}" alt="${loc.name}" class="popup-image" onerror="this.style.display='none'">` : ''}
+                    ${loc.video ? `<iframe width="300px" height="170px" src="${loc.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> class="popup-video" onerror="this.style.display='none'">` : ''}
                     <div class="popup-text">
                         <strong>${loc.name}</strong>
-                        <small>ID: ${loc.id}</small>
-                        <small>Description: ${loc.description}</small>
-                        <small>Case: ${loc.case}</small>
+                        <strong>ID: ${loc.id}</strong>
+                        <strong>Description: ${loc.description}</strong>
+                        <strong>Case: ${loc.case}</strong>
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
