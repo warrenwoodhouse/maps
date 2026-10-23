@@ -272,6 +272,23 @@ I'll add some here
 * [CLICK HERE](https://github.com/warrenwoodhouse/maps/tree/main/icons) to see the new directory for Map Icons.
 * [Map Icons](https://github.com/warrenwoodhouse/mapicons) (repository) (archive)
 
+## Google Maps Styled Map Icon
+1. This code goes in the `<head>` section
+```
+<!-- FontAwesome for custom icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+```
+
+2. This code goes in the `<script>` part in the `<body>` section
+```
+// Custom icon design
+        var gmapIcon = L.divIcon({
+            html: '<i class="fa-solid fa-location-dot fa-2x" style="color: #c0392b; text-shadow: 1px 1px 2px black;"></i>',
+            iconSize: [20, 20],
+            className: 'gmap-icon'
+        });
+```
+
 # License
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/license) to read the License Agreement.
 
