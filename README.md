@@ -58,13 +58,15 @@ Here is the full list of Interactive Maps. Enjoy!
 
 ## Atomfall - Games - Interactive Maps
 * Atomfall
-* > Slatten Dale
-* > Sewer
-* > Wyndham Village
+* > Slatten Dale Map
+* > Sewer Map
+* > Wyndham Village Map
 * > Casterfell Woods
 * > Skethermoor
-* > [The Interchange](https://warrenwoodhouse.github.io/maps/atomfall/theinterchange) (WIP)
-* > Windscale Power Plant
+* > The Interchange Map (WIP) / [Alternative Version](https://warrenwoodhouse.github.io/maps/atomfall/theinterchange)
+* > Windscale Power Plant Map
+* > The Red Stain DLC
+* > The Wicked Isle DLC
 
 ## Assassin’s Creed - Games - Interactive Maps
 * Assassin's Creed
@@ -109,16 +111,21 @@ Here is the full list of Interactive Maps. Enjoy!
 ## Borderlands - Games - Interactive Maps
 * Borderlands
 * Borderlands 2
+* Borderlands: The Handsome Collection
 * Borderlands 3
 * Borderlands 4
 
 ## Control - Games - Interactive Maps
 * Control & Control: Ultimate Edition
+* > Guided Imagery Experience DLC
+* > The Quarry Expedition DLC
+* > The Foundation DLC
+* > Altered World Events DLC
 * Control: Resonant
 
 ## Dishonored - Games - Interactive Maps
 * Dishonored: Definitive Edition (WIP)
-* > [City of Dunwall](https://warrenwoodhouse.github.io/maps/dishonored/dunwall)
+* > [City of Dunwall Map](https://warrenwoodhouse.github.io/maps/dishonored/dunwall)
 * Dishonored 2 (WIP)
 * Dishonored: Death of the Outsider (WIP)
 
@@ -131,12 +138,24 @@ Here is the full list of Interactive Maps. Enjoy!
 ## God of War - Games - Interactive Maps
 * God of War (2018) (WIP)
 * God of War: Ragnarök (WIP)
+* > Valhalla DLC
 * God of War: Laufey (WIP)
 
 ## Grand Theft Auto - Games - Interactive Maps
+* Grand Theft Auto
+* Grand Theft Auto: London
+* Grand Theft Auto 2
+* Grand Theft Auto III
+* Grand Theft Auto: Vice City
+* Grand Theft Auto: San Andreas
+* Grand Theft Auto: Liberty City Stories
+* Grand Theft Auto: Vice City Stories
 * Grand Theft Auto IV & Grand Theft Auto IV Remake (WIP)
-* > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway)
+* > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway) (WIP)
 * > LCPD Crime Wave Heat Map
+* > The Lost and Damned DLC
+* > The Ballad of Gay Tony DLC
+* Grand Theft Auto: Chinatown Wars
 * Grand Theft Auto V & Grand Theft Auto V: Next Gen Edition (WIP)
 * > [Blueprint Map](https://warrenwoodhouse.github.io/maps/gta/v/blueprint) (WIP)
 * > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gta/v/blueprint/light) (WIP)
@@ -220,6 +239,10 @@ Here is the full list of Interactive Maps. Enjoy!
 * [Saints Row: Gat out of Hell](https://warrenwoodhouse.github.io/maps/saintsrow/gatoutofhell) (WIP)
 * [Agents of Mayhem](https://warrenwoodhouse.github.io/maps/saintsrow/agentsofmayhem) (WIP)
 * [Saints Row Reboot (Saints Row (2022))](https://warrenwoodhouse.github.io/maps/saintsrow/reboot) (WIP)
+
+## Submerged - Games - Interactive Maps
+* [Submerged](https://warrenwoodhouse.github.io/maps/submerged) (WIP)
+* [Submerged: Hidden Depths](https://warrenwoodhouse.github.io/maps/submerged/hiddendepths)
 
 ## TV Series - Interactive Maps
 * [Coronation Street](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet) (WIP, converting from Google MyMaps)
