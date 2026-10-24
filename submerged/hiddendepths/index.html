@@ -390,7 +390,7 @@
                 </div>
             `;
 
-            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.type] }).bindPopup(popupContent);
+            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.icon] }, { icon: customIcons[loc.type] }).bindPopup(popupContent);
             markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
 
             if (filterGroups[loc.type]) {
