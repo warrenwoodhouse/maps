@@ -1,0 +1,362 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+<!-- ICONS META DATA -->
+<link rel="icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+<link rel="shortcut icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+
+<!-- OPENGRAPH META DATA -->
+<meta name="og:title" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:type" content="application">
+<meta name="og:url" content="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="og:image" content="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico">
+<meta name="og:site_name" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse","url":"https://warrenwoodhouse.github.io/maps/gta/iv"}</script>
+
+<!-- APPLE META DATA -->
+<meta name="apple-mobile-web-app-title" content="GTA IV Map">
+<!-- New in iOS6 -->
+<link rel="apple-mobile-web-app" href="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" color="#000000">
+<meta name="theme-color" content="#090909-gradient" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000-translucent" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="https://warrenwoodhouse.github.io/site/site.webmanifest" crossorigin="use-credentials" id="manifest-link" />
+<link rel="icon" type="image/ico" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" sizes="96x96" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<meta name="apple-touch-fullscreen" content="yes">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-touch-icon" type="image/ico">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-ipad-icon" type="image/ico" sizes="72x72">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-touch-startup-image" type="image/ico" sizes="152x152">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+
+<!-- MICROSOFT META DATA -->
+<meta name="mssmarttagspreventparsing" content="true">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="msapplication-starturl" content="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="msapplication-window" content="width=800;height=600">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="application-name" content="GTA IV Map">
+<meta name="msapplication-tooltip" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+<meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
+<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTAIV, GTAEFLC, #GTAIV, #GTAEFLC, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps">
+  
+  <title>Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</title>
+  <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTAIV, GTAEFLC, #GTAIV, #GTAEFLC, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps, free maps, interactive maps, game guides">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        #map {
+            width: 100vw;
+            height: 100vh;
+            background-color: #111;
+            font-size: 20px;
+        }
+        .filterControls {
+            font-size: 19px;
+        }
+        .leaflet-popup-content-wrapper {
+            background: #ffffff;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 19px;
+            max-width: 350px;
+        }
+        .leaflet-popup-tip {
+            background: #ffffff;
+            font-size: 19px;
+        }
+        .popup-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .popup-video {
+            width: 300px;
+            height: 170px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            max-height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        .popup-text {
+            margin: 8px 0;
+        }
+        .popup-text strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .popup-text small {
+            display: block;
+            color: #666;
+            font-size: 14px;
+        }
+        .share-btn {
+            margin-top: 8px;
+            padding: 6px 12px;
+            background-color: #111;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 19px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .share-btn:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <p style="color:white; margin: 10px;">Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</p>
+    <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
+    <p style="color:white; margin: 10px;">Select the icon to the right to open the Filters and select anywhere on the map to close the Filters list, making it easier for you to navigate.</p>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 1. Define Map Dimensions
+        const mapWidth = 3000;
+        const mapHeight = 1900;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,
+            maxZoom: 3
+        });
+
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
+
+        // 4. Load the 3000x1900 Image Overlay
+        L.imageOverlay('https://raw.githubusercontent.com/warrenwoodhouse/maps/main/gta/iv/map.png', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        // 5. Create Layer Groups for Filters
+        const filterGroups = {
+            poi: { name: "Points of Interests", group: L.layerGroup() },
+            hiddenpackage: { name: "Hidden Packages", group: L.layerGroup() },
+            police: { name: "Police Stations", group: L.layerGroup() },
+            fire: { name: "Fire Departments", group: L.layerGroup() },
+            hospital: { name: "Hospitals", group: L.layerGroup() },
+            weapon: { name: "Weapons", group: L.layerGroup() },
+            landmark: { name: "Landmarks", group: L.layerGroup() },
+            park: { name: "Parks", group: L.layerGroup() },
+            parking: { name: "Parking Places & Parking Garages", group: L.layerGroup() },
+            gas: { name: "Gas Stations", group: L.layerGroup() }
+        };
+
+        // Create custom icons for each marker type
+        const customIcons = {
+            poi: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png',
+                iconSize: [52, 52]
+            }),
+            hiddenpackage: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png',
+                iconSize: [52, 52]
+            }),
+            police: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png',
+                iconSize: [52, 52]
+            }),
+            fire: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png',
+                iconSize: [52, 52]
+            }),
+            hospital: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png',
+                iconSize: [52, 52]
+            }),
+            weapon: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png',
+                iconSize: [52, 52]
+            }),
+            landmark: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png',
+                iconSize: [52, 52]
+            }),
+            park: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png',
+                iconSize: [52, 52]
+            }),
+            parking: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking.png',
+                iconSize: [52, 52]
+            }),
+            fma: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png',
+                iconSize: [52, 52]
+            }),
+            gas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png',
+                iconSize: [52, 52]
+            }),
+            ron: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png',
+                iconSize: [52, 52]
+            }),
+            terroil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png',
+                iconSize: [52, 52]
+            }),
+            xerogas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-xerogas.png',
+                iconSize: [52, 52]
+            })
+        };
+
+        // 6. Location Database
+        const locations = [
+            // Points of Interests
+            { id: "poi-1", name: "Point 1", icon: "poi", type: "poi", y: 1, x: 1, image: "" },
+            { id: "poi-2", name: "Point 2", icon: "poi", type: "poi", y: 2, x: 2, image: "" },
+            { id: "poi-3", name: "Point 3", icon: "poi", type: "poi", y: 3, x: 3, image: "" }
+            // Hidden Packages
+            // Police Stations
+            // Fire Departments
+            // Hospitals
+            // Weapons & Items
+            // Weapons
+            // First Aid Kits
+            // Body Armours
+            // Landmarks
+            // Parks
+            // Churches
+            // Parking
+            // FMA Parking
+            // Gas Stations
+            // RON
+            // Terroil
+            // Xero Gas
+        ];
+
+        // 6. Registry to look up markers by ID
+        const markerRegistry = {};
+        let currentOpenMarkerId = null;
+
+        // 7. Initialize URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlMarkerId = urlParams.get('marker');
+        const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
+
+        // 8. Add Markers & Populate Layer Groups
+        locations.forEach(loc => {
+            const popupContent = `
+                <div>
+                    ${loc.image ? `<img src="${loc.image}" alt="${loc.name}" class="popup-image" onerror="this.style.display='none'">` : ''}
+                    ${loc.video ? `<iframe width="300px" height="170px" src="${loc.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="popup-video" onerror="this.style.display='none'"></iframe>` : ''}
+                    <div class="popup-text">
+                        <strong>${loc.name}</strong>
+                        <strong>ID: ${loc.id}</strong>
+                        <strong>Description: ${loc.description}</strong>
+                        <strong>Mission Related: ${loc.mission}</strong>
+                        <strong>DLC Related: ${loc.dlc}</strong>
+                    </div>
+                    <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
+                </div>
+            `;
+
+            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.icon] }, { icon: customIcons[loc.type] }).bindPopup(popupContent);
+            markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
+
+            if (filterGroups[loc.type]) {
+                marker.addTo(filterGroups[loc.type].group);
+            }
+
+            // Update URL when a marker popup is opened/closed
+            marker.on('popupopen', () => {
+                currentOpenMarkerId = loc.id;
+                updateURL();
+            });
+
+            marker.on('popupclose', () => {
+                if (currentOpenMarkerId === loc.id) {
+                    currentOpenMarkerId = null;
+                    updateURL();
+                }
+            });
+        });
+
+        // 9. Apply Active Filter Groups to Map
+        const layerControls = {};
+        Object.keys(filterGroups).forEach(key => {
+            const groupInfo = filterGroups[key];
+            layerControls[groupInfo.name] = groupInfo.group;
+
+            // If filters are specified in URL, enable matching ones; otherwise enable all by default
+            if (!urlFilters || urlFilters.includes(key)) {
+                groupInfo.group.addTo(map);
+            }
+        });
+
+        // Add Leaflet Layer Control
+        L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
+
+        // Listen for filter toggle events to sync URL
+        map.on('overlayadd overlayremove', updateURL);
+
+        // 10. Functions to Handle URL State & Copying
+        function updateURL() {
+            const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
+            const params = new URLSearchParams();
+
+            if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
+                params.set('filters', activeFilters.join(','));
+            }
+
+            if (currentOpenMarkerId) {
+                params.set('marker', currentOpenMarkerId);
+            }
+
+            const queryString = params.toString();
+            const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function copyShareableUrl(markerId) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('marker', markerId);
+            
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                alert('Shareable link copied to the Clipboard!');
+            }).catch(err => {
+                console.error('Error copying link: ', err);
+            });
+        }
+
+        // 11. Initial View & Deep Linking Setup
+        if (urlMarkerId && markerRegistry[urlMarkerId]) {
+            const target = markerRegistry[urlMarkerId];
+            
+            // Ensure the parent layer group is visible
+            if (!map.hasLayer(filterGroups[target.type].group)) {
+                filterGroups[target.type].group.addTo(map);
+            }
+
+            map.setView(target.coords, 1);
+            target.marker.openPopup();
+        } else {
+            map.fitBounds(bounds);
+        }
+    </script>
+</body>
+</html>
