@@ -161,7 +161,8 @@
             landmark: { name: "Landmarks", group: L.layerGroup() },
             park: { name: "Parks", group: L.layerGroup() },
             parking: { name: "Parking Places & Parking Garages", group: L.layerGroup() },
-            gas: { name: "Gas Stations", group: L.layerGroup() }
+            gas: { name: "Gas Stations", group: L.layerGroup() },
+            subway: { name: "Subway Stations & El-Train Stations", group: L.layerGroup() },
         };
 
         // Create custom icons for each marker type
@@ -221,6 +222,38 @@
             xerogas: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-xerogas.png',
                 iconSize: [52, 52]
+            }),
+            subway: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subway.png',
+                iconSize: [52, 52]
+            }),
+            38: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png',
+                iconSize: [52, 52]
+            }),
+            ja: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png',
+                iconSize: [52, 52]
+            }),
+            kc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png',
+                iconSize: [52, 52]
+            }),
+            eb: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png',
+                iconSize: [52, 52]
+            }),
+            lake: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            bay: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            river: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png',
+                iconSize: [52, 52]
             })
         };
 
@@ -257,6 +290,24 @@
             // Churches
             // Parking
             // Gas Stations
+            // Subway Stations & El-Train Station
+            // Rivers
+            { id: "river-1", name: "Humboldt River", icon: "river", type: "river", y: 882, x: 1616, image: "" },
+            { id: "river-2", name: "Charge Island Sound", icon: "river", type: "river", y: 1048, x: 1476, image: "" },
+            { id: "river-3", name: "Northwood Sound", icon: "river", type: "river", y: 1360, x: 1436, image: "" },
+            { id: "river-4", name: "Colony Island Sound", icon: "river", type: "river", y: 734, x: 1474, image: "" },
+            { id: "river-5", name: "West River", icon: "river", type: "river", y: 734, x: 874, image: "" },
+            { id: "river-6", name: "Acter Sound", icon: "river", type: "river", y: 568, x: 476, image: "" },
+            { id: "river-7", name: "Charge Island Canal", icon: "river", type: "river", y: 1105, x: 1583, image: "" },
+            // Bays
+            { id: "bay-1", name: "East Hook Bay", icon: "lake", type: "bay", y: 326, x: 1630, image: "" },
+            { id: "bay-2", name: "Dukes Bay", icon: "lake", type: "bay", y: 1284, x: 1882, image: "" },
+            { id: "bay-3", name: "Humboldt Bay", icon: "lake", type: "bay", y: 374, x: 942, image: "" },
+            { id: "bay-4", name: "Alderney Bay", icon: "lake", type: "bay", y: 962, x: 914, image: "" },
+            // Lakes
+            { id: "lake-1", name: "North Lake", icon: "lake", type: "lake", y: 1183, x: 1228, image: "" },
+            { id: "lake-2", name: "South Lake", icon: "lake", type: "lake", y: 1082, x: 1203, image: "" },
+            { id: "lake-3", name: "Welham Lake", icon: "lake", type: "lake", y: 1630, x: 1585, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
