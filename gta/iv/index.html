@@ -166,7 +166,12 @@
             skycar: { name: "Skycar Stations", group: L.layerGroup() },
             river: { name: "Rivers", group: L.layerGroup() },
             bay: { name: "Bays", group: L.layerGroup() },
-            lake: { name: "Lakes", group: L.layerGroup() }
+            lake: { name: "Lakes", group: L.layerGroup() },
+            bridge: { name: "Bridges", group: L.layerGroup() },
+            tunnel: { name: "Tunnels", group: L.layerGroup() },
+            toll: { name: "Toll Booths", group: L.layerGroup() },
+            airport: { name: "Airports", group: L.layerGroup() },
+            island: { name: "Islands", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -266,7 +271,27 @@
             river: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png',
                 iconSize: [52, 52]
-            })
+            }),
+            bridge: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png',
+                iconSize: [52, 52]
+            }),
+            tunnel: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png',
+                iconSize: [52, 52]
+            }),
+            toll: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png',
+                iconSize: [52, 52]
+            }),
+            airport: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png',
+                iconSize: [52, 52]
+            }),
+            island: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png',
+                iconSize: [52, 52]
+            }),
         };
 
         // 6. Location Database
@@ -333,6 +358,63 @@
             { id: "parking-30", name: "Hooper Street-Dukes Boulevard Car Park", icon: "parking", type: "parking", y: 940, x: 1913, image: "" },
             { id: "parking-31", name: "Freetown Avenue Car Park", icon: "parking", type: "parking", y: 858, x: 2220, image: "" },
             { id: "parking-32", name: "Silverback Studios Car Park", icon: "parking", type: "parking", y: 952, x: 1862, image: "" },
+            { id: "parking-33", name: "FMA Park", icon: "parking-fma", type: "parking", y: 768, x: 1071, image: "" },
+            { id: "parking-34", name: "FMA Park", icon: "parking-fma", type: "parking", y: 758, x: 1113, image: "" },
+            { id: "parking-35", name: "FMA Park", icon: "parking-fma", type: "parking", y: 886, x: 1147, image: "" },
+            { id: "parking-36", name: "FMA Park", icon: "parking-fma", type: "parking", y: 751, x: 1187, image: "" },
+            { id: "parking-37", name: "FMA Park", icon: "parking-fma", type: "parking", y: 481, x: 1426, image: "" },
+            { id: "parking-38", name: "FMA Park", icon: "parking-fma", type: "parking", y: 618, x: 1104, image: "" },
+            { id: "parking-39", name: "FMA Park", icon: "parking-fma", type: "parking", y: 938, x: 1244, image: "" },
+            { id: "parking-40", name: "FMA Park", icon: "parking-fma", type: "parking", y: 938, x: 1153, image: "" },
+            { id: "parking-41", name: "FMA Park", icon: "parking-fma", type: "parking", y: 1016, x: 571, image: "" },
+            // Islands
+            { id: "island-1", name: "Alderney Island", icon: "island", type: "island", y: 929, x: 777, image: "" },
+            { id: "island-2", name: "Algonquin Island", icon: "island", type: "island", y: 990, x: 999, image: "" },
+            { id: "island-3", name: "Middle Park Island", icon: "island", type: "island", y: 1207, x: 1230, image: "" },
+            { id: "island-4", name: "Colony Island", icon: "island", type: "island", y: 608, x: 1569, image: "" },
+            { id: "island-5", name: "Charge Island", icon: "island", type: "island", y: 1129, x: 1581, image: "" },
+            { id: "island-6", name: "Bohan Island", icon: "island", type: "island", y: 1280, x: 1556, image: "" },
+            { id: "island-7", name: "Firefly Island", icon: "island", type: "island", y: 262, x: 1689, image: "" },
+            { id: "island-8", name: "East Island", icon: "island", type: "island", y: 926, x: 1734, image: "" },
+            { id: "island-9", name: "Happiness Island", icon: "island", type: "island", y: 110, x: 1048, image: "" },
+            { id: "island-10", name: "Acter Island", icon: "island", type: "island", y: 432, x: 228, image: "" },
+            // Tunnels
+            { id: "tunnel-1", name: "Dukes-Broker Tunnel", icon: "tunnel", type: "tunnel", y: 754, x: 2014, image: "" },
+            { id: "tunnel-2", name: "Castle Gardens Tunnel", icon: "tunnel", type: "tunnel", y: 207, x: 1263, image: "" },
+            { id: "tunnel-3", name: "Union Drive Tunnel", icon: "tunnel", type: "tunnel", y: 877, x: 1418, image: "" },
+            { id: "tunnel-4", name: "Booth Tunnel", icon: "tunnel", type: "tunnel", y: 825, x: 1068, image: "" },
+            // Bridges
+            { id: "bridge-1", name: "Plumbers Skyway", icon: "bridge", type: "bridge", y: 866, x: 665, image: "" },
+            { id: "bridge-2", name: "Acter Bridge", icon: "bridge", type: "bridge", y: 580, x: 422, image: "" },
+            { id: "bridge-3", name: "Mandrel Bridge", icon: "bridge", type: "bridge", y: 573, x: 543, image: "" },
+            { id: "bridge-4", name: "Plumbers Skyway Bridge", icon: "bridge", type: "bridge", y: 571, x: 591, image: "" },
+            { id: "bridge-5", name: "Plumbers Skyway Bridge", icon: "bridge", type: "bridge", y: 576, x: 367, image: "" },
+            { id: "bridge-6", name: "Hickey Bridge", icon: "bridge", type: "bridge", y: 1251, x: 953, image: "" },
+            { id: "bridge-7", name: "Middle Park Bridge", icon: "bridge", type: "bridge", y: 1140, x: 1213, image: "" },
+            { id: "bridge-8", name: "East Borough Bridge", icon: "bridge", type: "bridge", y: 1172, x: 1489, image: "" },
+            { id: "bridge-9", name: "East Borough Bridge", icon: "bridge", type: "bridge", y: 971, x: 1704, image: "" },
+            { id: "bridge-10", name: "East Borough Bridge", icon: "bridge", type: "bridge", y: 1258, x: 1601, image: "" },
+            { id: "bridge-11", name: "Charge Island West Bridge", icon: "bridge", type: "bridge", y: 1092, x: 1551, image: "" },
+            { id: "bridge-12", name: "Charge Island East Bridge", icon: "bridge", type: "bridge", y: 1092, x: 1570, image: "" },
+            { id: "bridge-13", name: "Northwood Heights Bridge", icon: "bridge", type: "bridge", y: 1525, x: 1372, image: "" },
+            { id: "bridge-14", name: "Northwood Heights Rail Bridge", icon: "bridge", type: "bridge", y: 1489, x: 1388, image: "" },
+            { id: "bridge-15", name: "Windmill Rail Bridge", icon: "bridge", type: "bridge", y: 1418, x: 1768, image: "" },
+            { id: "bridge-16", name: "Industrial Bridge (Under Construction)", icon: "bridge", type: "bridge", y: 1384, x: 1810, image: "" },
+            { id: "bridge-17", name: "Grand Boulevard West Bridge", icon: "bridge", type: "bridge", y: 1576, x: 1686, image: "" },
+            { id: "bridge-18", name: "Grand Boulevard East Bridge", icon: "bridge", type: "bridge", y: 1620, x: 1729, image: "" },
+            { id: "bridge-19", name: "Dukes Bay Bridge", icon: "bridge", type: "bridge", y: 1313, x: 2044, image: "" },
+            { id: "bridge-20", name: "Freetown Bridge", icon: "bridge", type: "bridge", y: 787, x: 2253, image: "" },
+            { id: "bridge-21", name: "Meadows Hill Bridge", icon: "bridge", type: "bridge", y: 816, x: 2118, image: "" },
+            { id: "bridge-22", name: "Meadows Park Bridge", icon: "bridge", type: "bridge", y: 884, x: 2081, image: "" },
+            { id: "bridge-23", name: "Outlook Park Bridge", icon: "bridge", type: "bridge", y: 616, x: 1846, image: "" },
+            { id: "bridge-24", name: "Broker Bridge", icon: "bridge", type: "bridge", y: 444, x: 1617, image: "" },
+            { id: "bridge-25", name: "Leaper’s Bridge", icon: "bridge", type: "bridge", y: 628, x: 1505, image: "" },
+            { id: "bridge-26", name: "Algonquin Bridge", icon: "bridge", type: "bridge", y: 786, x: 1655, image: "" },
+            // Toll Booths
+            { id: "toll-1", name: "Toll Booth", icon: "toll", type: "toll", y: 1062, x: 1600, image: "" },
+            { id: "toll-2", name: "Toll Booth", icon: "toll", type: "toll", y: 1155, x: 2008, image: "" },
+            // Airports
+            { id: "airport-1", name: "FIA Francis International Airport", icon: "airport", type: "airport", y: 855, x: 2541, image: "" },
             // Gas Stations
             // Subway Stations & El-Train Stations
             { id: "subway-1", name: "Hove Beach Station", icon: "38", type: "subway", y: 360, x: 1847, image: "" },
