@@ -47,7 +47,6 @@
   <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
   <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTAIV, GTAEFLC, #GTAIV, #GTAEFLC, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps, free maps, interactive maps, game guides">
 
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body {
@@ -123,13 +122,6 @@
             background-color: #333;
         }
     </style>
-
-    <!-- External Plugin Stylesheets go here -->
-    <!-- Search Box for Leaflet Plugin -->
-    <!-- Author: luka1199 - github.com/luka1199 -->
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/plugins/Leaflet.AnimatedSearchBox/plugin.css">
-
-    <!-- add plugin stylesheets here if needed -->
 </head>
 <body>
     <p style="color:white; margin: 10px;">Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</p>
@@ -137,13 +129,6 @@
     <p style="color:white; margin: 10px;">Select the icon to the right to open the Filters and select anywhere on the map to close the Filters list, making it easier for you to navigate.</p>
 
     <div id="map"></div>
-    <!-- External Plugins go here -->
-    <!-- Search Box for Leaflet Plugin -->
-    <!-- Author: luka1199 - github.com/luka1199 -->
-    <!-- Documentation: luka1199.github.io/Leaflet.AnimatedSearchBox -->
-    <script src="https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/plugins/Leaflet.AnimatedSearchBox/plugin.js"></script>
-
-    <!-- add plugin here if needed -->
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
@@ -632,15 +617,6 @@
         } else {
             map.fitBounds(bounds);
         }
-
-        // 12. Add a Search Box to the map
-        // Search Box for Leaflet Plugin
-        // By luka1199 on GitHub
-        var searchbox = L.Control.searchbox({
-            position: 'bottom-left',
-            expand: 'right',
-            iconPath: 'https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/plugins/Leaflet.AnimatedSearchBox/icon-search.png'
-        }).addTo(map);
     </script>
 </body>
 </html>
