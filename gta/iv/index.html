@@ -617,6 +617,16 @@
         } else {
             map.fitBounds(bounds);
         }
+
+        // Add the Search Control to the map
+        var searchControl = new L.Control.Search({
+            layer: filterGroups,
+            title: 'title',
+            initial: false,
+            zoom: 16,
+            marker: false
+        });
+        map.addControl(searchControl);
     </script>
 </body>
 </html>
