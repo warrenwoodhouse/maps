@@ -171,7 +171,9 @@
             tunnel: { name: "Tunnels", group: L.layerGroup() },
             toll: { name: "Toll Booths", group: L.layerGroup() },
             airport: { name: "Airports", group: L.layerGroup() },
-            island: { name: "Islands", group: L.layerGroup() }
+            island: { name: "Islands", group: L.layerGroup() },
+            region: { name: "Regions", group: L.layerGroup() },
+            district: { name: "Districts", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -291,6 +293,14 @@
             island: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png',
                 iconSize: [52, 52]
+            }),
+            region: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            district: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
             })
         };
 
@@ -337,7 +347,6 @@
             // Fire Departments
             // Hospitals
             // Weapons & Items
-            // Weapons
             // First Aid Kits
             // Body Armours
             // Landmarks
@@ -506,7 +515,84 @@
             // Lakes
             { id: "lake-1", name: "North Lake", icon: "lake", type: "lake", y: 1183, x: 1228, image: "" },
             { id: "lake-2", name: "South Lake", icon: "lake", type: "lake", y: 1082, x: 1203, image: "" },
-            { id: "lake-3", name: "Welham Lake", icon: "lake", type: "lake", y: 1630, x: 1585, image: "" }
+            { id: "lake-3", name: "Welham Lake", icon: "lake", type: "lake", y: 1630, x: 1585, image: "" },
+            // Regions
+            { id: "region-1", name: "Broker", icon: "region", type: "region", y: 458, x: 1863, image: "" },
+            { id: "region-2", name: "Dukes", icon: "region", type: "region", y: 965, x: 1946, image: "" },
+            { id: "region-3", name: "Bohan", icon: "region", type: "region", y: 1563, x: 1611, image: "" },
+            { id: "region-4", name: "Algonquin", icon: "region", type: "region", y: 783, x: 1215, image: "" },
+            { id: "region-5", name: "Alderney", icon: "region", type: "region", y: 1063, x: 646, image: "" },
+            // Districts
+            { id: "district-1", name: "Beachgate", icon: "district", type: "district", y: 257, x: 2012, image: "" },
+            { id: "district-2", name: "Firefly Island", icon: "district", type: "district", y: 256, x: 1796, image: "" },
+            { id: "district-3", name: "Hove Beach", icon: "district", type: "district", y: 479, x: 1783, image: "" },
+            { id: "district-4", name: "Firefly Projects", icon: "district", type: "district", y: 437, x: 1980, image: "" },
+            { id: "district-5", name: "East Hook", icon: "district", type: "district", y: 621, x: 1731, image: "" },
+            { id: "district-6", name: "Outlook", icon: "district", type: "district", y: 620, x: 1889, image: "" },
+            { id: "district-7", name: "South Slopes", icon: "district", type: "district", y: 583, x: 2008, image: "" },
+            { id: "district-8", name: "Schottler", icon: "district", type: "district", y: 691, x: 2016, image: "" },
+            { id: "district-9", name: "Rotterdam Hill", icon: "district", type: "district", y: 733, x: 1796, image: "" },
+            { id: "district-10", name: "Downtown Broker", icon: "district", type: "district", y: 769, x: 1881, image: "" },
+            { id: "district-11", name: "BOABO", icon: "district", type: "district", y: 852, x: 1739, image: "" },
+            { id: "district-12", name: "Beechwood City", icon: "district", type: "district", y: 769, x: 2136, image: "" },
+            { id: "district-13", name: "Cerveza Heights", icon: "district", type: "district", y: 867, x: 2008, image: "" },
+            { id: "district-14", name: "East Island City", icon: "district", type: "district", y: 933, x: 1865, image: "" },
+            { id: "district-15", name: "Steinway", icon: "district", type: "district", y: 1111, x: 1800, image: "" },
+            { id: "district-16", name: "Dukes Bay", icon: "district", type: "district", y: 1167, x: 1952, image: "" },
+            { id: "district-17", name: "Meadows Park", icon: "district", type: "district", y: 968, x: 2084, image: "" },
+            { id: "district-18", name: "Liberty City Pavilion", icon: "district", type: "district", y: 1074, x: 2145, image: "" },
+            { id: "district-19", name: "Meadow Hills", icon: "district", type: "district", y: 930, x: 2128, image: "" },
+            { id: "district-20", name: "Willis", icon: "district", type: "district", y: 967, x: 2210, image: "" },
+            { id: "district-21", name: "Francis International Airport", icon: "district", type: "district", y: 854, x: 2544, image: "" },
+            { id: "district-22", name: "Charge Island", icon: "district", type: "district", y: 1075, x: 1582, image: "" },
+            { id: "district-23", name: "South Bohan", icon: "district", type: "district", y: 1358, x: 1575, image: "" },
+            { id: "district-24", name: "Fortside", icon: "district", type: "district", y: 1505, x: 1590, image: "" },
+            { id: "district-25", name: "Chase Point", icon: "district", type: "district", y: 1381, x: 1740, image: "" },
+            { id: "district-26", name: "Industrial", icon: "district", type: "district", y: 1494, x: 1847, image: "" },
+            { id: "district-27", name: "Windmill", icon: "district", type: "district", y: 1463, x: 1700, image: "" },
+            { id: "district-28", name: "Little Bay", icon: "district", type: "district", y: 1526, x: 2046, image: "" },
+            { id: "district-29", name: "Northern Gardens", icon: "district", type: "district", y: 1660, x: 1919, image: "" },
+            { id: "district-30", name: "Boulevard", icon: "district", type: "district", y: 1663, x: 1571, image: "" },
+            { id: "district-31", name: "Northwood Heights", icon: "district", type: "district", y: 1491, x: 1289, image: "" },
+            { id: "district-32", name: "Northwood", icon: "district", type: "district", y: 1494, x: 1185, image: "" },
+            { id: "district-33", name: "East Holland", icon: "district", type: "district", y: 1338, x: 1279, image: "" },
+            { id: "district-34", name: "North Holland", icon: "district", type: "district", y: 1337, x: 1062, image: "" },
+            { id: "district-35", name: "Middle Park", icon: "district", type: "district", y: 1139, x: 1214, image: "" },
+            { id: "district-36", name: "Lancaster", icon: "district", type: "district", y: 1171, x: 1331, image: "" },
+            { id: "district-37", name: "Varsity Heights", icon: "district", type: "district", y: 1132, x: 1071, image: "" },
+            { id: "district-38", name: "Middle Park West", icon: "district", type: "district", y: 1034, x: 1048, image: "" },
+            { id: "district-39", name: "Middle Park East", icon: "district", type: "district", y: 1010, x: 1340, image: "" },
+            { id: "district-40", name: "Star Junction", icon: "district", type: "district", y: 781, x: 1214, image: "" },
+            { id: "district-41", name: "Purgatory", icon: "district", type: "district", y: 894, x: 1088, image: "" },
+            { id: "district-42", name: "Westminster", icon: "district", type: "district", y: 785, x: 1091, image: "" },
+            { id: "district-43", name: "Hatton Gardens", icon: "district", type: "district", y: 891, x: 1342, image: "" },
+            { id: "district-44", name: "Civilization Committee", icon: "district", type: "district", y: 880, x: 1402, image: "" },
+            { id: "district-45", name: "Lancet", icon: "district", type: "district", y: 810, x: 1342, image: "" },
+            { id: "district-46", name: "Colony Island", icon: "district", type: "district", y: 734, x: 1558, image: "" },
+            { id: "district-47", name: "Easton", icon: "district", type: "district", y: 663, x: 1333, image: "" },
+            { id: "district-48", name: "Presidents City", icon: "district", type: "district", y: 641, x: 1484, image: "" },
+            { id: "district-49", name: "The Triangle", icon: "district", type: "district", y: 647, x: 1214, image: "" },
+            { id: "district-50", name: "The Meat Quarter", icon: "district", type: "district", y: 678, x: 1076, image: "" },
+            { id: "district-51", name: "Suffolk", icon: "district", type: "district", y: 548, x: 1132, image: "" },
+            { id: "district-52", name: "Castle Gardens City", icon: "district", type: "district", y: 499, x: 1020, image: "" },
+            { id: "district-53", name: "City Hall", icon: "district", type: "district", y: 467, x: 1231, image: "" },
+            { id: "district-54", name: "Little Italy", icon: "district", type: "district", y: 512, x: 1231, image: "" },
+            { id: "district-55", name: "Chinatown", icon: "district", type: "district", y: 446, x: 1353, image: "" },
+            { id: "district-56", name: "Fishmarket North", icon: "district", type: "district", y: 534, x: 1437, image: "" },
+            { id: "district-57", name: "Fishmarket South", icon: "district", type: "district", y: 391, x: 1494, image: "" },
+            { id: "district-58", name: "The Exchange", icon: "district", type: "district", y: 323, x: 1293, image: "" },
+            { id: "district-59", name: "Castle Gardens", icon: "district", type: "district", y: 188, x: 1309, image: "" },
+            { id: "district-60", name: "Happiness Island", icon: "district", type: "district", y: 179, x: 1010, image: "" },
+            { id: "district-61", name: "Alderney State Correctional Facility", icon: "district", type: "district", y: 448, x: 775, image: "" },
+            { id: "district-62", name: "Acter Industrial Park", icon: "district", type: "district", y: 410, x: 386, image: "" },
+            { id: "district-63", name: "Tudor", icon: "district", type: "district", y: 650, x: 332, image: "" },
+            { id: "district-64", name: "Port Tudor", icon: "district", type: "district", y: 670, x: 668, image: "" },
+            { id: "district-65", name: "Normandy", icon: "district", type: "district", y: 929, x: 752, image: "" },
+            { id: "district-66", name: "Acter", icon: "district", type: "district", y: 828, x: 463, image: "" },
+            { id: "district-67", name: "Berchem", icon: "district", type: "district", y: 1000, x: 506, image: "" },
+            { id: "district-68", name: "Alderney City", icon: "district", type: "district", y: 1127, x: 686, image: "" },
+            { id: "district-69", name: "Leftwood", icon: "district", type: "district", y: 1327, x: 739, image: "" },
+            { id: "district-70", name: "Westdyke", icon: "district", type: "district", y: 1474, x: 741, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
