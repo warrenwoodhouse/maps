@@ -286,15 +286,25 @@
                 iconSize: [52, 52]
             }),
             bridge: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png', iconSize: [52, 52] }),
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png',
+                iconSize: [52, 52]
+            }),
             tunnel: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png', iconSize: [52, 52] }),
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png',
+                iconSize: [52, 52]
+            }),
             toll: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png', iconSize: [52, 52] }),
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png',
+                iconSize: [52, 52]
+            }),
             airport: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png', iconSize: [52, 52] }),
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png',
+                iconSize: [52, 52]
+            }),
             island: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png', iconSize: [52, 52] }),
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png',
+                iconSize: [52, 52]
+            }),
             region: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
                 iconSize: [52, 52]
@@ -641,7 +651,8 @@
                         <strong>${loc.name}</strong>
                         <strong>ID: ${loc.id}</strong>
                         <strong>Description: ${loc.description}</strong>
-                        <strong>DLC Related: ${loc.case}</strong>
+                        <strong>Address: ${loc.address}</strong>
+                        <strong>DLC Related: ${loc.dlc}</strong>
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
