@@ -48,79 +48,87 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-        }
-        #map {
-            width: 100vw;
-            height: 100vh;
-            background-color: #111;
-            font-size: 20px;
-        }
-        .filterControls {
-            font-size: 19px;
-        }
-        .leaflet-popup-content-wrapper {
-            background: #ffffff;
-            color: #000000;
-            border: 1px solid #000000;
-            border-radius: 4px;
-            font-size: 19px;
-            max-width: 350px;
-        }
-        .leaflet-popup-tip {
-            background: #ffffff;
-            font-size: 19px;
-        }
-        .popup-image {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            max-height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-        .popup-video {
-            width: 300px;
-            height: 170px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            max-height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-        .popup-text {
-            margin: 8px 0;
-        }
-        .popup-text strong {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 4px;
-        }
-        .popup-text small {
-            display: block;
-            color: #666;
-            font-size: 14px;
-        }
-        .share-btn {
-            margin-top: 8px;
-            padding: 6px 12px;
-            background-color: #111;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 19px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .share-btn:hover {
-            background-color: #333;
-        }
-    </style>
+    html, body {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+        background-color: #111;
+        font-size: 20px;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .filterControls {
+        font-size: 19px;
+    }
+    .leaflet-popup-content-wrapper {
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        font-size: 19px;
+        max-width: 350px;
+    }
+    .leaflet-popup-tip {
+        background: #ffffff;
+        font-size: 19px;
+    }
+    .popup-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    .popup-video {
+        width: 300px;
+        height: 170px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    .popup-text {
+        margin: 8px 0;
+    }
+    .popup-text strong {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    .popup-text small {
+        display: block;
+        color: #666;
+        font-size: 14px;
+    }
+    .share-btn {
+        margin-top: 8px;
+        padding: 6px 12px;
+        background-color: #111;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 19px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .share-btn:hover {
+        background-color: #333;
+    }
+</style>
 </head>
 <body>
     <p style="color:white; margin: 10px;">Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</p>
@@ -130,7 +138,7 @@
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://warrenwoodhouse.github.io/maps/plugins/amazonsilk/plugin.js"></script> // Amazon Silk
+    <script src="https://warrenwoodhouse.github.io/maps/plugins/amazonsilk.js"></script>
     <script>
         // 1. Define Map Dimensions
         const mapWidth = 3000;
@@ -141,12 +149,12 @@
             crs: L.CRS.Simple,
             minZoom: -1,
             maxZoom: 3,
-            dragging: true, // Amazon Silk
-            scrollWheelZoom: true, // Amazon Silk
-            tap: false // Amazon Silk
+            dragging: true,
+            scrollWheelZoom: true,
+            tap: false
         });
 
-        installAmazonSilk(map, document.getElementById('map')); // Amazon Silk
+        installAmazonSilk(map, document.getElementById('map'));
 
         // 3. Set Bounds [Bottom-Left, Top-Right]
         const bounds = [[0, 0], [mapHeight, mapWidth]];
@@ -216,7 +224,9 @@
             district: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] })
         };
 
+        // Locations Database
         const locations = [
+            // Points of Interests
             { id: "poi-1", name: "RON Building", icon: "poi", type: "poi", y: 1081, x: 738, image: "" },
             { id: "poi-2", name: "Statue of Happiness", icon: "poi", type: "poi", y: 278, x: 1006, image: "" },
             { id: "poi-3", name: "Alderney State Correctional Facility", icon: "poi", type: "poi", y: 452, x: 770, image: "" },
@@ -252,6 +262,7 @@
             { id: "poi-33", name: "253 Liberty Lane", icon: "poi", type: "poi", y: 444, x: 1198, image: "" },
             { id: "poi-34", name: "Civic Citadel", icon: "poi", type: "poi", y: 444, x: 1273, image: "" },
             { id: "poi-35", name: "FIB Building", icon: "poi", type: "poi", y: 708, x: 1371, image: "" },
+            // Parks
             { id: "park-1", name: "Outlook Park", icon: "park", type: "park", y: 590, x: 1848, image: "" },
             { id: "park-2", name: "Meadows Park", icon: "park", type: "park", y: 986, x: 2079, image: "" },
             { id: "park-3", name: "Dukes Bay Park", icon: "park", type: "park", y: 1179, x: 1924, image: "" },
@@ -266,6 +277,7 @@
             { id: "park-12", name: "Happiness Park", icon: "park", type: "park", y: 175, x: 1006, image: "" },
             { id: "park-13", name: "Alderney Promenade", icon: "park", type: "park", y: 1098, x: 912, image: "" },
             { id: "park-14", name: "Colony Park", icon: "park", type: "park", y: 835, x: 1557, image: "" },
+            // Car Parks & Parking Garages
             { id: "parking-1", name: "Crockett Avenue Car Park", icon: "parking", type: "parking", y: 368, x: 1872, image: "" },
             { id: "parking-2", name: "Lancaster Underground Car Park", icon: "parking", type: "parking", y: 1232, x: 1333, image: "" },
             { id: "parking-3", name: "Leftwood Parking Garage", icon: "parking", type: "parking", y: 1384, x: 816, image: "" },
@@ -307,6 +319,7 @@
             { id: "parking-39", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1244, image: "" },
             { id: "parking-40", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1153, image: "" },
             { id: "parking-41", name: "FMA Park", icon: "fma", type: "parking", y: 1016, x: 571, image: "" },
+            // Islands
             { id: "island-1", name: "Alderney Island", icon: "island", type: "island", y: 929, x: 777, image: "" },
             { id: "island-2", name: "Algonquin Island", icon: "island", type: "island", y: 990, x: 999, image: "" },
             { id: "island-3", name: "Middle Park Island", icon: "island", type: "island", y: 1207, x: 1230, image: "" },
@@ -317,10 +330,12 @@
             { id: "island-8", name: "East Island", icon: "island", type: "island", y: 926, x: 1734, image: "" },
             { id: "island-9", name: "Happiness Island", icon: "island", type: "island", y: 110, x: 1048, image: "" },
             { id: "island-10", name: "Acter Island", icon: "island", type: "island", y: 432, x: 228, image: "" },
+            // Tunnels
             { id: "tunnel-1", name: "Dukes-Broker Tunnel", icon: "tunnel", type: "tunnel", y: 754, x: 2014, image: "" },
             { id: "tunnel-2", name: "Castle Gardens Tunnel", icon: "tunnel", type: "tunnel", y: 207, x: 1263, image: "" },
             { id: "tunnel-3", name: "Union Drive Tunnel", icon: "tunnel", type: "tunnel", y: 877, x: 1418, image: "" },
             { id: "tunnel-4", name: "Booth Tunnel", icon: "tunnel", type: "tunnel", y: 825, x: 1068, image: "" },
+            // Bridges
             { id: "bridge-1", name: "Plumbers Skyway", icon: "bridge", type: "bridge", y: 866, x: 665, image: "" },
             { id: "bridge-2", name: "Acter Bridge", icon: "bridge", type: "bridge", y: 580, x: 422, image: "" },
             { id: "bridge-3", name: "Mandrel Bridge", icon: "bridge", type: "bridge", y: 573, x: 543, image: "" },
@@ -347,9 +362,12 @@
             { id: "bridge-24", name: "Broker Bridge", icon: "bridge", type: "bridge", y: 444, x: 1617, image: "" },
             { id: "bridge-25", name: "Leaper’s Bridge", icon: "bridge", type: "bridge", y: 628, x: 1505, image: "" },
             { id: "bridge-26", name: "Algonquin Bridge", icon: "bridge", type: "bridge", y: 786, x: 1655, image: "" },
+            // Toll Booths
             { id: "toll-1", name: "Toll Booth", icon: "toll", type: "toll", y: 1062, x: 1600, image: "" },
             { id: "toll-2", name: "Toll Booth", icon: "toll", type: "toll", y: 1155, x: 2008, image: "" },
+            // Airports
             { id: "airport-1", name: "FIA Francis International Airport", icon: "airport", type: "airport", y: 855, x: 2541, image: "" },
+            // Gas Stations
             { id: "gas-1", name: "RON Gas Station", icon: "ron", type: "gas", y: 469, x: 1894, image: "" },
             { id: "gas-2", name: "RON Gas Station", icon: "ron", type: "gas", y: 758, x: 1720, image: "" },
             { id: "gas-3", name: "RON Gas Station", icon: "ron", type: "gas", y: 823, x: 1899, image: "" },
@@ -360,6 +378,7 @@
             { id: "gas-8", name: "Globe Oil Gas Station", icon: "globeoil", type: "gas", y: 542, x: 1076, image: "" },
             { id: "gas-9", name: "Globe Oil Gas Station", icon: "globeoil", type: "gas", y: 681, x: 616, image: "" },
             { id: "gas-10", name: "Terroil Gas Station", icon: "terroil", type: "gas", y: 1235, x: 1374, image: "" },
+            // Subway Stations & El-Train Stations
             { id: "subway-1", name: "Hove Beach Station", icon: "38", type: "subway", y: 360, x: 1847, image: "" },
             { id: "subway-2", name: "Schottler Station", icon: "38", type: "subway", y: 624, x: 1993, image: "" },
             { id: "subway-3", name: "Huntington Street High Station", icon: "subwayexchange", type: "subway", y: 853, x: 2047, image: "" },
@@ -388,8 +407,10 @@
             { id: "subway-26", name: "Frankfort Avenue Station", icon: "kc", type: "subway", y: 819, x: 1131, image: "" },
             { id: "subway-27", name: "Suffolk Station", icon: "kc", type: "subway", y: 565, x: 1181, image: "" },
             { id: "subway-28", name: "City Hall Station", icon: "kc", type: "subway", y: 404, x: 1284, image: "" },
+            // Skycar Stations
             { id: "skycar-1", name: "Algonquin Island Skycar Station", icon: "skycar", type: "skycar", y: 767, x: 1415, image: "" },
             { id: "skycar-2", name: "Colony Island Skycar Station", icon: "skycar", type: "skycar", y: 770, x: 1545, image: "" },
+            // Rivers
             { id: "river-1", name: "Humboldt River", icon: "river", type: "river", y: 882, x: 1616, image: "" },
             { id: "river-2", name: "Charge Island Sound", icon: "river", type: "river", y: 1048, x: 1476, image: "" },
             { id: "river-3", name: "Northwood Sound", icon: "river", type: "river", y: 1360, x: 1436, image: "" },
@@ -397,18 +418,22 @@
             { id: "river-5", name: "West River", icon: "river", type: "river", y: 734, x: 874, image: "" },
             { id: "river-6", name: "Acter Sound", icon: "river", type: "river", y: 568, x: 476, image: "" },
             { id: "river-7", name: "Charge Island Canal", icon: "river", type: "river", y: 1105, x: 1583, image: "" },
+            // Bays
             { id: "bay-1", name: "East Hook Bay", icon: "lake", type: "bay", y: 326, x: 1630, image: "" },
             { id: "bay-2", name: "Dukes Bay", icon: "lake", type: "bay", y: 1284, x: 1882, image: "" },
             { id: "bay-3", name: "Humboldt Bay", icon: "lake", type: "bay", y: 374, x: 942, image: "" },
             { id: "bay-4", name: "Alderney Bay", icon: "lake", type: "bay", y: 962, x: 914, image: "" },
+            // Lakes
             { id: "lake-1", name: "North Lake", icon: "lake", type: "lake", y: 1183, x: 1228, image: "" },
             { id: "lake-2", name: "South Lake", icon: "lake", type: "lake", y: 1082, x: 1203, image: "" },
             { id: "lake-3", name: "Welham Lake", icon: "lake", type: "lake", y: 1630, x: 1585, image: "" },
+            // Regions
             { id: "region-1", name: "Broker", icon: "region", type: "region", y: 458, x: 1863, image: "" },
             { id: "region-2", name: "Dukes", icon: "region", type: "region", y: 965, x: 1946, image: "" },
             { id: "region-3", name: "Bohan", icon: "region", type: "region", y: 1563, x: 1611, image: "" },
             { id: "region-4", name: "Algonquin", icon: "region", type: "region", y: 783, x: 1215, image: "" },
             { id: "region-5", name: "Alderney", icon: "region", type: "region", y: 1063, x: 646, image: "" },
+            // Districts
             { id: "district-1", name: "Beachgate", icon: "district", type: "district", y: 257, x: 2012, image: "" },
             { id: "district-2", name: "Firefly Island", icon: "district", type: "district", y: 256, x: 1796, image: "" },
             { id: "district-3", name: "Hove Beach", icon: "district", type: "district", y: 479, x: 1783, image: "" },
