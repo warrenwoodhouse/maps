@@ -40,7 +40,7 @@
 <meta name="application-name" content="GTA IV Map">
 <meta name="msapplication-tooltip" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
 <meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
-<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, Interactive Map">
+<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTA IV, Interactive Map, Hidden Packages, Liberty City">
   
   <title>Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</title>
   <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
@@ -555,7 +555,8 @@
                 </div>
             `;
 
-            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.type] }).bindPopup(popupContent);
+            const markerIcon = customIcons[loc.icon] || customIcons[loc.type] || customIcons.poi;
+            const marker = L.marker([loc.y, loc.x], { icon: markerIcon }).bindPopup(popupContent);
             markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
 
             if (filterGroups[loc.type]) {
