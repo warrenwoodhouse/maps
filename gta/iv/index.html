@@ -184,7 +184,9 @@
             vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
             church: { name: "Churches", group: L.layerGroup() },
             cemetery: { name: "Cemeteries", group: L.layerGroup() },
-            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() }
+            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() },
+            burgershot: { name: "Burger Shot", group: L.layerGroup() },
+            cluckinbell: { name: "Cluckin’ Bell", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -324,6 +326,14 @@
             windowlift: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png',
                 iconSize: [62, 62]
+            }),
+            burgershot: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png',
+                iconSize: [52, 52]
+            }),
+            cluckinbell: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png',
+                iconSize: [52, 52]
             })
         };
 
@@ -629,7 +639,21 @@
             { id: "windowlift-8", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 835, x: 1159, image: "" },
             { id: "windowlift-9", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 978, x: 1105, image: "" },
             { id: "windowlift-10", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1073, x: 670, image: "" },
-            { id: "windowlift-11", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1199, x: 596, image: "" }
+            { id: "windowlift-11", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1199, x: 596, image: "" },
+            // Burger Shot
+            { id: "burgershot-1", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 317, x: 1935 }},
+            { id: "burgershot-2", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 772, x: 2159 }},
+            { id: "burgershot-3", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1466, x: 1884 }},
+            { id: "burgershot-4", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1430, x: 1543 }},
+            { id: "burgershot-5", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 803, x: 1224 }},
+            { id: "burgershot-6", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 730, x: 1006 }},
+            { id: "burgershot-7", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1263, x: 1097 }},
+            { id: "burgershot-8", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1491, x: 803 }},
+            // Cluckin’ Bell
+            { id: "cluckinbell-1", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 845, x: 1933 }},
+            { id: "cluckinbell-2", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 691, x: 1247 }},
+            { id: "cluckinbell-3", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 1388, x: 1181 }},
+            { id: "cluckinbell-4", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 978, x: 561 }}
         ];
 
         // 6. Registry to look up markers by ID
