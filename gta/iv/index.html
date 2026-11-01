@@ -49,7 +49,11 @@
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        body {
+        html, body {
+            overflow: hidden; <!-- Amazon Silk CSS -->
+            position: fixed; <!-- Amazon Silk CSS -->
+            width: 100%; <!-- Amazon Silk CSS -->
+            height: 100%; <!-- Amazon Silk CSS -->
             margin: 0;
             padding: 0;
             background-color: #000000;
@@ -140,7 +144,10 @@
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: -1,
-            maxZoom: 3
+            maxZoom: 3,
+            dragging: true, // Amazon Silk - Keep standard dragging active
+            scrollWheelZoom: true, // Amazon Silk - mousewheel Controls
+            tap: false // Amazon Silk - Disabling native tap helper prevents ghost click delays
         });
 
         // 3. Set Bounds [Bottom-Left, Top-Right]
