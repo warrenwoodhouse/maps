@@ -8,6 +8,9 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 * greyed out means it’s part of the same item
 * WIP means Work in Progress, not 100% ready so expect errors and issues with these
 
+# Documentation & Plugins
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki/Documentation-&-Plugins) to see Documentation & Plugins for Leaflet maps that are available on our wiki. These include scripts for allowing your maps to work on Amazon Silk along with various other data structures.
+
 # Contribute
 If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions)
 
