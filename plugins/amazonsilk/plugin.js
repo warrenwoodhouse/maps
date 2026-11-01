@@ -1,6 +1,20 @@
 <!-- Amazon Silk Plugin for Leaflet -->
 <!-- Author: Warren Woodhouse - github.com/warrenwoodhouse -->
-<!-- Documentation: warrenwoodhouse.github.io/maps/plugins/amazonsilk -->  
+<!-- Documentation: warrenwoodhouse.github.io/maps/plugins/amazonsilk -->
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+if (isIOS) {
+    return;
+}
+
+    const isAndroid = /Android/.test(navigator.userAgent) ||
+    (navigator.platform === 'Android' && navigator.maxTouchPoints > 1);
+
+if (isAndroid) {
+    return;
+}
+
     (function () {
     function installAmazonSilk(map, mapContainer) {
         if (!map || !mapContainer) return;
