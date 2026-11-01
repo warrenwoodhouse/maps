@@ -183,7 +183,8 @@
             district: { name: "Districts", group: L.layerGroup() },
             vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
             church: { name: "Churches", group: L.layerGroup() },
-            cemetery: { name: "Cemeteries", group: L.layerGroup() }
+            cemetery: { name: "Cemeteries", group: L.layerGroup() },
+            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -220,7 +221,8 @@
             region: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
             district: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
             church: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png', iconSize: [52, 52] }),
-            cemetery: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png', iconSize: [52, 52] })
+            cemetery: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png', iconSize: [52, 52] }),
+            windowlift: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -513,7 +515,19 @@
             { id: "cemetery-2", name: "Meadows Park Church Cemetery", icon: "cemetery", type: "cemetery", y: 1013, x: 2014 },
             { id: "cemetery-3", name: "Suffolk Church Cemetery", icon: "cemetery", type: "cemetery", y: 506, x: 1155 },
             { id: "cemetery-4", name: "Colony Island Cemetery", icon: "cemetery", type: "cemetery", y: 825, x: 1558 },
-            { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 }
+            { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 },
+            // Window Washing Lifts
+            { id: "windowlift-1", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 268, x: 1323, image: "" },
+            { id: "windowlift-2", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 383, x: 1463, image: "" },
+            { id: "windowlift-3", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 667, x: 1360, image: "" },
+            { id: "windowlift-4", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 760, x: 1403, image: "" },
+            { id: "windowlift-5", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 842, x: 1362, image: "" },
+            { id: "windowlift-6", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 939, x: 1333, image: "" },
+            { id: "windowlift-7", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 767, x: 1168, image: "" },
+            { id: "windowlift-8", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 835, x: 1159, image: "" },
+            { id: "windowlift-9", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 978, x: 1105, image: "" },
+            { id: "windowlift-10", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1073, x: 670, image: "" },
+            { id: "windowlift-11", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1199, x: 596, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
@@ -535,7 +549,7 @@
                         <strong>${loc.name}</strong>
                         <strong>ID: ${loc.id}</strong>
                         <strong>Description: ${loc.description}</strong>
-                        <strong>Case: ${loc.case}</strong>
+                        <strong>DLC Related: ${loc.case}</strong>
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
@@ -603,7 +617,7 @@
             url.searchParams.set('marker', markerId);
             
             navigator.clipboard.writeText(url.toString()).then(() => {
-                alert('Shareable link copied to Case File!');
+                alert('Shareable link copied to Clipboard!');
             }).catch(err => {
                 console.error('Error copying link: ', err);
             });
