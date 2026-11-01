@@ -138,7 +138,6 @@
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/plugins/amazonsilk/plugin.js"></script>
     <script>
         // 1. Define Map Dimensions
         const mapWidth = 3000;
@@ -149,9 +148,6 @@
             crs: L.CRS.Simple,
             minZoom: -1,
             maxZoom: 3,
-            dragging: true,
-            scrollWheelZoom: true,
-            tap: false
         });
 
         // 3. Set Bounds [Bottom-Left, Top-Right]
@@ -227,7 +223,7 @@
             cemetery: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png', iconSize: [52, 52] })
         };
 
-        // Locations Database
+        // 6. Location Database
         const locations = [
             // Points of Interests
             { id: "poi-1", name: "RON Building", icon: "poi", type: "poi", y: 1081, x: 738, image: "" },
@@ -520,31 +516,39 @@
             { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 }
         ];
 
+        // 6. Registry to look up markers by ID
         const markerRegistry = {};
         let currentOpenMarkerId = null;
 
+        // 7. Initialize URL Parameters
         const urlParams = new URLSearchParams(window.location.search);
         const urlMarkerId = urlParams.get('marker');
         const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
 
+        // 8. Add Markers & Populate Layer Groups
         locations.forEach(loc => {
             const popupContent = `
                 <div>
+                    ${loc.image ? `<img src="${loc.image}" alt="${loc.name}" class="popup-image" onerror="this.style.display='none'">` : ''}
+                    ${loc.video ? `<iframe width="300px" height="170px" src="${loc.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="popup-video" onerror="this.style.display='none'"></iframe>` : ''}
                     <div class="popup-text">
                         <strong>${loc.name}</strong>
                         <strong>ID: ${loc.id}</strong>
+                        <strong>Description: ${loc.description}</strong>
+                        <strong>Case: ${loc.case}</strong>
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
             `;
 
-            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.icon] }).bindPopup(popupContent);
+            const marker = L.marker([loc.y, loc.x], { icon: customIcons[loc.type] }).bindPopup(popupContent);
             markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
 
             if (filterGroups[loc.type]) {
                 marker.addTo(filterGroups[loc.type].group);
             }
 
+            // Update URL when a marker popup is opened/closed
             marker.on('popupopen', () => {
                 currentOpenMarkerId = loc.id;
                 updateURL();
@@ -558,19 +562,25 @@
             });
         });
 
+        // 9. Apply Active Filter Groups to Map
         const layerControls = {};
         Object.keys(filterGroups).forEach(key => {
             const groupInfo = filterGroups[key];
             layerControls[groupInfo.name] = groupInfo.group;
 
+            // If filters are specified in URL, enable matching ones; otherwise enable all by default
             if (!urlFilters || urlFilters.includes(key)) {
                 groupInfo.group.addTo(map);
             }
         });
 
+        // Add Leaflet Layer Control
         L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
+
+        // Listen for filter toggle events to sync URL
         map.on('overlayadd overlayremove', updateURL);
 
+        // 10. Functions to Handle URL State & Copying
         function updateURL() {
             const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
             const params = new URLSearchParams();
@@ -591,14 +601,19 @@
         function copyShareableUrl(markerId) {
             const url = new URL(window.location.href);
             url.searchParams.set('marker', markerId);
-            navigator.clipboard.writeText(url.toString()).catch((err) => {
-                console.error('Error copying link:', err);
+            
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                alert('Shareable link copied to Case File!');
+            }).catch(err => {
+                console.error('Error copying link: ', err);
             });
         }
 
+        // 11. Initial View & Deep Linking Setup
         if (urlMarkerId && markerRegistry[urlMarkerId]) {
             const target = markerRegistry[urlMarkerId];
-
+            
+            // Ensure the parent layer group is visible
             if (!map.hasLayer(filterGroups[target.type].group)) {
                 filterGroups[target.type].group.addTo(map);
             }
