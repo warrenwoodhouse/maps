@@ -4,13 +4,6 @@
             return;
         }
 
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-        if (isIOS) {
-            return;
-        }
-
         function applyViewport() {
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 600;
             mapContainer.style.position = 'fixed';
@@ -20,6 +13,9 @@
             mapContainer.style.height = viewportHeight + 'px';
             mapContainer.style.overflow = 'hidden';
             mapContainer.style.touchAction = 'none';
+            mapContainer.style.webkitTouchCallout = 'none';
+            mapContainer.style.webkitUserSelect = 'none';
+            mapContainer.style.userSelect = 'none';
         }
 
         let isPointerDragging = false;
