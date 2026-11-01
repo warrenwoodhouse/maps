@@ -189,40 +189,132 @@
 
         // Create custom icons for each marker type
         const customIcons = {
-            poi: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png', iconSize: [42, 42] }),
-            hiddenpackage: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png', iconSize: [52, 52] }),
-            police: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png', iconSize: [52, 52] }),
-            fire: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png', iconSize: [52, 52] }),
-            hospital: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png', iconSize: [52, 52] }),
-            weapon: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png', iconSize: [52, 52] }),
-            landmark: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png', iconSize: [52, 52] }),
-            park: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png', iconSize: [52, 52] }),
-            parking: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-park.png', iconSize: [52, 52] }),
-            fma: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png', iconSize: [52, 52] }),
-            gas: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png', iconSize: [52, 52] }),
-            ron: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png', iconSize: [52, 52] }),
-            terroil: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png', iconSize: [52, 52] }),
-            globeoil: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-globeoil.png', iconSize: [52, 52] }),
-            subway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation.png', iconSize: [52, 52] }),
-            subwayexchange: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation-exchangehere.png', iconSize: [52, 52] }),
-            38: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png', iconSize: [52, 52] }),
-            ja: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png', iconSize: [52, 52] }),
-            kc: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png', iconSize: [52, 52] }),
-            eb: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png', iconSize: [52, 52] }),
-            skycar: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-skycar.png', iconSize: [52, 52] }),
-            lake: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png', iconSize: [52, 52] }),
-            bay: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png', iconSize: [52, 52] }),
-            river: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png', iconSize: [52, 52] }),
-            bridge: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png', iconSize: [52, 52] }),
-            tunnel: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png', iconSize: [52, 52] }),
-            toll: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png', iconSize: [52, 52] }),
-            airport: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png', iconSize: [52, 52] }),
-            island: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png', iconSize: [52, 52] }),
-            region: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
-            district: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
-            church: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png', iconSize: [52, 52] }),
-            cemetery: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png', iconSize: [52, 52] }),
-            windowlift: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png', iconSize: [62, 62] })
+            poi: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png',
+                iconSize: [42, 42]
+            }),
+            hiddenpackage: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png',
+                iconSize: [52, 52]
+            }),
+            police: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png',
+                iconSize: [52, 52]
+            }),
+            fire: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png',
+                iconSize: [52, 52]
+            }),
+            hospital: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png',
+                iconSize: [52, 52]
+            }),
+            weapon: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png',
+                iconSize: [52, 52]
+            }),
+            landmark: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png',
+                iconSize: [52, 52]
+            }),
+            park: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png',
+                iconSize: [52, 52]
+            }),
+            parking: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-park.png',
+                iconSize: [52, 52]
+            }),
+            fma: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png',
+                iconSize: [52, 52]
+            }),
+            gas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png',
+                iconSize: [52, 52]
+            }),
+            ron: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png',
+                iconSize: [52, 52]
+            }),
+            terroil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png',
+                iconSize: [52, 52]
+            }),
+            globeoil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-globeoil.png',
+                iconSize: [52, 52]
+            }),
+            subway: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation.png',
+                iconSize: [52, 52]
+            }),
+            subwayexchange: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation-exchangehere.png',
+                iconSize: [52, 52]
+            }),
+            38: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png',
+                iconSize: [52, 52]
+            }),
+            ja: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png',
+                iconSize: [52, 52]
+            }),
+            kc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png',
+                iconSize: [52, 52]
+            }),
+            eb: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png',
+                iconSize: [52, 52]
+            }),
+            skycar: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-skycar.png',
+                iconSize: [52, 52]
+            }),
+            lake: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            bay: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            river: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png',
+                iconSize: [52, 52]
+            }),
+            bridge: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png', iconSize: [52, 52] }),
+            tunnel: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png', iconSize: [52, 52] }),
+            toll: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png', iconSize: [52, 52] }),
+            airport: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png', iconSize: [52, 52] }),
+            island: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png', iconSize: [52, 52] }),
+            region: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            district: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            church: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png',
+                iconSize: [52, 52]
+            }),
+            cemetery: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png',
+                iconSize: [52, 52]
+            }),
+            windowlift: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png',
+                iconSize: [62, 62]
+            })
         };
 
         // 6. Location Database
