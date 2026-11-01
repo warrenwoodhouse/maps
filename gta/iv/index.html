@@ -13,7 +13,7 @@
 <meta name="og:image" content="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico">
 <meta name="og:site_name" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
 <meta name="og:description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
-<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse","description":"An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse","url":"https://warrenwoodhouse.github.io/maps/gta/iv"}</script>
 
 <!-- APPLE META DATA -->
 <meta name="apple-mobile-web-app-title" content="GTA IV Map">
@@ -40,19 +40,15 @@
 <meta name="application-name" content="GTA IV Map">
 <meta name="msapplication-tooltip" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
 <meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
-<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, G[...]">
+<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTAIV, GTAEFLC, #GTAIV, #GTAEFLC, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps">
   
   <title>Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</title>
   <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
-  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, G[...]">
+  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTAIV, GTAEFLC, #GTAIV, #GTAEFLC, #warrenwoodhouse, warrenwoodhouse, Warren Woodhouse, gaming, game maps, interactive maps, free maps, interactive maps, game guides">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
-        html, body {
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
             background-color: #000000;
@@ -62,7 +58,6 @@
             height: 100vh;
             background-color: #111;
             font-size: 20px;
-            touch-action: none;
         }
         .filterControls {
             font-size: 19px;
@@ -135,27 +130,26 @@
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://warrenwoodhouse.github.io/maps/plugins/amazon-silk-map-fix.js"></script>
     <script>
+        // 1. Define Map Dimensions
         const mapWidth = 3000;
         const mapHeight = 1900;
 
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: -1,
-            maxZoom: 3,
-            dragging: true,
-            scrollWheelZoom: true,
-            tap: false
+            maxZoom: 3
         });
 
-        installAmazonSilkFix(map, document.getElementById('map'));
-
+        // 3. Set Bounds [Bottom-Left, Top-Right]
         const bounds = [[0, 0], [mapHeight, mapWidth]];
 
+        // 4. Load the 3000x1900 Image Overlay
         L.imageOverlay('https://raw.githubusercontent.com/warrenwoodhouse/maps/main/gta/iv/map.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
+        // 5. Create Layer Groups for Filters
         const filterGroups = {
             poi: { name: "Points of Interests", group: L.layerGroup() },
             hiddenpackage: { name: "Hidden Packages", group: L.layerGroup() },
@@ -181,6 +175,7 @@
             district: { name: "Districts", group: L.layerGroup() }
         };
 
+        // Create custom icons for each marker type
         const customIcons = {
             poi: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png', iconSize: [52, 52] }),
             hiddenpackage: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png', iconSize: [52, 52] }),
