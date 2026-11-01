@@ -130,6 +130,7 @@
     <div id="map"></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://warrenwoodhouse.github.io/maps/plugins/amazonsilk/plugin.js"></script> // Amazon Silk
     <script>
         // 1. Define Map Dimensions
         const mapWidth = 3000;
@@ -139,7 +140,13 @@
         const map = L.map('map', {
             crs: L.CRS.Simple,
             minZoom: -1,
-            maxZoom: 3
+            maxZoom: 3,
+            dragging: true, // Amazon Silk
+            scrollWheelZoom: true, // Amazon Silk
+            tap: false // Amazon Silk
+        });
+
+        installAmazonSilk(map, document.getElementById('map')); // Amazon Silk
         });
 
         // 3. Set Bounds [Bottom-Left, Top-Right]
