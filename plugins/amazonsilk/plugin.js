@@ -1,15 +1,9 @@
-(function () {
+<!-- Amazon Silk Plugin for Leaflet -->
+<!-- Author: Warren Woodhouse - github.com/warrenwoodhouse -->
+<!-- Documentation: warrenwoodhouse.github.io/maps/plugins/amazonsilk -->  
+    (function () {
     function installAmazonSilk(map, mapContainer) {
-        if (!map || !mapContainer) {
-            return;
-        }
-
-        const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-            (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-
-        if (isIOS) {
-            return;
-        }
+        if (!map || !mapContainer) return;
 
         function applyViewport() {
             const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 600;
@@ -26,39 +20,23 @@
         let previousPointer = { y: 0, x: 0 };
 
         function endPointerDrag() {
-            if (!isPointerDragging) {
-                return;
-            }
-
+            if (!isPointerDragging) return;
             isPointerDragging = false;
-
-            if (map && map.dragging) {
-                map.dragging.enable();
-            }
+            if (map && map.dragging) map.dragging.enable();
         }
 
         mapContainer.addEventListener('pointerdown', function (event) {
             event.preventDefault();
             isPointerDragging = true;
             previousPointer = { y: event.clientY, x: event.clientX };
-
-            if (map && map.dragging) {
-                map.dragging.disable();
-            }
-
-            if (mapContainer.setPointerCapture) {
-                mapContainer.setPointerCapture(event.pointerId);
-            }
+            if (map && map.dragging) map.dragging.disable();
+            if (mapContainer.setPointerCapture) mapContainer.setPointerCapture(event.pointerId);
         });
 
         mapContainer.addEventListener('pointermove', function (event) {
-            if (!isPointerDragging || !map) {
-                return;
-            }
-
+            if (!isPointerDragging || !map) return;
             const deltaY = event.clientY - previousPointer.y;
             const deltaX = event.clientX - previousPointer.x;
-
             map.panBy([deltaY, deltaX], { animate: false });
             previousPointer = { y: event.clientY, x: event.clientX };
         });
