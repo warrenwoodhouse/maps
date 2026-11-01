@@ -160,7 +160,7 @@
         const bounds = [[0, 0], [mapHeight, mapWidth]];
 
         // 4. Load the 3000x1900 Image Overlay
-        L.imageOverlay('https://raw.githubusercontent.com/warrenwoodhouse/maps/main/gta/iv/map.png', bounds).addTo(map);
+        L.imageOverlay('https://warrenwoodhouse.github.io/maps/gta/iv/map.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
         // 5. Create Layer Groups for Filters
@@ -186,7 +186,10 @@
             airport: { name: "Airports", group: L.layerGroup() },
             island: { name: "Islands", group: L.layerGroup() },
             region: { name: "Regions", group: L.layerGroup() },
-            district: { name: "Districts", group: L.layerGroup() }
+            district: { name: "Districts", group: L.layerGroup() },
+            vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
+            church: { name: "Churches", group: L.layerGroup() },
+            cemetery: { name: "Cemeteries", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -221,7 +224,9 @@
             airport: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png', iconSize: [52, 52] }),
             island: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png', iconSize: [52, 52] }),
             region: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
-            district: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] })
+            district: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
+            church: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png', iconSize: [52, 52] }),
+            cemetery: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png', iconSize: [52, 52] })
         };
 
         // Locations Database
@@ -503,7 +508,18 @@
             { id: "district-67", name: "Berchem", icon: "district", type: "district", y: 1000, x: 506, image: "" },
             { id: "district-68", name: "Alderney City", icon: "district", type: "district", y: 1127, x: 686, image: "" },
             { id: "district-69", name: "Leftwood", icon: "district", type: "district", y: 1327, x: 739, image: "" },
-            { id: "district-70", name: "Westdyke", icon: "district", type: "district", y: 1474, x: 741, image: "" }
+            { id: "district-70", name: "Westdyke", icon: "district", type: "district", y: 1474, x: 741, image: "" },
+            // Churches
+            { id: "church-1", name: "Suffolk Church", icon: "church", type: "church", y: 512, x: 1172 },
+            { id: "church-2", name: "Meadows Park Church", icon: "church", type: "church", y: 1004, x: 2025 },
+            { id: "church-3", name: "Columbus Cathedral", icon: "church", type: "church", y: 883, x: 1321 },
+            { id: "church-4", name: "Leftwood Church", icon: "church", type: "church", y: 1381, x: 767 },
+            // Cemeteries
+            { id: "cemetery-1", name: "Dukes Bay Cemetery", icon: "cemetery", type: "cemetery", y: 1139, x: 1790 },
+            { id: "cemetery-2", name: "Meadows Park Church Cemetery", icon: "cemetery", type: "cemetery", y: 1013, x: 2014 },
+            { id: "cemetery-3", name: "Suffolk Church Cemetery", icon: "cemetery", type: "cemetery", y: 506, x: 1155 },
+            { id: "cemetery-4", name: "Colony Island Cemetery", icon: "cemetery", type: "cemetery", y: 825, x: 1558 },
+            { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 }
         ];
 
         const markerRegistry = {};
