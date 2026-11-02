@@ -160,6 +160,9 @@
         // 5. Create Layer Groups for Filters
         const filterGroups = {
             poi: { name: "Points of Interests", group: L.layerGroup() },
+            restaurant: { name: "Restaurants", group: L.layerGroup() },
+            cluckinbell: { name: "Cluckin’ Bell", group: L.layerGroup() },
+            burgershot: { name: "Burger Shot", group: L.layerGroup() },
             hiddenpackage: { name: "Hidden Packages", group: L.layerGroup() },
             police: { name: "Police Stations", group: L.layerGroup() },
             fire: { name: "Fire Departments", group: L.layerGroup() },
@@ -191,6 +194,18 @@
         const customIcons = {
             poi: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png',
+                iconSize: [42, 42]
+            }),
+            restaurant: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-restaurant.png',
+                iconSize: [42, 42]
+            }),
+            cluckinbell: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png',
+                iconSize: [42, 42]
+            }),
+            burgershot: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png',
                 iconSize: [42, 42]
             }),
             hiddenpackage: L.icon({
@@ -534,8 +549,20 @@
             // Streets
             // RESTAURANTS
             // Restaurants
-            // Cluckin' Bells
+            // Cluckin’ Bells
+            { id: "cluckinbell-1", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 845, x: 1933, image: "" },
+            { id: "cluckinbell-2", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 691, x: 1247, image: "" },
+            { id: "cluckinbell-3", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 1388, x: 1181, image: "" },
+            { id: "cluckinbell-4", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 978, x: 561, image: "" }
             // Burger Shots
+            { id: "burgershot-1", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 317, x: 1935, image: "" },
+            { id: "burgershot-2", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 772, x: 2159, image: "" },
+            { id: "burgershot-3", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1466, x: 1884, image: "" },
+            { id: "burgershot-4", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1430, x: 1543, image: "" },
+            { id: "burgershot-5", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 803, x: 1224, image: "" },
+            { id: "burgershot-6", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 730, x: 1006, image: "" },
+            { id: "burgershot-7", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1263, x: 1097, image: "" },
+            { id: "burgershot-8", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1491, x: 803, image: "" },
             // Diners
             // SHOPPING
             // Clothing Stores
