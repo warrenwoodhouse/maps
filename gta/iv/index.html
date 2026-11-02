@@ -187,7 +187,8 @@
             vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
             church: { name: "Churches", group: L.layerGroup() },
             cemetery: { name: "Cemeteries", group: L.layerGroup() },
-            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() }
+            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() },
+            government: { name: "Local Government & Public Services", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -339,7 +340,19 @@
             windowlift: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png',
                 iconSize: [62, 62]
-            })
+            }),
+            government: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-government.png',
+                iconSize: [42, 42]
+            }),
+            sanitation: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-sanitation.png',
+                iconSize: [42, 42]
+            }),
+            mayor: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-mayor.png',
+                iconSize: [42, 42]
+            }),
         };
 
         // 6. Location Database
@@ -686,7 +699,15 @@
             { id: "subway-28", name: "City Hall Station", icon: "kc", type: "subway", y: 404, x: 1284, image: "" },
             // Skycar Stations
             { id: "skycar-1", name: "Algonquin Island Skycar Station", icon: "skycar", type: "skycar", y: 767, x: 1415, image: "" },
-            { id: "skycar-2", name: "Colony Island Skycar Station", icon: "skycar", type: "skycar", y: 770, x: 1545, image: "" }
+            { id: "skycar-2", name: "Colony Island Skycar Station", icon: "skycar", type: "skycar", y: 770, x: 1545, image: "" },
+            // LOCAL GOVERNMENT & PUBLIC SERVICES
+            // Local Government & Public Services
+            { id: "government-1", name: "City Hall", icon: "mayor", type: "government", y: 472, x: 1231, image: "" },
+            { id: "government-2", name: "Department of Sanitation", icon: "sanitation", type: "government", y: 435, x: 1506, image: "" },
+            { id: "government-3", name: "FIB Building", icon: "government", type: "government", y: 708, x: 1371, image: "" },
+            { id: "government-4", name: "Civic Citadel", icon: "government", type: "government", y: 445, x: 1272, image: "" },
+            { id: "government-5", name: "ULP United Liberty Paper Merchants", icon: "government", type: "government", y: 679, x: 1284, image: "" },
+            { id: "government-6", name: "Liberty State Courthouse", icon: "mayor", type: "government", y: 477, x: 1220, image: "" }
         ];
 
         // 6. Registry to look up markers by ID
