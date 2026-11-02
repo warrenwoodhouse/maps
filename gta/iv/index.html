@@ -188,7 +188,17 @@
             church: { name: "Churches", group: L.layerGroup() },
             cemetery: { name: "Cemeteries", group: L.layerGroup() },
             windowlift: { name: "Window Washing Lifts", group: L.layerGroup() },
-            government: { name: "Local Government & Public Services", group: L.layerGroup() }
+            government: { name: "Local Government & Public Services", group: L.layerGroup() },
+            bar: { name: "Bars", group: L.layerGroup() },
+            comedy: { name: "Comedy Clubs", group: L.layerGroup() },
+            club: { name: "Clubs", group: L.layerGroup() },
+            nightclub: { name: "Nightclubs", group: L.layerGroup() },
+            strip: { name: "Strip Clubs / Gentlemen’s Clubs", group: L.layerGroup() },
+            pool: { name: "Pool Halls", group: L.layerGroup() },
+            dart: { name: "Dart Clubs", group: L.layerGroup() },
+            bowling: { name: "Bowling Alleys", group: L.layerGroup() },
+            cabaret: { name: "Cabaret Clubs", group: L.layerGroup() },
+            airhockey: { name: "Air Hockey", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -351,6 +361,54 @@
             }),
             mayor: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-mayor.png',
+                iconSize: [52, 52]
+            }),
+            maisonette9: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-maisonette9.png',
+                iconSize: [52, 52]
+            }),
+            hercules: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-hercules.png',
+                iconSize: [52, 52]
+            }),
+            bahamamamas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-bahamamamas.png',
+                iconSize: [52, 52]
+            }),
+            airhockey: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-airhockey.png',
+                iconSize: [52, 52]
+            }),
+            strip: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-stripclub.png',
+                iconSize: [52, 52]
+            }),
+            comedy: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-comedyclub.png',
+                iconSize: [52, 52]
+            }),
+            club: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-club.png',
+                iconSize: [52, 52]
+            }),
+            cabaret: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cabaretclub.png',
+                iconSize: [52, 52]
+            }),
+            bowling: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bowling.png',
+                iconSize: [52, 52]
+            }),
+            pool: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-pool.png',
+                iconSize: [52, 52]
+            }),
+            dart: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-dart.png',
+                iconSize: [52, 52]
+            }),
+            bar: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bar.png',
                 iconSize: [52, 52]
             }),
         };
@@ -654,15 +712,38 @@
             { id: "windowlift-10", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1073, x: 670, image: "" },
             { id: "windowlift-11", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1199, x: 596, image: "" },
             // ENTERTAINMENT & NIGHTLIFE
-            // Darts
-            // Bowling Alleys
-            // Pool Halls
-            // Clubs
+            // Air Hockey
+            { id: "airhockey-1", name: "Air Hockey", icon: "airhockey", type: "airhockey", dlc: "eflc", y: 310, x: 1919, image: "" },
+            { id: "airhockey-2", name: "Air Hockey", icon: "airhockey", type: "airhockey", dlc: "eflc", y: 695, x: 1011, image: "" },
             // Bars
+            { id: "bar-1", name: "Comrades Bar", icon: "bar", type: "bar", y: 406, x: 1794, image: "" },
+            { id: "bar-2", name: "Steinway Beer Garden", icon: "bar", type: "bar", y: 1034, x: 1904, image: "" },
+            { id: "bar-3", name: "Jerkov’s / Cossieur’s Bar", icon: "bar", type: "bar", y: 939, x: 1374, image: "" },
+            { id: "bar-4", name: "Hell Gate Bar", icon: "bar", type: "bar", y: 859, x: 1117, image: "" },
+            { id: "bar-5", name: "Leopolds", icon: "bar", type: "bar", dlc: "eflc", y: 600, x: 1325, image: "" },
+            { id: "bar-6", name: "Fan Dang", icon: "bar", type: "bar", dlc: "eflc", y: 1126, x: 818, image: "" },
+            { id: "bar-7", name: "Diner Bar Cocktails", icon: "bar", type: "bar", dlc: "eflc", y: 896, x: 617, image: "" },
+            // Bowling Alleys
+            { id: "bowling-1", name: "Memory Lanes", icon: "bowling", type: "bowling", y: 313, x: 1927, image: "" },
+            { id: "bowling-2", name: "Memory Lanes", icon: "bowling", type: "bowling", y: 692, x: 1021, image: "" },
             // Cabaret Clubs
+            { id: "cabaret-1", name: "Perestroika", icon: "cabaret", type: "cabaret", y: 504, x: 1808, image: "" },
+            // Clubs
+            { id: "club-1", name: "Club Liberty", icon: "club", type: "club", y: 1372, x: 1073, image: "" },
             // Comedy Clubs
-            // Strip Clubs
+            { id: "comedy-1", name: "Split Sides Comedy Club", icon: "comedy", type: "comedy", y: 743, x: 1144, image: "" },
+            // Darts
+            { id: "dart-1", name: "Lucky Winkles", icon: "dart", type: "dart", y: 887, x: 1096, image: "" },
+            { id: "dart-2", name: "Steinway Beer Garden", icon: "dart", type: "dart", y: 1037, x: 1910, image: "" },
             // Nightclubs
+            { id: "nightclub-1", name: "Maisonette 9", icon: "maisonette9", type: "nightclub", dlc: "tbogt", y: 727, x: 1075, image: "" },
+            { id: "nightclub-2", name: "Hercules", icon: "hercules", type: "nightclub", dlc: "tbogt", y: 838, x: 1096, image: "" },
+            { id: "nightclub-3", name: "Bahama Mamas", icon: "bahamamamas", type: "nightclub", dlc: "tbogt", y: 856, x: 1122, image: "" },
+            // Pool
+            { id: "pool-1", name: "Homebrew Café", icon: "pool", type: "pool", y: 681, x: 2074, image: "" },
+            // Strip Clubs
+            { id: "strip-1", name: "The Triangle Club", icon: "strip", type: "strip", y: 1520, x: 1920, image: "" },
+            { id: "strip-2", name: "Honkers", icon: "strip", type: "strip", y: 663, x: 510, image: "" },
             // EMERGENCY SERVICES
             // Police Stations
             // Hospitals
