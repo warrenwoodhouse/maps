@@ -1,0 +1,1081 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+<!-- ICONS META DATA -->
+<link rel="icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+<link rel="shortcut icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+
+<!-- OPENGRAPH META DATA -->
+<meta name="og:title" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:type" content="application">
+<meta name="og:url" content="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="og:image" content="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico">
+<meta name="og:site_name" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse"}</script>
+
+<!-- APPLE META DATA -->
+<meta name="apple-mobile-web-app-title" content="GTA IV Map">
+<link rel="apple-mobile-web-app" href="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" color="#000000">
+<meta name="theme-color" content="#090909-gradient" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000-translucent" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="https://warrenwoodhouse.github.io/site/site.webmanifest" crossorigin="use-credentials" id="manifest-link" />
+<link rel="icon" type="image/ico" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" sizes="96x96" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<meta name="apple-touch-fullscreen" content="yes">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-touch-icon" type="image/ico">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-ipad-icon" type="image/ico" sizes="72x72">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-touch-startup-image" type="image/ico" sizes="152x152">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+
+<!-- MICROSOFT META DATA -->
+<meta name="mssmarttagspreventparsing" content="true">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="msapplication-starturl" content="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="msapplication-window" content="width=800;height=600">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="application-name" content="GTA IV Map">
+<meta name="msapplication-tooltip" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+<meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
+<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, G...">
+  
+  <title>Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</title>
+  <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTA IV, GTA Episodes from Liberty City, Liberty City Map, interactive map">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+    html, body {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+        background-color: #111;
+        font-size: 20px;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .filterControls {
+        font-size: 19px;
+    }
+
+    /* Make the Leaflet layer control menu scrollable */
+    .leaflet-control-layers-expanded {
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+
+    .leaflet-popup-content-wrapper {
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        font-size: 19px;
+        max-width: 350px;
+    }
+    .leaflet-popup-tip {
+        background: #ffffff;
+        font-size: 19px;
+    }
+    .popup-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    .popup-video {
+        width: 300px;
+        height: 170px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    .popup-text {
+        margin: 8px 0;
+    }
+    .popup-text strong {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    .popup-text small {
+        display: block;
+        color: #666;
+        font-size: 14px;
+    }
+    .share-btn {
+        margin-top: 8px;
+        padding: 6px 12px;
+        background-color: #111;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 19px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .share-btn:hover {
+        background-color: #333;
+    }
+</style>
+</head>
+<body>
+    <p style="color:white; margin: 10px;">Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</p>
+    <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
+    <p style="color:white; margin: 10px;">Select the icon to the right to open the Filters and select anywhere on the map to close the Filters list, making it easier for you to navigate.</p>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 1. Define Map Dimensions
+        const mapWidth = 3000;
+        const mapHeight = 1900;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,
+            maxZoom: 3,
+        });
+
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
+
+        // 4. Load the 3000x1900 Image Overlay
+        L.imageOverlay('https://warrenwoodhouse.github.io/maps/gta/iv/map.png', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        // 5. Create Layer Groups for Filters
+        const filterGroups = {
+            poi: { name: "Points of Interests", group: L.layerGroup() },
+            restaurant: { name: "Restaurants", group: L.layerGroup() },
+            cluckinbell: { name: "Cluckin’ Bell", group: L.layerGroup() },
+            burgershot: { name: "Burger Shot", group: L.layerGroup() },
+            hiddenpackage: { name: "Hidden Packages", group: L.layerGroup() },
+            police: { name: "Police Stations", group: L.layerGroup() },
+            fire: { name: "Fire Departments", group: L.layerGroup() },
+            hospital: { name: "Hospitals", group: L.layerGroup() },
+            weapon: { name: "Weapons", group: L.layerGroup() },
+            landmark: { name: "Landmarks", group: L.layerGroup() },
+            park: { name: "Parks", group: L.layerGroup() },
+            parking: { name: "Car Parks & Parking Garages", group: L.layerGroup() },
+            gas: { name: "Gas Stations", group: L.layerGroup() },
+            subway: { name: "Subway Stations & El-Train Stations", group: L.layerGroup() },
+            skycar: { name: "Skycar Stations", group: L.layerGroup() },
+            river: { name: "Rivers", group: L.layerGroup() },
+            bay: { name: "Bays", group: L.layerGroup() },
+            lake: { name: "Lakes", group: L.layerGroup() },
+            bridge: { name: "Bridges", group: L.layerGroup() },
+            tunnel: { name: "Tunnels", group: L.layerGroup() },
+            toll: { name: "Toll Booths", group: L.layerGroup() },
+            airport: { name: "Airports", group: L.layerGroup() },
+            island: { name: "Islands", group: L.layerGroup() },
+            region: { name: "Regions", group: L.layerGroup() },
+            district: { name: "Districts", group: L.layerGroup() },
+            vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
+            church: { name: "Churches", group: L.layerGroup() },
+            cemetery: { name: "Cemeteries", group: L.layerGroup() },
+            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() },
+            government: { name: "Local Government & Public Services", group: L.layerGroup() },
+            bar: { name: "Bars", group: L.layerGroup() },
+            comedy: { name: "Comedy Clubs", group: L.layerGroup() },
+            club: { name: "Clubs", group: L.layerGroup() },
+            nightclub: { name: "Nightclubs", group: L.layerGroup() },
+            strip: { name: "Strip Clubs / Gentlemen’s Clubs", group: L.layerGroup() },
+            pool: { name: "Pool Halls", group: L.layerGroup() },
+            dart: { name: "Dart Clubs", group: L.layerGroup() },
+            bowling: { name: "Bowling Alleys", group: L.layerGroup() },
+            cabaret: { name: "Cabaret Clubs", group: L.layerGroup() },
+            airhockey: { name: "Air Hockey", group: L.layerGroup() },
+            dancing: { name: "Dancing", group: L.layerGroup() },
+            construction: { name: "Construction Sites", group: L.layerGroup() },
+            atm: { name: "ATMs", group: L.layerGroup() },
+            vehicle: { name: "Vehicles", group: L.layerGroup() },
+            computer: { name: "Computers", group: L.layerGroup() },
+            card: { name: "Cards", group: L.layerGroup() },
+            safehouse: { name: "Safehouses", group: L.layerGroup() },
+            clubhouse: { name: "Clubhouses", group: L.layerGroup() },
+            easteregg: { name: "Easter Eggs", group: L.layerGroup() }
+        };
+
+        // Create custom icons for each marker type
+        const customIcons = {
+            poi: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png',
+                iconSize: [42, 42]
+            }),
+            restaurant: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-restaurant.png',
+                iconSize: [42, 42]
+            }),
+            cluckinbell: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png',
+                iconSize: [42, 42]
+            }),
+            burgershot: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png',
+                iconSize: [42, 42]
+            }),
+            hiddenpackage: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png',
+                iconSize: [52, 52]
+            }),
+            police: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png',
+                iconSize: [52, 52]
+            }),
+            fire: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png',
+                iconSize: [52, 52]
+            }),
+            hospital: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png',
+                iconSize: [52, 52]
+            }),
+            weapon: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png',
+                iconSize: [52, 52]
+            }),
+            landmark: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png',
+                iconSize: [52, 52]
+            }),
+            park: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png',
+                iconSize: [52, 52]
+            }),
+            parking: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-park.png',
+                iconSize: [52, 52]
+            }),
+            fma: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png',
+                iconSize: [52, 52]
+            }),
+            gas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png',
+                iconSize: [52, 52]
+            }),
+            ron: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png',
+                iconSize: [52, 52]
+            }),
+            terroil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png',
+                iconSize: [52, 52]
+            }),
+            globeoil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-globeoil.png',
+                iconSize: [52, 52]
+            }),
+            subway: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation.png',
+                iconSize: [52, 52]
+            }),
+            subwayexchange: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation-exchangehere.png',
+                iconSize: [52, 52]
+            }),
+            38: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png',
+                iconSize: [52, 52]
+            }),
+            ja: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png',
+                iconSize: [52, 52]
+            }),
+            kc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png',
+                iconSize: [52, 52]
+            }),
+            eb: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png',
+                iconSize: [52, 52]
+            }),
+            skycar: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-skycar.png',
+                iconSize: [52, 52]
+            }),
+            lake: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            bay: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            river: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png',
+                iconSize: [52, 52]
+            }),
+            bridge: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png',
+                iconSize: [52, 52]
+            }),
+            tunnel: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png',
+                iconSize: [52, 52]
+            }),
+            toll: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png',
+                iconSize: [52, 52]
+            }),
+            airport: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png',
+                iconSize: [52, 52]
+            }),
+            island: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png',
+                iconSize: [52, 52]
+            }),
+            region: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            district: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            church: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png',
+                iconSize: [52, 52]
+            }),
+            cemetery: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png',
+                iconSize: [52, 52]
+            }),
+            windowlift: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png',
+                iconSize: [62, 62]
+            }),
+            construction: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-construction.png',
+                iconSize: [52, 52]
+            }),
+            government: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-government.png',
+                iconSize: [52, 52]
+            }),
+            sanitation: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-sanitation.png',
+                iconSize: [52, 52]
+            }),
+            mayor: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-mayor.png',
+                iconSize: [52, 52]
+            }),
+            maisonette9: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-maisonette9.png',
+                iconSize: [52, 52]
+            }),
+            hercules: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-hercules.png',
+                iconSize: [52, 52]
+            }),
+            bahamamamas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-bahamamamas.png',
+                iconSize: [52, 52]
+            }),
+            airhockey: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-airhockey.png',
+                iconSize: [52, 52]
+            }),
+            strip: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-stripclub.png',
+                iconSize: [52, 52]
+            }),
+            comedy: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-comedyclub.png',
+                iconSize: [52, 52]
+            }),
+            club: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-club.png',
+                iconSize: [52, 52]
+            }),
+            cabaret: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cabaretclub.png',
+                iconSize: [52, 52]
+            }),
+            bowling: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bowling.png',
+                iconSize: [52, 52]
+            }),
+            pool: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-pool.png',
+                iconSize: [52, 52]
+            }),
+            dart: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-darts.png',
+                iconSize: [52, 52]
+            }),
+            bar: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bar.png',
+                iconSize: [52, 52]
+            }),
+            dancing: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-dancing.png',
+                iconSize: [52, 52]
+            }),
+            atm: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-atm.png',
+                iconSize: [52, 52],
+            }),
+            vehicle: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-car.png',
+                iconSize: [52, 52],
+            }),
+            card: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-card.png',
+                iconSize: [52, 52],
+            }),
+            computer: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-computer.png',
+                iconSize: [52, 52],
+            }),
+            safehouse: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-safehouse.png',
+                iconSize: [52, 52],
+            }),
+            thelostmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-thelostmc.png',
+                iconSize: [52, 52],
+            }),
+            theangelsofdeathmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theangelsofdeathmc.png',
+                iconSize: [52, 52],
+            }),
+            theuptownriderzmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theuptownriderzmc.png',
+                iconSize: [52, 52],
+            }),
+            tladsafehouse: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-safehouse.png',
+                iconSize: [52, 52],
+            }),
+            tladcomputer: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-computer.png',
+                iconSize: [52, 52],
+            }),
+            easteregg: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png',
+                iconSize: [52, 52],
+            }),
+        };
+
+        // 6. Location Database
+        const locations = [
+            // POINTS OF INTEREST
+            // Points of Interests
+            { id: "poi-1", name: "RON Building", icon: "poi", type: "poi", y: 1081, x: 738, image: "" },
+            { id: "poi-2", name: "Statue of Happiness", icon: "poi", type: "poi", y: 278, x: 1006, image: "" },
+            { id: "poi-3", name: "Alderney State Correctional Facility", icon: "poi", type: "poi", y: 452, x: 770, image: "" },
+            { id: "poi-4", name: "233 Liberty Lane", icon: "poi", type: "poi", y: 415, x: 1212, image: "" },
+            { id: "poi-5", name: "Heli Tours", icon: "poi", type: "poi", y: 281, x: 1510, image: "" },
+            { id: "poi-6", name: "Pier 45", icon: "poi", type: "poi", y: 397, x: 1528, image: "" },
+            { id: "poi-7", name: "City Hall", icon: "poi", type: "poi", y: 472, x: 1231, image: "" },
+            { id: "poi-8", name: "Rotterdam Tower", icon: "poi", type: "poi", y: 601, x: 1169, image: "" },
+            { id: "poi-9", name: "Grand Easton Terminal", icon: "poi", type: "poi", y: 649, x: 1333, image: "" },
+            { id: "poi-10", name: "The GetaLife Building", icon: "poi", type: "poi", y: 685, x: 1328, image: "" },
+            { id: "poi-11", name: "CC (Civilization Committee)", icon: "poi", type: "poi", y: 840, x: 1412, image: "" },
+            { id: "poi-12", name: "Star Junction", icon: "poi", type: "poi", y: 788, x: 1216, image: "" },
+            { id: "poi-13", name: "Middle Park", icon: "poi", type: "poi", y: 1137, x: 1213, image: "" },
+            { id: "poi-14", name: "Randolf Art Center", icon: "poi", type: "poi", y: 1002, x: 1071, image: "" },
+            { id: "poi-15", name: "Broker Navy Yard", icon: "poi", type: "poi", y: 575, x: 1725, image: "" },
+            { id: "poi-16", name: "Funland", icon: "poi", type: "poi", y: 330, x: 1893, image: "" },
+            { id: "poi-17", name: "Firefly Island Boardwalk", icon: "poi", type: "poi", y: 305, x: 1890, image: "" },
+            { id: "poi-18", name: "Broker Promenade", icon: "poi", type: "poi", y: 364, x: 1709, image: "" },
+            { id: "poi-19", name: "The Screamer", icon: "poi", type: "poi", y: 352, x: 1919, image: "" },
+            { id: "poi-20", name: "Soldiers Plaza", icon: "poi", type: "poi", y: 617, x: 1883, image: "" },
+            { id: "poi-21", name: "The Monoglobe", icon: "poi", type: "poi", y: 942, x: 2081, image: "" },
+            { id: "poi-22", name: "Liberty State Pavilion Towers", icon: "poi", type: "poi", y: 1105, x: 2156, image: "" },
+            { id: "poi-23", name: "LC24 Tower", icon: "poi", type: "poi", y: 975, x: 1987, image: "" },
+            { id: "poi-24", name: "NUCA National Union of Contemporary Arts", icon: "poi", type: "poi", y: 1006, x: 1988, image: "" },
+            { id: "poi-25", name: "Dukes Bay Promenade", icon: "poi", type: "poi", y: 1211, x: 1981, image: "" },
+            { id: "poi-26", name: "Colony Island Lighthouse", icon: "poi", type: "poi", y: 858, x: 1560, image: "" },
+            { id: "poi-27", name: "Colony Island Hospital", icon: "poi", type: "poi", y: 619, x: 1575, image: "" },
+            { id: "poi-28", name: "Middle Park Fountain", icon: "poi", type: "poi", y: 1048, x: 1198, image: "" },
+            { id: "poi-29", name: "Middle Park Boathouse", icon: "poi", type: "poi", y: 1186, x: 1211, image: "" },
+            { id: "poi-30", name: "West River Park Monument", icon: "poi", type: "poi", y: 1086, x: 1021, image: "" },
+            { id: "poi-31", name: "Golden Pier", icon: "poi", type: "poi", y: 696, x: 996, image: "" },
+            { id: "poi-32", name: "Castle Gardens", icon: "poi", type: "poi", y: 507, x: 997, image: "" },
+            { id: "poi-33", name: "253 Liberty Lane", icon: "poi", type: "poi", y: 444, x: 1198, image: "" },
+            { id: "poi-34", name: "Civic Citadel", icon: "poi", type: "poi", y: 444, x: 1273, image: "" },
+            { id: "poi-35", name: "FIB Building", icon: "poi", type: "poi", y: 708, x: 1371, image: "" },
+            // Safehouses
+            { id: "safehouse-1", name: "Broker Safehouse", icon: "safehouse", type: "safehouse", y: 390, x: 1782, image: "" },
+            { id: "safehouse-2", name: "South Bohan Safehouse", icon: "safehouse", type: "safehouse", y: 1373, x: 1626, image: "" },
+            { id: "safehouse-3", name: "Middle Park East Safehouse", icon: "safehouse", type: "safehouse", y: 1084, x: 1378, image: "" },
+            { id: "safehouse-4", name: "Playboy X’s Penthouse", icon: "safehouse", type: "safehouse", y: 1413, x: 1104, image: "" },
+            { id: "safehouse-5", name: "Alderney Safehouse", icon: "safehouse", type: "safehouse", y: 1115, x: 826, image: "" },
+            { id: "safehouse-6", name: "The Lost MC Clubhouse", icon: "tladsafehouse", type: "safehouse", y: 830, x: 435, image: "" },
+            { id: "safehouse-7", name: "Brian Jeremy’s Safehouse", icon: "tladsafehouse", type: "safehouse", y: 615, x: 318, image: "" },
+            { id: "safehouse-8", name: "Luis’ Apartment", icon: "safehouse", type: "safehouse", dlc: "tbogt", y: 1370, x: 1094, image: "" },
+            // Clubhouses
+            { id: "clubhouse-1", name: "The Lost MC Clubhouse", icon: "thelostmc", type: "clubhouse", dlc: "tlad", y: 830, x: 435, image: "" },
+            { id: "clubhouse-2", name: "The Angels of Death MC Clubhouse", icon: "theangelsofdeathmc", type: "clubhouse", dlc: "tlad", y: 1272, x: 1000, image: "" },
+            { id: "clubhouse-3", name: "The Uptown Riderz MC Clubhouse", icon: "theuptownriderzmc", type: "clubhouse", dlc: "tlad", y: 1487, x: 1208, image: "" },
+            // Parks
+            { id: "park-1", name: "Outlook Park", icon: "park", type: "park", y: 590, x: 1848, image: "" },
+            { id: "park-2", name: "Meadows Park", icon: "park", type: "park", y: 986, x: 2079, image: "" },
+            { id: "park-3", name: "Gantry Park / Dukes Bay Park", icon: "park", type: "park", y: 1179, x: 1924, image: "" },
+            { id: "park-4", name: "Steinway Park", icon: "park", type: "park", y: 1790, x: 1810, image: "" },
+            { id: "park-5", name: "Welham Parkway", icon: "park", type: "park", y: 1632, x: 1637, image: "" },
+            { id: "park-6", name: "Charge Island Park", icon: "park", type: "park", y: 1193, x: 1633, image: "" },
+            { id: "park-7", name: "Middle Park", icon: "park", type: "park", y: 1112, x: 1212, image: "" },
+            { id: "park-8", name: "West River Park", icon: "park", type: "park", y: 1118, x: 1012, image: "" },
+            { id: "park-9", name: "Castle Gardens", icon: "park", type: "park", y: 506, x: 992, image: "" },
+            { id: "park-10", name: "City Hall Park", icon: "park", type: "park", y: 444, x: 1235, image: "" },
+            { id: "park-11", name: "Pier 45", icon: "park", type: "park", y: 394, x: 1531, image: "" },
+            { id: "park-12", name: "Castle Park", icon: "park", type: "park", y: 135, x: 1265, image: "" },
+            { id: "park-13", name: "Happiness Park", icon: "park", type: "park", y: 175, x: 1006, image: "" },
+            { id: "park-14", name: "Alderney Promenade", icon: "park", type: "park", y: 1098, x: 912, image: "" },
+            { id: "park-15", name: "Colony Park", icon: "park", type: "park", y: 835, x: 1557, image: "" },
+            // Islands
+            { id: "island-1", name: "Alderney Island", icon: "island", type: "island", y: 929, x: 777, image: "" },
+            { id: "island-2", name: "Algonquin Island", icon: "island", type: "island", y: 990, x: 999, image: "" },
+            { id: "island-3", name: "Middle Park Island", icon: "island", type: "island", y: 1207, x: 1230, image: "" },
+            { id: "island-4", name: "Colony Island", icon: "island", type: "island", y: 608, x: 1569, image: "" },
+            { id: "island-5", name: "Charge Island", icon: "island", type: "island", y: 1129, x: 1581, image: "" },
+            { id: "island-6", name: "Bohan Island", icon: "island", type: "island", y: 1280, x: 1556, image: "" },
+            { id: "island-7", name: "Firefly Island", icon: "island", type: "island", y: 262, x: 1689, image: "" },
+            { id: "island-8", name: "East Island", icon: "island", type: "island", y: 926, x: 1734, image: "" },
+            { id: "island-9", name: "Happiness Island", icon: "island", type: "island", y: 110, x: 1048, image: "" },
+            { id: "island-10", name: "Acter Island", icon: "island", type: "island", y: 432, x: 228, image: "" },
+            // Tunnels
+            { id: "tunnel-1", name: "Dukes-Broker Tunnel", icon: "tunnel", type: "tunnel", y: 754, x: 2014, image: "" },
+            { id: "tunnel-2", name: "Castle Gardens Tunnel", icon: "tunnel", type: "tunnel", y: 207, x: 1263, image: "" },
+            { id: "tunnel-3", name: "Union Drive Tunnel", icon: "tunnel", type: "tunnel", y: 877, x: 1418, image: "" },
+            { id: "tunnel-4", name: "Booth Tunnel", icon: "tunnel", type: "tunnel", y: 825, x: 1068, image: "" },
+            // Bridges
+            { id: "bridge-1", name: "Plumbers Skyway", icon: "bridge", type: "bridge", y: 866, x: 665, image: "" },
+            { id: "bridge-2", name: "Acter Bridge", icon: "bridge", type: "bridge", y: 580, x: 422, image: "" },
+            { id: "bridge-3", name: "Mandrel Bridge", icon: "bridge", type: "bridge", y: 573, x: 543, image: "" },
+            { id: "bridge-4", name: "Plumbers Skyway Bridge", icon: "bridge", type: "bridge", y: 571, x: 591, image: "" },
+            { id: "bridge-5", name: "Plumbers Skyway Bridge", icon: "bridge", type: "bridge", y: 576, x: 367, image: "" },
+            { id: "bridge-6", name: "Hickey Bridge", icon: "bridge", type: "bridge", y: 1251, x: 953, image: "" },
+            { id: "bridge-7", name: "Middle Park Bridge", icon: "bridge", type: "bridge", y: 1140, x: 1213, image: "" },
+            { id: "bridge-8", name: "East Borough Bridge", icon: "bridge", type: "bridge", y: 1172, x: 1489, image: "" },
+            { id: "bridge-9", name: "East Borough Bridge", icon: "bridge", type: "bridge", y: 971, x: 1704, image: "" },
+            { id: "bridge-10", name: "East Borough Bridge", icon: "bridge", type: "bridge", y: 1258, x: 1601, image: "" },
+            { id: "bridge-11", name: "Charge Island West Bridge", icon: "bridge", type: "bridge", y: 1092, x: 1551, image: "" },
+            { id: "bridge-12", name: "Charge Island East Bridge", icon: "bridge", type: "bridge", y: 1092, x: 1570, image: "" },
+            { id: "bridge-13", name: "Northwood Heights Bridge", icon: "bridge", type: "bridge", y: 1525, x: 1372, image: "" },
+            { id: "bridge-14", name: "Northwood Heights Rail Bridge", icon: "bridge", type: "bridge", y: 1489, x: 1388, image: "" },
+            { id: "bridge-15", name: "Windmill Rail Bridge", icon: "bridge", type: "bridge", y: 1418, x: 1768, image: "" },
+            { id: "bridge-16", name: "Industrial Bridge (Under Construction)", icon: "bridge", type: "bridge", y: 1384, x: 1810, image: "" },
+            { id: "bridge-17", name: "Grand Boulevard West Bridge", icon: "bridge", type: "bridge", y: 1576, x: 1686, image: "" },
+            { id: "bridge-18", name: "Grand Boulevard East Bridge", icon: "bridge", type: "bridge", y: 1620, x: 1729, image: "" },
+            { id: "bridge-19", name: "Dukes Bay Bridge", icon: "bridge", type: "bridge", y: 1313, x: 2044, image: "" },
+            { id: "bridge-20", name: "Freetown Bridge", icon: "bridge", type: "bridge", y: 787, x: 2253, image: "" },
+            { id: "bridge-21", name: "Meadows Hill Bridge", icon: "bridge", type: "bridge", y: 816, x: 2118, image: "" },
+            { id: "bridge-22", name: "Meadows Park Bridge", icon: "bridge", type: "bridge", y: 884, x: 2081, image: "" },
+            { id: "bridge-23", name: "Outlook Park Bridge", icon: "bridge", type: "bridge", y: 616, x: 1846, image: "" },
+            { id: "bridge-24", name: "Broker Bridge", icon: "bridge", type: "bridge", y: 444, x: 1617, image: "" },
+            { id: "bridge-25", name: "Leaper’s Bridge", icon: "bridge", type: "bridge", y: 628, x: 1505, image: "" },
+            { id: "bridge-26", name: "Algonquin Bridge", icon: "bridge", type: "bridge", y: 786, x: 1655, image: "" },
+            // Airports
+            { id: "airport-1", name: "FIA Francis International Airport", icon: "airport", type: "airport", y: 855, x: 2541, image: "" },
+            // Rivers
+            { id: "river-1", name: "Humboldt River", icon: "river", type: "river", y: 882, x: 1616, image: "" },
+            { id: "river-2", name: "Charge Island Sound", icon: "river", type: "river", y: 1048, x: 1476, image: "" },
+            { id: "river-3", name: "Northwood Sound", icon: "river", type: "river", y: 1360, x: 1436, image: "" },
+            { id: "river-4", name: "Colony Island Sound", icon: "river", type: "river", y: 734, x: 1474, image: "" },
+            { id: "river-5", name: "West River", icon: "river", type: "river", y: 734, x: 874, image: "" },
+            { id: "river-6", name: "Acter Sound", icon: "river", type: "river", y: 568, x: 476, image: "" },
+            { id: "river-7", name: "Charge Island Canal", icon: "river", type: "river", y: 1105, x: 1583, image: "" },
+            // Bays
+            { id: "bay-1", name: "East Hook Bay", icon: "lake", type: "bay", y: 326, x: 1630, image: "" },
+            { id: "bay-2", name: "Dukes Bay", icon: "lake", type: "bay", y: 1284, x: 1882, image: "" },
+            { id: "bay-3", name: "Humboldt Bay", icon: "lake", type: "bay", y: 374, x: 942, image: "" },
+            { id: "bay-4", name: "Alderney Bay", icon: "lake", type: "bay", y: 962, x: 914, image: "" },
+            // Lakes
+            { id: "lake-1", name: "North Lake", icon: "lake", type: "lake", y: 1183, x: 1228, image: "" },
+            { id: "lake-2", name: "South Lake", icon: "lake", type: "lake", y: 1082, x: 1203, image: "" },
+            { id: "lake-3", name: "Welham Lake", icon: "lake", type: "lake", y: 1630, x: 1585, image: "" },
+            // Regions
+            { id: "region-1", name: "Broker", icon: "region", type: "region", y: 458, x: 1863, image: "" },
+            { id: "region-2", name: "Dukes", icon: "region", type: "region", y: 965, x: 1946, image: "" },
+            { id: "region-3", name: "Bohan", icon: "region", type: "region", y: 1563, x: 1611, image: "" },
+            { id: "region-4", name: "Algonquin", icon: "region", type: "region", y: 783, x: 1215, image: "" },
+            { id: "region-5", name: "Alderney", icon: "region", type: "region", y: 1063, x: 646, image: "" },
+            // Districts
+            { id: "district-1", name: "Beachgate", icon: "district", type: "district", y: 257, x: 2012, image: "" },
+            { id: "district-2", name: "Firefly Island", icon: "district", type: "district", y: 256, x: 1796, image: "" },
+            { id: "district-3", name: "Hove Beach", icon: "district", type: "district", y: 479, x: 1783, image: "" },
+            { id: "district-4", name: "Firefly Projects", icon: "district", type: "district", y: 437, x: 1980, image: "" },
+            { id: "district-5", name: "East Hook", icon: "district", type: "district", y: 621, x: 1731, image: "" },
+            { id: "district-6", name: "Outlook", icon: "district", type: "district", y: 620, x: 1889, image: "" },
+            { id: "district-7", name: "South Slopes", icon: "district", type: "district", y: 583, x: 2008, image: "" },
+            { id: "district-8", name: "Schottler", icon: "district", type: "district", y: 691, x: 2016, image: "" },
+            { id: "district-9", name: "Rotterdam Hill", icon: "district", type: "district", y: 733, x: 1796, image: "" },
+            { id: "district-10", name: "Downtown Broker", icon: "district", type: "district", y: 769, x: 1881, image: "" },
+            { id: "district-11", name: "BOABO", icon: "district", type: "district", y: 852, x: 1739, image: "" },
+            { id: "district-12", name: "Beechwood City", icon: "district", type: "district", y: 769, x: 2136, image: "" },
+            { id: "district-13", name: "Cerveza Heights", icon: "district", type: "district", y: 867, x: 2008, image: "" },
+            { id: "district-14", name: "East Island City", icon: "district", type: "district", y: 933, x: 1865, image: "" },
+            { id: "district-15", name: "Steinway", icon: "district", type: "district", y: 1111, x: 1800, image: "" },
+            { id: "district-16", name: "Dukes Bay", icon: "district", type: "district", y: 1167, x: 1952, image: "" },
+            { id: "district-17", name: "Meadows Park", icon: "district", type: "district", y: 968, x: 2084, image: "" },
+            { id: "district-18", name: "Liberty City Pavilion", icon: "district", type: "district", y: 1074, x: 2145, image: "" },
+            { id: "district-19", name: "Meadow Hills", icon: "district", type: "district", y: 930, x: 2128, image: "" },
+            { id: "district-20", name: "Willis", icon: "district", type: "district", y: 967, x: 2210, image: "" },
+            { id: "district-21", name: "Francis International Airport", icon: "district", type: "district", y: 854, x: 2544, image: "" },
+            { id: "district-22", name: "Charge Island", icon: "district", type: "district", y: 1075, x: 1582, image: "" },
+            { id: "district-23", name: "South Bohan", icon: "district", type: "district", y: 1358, x: 1575, image: "" },
+            { id: "district-24", name: "Fortside", icon: "district", type: "district", y: 1505, x: 1590, image: "" },
+            { id: "district-25", name: "Chase Point", icon: "district", type: "district", y: 1381, x: 1740, image: "" },
+            { id: "district-26", name: "Industrial", icon: "district", type: "district", y: 1494, x: 1847, image: "" },
+            { id: "district-27", name: "Windmill", icon: "district", type: "district", y: 1463, x: 1700, image: "" },
+            { id: "district-28", name: "Little Bay", icon: "district", type: "district", y: 1526, x: 2046, image: "" },
+            { id: "district-29", name: "Northern Gardens", icon: "district", type: "district", y: 1660, x: 1919, image: "" },
+            { id: "district-30", name: "Boulevard", icon: "district", type: "district", y: 1663, x: 1571, image: "" },
+            { id: "district-31", name: "Northwood Heights", icon: "district", type: "district", y: 1491, x: 1289, image: "" },
+            { id: "district-32", name: "Northwood", icon: "district", type: "district", y: 1494, x: 1185, image: "" },
+            { id: "district-33", name: "East Holland", icon: "district", type: "district", y: 1338, x: 1279, image: "" },
+            { id: "district-34", name: "North Holland", icon: "district", type: "district", y: 1337, x: 1062, image: "" },
+            { id: "district-35", name: "Middle Park", icon: "district", type: "district", y: 1139, x: 1214, image: "" },
+            { id: "district-36", name: "Lancaster", icon: "district", type: "district", y: 1171, x: 1331, image: "" },
+            { id: "district-37", name: "Varsity Heights", icon: "district", type: "district", y: 1132, x: 1071, image: "" },
+            { id: "district-38", name: "Middle Park West", icon: "district", type: "district", y: 1034, x: 1048, image: "" },
+            { id: "district-39", name: "Middle Park East", icon: "district", type: "district", y: 1010, x: 1340, image: "" },
+            { id: "district-40", name: "Star Junction", icon: "district", type: "district", y: 781, x: 1214, image: "" },
+            { id: "district-41", name: "Purgatory", icon: "district", type: "district", y: 894, x: 1088, image: "" },
+            { id: "district-42", name: "Westminster", icon: "district", type: "district", y: 785, x: 1091, image: "" },
+            { id: "district-43", name: "Hatton Gardens", icon: "district", type: "district", y: 891, x: 1342, image: "" },
+            { id: "district-44", name: "Civilization Committee", icon: "district", type: "district", y: 880, x: 1402, image: "" },
+            { id: "district-45", name: "Lancet", icon: "district", type: "district", y: 810, x: 1342, image: "" },
+            { id: "district-46", name: "Colony Island", icon: "district", type: "district", y: 734, x: 1558, image: "" },
+            { id: "district-47", name: "Easton", icon: "district", type: "district", y: 663, x: 1333, image: "" },
+            { id: "district-48", name: "Presidents City", icon: "district", type: "district", y: 641, x: 1484, image: "" },
+            { id: "district-49", name: "The Triangle", icon: "district", type: "district", y: 647, x: 1214, image: "" },
+            { id: "district-50", name: "The Meat Quarter", icon: "district", type: "district", y: 678, x: 1076, image: "" },
+            { id: "district-51", name: "Suffolk", icon: "district", type: "district", y: 548, x: 1132, image: "" },
+            { id: "district-52", name: "Castle Gardens City", icon: "district", type: "district", y: 499, x: 1020, image: "" },
+            { id: "district-53", name: "City Hall", icon: "district", type: "district", y: 467, x: 1231, image: "" },
+            { id: "district-54", name: "Little Italy", icon: "district", type: "district", y: 512, x: 1231, image: "" },
+            { id: "district-55", name: "Chinatown", icon: "district", type: "district", y: 446, x: 1353, image: "" },
+            { id: "district-56", name: "Fishmarket North", icon: "district", type: "district", y: 534, x: 1437, image: "" },
+            { id: "district-57", name: "Fishmarket South", icon: "district", type: "district", y: 391, x: 1494, image: "" },
+            { id: "district-58", name: "The Exchange", icon: "district", type: "district", y: 323, x: 1293, image: "" },
+            { id: "district-59", name: "Castle Gardens", icon: "district", type: "district", y: 188, x: 1309, image: "" },
+            { id: "district-60", name: "Happiness Island", icon: "district", type: "district", y: 179, x: 1010, image: "" },
+            { id: "district-61", name: "Alderney State Correctional Facility", icon: "district", type: "district", y: 448, x: 775, image: "" },
+            { id: "district-62", name: "Acter Industrial Park", icon: "district", type: "district", y: 410, x: 386, image: "" },
+            { id: "district-63", name: "Tudor", icon: "district", type: "district", y: 650, x: 332, image: "" },
+            { id: "district-64", name: "Port Tudor", icon: "district", type: "district", y: 670, x: 668, image: "" },
+            { id: "district-65", name: "Normandy", icon: "district", type: "district", y: 929, x: 752, image: "" },
+            { id: "district-66", name: "Acter", icon: "district", type: "district", y: 828, x: 463, image: "" },
+            { id: "district-67", name: "Berchem", icon: "district", type: "district", y: 1000, x: 506, image: "" },
+            { id: "district-68", name: "Alderney City", icon: "district", type: "district", y: 1127, x: 686, image: "" },
+            { id: "district-69", name: "Leftwood", icon: "district", type: "district", y: 1327, x: 739, image: "" },
+            { id: "district-70", name: "Westdyke", icon: "district", type: "district", y: 1474, x: 741, image: "" },
+            // Churches
+            { id: "church-1", name: "Suffolk Church", icon: "church", type: "church", y: 512, x: 1172 },
+            { id: "church-2", name: "Meadows Park Church", icon: "church", type: "church", y: 1004, x: 2025 },
+            { id: "church-3", name: "Columbus Cathedral", icon: "church", type: "church", y: 883, x: 1321 },
+            { id: "church-4", name: "Leftwood Church", icon: "church", type: "church", y: 1381, x: 767 },
+            // Cemeteries
+            { id: "cemetery-1", name: "Dukes Cemetery / Dukes Bay Cemetery / Steinway Cemetery", icon: "cemetery", type: "cemetery", y: 1139, x: 1790 },
+            { id: "cemetery-2", name: "Meadows Park Church Cemetery", icon: "cemetery", type: "cemetery", y: 1013, x: 2014 },
+            { id: "cemetery-3", name: "Suffolk Church Cemetery", icon: "cemetery", type: "cemetery", y: 506, x: 1155 },
+            { id: "cemetery-4", name: "Colony Island Cemetery", icon: "cemetery", type: "cemetery", y: 825, x: 1558 },
+            { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 },
+            // Streets
+            // RESTAURANTS
+            // Restaurants
+            // Cluckin’ Bells
+            { id: "cluckinbell-1", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 845, x: 1933, image: "" },
+            { id: "cluckinbell-2", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 691, x: 1247, image: "" },
+            { id: "cluckinbell-3", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 1388, x: 1181, image: "" },
+            { id: "cluckinbell-4", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 978, x: 561, image: "" },
+            // Burger Shots
+            { id: "burgershot-1", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 317, x: 1935, image: "" },
+            { id: "burgershot-2", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 772, x: 2159, image: "" },
+            { id: "burgershot-3", name: "Burger Shot (Abandoned)", icon: "burgershot", type: "burgershot", y: 842, x: 1969, image: "" },
+            { id: "burgershot-4", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1466, x: 1884, image: "" },
+            { id: "burgershot-5", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1430, x: 1543, image: "" },
+            { id: "burgershot-6", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 803, x: 1224, image: "" },
+            { id: "burgershot-7", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 730, x: 1006, image: "" },
+            { id: "burgershot-8", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1263, x: 1097, image: "" },
+            { id: "burgershot-9", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1491, x: 803, image: "" },
+            // Diners
+            // SHOPPING
+            // Clothing Stores
+            // Gun Stores
+            // SERVICES
+            // Internet Cafés
+            // Car Washes
+            // Pay 'n' Sprays
+            // Car Parks & Parking Garages
+            { id: "parking-1", name: "Crockett Avenue Car Park", icon: "parking", type: "parking", y: 368, x: 1872, image: "" },
+            { id: "parking-2", name: "Lancaster Underground Car Park", icon: "parking", type: "parking", y: 1232, x: 1333, image: "" },
+            { id: "parking-3", name: "Leftwood Parking Garage", icon: "parking", type: "parking", y: 1384, x: 816, image: "" },
+            { id: "parking-4", name: "Purgatory Parking Garage", icon: "parking", type: "parking", y: 896, x: 971, image: "" },
+            { id: "parking-5", name: "Babbage Drive Car Park", icon: "parking", type: "parking", y: 974, x: 586, image: "" },
+            { id: "parking-6", name: "Lyndon Avenue Car Park", icon: "parking", type: "parking", y: 1211, x: 660, image: "" },
+            { id: "parking-7", name: "Rand Avenue Car Park", icon: "parking", type: "parking", y: 1180, x: 845, image: "" },
+            { id: "parking-8", name: "Albany Avenue Car Park", icon: "parking", type: "parking", y: 1152, x: 1391, image: "" },
+            { id: "parking-9", name: "Burlesque Car Park", icon: "parking", type: "parking", y: 886, x: 1158, image: "" },
+            { id: "parking-10", name: "Golden Pier Car Park", icon: "parking", type: "parking", y: 743, x: 1010, image: "" },
+            { id: "parking-11", name: "Castle Drive Car Park", icon: "parking", type: "parking", y: 595, x: 1016, image: "" },
+            { id: "parking-12", name: "Emerald Street Car Park", icon: "parking", type: "parking", y: 485, x: 1368, image: "" },
+            { id: "parking-13", name: "Union Drive West Car Park", icon: "parking", type: "parking", y: 338, x: 1182, image: "" },
+            { id: "parking-14", name: "Union Car Park", icon: "parking", type: "parking", y: 356, x: 1224, image: "" },
+            { id: "parking-15", name: "Frankfort Avenue Car Park", icon: "parking", type: "parking", y: 763, x: 1148, image: "" },
+            { id: "parking-16", name: "Frankfort Avenue-Galveston Avenue Building Car Park", icon: "parking", type: "parking", y: 1039, x: 1109, image: "" },
+            { id: "parking-17", name: "Galveston Avenue Car Park", icon: "parking", type: "parking", y: 889, x: 1082, image: "" },
+            { id: "parking-18", name: "Garnet Avenue Car Park", icon: "parking", type: "parking", y: 561, x: 1322, image: "" },
+            { id: "parking-19", name: "Topaz Street Car Park", icon: "parking", type: "parking", y: 1263, x: 1160, image: "" },
+            { id: "parking-20", name: "Pyrite Street Car Park", icon: "parking", type: "parking", y: 1059, x: 1069, image: "" },
+            { id: "parking-21", name: "Ivy Drive South Car Park", icon: "parking", type: "parking", y: 1234, x: 1054, image: "" },
+            { id: "parking-22", name: "Galveston Car Park", icon: "parking", type: "parking", y: 751, x: 1078, image: "" },
+            { id: "parking-23", name: "West Way Car Park", icon: "parking", type: "parking", y: 925, x: 1111, image: "" },
+            { id: "parking-24", name: "Applejack Street Car Park", icon: "parking", type: "parking", y: 1468, x: 1525, image: "" },
+            { id: "parking-25", name: "Folsom Way Car Park", icon: "parking", type: "parking", y: 1536, x: 1560, image: "" },
+            { id: "parking-26", name: "Delaware Avenue Car Park", icon: "parking", type: "parking", y: 499, x: 1723, image: "" },
+            { id: "parking-27", name: "Cassidy Street Car Park", icon: "parking", type: "parking", y: 726, x: 1900, image: "" },
+            { id: "parking-28", name: "Inchon Avenue Car Park", icon: "parking", type: "parking", y: 874, x: 1970, image: "" },
+            { id: "parking-29", name: "Hooper Street Car Park", icon: "parking", type: "parking", y: 944, x: 1782, image: "" },
+            { id: "parking-30", name: "Hooper Street-Dukes Boulevard Car Park", icon: "parking", type: "parking", y: 940, x: 1913, image: "" },
+            { id: "parking-31", name: "Freetown Avenue Car Park", icon: "parking", type: "parking", y: 858, x: 2220, image: "" },
+            { id: "parking-32", name: "Silverback Studios Car Park", icon: "parking", type: "parking", y: 952, x: 1862, image: "" },
+            { id: "parking-33", name: "FMA Park", icon: "fma", type: "parking", y: 768, x: 1071, image: "" },
+            { id: "parking-34", name: "FMA Park", icon: "fma", type: "parking", y: 758, x: 1113, image: "" },
+            { id: "parking-35", name: "FMA Park", icon: "fma", type: "parking", y: 886, x: 1147, image: "" },
+            { id: "parking-36", name: "FMA Park", icon: "fma", type: "parking", y: 751, x: 1187, image: "" },
+            { id: "parking-37", name: "FMA Park", icon: "fma", type: "parking", y: 481, x: 1426, image: "" },
+            { id: "parking-38", name: "FMA Park", icon: "fma", type: "parking", y: 618, x: 1104, image: "" },
+            { id: "parking-39", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1244, image: "" },
+            { id: "parking-40", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1153, image: "" },
+            { id: "parking-41", name: "FMA Park", icon: "fma", type: "parking", y: 1016, x: 571, image: "" },
+            // Toll Booths
+            { id: "toll-1", name: "Toll Booth", icon: "toll", type: "toll", y: 1062, x: 1600, image: "" },
+            { id: "toll-2", name: "Toll Booth", icon: "toll", type: "toll", y: 1155, x: 2008, image: "" },
+            // Gas Stations
+            { id: "gas-1", name: "RON Gas Station", icon: "ron", type: "gas", y: 469, x: 1894, image: "" },
+            { id: "gas-2", name: "RON Gas Station", icon: "ron", type: "gas", y: 758, x: 1720, image: "" },
+            { id: "gas-3", name: "RON Gas Station", icon: "ron", type: "gas", y: 823, x: 1899, image: "" },
+            { id: "gas-4", name: "RON Gas Station", icon: "ron", type: "gas", y: 1083, x: 2228, image: "" },
+            { id: "gas-5", name: "RON Gas Station", icon: "ron", type: "gas", y: 1537, x: 2053, image: "" },
+            { id: "gas-6", name: "RON Gas Station", icon: "ron", type: "gas", y: 1551, x: 640, image: "" },
+            { id: "gas-7", name: "RON Gas Station", icon: "ron", type: "gas", y: 634, x: 1098, image: "" },
+            { id: "gas-8", name: "Globe Oil Gas Station", icon: "globeoil", type: "gas", y: 542, x: 1076, image: "" },
+            { id: "gas-9", name: "Globe Oil Gas Station", icon: "globeoil", type: "gas", y: 681, x: 616, image: "" },
+            { id: "gas-10", name: "Terroil Gas Station", icon: "terroil", type: "gas", y: 1235, x: 1374, image: "" },
+            // MAINTENANCE
+            // Construction Sites
+            { id: "construction-1", name: "Construction Site", icon: "construction", type: "construction", y: 696, x: 1295, image: "" },
+            { id: "construction-2", name: "Construction Site", icon: "construction", type: "construction", y: 648, x: 1134, image: "" },
+            { id: "construction-3", name: "Construction Site", icon: "construction", type: "construction", y: 1415, x: 1871, image: "" },
+            { id: "construction-4", name: "Construction Site", icon: "construction", type: "construction", y: 1300, x: 1566, image: "" },
+            { id: "construction-5", name: "Construction Site", icon: "construction", type: "construction", y: 1440, x: 1683, image: "" },
+            { id: "construction-6", name: "Construction Site", icon: "construction", type: "construction", y: 1129, x: 845, image: "" },
+            { id: "construction-7", name: "Construction Site", icon: "construction", type: "construction", y: 193, x: 1391, image: "" },
+            { id: "construction-8", name: "Construction Site", icon: "construction", type: "construction", y: 846, x: 1712, image: "" },
+            { id: "construction-9", name: "Construction Site", icon: "construction", type: "construction", y: 407, x: 1918, image: "" },
+            // Window Washing Lifts
+            { id: "windowlift-1", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 268, x: 1323, image: "" },
+            { id: "windowlift-2", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 383, x: 1463, image: "" },
+            { id: "windowlift-3", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 667, x: 1360, image: "" },
+            { id: "windowlift-4", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 760, x: 1403, image: "" },
+            { id: "windowlift-5", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 842, x: 1362, image: "" },
+            { id: "windowlift-6", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 939, x: 1333, image: "" },
+            { id: "windowlift-7", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 767, x: 1168, image: "" },
+            { id: "windowlift-8", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 835, x: 1159, image: "" },
+            { id: "windowlift-9", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 978, x: 1105, image: "" },
+            { id: "windowlift-10", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1073, x: 670, image: "" },
+            { id: "windowlift-11", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1199, x: 596, image: "" },
+            // ENTERTAINMENT & NIGHTLIFE
+            // Air Hockey
+            { id: "airhockey-1", name: "Air Hockey", icon: "airhockey", type: "airhockey", dlc: "eflc", y: 310, x: 1919, image: "" },
+            { id: "airhockey-2", name: "Air Hockey", icon: "airhockey", type: "airhockey", dlc: "eflc", y: 695, x: 1011, image: "" },
+            // Bars
+            { id: "bar-1", name: "Comrades Bar", icon: "bar", type: "bar", y: 406, x: 1794, image: "" },
+            { id: "bar-2", name: "Steinway Beer Garden", icon: "bar", type: "bar", y: 1034, x: 1904, image: "" },
+            { id: "bar-3", name: "Jerkov’s / Cossieur’s Bar", icon: "bar", type: "bar", y: 939, x: 1374, image: "" },
+            { id: "bar-4", name: "Hell Gate Bar", icon: "bar", type: "bar", y: 859, x: 1117, image: "" },
+            { id: "bar-5", name: "Leopolds", icon: "bar", type: "bar", dlc: "eflc", y: 600, x: 1325, image: "" },
+            { id: "bar-6", name: "Fan Dang", icon: "bar", type: "bar", dlc: "eflc", y: 1126, x: 818, image: "" },
+            { id: "bar-7", name: "Diner Bar Cocktails", icon: "bar", type: "bar", dlc: "eflc", y: 896, x: 617, image: "" },
+            // Bowling Alleys
+            { id: "bowling-1", name: "Memory Lanes", icon: "bowling", type: "bowling", y: 313, x: 1927, image: "" },
+            { id: "bowling-2", name: "Memory Lanes", icon: "bowling", type: "bowling", y: 692, x: 1021, image: "" },
+            // Cabaret Clubs
+            { id: "cabaret-1", name: "Perestroika", icon: "cabaret", type: "cabaret", y: 504, x: 1808, image: "" },
+            // Clubs
+            { id: "club-1", name: "Club Liberty", icon: "club", type: "club", y: 1372, x: 1073, image: "" },
+            // Comedy Clubs
+            { id: "comedy-1", name: "Split Sides Comedy Club", icon: "comedy", type: "comedy", y: 743, x: 1144, image: "" },
+            // Darts Clubs
+            { id: "dart-1", name: "Lucky Winkles", icon: "dart", type: "dart", y: 887, x: 1096, image: "" },
+            { id: "dart-2", name: "Steinway Beer Garden", icon: "dart", type: "dart", y: 1037, x: 1910, image: "" },
+            // Nightclubs
+            { id: "nightclub-1", name: "Maisonette 9", icon: "maisonette9", type: "nightclub", dlc: "tbogt", y: 727, x: 1075, image: "" },
+            { id: "nightclub-2", name: "Hercules", icon: "hercules", type: "nightclub", dlc: "tbogt", y: 838, x: 1096, image: "" },
+            { id: "nightclub-3", name: "Bahama Mamas", icon: "bahamamamas", type: "nightclub", dlc: "tbogt", y: 856, x: 1122, image: "" },
+            // Pool Halls
+            { id: "pool-1", name: "Homebrew Café", icon: "pool", type: "pool", y: 681, x: 2074, image: "" },
+            // Strip Clubs
+            { id: "strip-1", name: "The Triangle Club", icon: "strip", type: "strip", y: 1520, x: 1920, image: "" },
+            { id: "strip-2", name: "Honkers", icon: "strip", type: "strip", y: 663, x: 510, image: "" },
+            // Dancing
+            { id: "dancing-1", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 727, x: 1075, image: "" },
+            { id: "dancing-2", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 838, x: 1096, image: "" },
+            { id: "dancing-3", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 856, x: 1122, image: "" },
+            // Cards
+            { id: "card-1", name: "Cards", icon: "card", type: "card", dlc: "tlad", y: 817, x: 440, image: "" },
+            // EMERGENCY SERVICES
+            // Police Stations
+            { id: "police-1", name: "Broker Police Precinct", icon: "police", type: "police", y: 484, x: 1778, image: "" },
+            { id: "police-2", name: "Schottler Police Precinct", icon: "police", type: "police", y: 602, x: 1946, image: "" },
+            { id: "police-3", name: "Dukes Police Precinct", icon: "police", type: "police", y: 930, x: 1949, image: "" },
+            { id: "police-4", name: "North Bohan Police Precinct", icon: "police", type: "police", y: 1622, x: 1828, image: "" },
+            { id: "police-5", name: "South Bohan Police Precinct", icon: "police", type: "police", y: 1464, x: 1546, image: "" },
+            { id: "police-6", name: "North Holland Police Precinct", icon: "police", type: "police", y: 1347, x: 1330, image: "" },
+            { id: "police-7", name: "Varsity Heights Police Precinct", icon: "police", type: "police", y: 1221, x: 1111, image: "" },
+            { id: "police-8", name: "Middle Park East Police Precinct", icon: "police", type: "police", y: 988, x: 1349, image: "" },
+            { id: "police-9", name: "Purgatory Police Precinct", icon: "police", type: "police", y: 795, x: 1110, image: "" },
+            { id: "police-10", name: "LCPD Recruitment Office", icon: "police", type: "police", y: 718, x: 1224, image: "" },
+            { id: "police-11", name: "Fishmarket North Police Precinct", icon: "police", type: "police", y: 537, x: 1434, image: "" },
+            { id: "police-12", name: "Suffolk Police Precinct", icon: "police", type: "police", y: 505, x: 1121, image: "" },
+            { id: "police-13", name: "Alderney Police Precinct", icon: "police", type: "police", y: 1302, x: 852, image: "" },
+            { id: "police-14", name: "Tudor Police Precinct", icon: "police", type: "police", y: 795, x: 436, image: "" },
+            { id: "police-15", name: "Acter Police Precinct", icon: "police", type: "police", y: 522, x: 692, image: "" },
+            // Hospitals
+            // Fire Departments
+            // PUBLIC TRANSPORT
+            // Subway Stations & El-Train Stations
+            { id: "subway-1", name: "Hove Beach Station", icon: "38", type: "subway", y: 360, x: 1847, image: "" },
+            { id: "subway-2", name: "Schottler Station", icon: "38", type: "subway", y: 624, x: 1993, image: "" },
+            { id: "subway-3", name: "Huntington Street High Station", icon: "subwayexchange", type: "subway", y: 853, x: 2047, image: "" },
+            { id: "subway-4", name: "Steinway Station (Abandoned)", icon: "38", type: "subway", y: 1045, x: 1967, image: "" },
+            { id: "subway-5", name: "Francis International Airport Station", icon: "38", type: "subway", y: 882, x: 2497, image: "" },
+            { id: "subway-6", name: "Lynch Street Station", icon: "38", type: "subway", y: 854, x: 2165, image: "" },
+            { id: "subway-7", name: "Huntington Street Low Station", icon: "subwayexchange", type: "subway", y: 847, x: 2052, image: "" },
+            { id: "subway-8", name: "Manganese East Station", icon: "ja", type: "subway", y: 944, x: 1377, image: "" },
+            { id: "subway-9", name: "Quartz East Station", icon: "ja", type: "subway", y: 1139, x: 1378, image: "" },
+            { id: "subway-10", name: "Vespucci Circus Station", icon: "ja", type: "subway", y: 1376, x: 1261, image: "" },
+            { id: "subway-11", name: "Frankfort Low Station", icon: "subwayexchange", type: "subway", y: 1367, x: 1121, image: "" },
+            { id: "subway-12", name: "Vauxite Station", icon: "ja", type: "subway", y: 1317, x: 1058, image: "" },
+            { id: "subway-13", name: "Quartz West Station", icon: "ja", type: "subway", y: 1123, x: 1047, image: "" },
+            { id: "subway-14", name: "Manganese West Station", icon: "ja", type: "subway", y: 910, x: 1076, image: "" },
+            { id: "subway-15", name: "Hematite Station", icon: "ja", type: "subway", y: 640, x: 1055, image: "" },
+            { id: "subway-16", name: "Feldspar Station", icon: "ja", type: "subway", y: 453, x: 1152, image: "" },
+            { id: "subway-17", name: "Castle Gardens Station", icon: "ja", type: "subway", y: 287, x: 1383, image: "" },
+            { id: "subway-18", name: "Emerald Station", icon: "ja", type: "subway", y: 516, x: 1374, image: "" },
+            { id: "subway-19", name: "Easton Station / Grand Easton Terminal", icon: "subwayexchange", type: "subway", y: 651, x: 1299, image: "" },
+            { id: "subway-20", name: "East Park Station", icon: "kc", type: "subway", y: 995, x: 1289, image: "" },
+            { id: "subway-21", name: "North Park Station", icon: "kc", type: "subway", y: 1237, x: 1247, image: "" },
+            { id: "subway-22", name: "Frankfort High Station", icon: "subwayexchange", type: "subway", y: 1393, x: 1137, image: "" },
+            { id: "subway-23", name: "San Quentin Avenue Station", icon: "eb", type: "subway", y: 1495, x: 1519, image: "" },
+            { id: "subway-24", name: "Windmill Street Station", icon: "eb", type: "subway", y: 1417, x: 1691, image: "" },
+            { id: "subway-25", name: "West Park Station", icon: "kc", type: "subway", y: 993, x: 1132, image: "" },
+            { id: "subway-26", name: "Frankfort Avenue Station", icon: "kc", type: "subway", y: 819, x: 1131, image: "" },
+            { id: "subway-27", name: "Suffolk Station", icon: "kc", type: "subway", y: 565, x: 1181, image: "" },
+            { id: "subway-28", name: "City Hall Station", icon: "kc", type: "subway", y: 404, x: 1284, image: "" },
+            // Skycar Stations
+            { id: "skycar-1", name: "Algonquin Island Skycar Station", icon: "skycar", type: "skycar", y: 767, x: 1415, image: "" },
+            { id: "skycar-2", name: "Colony Island Skycar Station", icon: "skycar", type: "skycar", y: 770, x: 1545, image: "" },
+            // LOCAL GOVERNMENT & PUBLIC SERVICES
+            // Local Government & Public Services
+            { id: "government-1", name: "City Hall", icon: "mayor", type: "government", y: 472, x: 1231, image: "" },
+            { id: "government-2", name: "Department of Sanitation", icon: "sanitation", type: "government", y: 435, x: 1506, image: "" },
+            { id: "government-3", name: "FIB Building", icon: "government", type: "government", y: 708, x: 1371, image: "" },
+            { id: "government-4", name: "Civic Citadel", icon: "government", type: "government", y: 445, x: 1272, image: "" },
+            { id: "government-5", name: "ULP United Liberty Paper Merchants", icon: "government", type: "government", y: 679, x: 1284, image: "" },
+            { id: "government-6", name: "Liberty State Courthouse", icon: "mayor", type: "government", y: 477, x: 1220, image: "" },
+            // INTERACTIONS
+            // ATMs
+            { id: "atm-1", name: "ATM", icon: "atm", type: "atm", y: 365, x: 1801, image: "" },
+            { id: "atm-2", name: "ATM", icon: "atm", type: "atm", y: 505, x: 1791, image: "" },
+            { id: "atm-3", name: "ATM", icon: "atm", type: "atm", y: 575, x: 1913, image: "" },
+            { id: "atm-4", name: "ATM", icon: "atm", type: "atm", y: 634, x: 1994, image: "" },
+            { id: "atm-5", name: "ATM", icon: "atm", type: "atm", y: 718, x: 1927, image: "" },
+            { id: "atm-6", name: "ATM", icon: "atm", type: "atm", y: 741, x: 1955, image: "" },
+            { id: "atm-7", name: "ATM", icon: "atm", type: "atm", y: 866, x: 2155, image: "" },
+            { id: "atm-8", name: "ATM", icon: "atm", type: "atm", y: 879, x: 2500, image: "" },
+            { id: "atm-9", name: "ATM", icon: "atm", type: "atm", y: 1076, x: 2233, image: "" },
+            { id: "atm-10", name: "ATM", icon: "atm", type: "atm", y: 976, x: 1937, image: "" },
+            { id: "atm-11", name: "ATM", icon: "atm", type: "atm", y: 1520, x: 1927, image: "" },
+            { id: "atm-12", name: "ATM", icon: "atm", type: "atm", y: 1359, x: 1616, image: "" },
+            { id: "atm-13", name: "ATM", icon: "atm", type: "atm", y: 1354, x: 1184, image: "" },
+            { id: "atm-14", name: "ATM", icon: "atm", type: "atm", y: 1220, x: 1344, image: "" },
+            { id: "atm-15", name: "ATM", icon: "atm", type: "atm", y: 1259, x: 1124, image: "" },
+            { id: "atm-16", name: "ATM", icon: "atm", type: "atm", y: 914, x: 1345, image: "" },
+            { id: "atm-17", name: "ATM", icon: "atm", type: "atm", y: 762, x: 1209, image: "" },
+            { id: "atm-18", name: "ATM", icon: "atm", type: "atm", y: 781, x: 1152, image: "" },
+            { id: "atm-19", name: "ATM", icon: "atm", type: "atm", y: 336, x: 1323, image: "" },
+            { id: "atm-20", name: "ATM", icon: "atm", type: "atm", y: 1338, x: 686, image: "" },
+            { id: "atm-21", name: "ATM", icon: "atm", type: "atm", y: 1308, x: 732, image: "" },
+            { id: "atm-22", name: "ATM", icon: "atm", type: "atm", y: 1228, x: 682, image: "" },
+            { id: "atm-23", name: "ATM", icon: "atm", type: "atm", y: 986, x: 570, image: "" },
+            // Computers
+            { id: "computer-1", name: "Computer", icon: "tladcomputer", type: "computer", dlc: "tlad", y: 831, x: 443, image: "" },
+            { id: "computer-2", name: "Computer", icon: "computer", type: "computer", y: 1086, x: 1374, image: "" },
+            { id: "computer-3", name: "Computer", icon: "computer", type: "computer", y: 522, x: 1809, image: "" },
+            // SPAWNING
+            // Vehicles
+            { id: "vehicle-1", name: "Bus", icon: "vehicle", type: "vehicle", y: 792, x: 1849, image: "" },
+            { id: "vehicle-2", name: "Bus", icon: "vehicle", type: "vehicle", y: 872, x: 1220, image: "" },
+            { id: "vehicle-3", name: "Bus", icon: "vehicle", type: "vehicle", y: 904, x: 1210, image: "" },
+            { id: "vehicle-4", name: "Bus", icon: "vehicle", type: "vehicle", y: 921, x: 1210, image: "" },
+            { id: "vehicle-5", name: "Bus", icon: "vehicle", type: "vehicle", y: 913, x: 1190, image: "" },
+            { id: "vehicle-6", name: "Bus", icon: "vehicle", type: "vehicle", y: 840, x: 1208, image: "" },
+            { id: "vehicle-7", name: "Bus", icon: "vehicle", type: "vehicle", y: 837, x: 1222, image: "" },
+            { id: "vehicle-8", name: "Bus", icon: "vehicle", type: "vehicle", y: 845, x: 1221, image: "" },
+            { id: "vehicle-9", name: "Bus", icon: "vehicle", type: "vehicle", y: 764, x: 1210, image: "" },
+            { id: "vehicle-10", name: "Bus", icon: "vehicle", type: "vehicle", y: 765, x: 1227, image: "" },
+            { id: "vehicle-11", name: "Bus", icon: "vehicle", type: "vehicle", y: 746, x: 1232, image: "" },
+            { id: "vehicle-12", name: "Bus", icon: "vehicle", type: "vehicle", y: 717, x: 1209, image: "" },
+            { id: "vehicle-13", name: "Bus", icon: "vehicle", type: "vehicle", y: 707, x: 1209, image: "" },
+            { id: "vehicle-14", name: "Bus", icon: "vehicle", type: "vehicle", y: 717, x: 1229, image: "" },
+            { id: "vehicle-15", name: "Bus", icon: "vehicle", type: "vehicle", y: 705, x: 1232, image: "" },
+            { id: "vehicle-16", name: "Bus", icon: "vehicle", type: "vehicle", y: 456, x: 1471, image: "" },
+            { id: "vehicle-17", name: "Bus", icon: "vehicle", type: "vehicle", y: 463, x: 1470, image: "" },
+            { id: "vehicle-18", name: "Bus", icon: "vehicle", type: "vehicle", y: 431, x: 1470, image: "" },
+            { id: "vehicle-19", name: "Bus", icon: "vehicle", type: "vehicle", y: 406, x: 1471, image: "" },
+            { id: "vehicle-20", name: "Bus", icon: "vehicle", type: "vehicle", y: 403, x: 1471, image: "" },
+            { id: "vehicle-21", name: "Bus", icon: "vehicle", type: "vehicle", y: 346, x: 1492, image: "" },
+            { id: "vehicle-22", name: "Bus", icon: "vehicle", type: "vehicle", y: 341, x: 1487, image: "" },
+            { id: "vehicle-23", name: "Bus", icon: "vehicle", type: "vehicle", y: 332, x: 1481, image: "" },
+            { id: "vehicle-24", name: "Bus", icon: "vehicle", type: "vehicle", y: 320, x: 1474, image: "" },
+            { id: "vehicle-25", name: "Bus", icon: "vehicle", type: "vehicle", y: 280, x: 1447, image: "" },
+            { id: "vehicle-26", name: "Bus", icon: "vehicle", type: "vehicle", y: 794, x: 1837, image: "" },
+            { id: "vehicle-27", name: "Bus", icon: "vehicle", type: "vehicle", y: 786, x: 1840, image: "" },
+            { id: "vehicle-28", name: "Bus", icon: "vehicle", type: "vehicle", y: 780, x: 1857, image: "" },
+            // OTHER
+            // Easter Eggs
+            { id: "easteregg-1", name: "AC/DC “For Those About to Rock (We Salute You)” Easter Egg", description: "A monument with the inscription “Roll of Honor - War of the Deadline 1869-1869” referencing the band AC/DC.", icon: "easteregg", type: "easteregg", y: 1013, x: 2014 }
+        ];
+
+        // 6. Registry to look up markers by ID
+        const markerRegistry = {};
+        let currentOpenMarkerId = null;
+
+        // 7. Initialize URL Parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlMarkerId = urlParams.get('marker');
+        const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
+
+        // 8. Add Markers & Populate Layer Groups
+        locations.forEach(loc => {
+            const popupContent = `
+                <div>
+                    ${loc.image ? `<img src="${loc.image}" alt="${loc.name}" class="popup-image" onerror="this.style.display='none'">` : ''}
+                    ${loc.video ? `<iframe width="300px" height="170px" src="${loc.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : ''}
+                    <div class="popup-text">
+                        <strong>${loc.name}</strong>
+                        <strong>ID: ${loc.id}</strong>
+                        <strong>Description: ${loc.description}</strong>
+                        <strong>Address: ${loc.address}</strong>
+                        <strong>DLC Related: ${loc.dlc}</strong>
+                    </div>
+                    <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
+                </div>
+            `;
+
+            const markerIcon = customIcons[loc.icon] || customIcons[loc.type] || customIcons.poi;
+            const marker = L.marker([loc.y, loc.x], { icon: markerIcon }).bindPopup(popupContent);
+            markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
+
+            if (filterGroups[loc.type]) {
+                marker.addTo(filterGroups[loc.type].group);
+            }
+
+            // Update URL when a marker popup is opened/closed
+            marker.on('popupopen', () => {
+                currentOpenMarkerId = loc.id;
+                updateURL();
+            });
+
+            marker.on('popupclose', () => {
+                if (currentOpenMarkerId === loc.id) {
+                    currentOpenMarkerId = null;
+                    updateURL();
+                }
+            });
+        });
+
+        // 9. Apply Active Filter Groups to Map
+        const layerControls = {};
+        Object.keys(filterGroups).forEach(key => {
+            const groupInfo = filterGroups[key];
+            layerControls[groupInfo.name] = groupInfo.group;
+
+            // If filters are specified in URL, enable matching ones; otherwise enable all by default
+            if (!urlFilters || urlFilters.includes(key)) {
+                groupInfo.group.addTo(map);
+            }
+        });
+
+        // Add Leaflet Layer Control
+        L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
+
+        // Listen for filter toggle events to sync URL
+        map.on('overlayadd overlayremove', updateURL);
+
+        // 10. Functions to Handle URL State & Copying
+        function updateURL() {
+            const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
+            const params = new URLSearchParams();
+
+            if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
+                params.set('filters', activeFilters.join(','));
+            }
+
+            if (currentOpenMarkerId) {
+                params.set('marker', currentOpenMarkerId);
+            }
+
+            const queryString = params.toString();
+            const newUrl = queryString ? `${window.location.pathname}?${queryString}` : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
+
+        function copyShareableUrl(markerId) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('marker', markerId);
+            
+            navigator.clipboard.writeText(url.toString()).then(() => {
+                alert('Shareable link copied to Clipboard!');
+            }).catch(err => {
+                console.error('Error copying link: ', err);
+            });
+        }
+
+        // 11. Initial View & Deep Linking Setup
+        if (urlMarkerId && markerRegistry[urlMarkerId]) {
+            const target = markerRegistry[urlMarkerId];
+            
+            // Ensure the parent layer group is visible
+            if (!map.hasLayer(filterGroups[target.type].group)) {
+                filterGroups[target.type].group.addTo(map);
+            }
+
+            map.setView(target.coords, 1);
+            target.marker.openPopup();
+        } else {
+            map.fitBounds(bounds);
+        }
+    </script>
+</body>
+</html>
