@@ -455,12 +455,20 @@
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theangelsofdeathmc.png',
                 iconSize: [52, 52],
             }),
-            theriderzmc: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-poi.png',
+            theuptownriderzmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theuptownriderzmc.png',
                 iconSize: [52, 52],
             }),
             tladsafehouse: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-safehouse.png',
+                iconSize: [52, 52],
+            }),
+            tladcomputer: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-computer.png',
+                iconSize: [52, 52],
+            }),
+            easteregg: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png',
                 iconSize: [52, 52],
             }),
         };
@@ -516,22 +524,23 @@
             // Clubhouses
             { id: "clubhouse-1", name: "The Lost MC Clubhouse", icon: "thelostmc", type: "clubhouse", dlc: "tlad", y: 830, x: 435, image: "" },
             { id: "clubhouse-2", name: "The Angels of Death MC Clubhouse", icon: "theangelsofdeathmc", type: "clubhouse", dlc: "tlad", y: 1272, x: 1000, image: "" },
-            { id: "clubhouse-3", name: "The Riderz MC Clubhouse", icon: "theriderzmc", type: "clubhouse", dlc: "tlad", y: 1487, x: 1208, image: "" },
+            { id: "clubhouse-3", name: "The Uptown Riderz MC Clubhouse", icon: "theuptownriderzmc", type: "clubhouse", dlc: "tlad", y: 1487, x: 1208, image: "" },
             // Parks
             { id: "park-1", name: "Outlook Park", icon: "park", type: "park", y: 590, x: 1848, image: "" },
             { id: "park-2", name: "Meadows Park", icon: "park", type: "park", y: 986, x: 2079, image: "" },
-            { id: "park-3", name: "Dukes Bay Park", icon: "park", type: "park", y: 1179, x: 1924, image: "" },
-            { id: "park-4", name: "Welham Parkway", icon: "park", type: "park", y: 1632, x: 1637, image: "" },
-            { id: "park-5", name: "Charge Island Park", icon: "park", type: "park", y: 1193, x: 1633, image: "" },
-            { id: "park-6", name: "Middle Park", icon: "park", type: "park", y: 1112, x: 1212, image: "" },
-            { id: "park-7", name: "West River Park", icon: "park", type: "park", y: 1118, x: 1012, image: "" },
-            { id: "park-8", name: "Castle Gardens", icon: "park", type: "park", y: 506, x: 992, image: "" },
-            { id: "park-9", name: "City Hall Park", icon: "park", type: "park", y: 444, x: 1235, image: "" },
-            { id: "park-10", name: "Pier 45", icon: "park", type: "park", y: 394, x: 1531, image: "" },
-            { id: "park-11", name: "Castle Park", icon: "park", type: "park", y: 135, x: 1265, image: "" },
-            { id: "park-12", name: "Happiness Park", icon: "park", type: "park", y: 175, x: 1006, image: "" },
-            { id: "park-13", name: "Alderney Promenade", icon: "park", type: "park", y: 1098, x: 912, image: "" },
-            { id: "park-14", name: "Colony Park", icon: "park", type: "park", y: 835, x: 1557, image: "" },
+            { id: "park-3", name: "Gantry Park / Dukes Bay Park", icon: "park", type: "park", y: 1179, x: 1924, image: "" },
+            { id: "park-4", name: "Steinway Park", icon: "park", type: "park", y: 1104, x: 1810, image: "" },
+            { id: "park-5", name: "Welham Parkway", icon: "park", type: "park", y: 1632, x: 1637, image: "" },
+            { id: "park-6", name: "Charge Island Park", icon: "park", type: "park", y: 1193, x: 1633, image: "" },
+            { id: "park-7", name: "Middle Park", icon: "park", type: "park", y: 1112, x: 1212, image: "" },
+            { id: "park-8", name: "West River Park", icon: "park", type: "park", y: 1118, x: 1012, image: "" },
+            { id: "park-9", name: "Castle Gardens", icon: "park", type: "park", y: 506, x: 992, image: "" },
+            { id: "park-10", name: "City Hall Park", icon: "park", type: "park", y: 444, x: 1235, image: "" },
+            { id: "park-11", name: "Pier 45", icon: "park", type: "park", y: 394, x: 1531, image: "" },
+            { id: "park-12", name: "Castle Park", icon: "park", type: "park", y: 135, x: 1265, image: "" },
+            { id: "park-13", name: "Happiness Park", icon: "park", type: "park", y: 175, x: 1006, image: "" },
+            { id: "park-14", name: "Alderney Promenade", icon: "park", type: "park", y: 1098, x: 912, image: "" },
+            { id: "park-15", name: "Colony Park", icon: "park", type: "park", y: 835, x: 1557, image: "" },
             // Islands
             { id: "island-1", name: "Alderney Island", icon: "island", type: "island", y: 929, x: 777, image: "" },
             { id: "island-2", name: "Algonquin Island", icon: "island", type: "island", y: 990, x: 999, image: "" },
@@ -677,7 +686,7 @@
             { id: "church-3", name: "Columbus Cathedral", icon: "church", type: "church", y: 883, x: 1321 },
             { id: "church-4", name: "Leftwood Church", icon: "church", type: "church", y: 1381, x: 767 },
             // Cemeteries
-            { id: "cemetery-1", name: "Dukes Bay Cemetery", icon: "cemetery", type: "cemetery", y: 1139, x: 1790 },
+            { id: "cemetery-1", name: "Dukes Cemetery / Dukes Bay Cemetery / Steinway Cemetery", icon: "cemetery", type: "cemetery", y: 1139, x: 1790 },
             { id: "cemetery-2", name: "Meadows Park Church Cemetery", icon: "cemetery", type: "cemetery", y: 1013, x: 2014 },
             { id: "cemetery-3", name: "Suffolk Church Cemetery", icon: "cemetery", type: "cemetery", y: 506, x: 1155 },
             { id: "cemetery-4", name: "Colony Island Cemetery", icon: "cemetery", type: "cemetery", y: 825, x: 1558 },
@@ -808,24 +817,24 @@
             { id: "club-1", name: "Club Liberty", icon: "club", type: "club", y: 1372, x: 1073, image: "" },
             // Comedy Clubs
             { id: "comedy-1", name: "Split Sides Comedy Club", icon: "comedy", type: "comedy", y: 743, x: 1144, image: "" },
-            // Darts
+            // Darts Clubs
             { id: "dart-1", name: "Lucky Winkles", icon: "dart", type: "dart", y: 887, x: 1096, image: "" },
             { id: "dart-2", name: "Steinway Beer Garden", icon: "dart", type: "dart", y: 1037, x: 1910, image: "" },
             // Nightclubs
             { id: "nightclub-1", name: "Maisonette 9", icon: "maisonette9", type: "nightclub", dlc: "tbogt", y: 727, x: 1075, image: "" },
             { id: "nightclub-2", name: "Hercules", icon: "hercules", type: "nightclub", dlc: "tbogt", y: 838, x: 1096, image: "" },
             { id: "nightclub-3", name: "Bahama Mamas", icon: "bahamamamas", type: "nightclub", dlc: "tbogt", y: 856, x: 1122, image: "" },
-            // Pool
+            // Pool Halls
             { id: "pool-1", name: "Homebrew Café", icon: "pool", type: "pool", y: 681, x: 2074, image: "" },
             // Strip Clubs
             { id: "strip-1", name: "The Triangle Club", icon: "strip", type: "strip", y: 1520, x: 1920, image: "" },
             { id: "strip-2", name: "Honkers", icon: "strip", type: "strip", y: 663, x: 510, image: "" },
             // Dancing
-            { id: "dancing-1", name: "Dancing", icon: "dancing", type: "dancing", y: 727, x: 1075, image: "" },
-            { id: "dancing-2", name: "Dancing", icon: "dancing", type: "dancing", y: 838, x: 1096, image: "" },
-            { id: "dancing-3", name: "Dancing", icon: "dancing", type: "dancing", y: 856, x: 1122, image: "" },
+            { id: "dancing-1", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 727, x: 1075, image: "" },
+            { id: "dancing-2", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 838, x: 1096, image: "" },
+            { id: "dancing-3", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 856, x: 1122, image: "" },
             // Cards
-            { id: "card-1", name: "Cards", icon: "card", type: "card", y: 817, x: 440, image: "" },
+            { id: "card-1", name: "Cards", icon: "card", type: "card", dlc: "tlad", y: 817, x: 440, image: "" },
             // EMERGENCY SERVICES
             // Police Stations
             { id: "police-1", name: "Broker Police Precinct", icon: "police", type: "police", y: 484, x: 1778, image: "" },
@@ -912,7 +921,7 @@
             { id: "atm-22", name: "ATM", icon: "atm", type: "atm", y: 1228, x: 682, image: "" },
             { id: "atm-23", name: "ATM", icon: "atm", type: "atm", y: 986, x: 570, image: "" },
             // Computers
-            { id: "computer-1", name: "Computer", icon: "computer", type: "computer", y: 831, x: 443, image: "" },
+            { id: "computer-1", name: "Computer", icon: "tladcomputer", type: "computer", dlc: "tlad", y: 831, x: 443, image: "" },
             { id: "computer-2", name: "Computer", icon: "computer", type: "computer", y: 1086, x: 1374, image: "" },
             { id: "computer-3", name: "Computer", icon: "computer", type: "computer", y: 522, x: 1809, image: "" },
             // SPAWNING
@@ -944,7 +953,10 @@
             { id: "vehicle-25", name: "Bus", icon: "vehicle", type: "vehicle", y: 280, x: 1447, image: "" },
             { id: "vehicle-26", name: "Bus", icon: "vehicle", type: "vehicle", y: 794, x: 1837, image: "" },
             { id: "vehicle-27", name: "Bus", icon: "vehicle", type: "vehicle", y: 786, x: 1840, image: "" },
-            { id: "vehicle-28", name: "Bus", icon: "vehicle", type: "vehicle", y: 780, x: 1857, image: "" }
+            { id: "vehicle-28", name: "Bus", icon: "vehicle", type: "vehicle", y: 780, x: 1857, image: "" },
+            // OTHER
+            // Easter Eggs
+            { id: "easteregg-1", name: "AC/DC “For Those About to Rock (We Salute You)” Easter Egg", description: "A monument with the inscription “Roll of Honor - War of the Deadline 1869-1869” referencing the band AC/DC.", icon: "easteregg", type: "easteregg", y: 1013, x: 2014 }
         ];
 
         // 6. Registry to look up markers by ID
