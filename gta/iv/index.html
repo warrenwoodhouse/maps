@@ -200,7 +200,9 @@
             cabaret: { name: "Cabaret Clubs", group: L.layerGroup() },
             airhockey: { name: "Air Hockey", group: L.layerGroup() },
             dancing: { name: "Dancing", group: L.layerGroup() },
-            construction: { name: "Construction Sites", group: L.layerGroup() }
+            construction: { name: "Construction Sites", group: L.layerGroup() },
+            atm: { name: "ATMs", group: L.layerGroup() },
+            vehicle: { name: "Vehicles", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -423,6 +425,10 @@
             }),
             atm: L.icon({
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-atm.png',
+                iconSize: [52, 52],
+            }),
+            vehicle: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-vehicle.png',
                 iconSize: [52, 52],
             }),
         };
