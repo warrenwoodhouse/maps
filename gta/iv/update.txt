@@ -1,0 +1,528 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+<!-- ICONS META DATA -->
+<link rel="icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+<link rel="shortcut icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+
+<!-- OPENGRAPH META DATA -->
+<meta name="og:title" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:type" content="application">
+<meta name="og:url" content="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="og:image" content="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico">
+<meta name="og:site_name" content="Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse">
+<meta name="og:description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+<script type="application/ld+json">{"@context":"https://schema.org/","@type":"Application","name":"Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse"}</script>
+
+<!-- APPLE META DATA -->
+<meta name="apple-mobile-web-app-title" content="GTA IV Map">
+<link rel="apple-mobile-web-app" href="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" color="#000000">
+<meta name="theme-color" content="#090909-gradient" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000-translucent" media="(prefers-color-scheme: dark)">
+<link rel="manifest" href="https://warrenwoodhouse.github.io/site/site.webmanifest" crossorigin="use-credentials" id="manifest-link" />
+<link rel="icon" type="image/ico" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" sizes="96x96" />
+<meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+<meta name="apple-touch-fullscreen" content="yes">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-touch-icon" type="image/ico">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-ipad-icon" type="image/ico" sizes="72x72">
+<link href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" rel="apple-touch-startup-image" type="image/ico" sizes="152x152">
+<link rel="mask-icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
+
+<!-- MICROSOFT META DATA -->
+<meta name="mssmarttagspreventparsing" content="true">
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+<meta name="msapplication-starturl" content="https://warrenwoodhouse.github.io/maps/gta/iv">
+<meta name="msapplication-window" content="width=800;height=600">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="application-name" content="GTA IV Map">
+<meta name="msapplication-tooltip" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+<meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
+<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, G...">
+  
+  <title>Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</title>
+  <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
+  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTA IV, GTA Episodes from Liberty City, Liberty City Map, interactive map">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+    html, body {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #000000;
+    }
+
+    #map {
+        width: 100vw;
+        height: 100vh;
+        background-color: #111;
+        font-size: 20px;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .filterControls {
+        font-size: 19px;
+    }
+
+    /* Make the Leaflet layer control menu scrollable */
+    .leaflet-control-layers-expanded {
+        max-height: 75vh;
+        overflow-y: auto;
+    }
+
+    .leaflet-popup-content-wrapper {
+        background: #ffffff;
+        color: #000000;
+        border: 1px solid #000000;
+        border-radius: 4px;
+        font-size: 19px;
+        max-width: 350px;
+    }
+    .leaflet-popup-tip {
+        background: #ffffff;
+        font-size: 19px;
+    }
+    .popup-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    .popup-video {
+        width: 300px;
+        height: 170px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        max-height: 250px;
+        object-fit: cover;
+        display: block;
+    }
+    .popup-text {
+        margin: 8px 0;
+    }
+    .popup-text strong {
+        display: block;
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+    .popup-text small {
+        display: block;
+        color: #666;
+        font-size: 14px;
+    }
+    .share-btn {
+        margin-top: 8px;
+        padding: 6px 12px;
+        background-color: #111;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 19px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .share-btn:hover {
+        background-color: #333;
+    }
+</style>
+</head>
+<body>
+    <p style="color:white; margin: 10px;">Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</p>
+    <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
+    <p style="color:white; margin: 10px;">Select the icon to the right to open the Filters and select anywhere on the map to close the Filters list, making it easier for you to navigate.</p>
+    <p style="color:white; margin: 10px;">Don’t forget you can scroll down on the Filters list as there are more than 50 categories available.</p>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // 1. Define Map Dimensions
+        const mapWidth = 3000;
+        const mapHeight = 1900;
+
+        // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,
+            maxZoom: 3,
+        });
+
+        // 3. Set Bounds [Bottom-Left, Top-Right]
+        const bounds = [[0, 0], [mapHeight, mapWidth]];
+
+        // 4. Load the 3000x1900 Image Overlay
+        L.imageOverlay('https://warrenwoodhouse.github.io/maps/gta/iv/map.png', bounds).addTo(map);
+        map.fitBounds(bounds);
+
+        // 5. Create Layer Groups for Filters
+        const filterGroups = {
+            poi: { name: "Points of Interests", group: L.layerGroup() },
+            restaurant: { name: "Restaurants", group: L.layerGroup() },
+            cluckinbell: { name: "Cluckin’ Bell", group: L.layerGroup() },
+            burgershot: { name: "Burger Shot", group: L.layerGroup() },
+            hiddenpackage: { name: "Hidden Packages", group: L.layerGroup() },
+            police: { name: "Police Stations", group: L.layerGroup() },
+            fire: { name: "Fire Departments", group: L.layerGroup() },
+            hospital: { name: "Hospitals", group: L.layerGroup() },
+            weapon: { name: "Weapons", group: L.layerGroup() },
+            landmark: { name: "Landmarks", group: L.layerGroup() },
+            park: { name: "Parks", group: L.layerGroup() },
+            parking: { name: "Car Parks & Parking Garages", group: L.layerGroup() },
+            gas: { name: "Gas Stations", group: L.layerGroup() },
+            subway: { name: "Subway Stations & El-Train Stations", group: L.layerGroup() },
+            skycar: { name: "Skycar Stations", group: L.layerGroup() },
+            river: { name: "Rivers", group: L.layerGroup() },
+            bay: { name: "Bays", group: L.layerGroup() },
+            lake: { name: "Lakes", group: L.layerGroup() },
+            bridge: { name: "Bridges", group: L.layerGroup() },
+            tunnel: { name: "Tunnels", group: L.layerGroup() },
+            toll: { name: "Toll Booths", group: L.layerGroup() },
+            airport: { name: "Airports", group: L.layerGroup() },
+            island: { name: "Islands", group: L.layerGroup() },
+            region: { name: "Regions", group: L.layerGroup() },
+            district: { name: "Districts", group: L.layerGroup() },
+            vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
+            church: { name: "Churches", group: L.layerGroup() },
+            cemetery: { name: "Cemeteries", group: L.layerGroup() },
+            windowlift: { name: "Window Washing Lifts", group: L.layerGroup() },
+            government: { name: "Local Government & Public Services", group: L.layerGroup() },
+            bar: { name: "Bars", group: L.layerGroup() },
+            comedy: { name: "Comedy Clubs", group: L.layerGroup() },
+            club: { name: "Clubs", group: L.layerGroup() },
+            nightclub: { name: "Nightclubs", group: L.layerGroup() },
+            strip: { name: "Strip Clubs / Gentlemen’s Clubs", group: L.layerGroup() },
+            pool: { name: "Pool Halls", group: L.layerGroup() },
+            dart: { name: "Dart Clubs", group: L.layerGroup() },
+            bowling: { name: "Bowling Alleys", group: L.layerGroup() },
+            cabaret: { name: "Cabaret Clubs", group: L.layerGroup() },
+            airhockey: { name: "Air Hockey", group: L.layerGroup() },
+            dancing: { name: "Dancing", group: L.layerGroup() },
+            construction: { name: "Construction Sites", group: L.layerGroup() },
+            atm: { name: "ATMs", group: L.layerGroup() },
+            vehicle: { name: "Vehicles", group: L.layerGroup() },
+            computer: { name: "Computers", group: L.layerGroup() },
+            card: { name: "Cards", group: L.layerGroup() },
+            safehouse: { name: "Safehouses", group: L.layerGroup() },
+            clubhouse: { name: "Clubhouses", group: L.layerGroup() },
+            easteregg: { name: "Easter Eggs", group: L.layerGroup() }
+        };
+
+        // DLC Filter Groups
+        const dlcGroups = {
+            tlad: { name: "DLC: The Lost and Damned", group: L.layerGroup() },
+            tbogt: { name: "DLC: The Ballad of Gay Tony", group: L.layerGroup() },
+            eflc: { name: "DLC: Episodes from Liberty City", group: L.layerGroup() }
+        };
+
+        // Create custom icons for each marker type
+        const customIcons = {
+            poi: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png',
+                iconSize: [42, 42]
+            }),
+            restaurant: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-restaurant.png',
+                iconSize: [42, 42]
+            }),
+            cluckinbell: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png',
+                iconSize: [42, 42]
+            }),
+            burgershot: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png',
+                iconSize: [42, 42]
+            }),
+            hiddenpackage: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png',
+                iconSize: [52, 52]
+            }),
+            police: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png',
+                iconSize: [52, 52]
+            }),
+            fire: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png',
+                iconSize: [52, 52]
+            }),
+            hospital: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png',
+                iconSize: [52, 52]
+            }),
+            weapon: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png',
+                iconSize: [52, 52]
+            }),
+            landmark: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png',
+                iconSize: [52, 52]
+            }),
+            park: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png',
+                iconSize: [52, 52]
+            }),
+            parking: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-park.png',
+                iconSize: [52, 52]
+            }),
+            fma: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png',
+                iconSize: [52, 52]
+            }),
+            gas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png',
+                iconSize: [52, 52]
+            }),
+            ron: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png',
+                iconSize: [52, 52]
+            }),
+            terroil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png',
+                iconSize: [52, 52]
+            }),
+            globeoil: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-globeoil.png',
+                iconSize: [52, 52]
+            }),
+            subway: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation.png',
+                iconSize: [52, 52]
+            }),
+            subwayexchange: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation-exchangehere.png',
+                iconSize: [52, 52]
+            }),
+            38: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png',
+                iconSize: [52, 52]
+            }),
+            ja: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png',
+                iconSize: [52, 52]
+            }),
+            kc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png',
+                iconSize: [52, 52]
+            }),
+            eb: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png',
+                iconSize: [52, 52]
+            }),
+            skycar: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-skycar.png',
+                iconSize: [52, 52]
+            }),
+            lake: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            bay: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
+                iconSize: [52, 52]
+            }),
+            river: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png',
+                iconSize: [52, 52]
+            }),
+            bridge: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png',
+                iconSize: [52, 52]
+            }),
+            tunnel: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png',
+                iconSize: [52, 52]
+            }),
+            toll: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png',
+                iconSize: [52, 52]
+            }),
+            airport: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png',
+                iconSize: [52, 52]
+            }),
+            island: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png',
+                iconSize: [52, 52]
+            }),
+            region: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            district: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
+                iconSize: [52, 52]
+            }),
+            church: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png',
+                iconSize: [52, 52]
+            }),
+            cemetery: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png',
+                iconSize: [52, 52]
+            }),
+            windowlift: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png',
+                iconSize: [62, 62]
+            }),
+            construction: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-construction.png',
+                iconSize: [52, 52]
+            }),
+            government: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-government.png',
+                iconSize: [52, 52]
+            }),
+            sanitation: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-sanitation.png',
+                iconSize: [52, 52]
+            }),
+            mayor: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-mayor.png',
+                iconSize: [52, 52]
+            }),
+            maisonette9: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-maisonette9.png',
+                iconSize: [52, 52]
+            }),
+            hercules: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-hercules.png',
+                iconSize: [52, 52]
+            }),
+            bahamamamas: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-bahamamamas.png',
+                iconSize: [52, 52]
+            }),
+            airhockey: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-airhockey.png',
+                iconSize: [52, 52]
+            }),
+            strip: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-stripclub.png',
+                iconSize: [52, 52]
+            }),
+            comedy: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-comedyclub.png',
+                iconSize: [52, 52]
+            }),
+            club: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-club.png',
+                iconSize: [52, 52]
+            }),
+            cabaret: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cabaretclub.png',
+                iconSize: [52, 52]
+            }),
+            bowling: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bowling.png',
+                iconSize: [52, 52]
+            }),
+            pool: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-pool.png',
+                iconSize: [52, 52]
+            }),
+            dart: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-darts.png',
+                iconSize: [52, 52]
+            }),
+            bar: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bar.png',
+                iconSize: [52, 52]
+            }),
+            dancing: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-dancing.png',
+                iconSize: [52, 52]
+            }),
+            atm: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-atm.png',
+                iconSize: [52, 52],
+            }),
+            vehicle: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-car.png',
+                iconSize: [52, 52],
+            }),
+            card: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-card.png',
+                iconSize: [52, 52],
+            }),
+            computer: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-computer.png',
+                iconSize: [52, 52],
+            }),
+            safehouse: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-safehouse.png',
+                iconSize: [52, 52],
+            }),
+            thelostmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-thelostmc.png',
+                iconSize: [52, 52],
+            }),
+            theangelsofdeathmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theangelsofdeathmc.png',
+                iconSize: [52, 52],
+            }),
+            theuptownriderzmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theuptownriderzmc.png',
+                iconSize: [52, 52],
+            }),
+            tladsafehouse: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-safehouse.png',
+                iconSize: [52, 52],
+            }),
+            tladcomputer: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-computer.png',
+                iconSize: [52, 52],
+            }),
+            easteregg: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png',
+                iconSize: [52, 52],
+            }),
+        };
+
+        // 6. Location Database
+        const locations = [
+            // POINTS OF INTEREST
+            // Points of Interests
+            { id: "poi-1", name: "RON Building", icon: "poi", type: "poi", y: 1081, x: 738, image: "" },
+            { id: "poi-2", name: "Statue of Happiness", icon: "poi", type: "poi", y: 278, x: 1006, image: "" },
+            { id: "poi-3", name: "Alderney State Correctional Facility", icon: "poi", type: "poi", y: 452, x: 770, image: "" },
+            { id: "poi-4", name: "233 Liberty Lane", icon: "poi", type: "poi", y: 415, x: 1212, image: "" },
+            { id: "poi-5", name: "Heli Tours", icon: "poi", type: "poi", y: 281, x: 1510, image: "" },
+            { id: "poi-6", name: "Pier 45", icon: "poi", type: "poi", y: 397, x: 1528, image: "" },
+            { id: "poi-7", name: "City Hall", icon: "poi", type: "poi", y: 472, x: 1231, image: "" },
+            { id: "poi-8", name: "Rotterdam Tower", icon: "poi", type: "poi", y: 601, x: 1169, image: "" },
+            { id: "poi-9", name: "Grand Easton Terminal", icon: "poi", type: "poi", y: 649, x: 1333, image: "" },
+            { id: "poi-10", name: "The GetaLife Building", icon: "poi", type: "poi", y: 685, x: 1328, image: "" },
+            { id: "poi-11", name: "CC (Civilization Committee)", icon: "poi", type: "poi", y: 840, x: 1412, image: "" },
+            { id: "poi-12", name: "Star Junction", icon: "poi", type: "poi", y: 788, x: 1216, image: "" },
+            { id: "poi-13", name: "Middle Park", icon: "poi", type: "poi", y: 1137, x: 1213, image: "" },
+            { id: "poi-14", name: "Randolf Art Center", icon: "poi", type: "poi", y: 1002, x: 1071, image: "" },
+            { id: "poi-15", name: "Broker Navy Yard", icon: "poi", type: "poi", y: 575, x: 1725, image: "" },
+            { id: "poi-16", name: "Funland", icon: "poi", type: "poi", y: 330, x: 1893, image: "" },
+            { id: "poi-17", name: "Firefly Island Boardwalk", icon: "poi", type: "poi", y: 305, x: 1890, image: "" },
+            { id: "poi-18", name: "Broker Promenade", icon: "poi", type: "poi", y: 364, x: 1709, image: "" },
+            { id: "poi-19", name: "The Screamer", icon: "poi", type: "poi", y: 352, x: 1919, image: "" },
+            { id: "poi-20", name: "Soldiers Plaza", icon: "poi", type: "poi", y: 617, x: 1883, image: "" },
+            { id: "poi-21", name: "The Monoglobe", icon: "poi", type: "poi", y: 942, x: 2081, image: "" },
+            { id: "poi-22", name: "Liberty State Pavilion Towers", icon: "poi", type: "poi", y: 1105, x: 2156, image: "" },
+            { id: "poi-23", name: "LC24 Tower", icon: "poi", type: "poi", y: 975, x: 1987, image: "" },
+            { id: "poi-24", name: "NUCA National Union of Contemporary Arts", icon: "poi", type: "poi", y: 1006, x: 1988, image: "" },
+            { id: "poi-25", name: "Dukes Bay Promenade", icon: "poi", type: "poi", y: 1211, x: 1981, image: "" },
+            { id: "poi-26", name: "Colony Island Lighthouse", icon: "poi", type: "poi", y: 858, x: 1560, image: "" },
+            { id: "poi-27", name: "Colony Island Hospital", icon: "poi", type: "poi", y: 619, x: 1575, image: "" },
+            { id: "poi-28", name: "Middle Park Fountain", icon: "poi", type: "poi", y: 1048, x: 1198, image: "" },
+            { id: "poi-29", name: "Middle Park Boathouse", icon: "poi", type: "poi", y: 1186, x: 1211, image: "" },
+            { id: "poi-30", name: "West River Park Monument", icon: "poi", type: "poi", y: 1086, x: 1021, image: "" },
+            { id: "poi-31", name: "Golden Pier", icon: "poi", type: "poi", y: 696, x: 996, image: "" },
+            { id: "poi-32", name: "Castle Gardens", icon: "poi", type: "poi", y: 507, x: 997, image: "" },
+            { id: "poi-33", name: "253 Liberty Lane", icon: "poi", type: "poi", y: 444,
