@@ -202,7 +202,11 @@
             dancing: { name: "Dancing", group: L.layerGroup() },
             construction: { name: "Construction Sites", group: L.layerGroup() },
             atm: { name: "ATMs", group: L.layerGroup() },
-            vehicle: { name: "Vehicles", group: L.layerGroup() }
+            vehicle: { name: "Vehicles", group: L.layerGroup() },
+            computer: { name: "Computers", group: L.layerGroup() },
+            card: { name: "Cards", group: L.layerGroup() },
+            safehouse: { name: "Safehouses", group: L.layerGroup() },
+            clubhouse: { name: "Clubhouses", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -431,6 +435,34 @@
                 iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-car.png',
                 iconSize: [52, 52],
             }),
+            card: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-card.png',
+                iconSize: [52, 52],
+            }),
+            computer: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-computer.png',
+                iconSize: [52, 52],
+            }),
+            safehouse: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-safehouse.png',
+                iconSize: [52, 52],
+            }),
+            thelostmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-thelostmc.png',
+                iconSize: [52, 52],
+            }),
+            theangelsofdeathmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theangelsofdeathmc.png',
+                iconSize: [52, 52],
+            }),
+            theriderzmc: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-poi.png',
+                iconSize: [52, 52],
+            }),
+            tladsafehouse: L.icon({
+                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-safehouse.png',
+                iconSize: [52, 52],
+            }),
         };
 
         // 6. Location Database
@@ -472,6 +504,19 @@
             { id: "poi-33", name: "253 Liberty Lane", icon: "poi", type: "poi", y: 444, x: 1198, image: "" },
             { id: "poi-34", name: "Civic Citadel", icon: "poi", type: "poi", y: 444, x: 1273, image: "" },
             { id: "poi-35", name: "FIB Building", icon: "poi", type: "poi", y: 708, x: 1371, image: "" },
+            // Safehouses
+            { id: "safehouse-1", name: "Broker Safehouse", icon: "safehouse", type: "safehouse", y: 390, x: 1782, image: "" },
+            { id: "safehouse-2", name: "South Bohan Safehouse", icon: "safehouse", type: "safehouse", y: 1373, x: 1626, image: "" },
+            { id: "safehouse-3", name: "Middle Park East Safehouse", icon: "safehouse", type: "safehouse", y: 1084, x: 1378, image: "" },
+            { id: "safehouse-4", name: "Playboy X’s Penthouse", icon: "safehouse", type: "safehouse", y: 1413, x: 1104, image: "" },
+            { id: "safehouse-5", name: "Alderney Safehouse", icon: "safehouse", type: "safehouse", y: 1115, x: 826, image: "" },
+            { id: "safehouse-6", name: "The Lost MC Clubhouse", icon: "tladsafehouse", type: "safehouse", y: 830, x: 435, image: "" },
+            { id: "safehouse-7", name: "Brian Jeremy’s Safehouse", icon: "tladsafehouse", type: "safehouse", y: 615, x: 318, image: "" },
+            { id: "safehouse-8", name: "Luis’ Apartment", icon: "safehouse", type: "safehouse", dlc: "tbogt", y: 1370, x: 1094, image: "" },
+            // Clubhouses
+            { id: "clubhouse-1", name: "The Lost MC Clubhouse", icon: "thelostmc", type: "clubhouse", dlc: "tlad", y: 830, x: 435, image: "" },
+            { id: "clubhouse-2", name: "The Angels of Death MC Clubhouse", icon: "theangelsofdeathmc", type: "clubhouse", dlc: "tlad", y: 1272, x: 1000, image: "" },
+            { id: "clubhouse-3", name: "The Riderz MC Clubhouse", icon: "theriderzmc", type: "clubhouse", dlc: "tlad", y: 1487, x: 1208, image: "" },
             // Parks
             { id: "park-1", name: "Outlook Park", icon: "park", type: "park", y: 590, x: 1848, image: "" },
             { id: "park-2", name: "Meadows Park", icon: "park", type: "park", y: 986, x: 2079, image: "" },
@@ -779,6 +824,8 @@
             { id: "dancing-1", name: "Dancing", icon: "dancing", type: "dancing", y: 727, x: 1075, image: "" },
             { id: "dancing-2", name: "Dancing", icon: "dancing", type: "dancing", y: 838, x: 1096, image: "" },
             { id: "dancing-3", name: "Dancing", icon: "dancing", type: "dancing", y: 856, x: 1122, image: "" },
+            // Cards
+            { id: "card-1", name: "Cards", icon: "card", type: "card", y: 817, x: 440, image: "" },
             // EMERGENCY SERVICES
             // Police Stations
             { id: "police-1", name: "Broker Police Precinct", icon: "police", type: "police", y: 484, x: 1778, image: "" },
@@ -864,6 +911,10 @@
             { id: "atm-21", name: "ATM", icon: "atm", type: "atm", y: 1308, x: 732, image: "" },
             { id: "atm-22", name: "ATM", icon: "atm", type: "atm", y: 1228, x: 682, image: "" },
             { id: "atm-23", name: "ATM", icon: "atm", type: "atm", y: 986, x: 570, image: "" },
+            // Computers
+            { id: "computer-1", name: "Computer", icon: "computer", type: "computer", y: 831, x: 443, image: "" },
+            { id: "computer-2", name: "Computer", icon: "computer", type: "computer", y: 1086, x: 1374, image: "" },
+            { id: "computer-3", name: "Computer", icon: "computer", type: "computer", y: 522, x: 1809, image: "" },
             // SPAWNING
             // Vehicles
             { id: "vehicle-1", name: "Bus", icon: "vehicle", type: "vehicle", y: 792, x: 1849, image: "" },
