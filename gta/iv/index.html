@@ -1,6 +1,7 @@
 <html>
 <head>
-    <meta charset="UTF-8">
+<!-- UTF META DATA -->
+<meta charset="UTF-8">
     
 <!-- ICONS META DATA -->
 <link rel="icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
@@ -142,6 +143,7 @@
     <p style="color:white; margin: 10px;">Map by Warren Woodhouse. <a href="https://warrenwoodhouse.github.io/maps" style="color: #4da6ff;">CLICK HERE</a> to see more Interactive Maps.</p>
     <p style="color:white; margin: 10px;">Select the icon to the right to open the Filters and select anywhere on the map to close the Filters list, making it easier for you to navigate.</p>
     <p style="color:white; margin: 10px;">Don’t forget you can scroll down on the Filters list as there are more than 50 categories available.</p>
+    <p style="color:white; margin: 10px;">Love this map and want to see more? Subscribe to my YouTube by <a href="https://youtube.com/user/warrenwoodhouse" style="color: #4da6ff;">CLICKING HERE</a> to support me.</p>
 
     <div id="map"></div>
 
@@ -218,274 +220,86 @@
             easteregg: { name: "Easter Eggs", group: L.layerGroup() }
         };
 
+        // DLC & Editions Tracking Filters
+        const dlcGroups = {
+            tlad: { name: "DLC: The Lost and Damned", group: L.layerGroup() },
+            tbogt: { name: "DLC: The Ballad of Gay Tony", group: L.layerGroup() },
+            eflc: { name: "Editions: Episodes from Liberty City", group: L.layerGroup() }
+        };
+
         // Create custom icons for each marker type
         const customIcons = {
-            poi: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png',
-                iconSize: [42, 42]
-            }),
-            restaurant: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-restaurant.png',
-                iconSize: [42, 42]
-            }),
-            cluckinbell: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png',
-                iconSize: [42, 42]
-            }),
-            burgershot: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png',
-                iconSize: [42, 42]
-            }),
-            hiddenpackage: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png',
-                iconSize: [52, 52]
-            }),
-            police: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png',
-                iconSize: [52, 52]
-            }),
-            fire: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png',
-                iconSize: [52, 52]
-            }),
-            hospital: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png',
-                iconSize: [52, 52]
-            }),
-            weapon: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png',
-                iconSize: [52, 52]
-            }),
-            landmark: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png',
-                iconSize: [52, 52]
-            }),
-            park: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png',
-                iconSize: [52, 52]
-            }),
-            parking: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-park.png',
-                iconSize: [52, 52]
-            }),
-            fma: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png',
-                iconSize: [52, 52]
-            }),
-            gas: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png',
-                iconSize: [52, 52]
-            }),
-            ron: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png',
-                iconSize: [52, 52]
-            }),
-            terroil: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png',
-                iconSize: [52, 52]
-            }),
-            globeoil: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-globeoil.png',
-                iconSize: [52, 52]
-            }),
-            subway: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation.png',
-                iconSize: [52, 52]
-            }),
-            subwayexchange: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation-exchangehere.png',
-                iconSize: [52, 52]
-            }),
-            38: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png',
-                iconSize: [52, 52]
-            }),
-            ja: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png',
-                iconSize: [52, 52]
-            }),
-            kc: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png',
-                iconSize: [52, 52]
-            }),
-            eb: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png',
-                iconSize: [52, 52]
-            }),
-            skycar: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-skycar.png',
-                iconSize: [52, 52]
-            }),
-            lake: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
-                iconSize: [52, 52]
-            }),
-            bay: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png',
-                iconSize: [52, 52]
-            }),
-            river: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png',
-                iconSize: [52, 52]
-            }),
-            bridge: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png',
-                iconSize: [52, 52]
-            }),
-            tunnel: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png',
-                iconSize: [52, 52]
-            }),
-            toll: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png',
-                iconSize: [52, 52]
-            }),
-            airport: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png',
-                iconSize: [52, 52]
-            }),
-            island: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png',
-                iconSize: [52, 52]
-            }),
-            region: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
-                iconSize: [52, 52]
-            }),
-            district: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png',
-                iconSize: [52, 52]
-            }),
-            church: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png',
-                iconSize: [52, 52]
-            }),
-            cemetery: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png',
-                iconSize: [52, 52]
-            }),
-            windowlift: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png',
-                iconSize: [62, 62]
-            }),
-            construction: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-construction.png',
-                iconSize: [52, 52]
-            }),
-            government: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-government.png',
-                iconSize: [52, 52]
-            }),
-            sanitation: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-sanitation.png',
-                iconSize: [52, 52]
-            }),
-            mayor: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-mayor.png',
-                iconSize: [52, 52]
-            }),
-            maisonette9: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-maisonette9.png',
-                iconSize: [52, 52]
-            }),
-            hercules: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-hercules.png',
-                iconSize: [52, 52]
-            }),
-            bahamamamas: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-bahamamamas.png',
-                iconSize: [52, 52]
-            }),
-            airhockey: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-airhockey.png',
-                iconSize: [52, 52]
-            }),
-            strip: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-stripclub.png',
-                iconSize: [52, 52]
-            }),
-            comedy: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-comedyclub.png',
-                iconSize: [52, 52]
-            }),
-            club: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-club.png',
-                iconSize: [52, 52]
-            }),
-            cabaret: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cabaretclub.png',
-                iconSize: [52, 52]
-            }),
-            bowling: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bowling.png',
-                iconSize: [52, 52]
-            }),
-            pool: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-pool.png',
-                iconSize: [52, 52]
-            }),
-            dart: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-darts.png',
-                iconSize: [52, 52]
-            }),
-            bar: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bar.png',
-                iconSize: [52, 52]
-            }),
-            dancing: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-dancing.png',
-                iconSize: [52, 52]
-            }),
-            atm: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-atm.png',
-                iconSize: [52, 52],
-            }),
-            vehicle: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-car.png',
-                iconSize: [52, 52],
-            }),
-            card: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-card.png',
-                iconSize: [52, 52],
-            }),
-            computer: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-computer.png',
-                iconSize: [52, 52],
-            }),
-            safehouse: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-safehouse.png',
-                iconSize: [52, 52],
-            }),
-            thelostmc: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-thelostmc.png',
-                iconSize: [52, 52],
-            }),
-            theangelsofdeathmc: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theangelsofdeathmc.png',
-                iconSize: [52, 52],
-            }),
-            theuptownriderzmc: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theuptownriderzmc.png',
-                iconSize: [52, 52],
-            }),
-            tladsafehouse: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-safehouse.png',
-                iconSize: [52, 52],
-            }),
-            tladcomputer: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-computer.png',
-                iconSize: [52, 52],
-            }),
-            easteregg: L.icon({
-                iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png',
-                iconSize: [52, 52],
-            }),
+            poi: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png', iconSize: [42, 42] }),
+            restaurant: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-restaurant.png', iconSize: [42, 42] }),
+            cluckinbell: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png', iconSize: [42, 42] }),
+            burgershot: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png', iconSize: [42, 42] }),
+            hiddenpackage: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png', iconSize: [52, 52] }),
+            police: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png', iconSize: [52, 52] }),
+            fire: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png', iconSize: [52, 52] }),
+            hospital: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png', iconSize: [52, 52] }),
+            weapon: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png', iconSize: [52, 52] }),
+            landmark: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png', iconSize: [52, 52] }),
+            park: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png', iconSize: [52, 52] }),
+            parking: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-park.png', iconSize: [52, 52] }),
+            fma: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-parking-fma.png', iconSize: [52, 52] }),
+            gas: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas.png', iconSize: [52, 52] }),
+            ron: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-ron.png', iconSize: [52, 52] }),
+            terroil: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-terroil.png', iconSize: [52, 52] }),
+            globeoil: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-gas-globeoil.png', iconSize: [52, 52] }),
+            subway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation.png', iconSize: [52, 52] }),
+            subwayexchange: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-subwaystation-exchangehere.png', iconSize: [52, 52] }),
+            38: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-38.png', iconSize: [52, 52] }),
+            ja: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ja.png', iconSize: [52, 52] }),
+            kc: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-kc.png', iconSize: [52, 52] }),
+            eb: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-eb.png', iconSize: [52, 52] }),
+            skycar: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-skycar.png', iconSize: [52, 52] }),
+            lake: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png', iconSize: [52, 52] }),
+            bay: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-lake.png', iconSize: [52, 52] }),
+            river: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-river.png', iconSize: [52, 52] }),
+            bridge: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bridge.png', iconSize: [52, 52] }),
+            tunnel: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tunnel.png', iconSize: [52, 52] }),
+            toll: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tollbooth.png', iconSize: [52, 52] }),
+            airport: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-airport.png', iconSize: [52, 52] }),
+            island: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-island.png', iconSize: [52, 52] }),
+            region: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
+            district: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-neighbourhood.png', iconSize: [52, 52] }),
+            church: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-church.png', iconSize: [52, 52] }),
+            cemetery: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cemetery.png', iconSize: [52, 52] }),
+            windowlift: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-windowlift.png', iconSize: [62, 62] }),
+            construction: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-construction.png', iconSize: [52, 52] }),
+            government: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-government.png', iconSize: [52, 52] }),
+            sanitation: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-sanitation.png', iconSize: [52, 52] }),
+            mayor: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-mayor.png', iconSize: [52, 52] }),
+            maisonette9: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-maisonette9.png', iconSize: [52, 52] }),
+            hercules: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-hercules.png', iconSize: [52, 52] }),
+            bahamamamas: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-bahamamamas.png', iconSize: [52, 52] }),
+            airhockey: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-airhockey.png', iconSize: [52, 52] }),
+            strip: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-stripclub.png', iconSize: [52, 52] }),
+            comedy: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-comedyclub.png', iconSize: [52, 52] }),
+            club: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-club.png', iconSize: [52, 52] }),
+            cabaret: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cabaretclub.png', iconSize: [52, 52] }),
+            bowling: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bowling.png', iconSize: [52, 52] }),
+            pool: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-pool.png', iconSize: [52, 52] }),
+            dart: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-darts.png', iconSize: [52, 52] }),
+            bar: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bar.png', iconSize: [52, 52] }),
+            dancing: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-dancing.png', iconSize: [52, 52] }),
+            atm: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-atm.png', iconSize: [52, 52] }),
+            vehicle: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-car.png', iconSize: [52, 52] }),
+            card: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-card.png', iconSize: [52, 52] }),
+            computer: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-computer.png', iconSize: [52, 52] }),
+            safehouse: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-safehouse.png', iconSize: [52, 52] }),
+            thelostmc: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-thelostmc.png', iconSize: [52, 52] }),
+            theangelsofdeathmc: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theangelsofdeathmc.png', iconSize: [52, 52] }),
+            theuptownriderzmc: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-theuptownriderzmc.png', iconSize: [52, 52] }),
+            tladsafehouse: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-safehouse.png', iconSize: [52, 52] }),
+            tladcomputer: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-computer.png', iconSize: [52, 52] }),
+            easteregg: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png', iconSize: [52, 52] }),
         };
 
         // 6. Location Database
         const locations = [
-            // POINTS OF INTEREST
-            // Points of Interests
+            // POINT OF INTEREST
+            // Point of Interest
             { id: "poi-1", name: "RON Building", icon: "poi", type: "poi", y: 1081, x: 738, image: "" },
             { id: "poi-2", name: "Statue of Happiness", icon: "poi", type: "poi", y: 278, x: 1006, image: "" },
             { id: "poi-3", name: "Alderney State Correctional Facility", icon: "poi", type: "poi", y: 452, x: 770, image: "" },
@@ -527,8 +341,8 @@
             { id: "safehouse-3", name: "Middle Park East Safehouse", icon: "safehouse", type: "safehouse", y: 1084, x: 1378, image: "" },
             { id: "safehouse-4", name: "Playboy X’s Penthouse", icon: "safehouse", type: "safehouse", y: 1413, x: 1104, image: "" },
             { id: "safehouse-5", name: "Alderney Safehouse", icon: "safehouse", type: "safehouse", y: 1115, x: 826, image: "" },
-            { id: "safehouse-6", name: "The Lost MC Clubhouse", icon: "tladsafehouse", type: "safehouse", y: 830, x: 435, image: "" },
-            { id: "safehouse-7", name: "Brian Jeremy’s Safehouse", icon: "tladsafehouse", type: "safehouse", y: 615, x: 318, image: "" },
+            { id: "safehouse-6", name: "The Lost MC Clubhouse", icon: "tladsafehouse", type: "safehouse", dlc: "tlad", y: 830, x: 435, image: "" },
+            { id: "safehouse-7", name: "Brian Jeremy’s Safehouse", icon: "tladsafehouse", type: "safehouse", dlc: "tlad", y: 615, x: 318, image: "" },
             { id: "safehouse-8", name: "Luis’ Apartment", icon: "safehouse", type: "safehouse", dlc: "tbogt", y: 1370, x: 1094, image: "" },
             // Clubhouses
             { id: "clubhouse-1", name: "The Lost MC Clubhouse", icon: "thelostmc", type: "clubhouse", dlc: "tlad", y: 830, x: 435, image: "" },
@@ -700,15 +514,14 @@
             { id: "cemetery-3", name: "Suffolk Church Cemetery", icon: "cemetery", type: "cemetery", y: 506, x: 1155 },
             { id: "cemetery-4", name: "Colony Island Cemetery", icon: "cemetery", type: "cemetery", y: 825, x: 1558 },
             { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 },
-            // Streets
             // RESTAURANTS
             // Restaurants
-            // Cluckin’ Bells
+            // Cluckin’ Bell
             { id: "cluckinbell-1", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 845, x: 1933, image: "" },
             { id: "cluckinbell-2", name: "Cluckin’ Bell", icon: "cluckinbell", type: "cluckinbell", y: 691, x: 1247, image: "" },
             { id: "cluckinbell-3", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 1388, x: 1181, image: "" },
             { id: "cluckinbell-4", name: "Cluckin’ Bell (Abandoned)", icon: "cluckinbell", type: "cluckinbell", y: 978, x: 561, image: "" },
-            // Burger Shots
+            // Burger Shot
             { id: "burgershot-1", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 317, x: 1935, image: "" },
             { id: "burgershot-2", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 772, x: 2159, image: "" },
             { id: "burgershot-3", name: "Burger Shot (Abandoned)", icon: "burgershot", type: "burgershot", y: 842, x: 1969, image: "" },
@@ -718,14 +531,7 @@
             { id: "burgershot-7", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 730, x: 1006, image: "" },
             { id: "burgershot-8", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1263, x: 1097, image: "" },
             { id: "burgershot-9", name: "Burger Shot", icon: "burgershot", type: "burgershot", y: 1491, x: 803, image: "" },
-            // Diners
-            // SHOPPING
-            // Clothing Stores
-            // Gun Stores
             // SERVICES
-            // Internet Cafés
-            // Car Washes
-            // Pay 'n' Sprays
             // Car Parks & Parking Garages
             { id: "parking-1", name: "Crockett Avenue Car Park", icon: "parking", type: "parking", y: 368, x: 1872, image: "" },
             { id: "parking-2", name: "Lancaster Underground Car Park", icon: "parking", type: "parking", y: 1232, x: 1333, image: "" },
@@ -829,23 +635,17 @@
             // Darts Clubs
             { id: "dart-1", name: "Lucky Winkles", icon: "dart", type: "dart", y: 887, x: 1096, image: "" },
             { id: "dart-2", name: "Steinway Beer Garden", icon: "dart", type: "dart", y: 1037, x: 1910, image: "" },
-            // Nightclubs
             { id: "nightclub-1", name: "Maisonette 9", icon: "maisonette9", type: "nightclub", dlc: "tbogt", y: 727, x: 1075, image: "" },
             { id: "nightclub-2", name: "Hercules", icon: "hercules", type: "nightclub", dlc: "tbogt", y: 838, x: 1096, image: "" },
             { id: "nightclub-3", name: "Bahama Mamas", icon: "bahamamamas", type: "nightclub", dlc: "tbogt", y: 856, x: 1122, image: "" },
-            // Pool Halls
             { id: "pool-1", name: "Homebrew Café", icon: "pool", type: "pool", y: 681, x: 2074, image: "" },
-            // Strip Clubs
             { id: "strip-1", name: "The Triangle Club", icon: "strip", type: "strip", y: 1520, x: 1920, image: "" },
             { id: "strip-2", name: "Honkers", icon: "strip", type: "strip", y: 663, x: 510, image: "" },
-            // Dancing
             { id: "dancing-1", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 727, x: 1075, image: "" },
             { id: "dancing-2", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 838, x: 1096, image: "" },
             { id: "dancing-3", name: "Dancing", icon: "dancing", type: "dancing", dlc: "tbogt", y: 856, x: 1122, image: "" },
-            // Cards
             { id: "card-1", name: "Cards", icon: "card", type: "card", dlc: "tlad", y: 817, x: 440, image: "" },
             // EMERGENCY SERVICES
-            // Police Stations
             { id: "police-1", name: "Broker Police Precinct", icon: "police", type: "police", y: 484, x: 1778, image: "" },
             { id: "police-2", name: "Schottler Police Precinct", icon: "police", type: "police", y: 602, x: 1946, image: "" },
             { id: "police-3", name: "Dukes Police Precinct", icon: "police", type: "police", y: 930, x: 1949, image: "" },
@@ -861,10 +661,7 @@
             { id: "police-13", name: "Alderney Police Precinct", icon: "police", type: "police", y: 1302, x: 852, image: "" },
             { id: "police-14", name: "Tudor Police Precinct", icon: "police", type: "police", y: 795, x: 436, image: "" },
             { id: "police-15", name: "Acter Police Precinct", icon: "police", type: "police", y: 522, x: 692, image: "" },
-            // Hospitals
-            // Fire Departments
             // PUBLIC TRANSPORT
-            // Subway Stations & El-Train Stations
             { id: "subway-1", name: "Hove Beach Station", icon: "38", type: "subway", y: 360, x: 1847, image: "" },
             { id: "subway-2", name: "Schottler Station", icon: "38", type: "subway", y: 624, x: 1993, image: "" },
             { id: "subway-3", name: "Huntington Street High Station", icon: "subwayexchange", type: "subway", y: 853, x: 2047, image: "" },
@@ -893,11 +690,9 @@
             { id: "subway-26", name: "Frankfort Avenue Station", icon: "kc", type: "subway", y: 819, x: 1131, image: "" },
             { id: "subway-27", name: "Suffolk Station", icon: "kc", type: "subway", y: 565, x: 1181, image: "" },
             { id: "subway-28", name: "City Hall Station", icon: "kc", type: "subway", y: 404, x: 1284, image: "" },
-            // Skycar Stations
             { id: "skycar-1", name: "Algonquin Island Skycar Station", icon: "skycar", type: "skycar", y: 767, x: 1415, image: "" },
             { id: "skycar-2", name: "Colony Island Skycar Station", icon: "skycar", type: "skycar", y: 770, x: 1545, image: "" },
             // LOCAL GOVERNMENT & PUBLIC SERVICES
-            // Local Government & Public Services
             { id: "government-1", name: "City Hall", icon: "mayor", type: "government", y: 472, x: 1231, image: "" },
             { id: "government-2", name: "Department of Sanitation", icon: "sanitation", type: "government", y: 435, x: 1506, image: "" },
             { id: "government-3", name: "FIB Building", icon: "government", type: "government", y: 708, x: 1371, image: "" },
@@ -905,7 +700,6 @@
             { id: "government-5", name: "ULP United Liberty Paper Merchants", icon: "government", type: "government", y: 679, x: 1284, image: "" },
             { id: "government-6", name: "Liberty State Courthouse", icon: "mayor", type: "government", y: 477, x: 1220, image: "" },
             // INTERACTIONS
-            // ATMs
             { id: "atm-1", name: "ATM", icon: "atm", type: "atm", y: 365, x: 1801, image: "" },
             { id: "atm-2", name: "ATM", icon: "atm", type: "atm", y: 505, x: 1791, image: "" },
             { id: "atm-3", name: "ATM", icon: "atm", type: "atm", y: 575, x: 1913, image: "" },
@@ -929,12 +723,10 @@
             { id: "atm-21", name: "ATM", icon: "atm", type: "atm", y: 1308, x: 732, image: "" },
             { id: "atm-22", name: "ATM", icon: "atm", type: "atm", y: 1228, x: 682, image: "" },
             { id: "atm-23", name: "ATM", icon: "atm", type: "atm", y: 986, x: 570, image: "" },
-            // Computers
             { id: "computer-1", name: "Computer", icon: "tladcomputer", type: "computer", dlc: "tlad", y: 831, x: 443, image: "" },
             { id: "computer-2", name: "Computer", icon: "computer", type: "computer", y: 1086, x: 1374, image: "" },
             { id: "computer-3", name: "Computer", icon: "computer", type: "computer", y: 522, x: 1809, image: "" },
             // SPAWNING
-            // Vehicles
             { id: "vehicle-1", name: "Bus", icon: "vehicle", type: "vehicle", y: 792, x: 1849, image: "" },
             { id: "vehicle-2", name: "Bus", icon: "vehicle", type: "vehicle", y: 872, x: 1220, image: "" },
             { id: "vehicle-3", name: "Bus", icon: "vehicle", type: "vehicle", y: 904, x: 1210, image: "" },
@@ -964,20 +756,20 @@
             { id: "vehicle-27", name: "Bus", icon: "vehicle", type: "vehicle", y: 786, x: 1840, image: "" },
             { id: "vehicle-28", name: "Bus", icon: "vehicle", type: "vehicle", y: 780, x: 1857, image: "" },
             // OTHER
-            // Easter Eggs
             { id: "easteregg-1", name: "AC/DC “For Those About to Rock (We Salute You)” Easter Egg", description: "A monument with the inscription “Roll of Honor - War of the Deadline 1869-1869” referencing the band AC/DC.", icon: "easteregg", type: "easteregg", y: 1013, x: 2014 }
         ];
 
-        // 6. Registry to look up markers by ID
+        // 7. Registry to look up markers by ID
         const markerRegistry = {};
         let currentOpenMarkerId = null;
 
-        // 7. Initialize URL Parameters
+        // 8. Initialize URL Parameters
         const urlParams = new URLSearchParams(window.location.search);
         const urlMarkerId = urlParams.get('marker');
         const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
+        const urlDlc = urlParams.get('dlc') ? urlParams.get('dlc').split(',') : null;
 
-        // 8. Add Markers & Populate Layer Groups
+        // 9. Add Markers & Populate Layer Groups
         locations.forEach(loc => {
             const popupContent = `
                 <div>
@@ -985,10 +777,9 @@
                     ${loc.video ? `<iframe width="300px" height="170px" src="${loc.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : ''}
                     <div class="popup-text">
                         <strong>${loc.name}</strong>
-                        <strong>ID: ${loc.id}</strong>
-                        <strong>Description: ${loc.description}</strong>
-                        <strong>Address: ${loc.address}</strong>
-                        <strong>DLC Related: ${loc.dlc}</strong>
+                        <small>ID: ${loc.id}</small>
+                        ${loc.description ? `<small>${loc.description}</small>` : ''}
+                        ${loc.dlc ? `<small>DLC: ${loc.dlc.toUpperCase()}</small>` : ''}
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
@@ -996,10 +787,16 @@
 
             const markerIcon = customIcons[loc.icon] || customIcons[loc.type] || customIcons.poi;
             const marker = L.marker([loc.y, loc.x], { icon: markerIcon }).bindPopup(popupContent);
-            markerRegistry[loc.id] = { marker, type: loc.type, coords: [loc.y, loc.x] };
+            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, coords: [loc.y, loc.x] };
 
+            // Add marker to category filter group
             if (filterGroups[loc.type]) {
                 marker.addTo(filterGroups[loc.type].group);
+            }
+
+            // Add marker to DLC filter tracking group if specified
+            if (loc.dlc && dlcGroups[loc.dlc]) {
+                marker.addTo(dlcGroups[loc.dlc].group);
             }
 
             // Update URL when a marker popup is opened/closed
@@ -1016,31 +813,50 @@
             });
         });
 
-        // 9. Apply Active Filter Groups to Map
+        // 10. Combine Layer Groups into Control Menu
         const layerControls = {};
+
+        // Add standard categories
         Object.keys(filterGroups).forEach(key => {
             const groupInfo = filterGroups[key];
             layerControls[groupInfo.name] = groupInfo.group;
 
-            // If filters are specified in URL, enable matching ones; otherwise enable all by default
             if (!urlFilters || urlFilters.includes(key)) {
                 groupInfo.group.addTo(map);
+            }
+        });
+
+        // Add DLC filter tracking list
+        Object.keys(dlcGroups).forEach(key => {
+            const dlcInfo = dlcGroups[key];
+            layerControls[dlcInfo.name] = dlcInfo.group;
+
+            if (urlDlc && urlDlc.includes(key)) {
+                dlcInfo.group.addTo(map);
+            } else if (!urlFilters && !urlDlc) {
+                // By default display all DLC filters on initial load
+                dlcInfo.group.addTo(map);
             }
         });
 
         // Add Leaflet Layer Control
         L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
 
-        // Listen for filter toggle events to sync URL
+        // Sync URL parameters on overlay additions/removals
         map.on('overlayadd overlayremove', updateURL);
 
-        // 10. Functions to Handle URL State & Copying
+        // 11. URL Handling & Link Generators
         function updateURL() {
             const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
+            const activeDlcs = Object.keys(dlcGroups).filter(key => map.hasLayer(dlcGroups[key].group));
             const params = new URLSearchParams();
 
             if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
                 params.set('filters', activeFilters.join(','));
+            }
+
+            if (activeDlcs.length > 0 && activeDlcs.length < Object.keys(dlcGroups).length) {
+                params.set('dlc', activeDlcs.join(','));
             }
 
             if (currentOpenMarkerId) {
@@ -1063,13 +879,18 @@
             });
         }
 
-        // 11. Initial View & Deep Linking Setup
+        // 12. Handle Deep-linking to Markers on Initial Load
         if (urlMarkerId && markerRegistry[urlMarkerId]) {
             const target = markerRegistry[urlMarkerId];
             
-            // Ensure the parent layer group is visible
-            if (!map.hasLayer(filterGroups[target.type].group)) {
+            // Ensure target category layer group is visible
+            if (filterGroups[target.type] && !map.hasLayer(filterGroups[target.type].group)) {
                 filterGroups[target.type].group.addTo(map);
+            }
+
+            // Ensure target DLC tracking layer group is visible if applicable
+            if (target.dlc && dlcGroups[target.dlc] && !map.hasLayer(dlcGroups[target.dlc].group)) {
+                dlcGroups[target.dlc].group.addTo(map);
             }
 
             map.setView(target.coords, 1);
