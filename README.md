@@ -9,43 +9,56 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 * WIP means Work in Progress, not 100% ready so expect errors and issues with these
 
 # Documentation & Plugins
-[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki/Documentation-&-Plugins) to see Documentation & Plugins for Leaflet maps that are available on our wiki. These include scripts for allowing your maps to work on Amazon Silk along with various other data structures.
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki/Documentation-&-Plugins) to see Documentation & Plugins for Leaflet maps that are available on my Warren Maps Wiki. These include scripts for allowing your maps to work on Amazon Silk along with various other data structures.
 
 # Contribute
-If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions)
+If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions).
 
 # Issues
 * [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/maps/issues/8) (help wanted)
 
 # Subscribe
-Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/search/label/maps)
+Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/search/label/maps).
 
 # Blog
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/search/label/maps) to read the latest posts in the blog category.
 
 # Map Editor
-Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
+Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor/wiki) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
 
 ## Alternative Editors - Map Editor
 Here are some other editors and map generators by me as well!
 
-* [Alternative Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/alternative)
-* [MediaWiki Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/wiki)
+* [Basic Leaflet Editor & Generator](https://warrenwoodhouse.github.io/maps/editor)
+* [Alternative Leaflet Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/alternative)
+* [MediaWiki Leaflet Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/wiki) (default editor for my maps)
+* Simple Leaflet Editor & Generator
 
 # My Inspirations
 I get inspired from seeing maps by MapGenie, Game-Maps, historical paper maps and maps by legendary cartographers such as Gerardus Mercator, Piri Reis and Maria Tharp, all of which contributed to the creation of various historically accurate world maps.
 
+## My Favourite Mapping Sites
+* MapGenie
+* IGN Maps
+* Google Maps
+* Google MyMaps
+* Leaflet
+* OpenStreetMap
+* Historic England
+* Game-Maps
+* Wand Maps
+
 # Community
-Join the Community!
+[CLICK HERE](https://reddit.com/r/warrenwoodhouse) to join the Community on Reddit and discuss topics of interest from gaming to maps and beyond!
 
 ## Wiki
-[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki) to see Wiki Articles on our community wiki.
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki) to see Wiki Articles on my Warren Maps Wiki.
 
 ## Projects
 [CLICK HERE](https://github.com/users/warrenwoodhouse/projects/3) to see GitHub projects related to this repository.
 
 ## Discussions
-[CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions)
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions) to join the Discussions.
 
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
@@ -153,18 +166,20 @@ Here is the full list of Interactive Maps. Enjoy!
 * Grand Theft Auto: San Andreas
 * Grand Theft Auto: Liberty City Stories
 * Grand Theft Auto: Vice City Stories
-* Grand Theft Auto IV & Grand Theft Auto IV Remake (WIP)
+* [Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City & Grand Theft Auto IV Remake](https://warrenwoodhouse.github.io/maps/gta/iv) (WIP)
 * > [LTA Liberty City Subway Map](https://warrenwoodhouse.github.io/maps/gta/iv/subway) (WIP)
-* > LCPD Crime Wave Heat Map
-* > The Lost and Damned DLC
-* > The Ballad of Gay Tony DLC
+* > [LCPD Crime Wave Heat Map](https://warrenwoodhouse.github.io/maps/gta/iv/?region=crime)
+* > [The Lost and Damned DLC](https://warrenwoodhouse.github.io/maps/gta/iv/?dlc=tlad&filters=null)
+* > [The Ballad of Gay Tony DLC](https://warrenwoodhouse.github.io/maps/gta/iv/?dlc=tbogt&filters=null)
+* > [Grand Theft Auto: Episodes from Liberty City](https://warrenwoodhouse.github.io/maps/gta/iv/?dlc=eflc&filters=null)
+* > [Grand Theft Auto IV: Grand Theft Auto Online](https://warrenwoodhouse.github.io/maps/gta/iv/?dlc=gtao&filters=null)
 * Grand Theft Auto: Chinatown Wars
 * Grand Theft Auto V & Grand Theft Auto V: Next Gen Edition (WIP)
 * > [Blueprint Map](https://warrenwoodhouse.github.io/maps/gta/v/blueprint) (WIP)
 * > [Light Blueprint Map](https://warrenwoodhouse.github.io/maps/gta/v/blueprint/light) (WIP)
 * > Lenny Avery Real Estates Map
 * > Los Santos Freegans Map
-* > Grand Theft Auto Online (WIP)
+* > Grand Theft Auto V: Grand Theft Auto Online (WIP)
 * Grand Theft Auto VI (WIP)
 
 ## Horizon - Games - Interactive Maps
@@ -184,6 +199,14 @@ Here is the full list of Interactive Maps. Enjoy!
 
 ## Noire - Games - Interactive Maps
 * [L.A. Noire & L.A. Noire Remastered](https://warrenwoodhouse.github.io/maps/lanoire) (WIP)
+* > [The Consul’s Car DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=theconsulscar&filters=null)
+* > [A Slip of the Tongue DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=aslipofthetongue&filters=null)
+* > [The Naked City DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=thenakedcity&filters=null)
+* > [The Badge Pursuit Challenge DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=thebadgepursuitchallenge&filters=null)
+* > [Reefer Madness DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=reefermadness&filters=null)
+* > [Nicholson Electroplating DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=nicholsonelectroplating&filters=null)
+* > [New Collections DLC](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=newcollections&filters=null)
+* > [The VR Case Files](https://warrenwoodhouse.github.io/maps/lanoire/?dlc=thevrcasefiles&filters=null)
 * S.F. Noire (TBD)
 
 ## Thief - Games - Interactive Maps
