@@ -2,7 +2,10 @@
 <head>
 <!-- UTF META DATA -->
 <meta charset="UTF-8">
-    
+
+<!-- GENERATOR META DATA -->
+<meta name="Generator" content="Leaflet">
+
 <!-- ICONS META DATA -->
 <link rel="icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
 <link rel="shortcut icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
@@ -41,11 +44,11 @@
 <meta name="application-name" content="GTA IV Map">
 <meta name="msapplication-tooltip" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
 <meta name="msapplication-task" content="name=About;action-uri=https://warrenwoodhouse.blogspot.com/p/about.html;icon-uri=https://warrenwoodhouse.blogspot.com/favicon.ico">
-<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, G...">
+<meta name="news_keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTA IV, GTA Episodes from Liberty City, Liberty City Map, interactive map, interactive maps, game maps, game map, map, maps, gaming, warrenwoodhouse, #warrenwoodhouse, #GTAIV, #GTAEFLC, #GTAIVTLAD, #GTAIVTBOGT, Grand Theft Auto IV: The Lost and Damned, Grand Theft Auto IV: The Ballad of Gay Tony">
   
   <title>Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City Interactive Map - Maps - Warren Woodhouse</title>
   <meta name="description" content="An interactive map for the games Grand Theft Auto IV & Grand Theft Auto: Episodes from Liberty City, complete with points of interest, hidden packages and more.">
-  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTA IV, GTA Episodes from Liberty City, Liberty City Map, interactive map">
+  <meta name="keywords" content="Grand Theft Auto IV Interactive Map, Grand Theft Auto: Episodes from Liberty City Interactive Map, Grand Theft Auto IV, Grand Theft Auto: Episodes from Liberty City, GTA IV, GTA Episodes from Liberty City, Liberty City Map, interactive map, interactive maps, game maps, game map, map, maps, gaming, warrenwoodhouse, #warrenwoodhouse, #GTAIV, #GTAEFLC, #GTAIVTLAD, #GTAIVTBOGT, Grand Theft Auto IV: The Lost and Damned, Grand Theft Auto IV: The Ballad of Gay Tony">
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
@@ -777,9 +780,10 @@
                     ${loc.video ? `<iframe width="300px" height="170px" src="${loc.video}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : ''}
                     <div class="popup-text">
                         <strong>${loc.name}</strong>
-                        <small>ID: ${loc.id}</small>
-                        ${loc.description ? `<small>${loc.description}</small>` : ''}
-                        ${loc.dlc ? `<small>DLC: ${loc.dlc.toUpperCase()}</small>` : ''}
+                        <strong>ID: ${loc.id}</strong>
+                        ${loc.description ? `<strong>Description: ${loc.description}</strong>` : ''}
+                        ${loc.address ? `<strong>Address: ${loc.address}</strong>` : ''}
+                        ${loc.dlc ? `<strong>DLC Related: ${loc.dlc.toUpperCase()}</strong>` : ''}
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
