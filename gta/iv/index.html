@@ -228,14 +228,17 @@
             card: { name: "Cards", group: L.layerGroup() },
             safehouse: { name: "Safehouses", group: L.layerGroup() },
             clubhouse: { name: "Clubhouses", group: L.layerGroup() },
-            easteregg: { name: "Easter Eggs", group: L.layerGroup() }
+            easteregg: { name: "Easter Eggs", group: L.layerGroup() },
+            highway: { name: "Highways", group: L.layerGroup() },
+            beach: { name: "Beaches", group: L.layerGroup() }
         };
 
-        // DLC & Editions Tracking Filters
+        // DLCs & Editions Tracking Filters
         const dlcGroups = {
             tlad: { name: "DLC: The Lost and Damned", group: L.layerGroup() },
             tbogt: { name: "DLC: The Ballad of Gay Tony", group: L.layerGroup() },
-            eflc: { name: "Editions: Episodes from Liberty City", group: L.layerGroup() }
+            eflc: { name: "Edition: Episodes from Liberty City", group: L.layerGroup() },
+            gtao: { name: "Feature: Grand Theft Auto Online", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -306,6 +309,8 @@
             tladcomputer: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tlad-computer.png', iconSize: [52, 52] }),
             tbogtsafehouse: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-safehouse.png', iconSize: [52, 52], }),
             easteregg: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png', iconSize: [52, 52] }),
+            beach: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-beach.png', iconSize: [52, 52] }),
+            highway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ushighway.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -438,6 +443,24 @@
             { id: "lake-1", name: "North Lake", icon: "lake", type: "lake", y: 1183, x: 1228, image: "" },
             { id: "lake-2", name: "South Lake", icon: "lake", type: "lake", y: 1082, x: 1203, image: "" },
             { id: "lake-3", name: "Welham Lake", icon: "lake", type: "lake", y: 1630, x: 1585, image: "" },
+            // Beaches
+            { id: "beach-1", name: "Firefly Island Beach", icon: "beach", type: "beach", y: 248, x: 1843, image: "" },
+            { id: "beach-2", name: "Beechwood Beach", icon: "beach", type: "beach", y: 682, x: 2214, image: "" },
+            { id: "beach-3", name: "Meadow Beach", icon: "beach", type: "beach", y: 1199, x: 2138, image: "" },
+            { id: "beach-4", name: "Bohan Beach", icon: "beach", type: "beach", y: 1694, x: 1641, image: "" },
+            { id: "beach-5", name: "Alderney Beach", icon: "beach", type: "beach", y: 1418, x: 913, image: "" },
+            { id: "beach-6", name: "Westdyke Beach", icon: "beach", type: "beach", y: 1297, x: 548, image: "" },
+            // Highways
+            { id: "highway-1", name: "Broker-Dukes Expressway", icon: "highway", type: "highway", y: 526, x: 2061, image: "" },
+            { id: "highway-2", name: "Union Drive East", icon: "highway", type: "highway", y: 487, x: 1478, image: "" },
+            { id: "highway-3", name: "Union Drive West", icon: "highway", type: "highway", y: 851, x: 1035, image: "" },
+            { id: "highway-4", name: "Plumbers Skyway", icon: "highway", type: "highway", y: 981, x: 418, image: "" },
+            { id: "highway-5", name: "Northern Expressway", icon: "highway", type: "highway", y: 1567, x: 1560, image: "" },
+            { id: "highway-6", name: "Broker-Dukes Expressway", icon: "highway", type: "highway", y: 981, x: 1954, image: "" },
+            { id: "highway-7", name: "Francis International Airport Expressway", icon: "highway", type: "highway", y: 874, x: 2387, image: "" },
+            { id: "highway-8", name: "Algonquin Expressway", icon: "highway", type: "highway", y: 809, x: 2135, image: "" },
+            { id: "highway-9", name: "Broker Expressway", icon: "highway", type: "highway", y: 476, x: 2017, image: "" },
+            { id: "highway-10", name: "Charge Island Expressway", icon: "highway", type: "highway", y: 973, x: 1765, image: "" },
             // Regions
             { id: "region-1", name: "Broker", icon: "region", type: "region", y: 458, x: 1863, image: "" },
             { id: "region-2", name: "Dukes", icon: "region", type: "region", y: 965, x: 1946, image: "" },
