@@ -7,10 +7,10 @@
 <meta name="Generator" content="Leaflet">
 
 <!-- AUTHOR META DATA -->
-<meta name="Discord username" content="warrenwoodhouse">
+<meta name="Discord" content="warrenwoodhouse">
 <meta name="me" content="Warren Woodhouse">
 <link rel="profile" href="https://warrenwoodhouse.blogspot.com/p/profile.html"/>
-<link rel="YouTube channel" href="https://youtube.com/user/warrenwoodhouse"/>
+<link rel="YouTube" href="https://youtube.com/user/warrenwoodhouse"/>
   
 <!-- ICONS META DATA -->
 <link rel="icon" href="https://warrenwoodhouse.github.io/maps/gta/iv/favicon.ico" type="image/ico"/>
@@ -230,7 +230,12 @@
             clubhouse: { name: "Clubhouses", group: L.layerGroup() },
             easteregg: { name: "Easter Eggs", group: L.layerGroup() },
             highway: { name: "Highways", group: L.layerGroup() },
-            beach: { name: "Beaches", group: L.layerGroup() }
+            beach: { name: "Beaches", group: L.layerGroup() },
+            golf: { name: "Golf Clubs", group: L.layerGroup() },
+            vendor: { name: "Street Vendors", group: L.layerGroup() },
+            railway: { name: "Abandoned Railways", group: L.layerGroup() },
+            glitch: { name: "Glitches", group: L.layerGroup() },
+            binocular: { name: "Binoculars", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -310,7 +315,12 @@
             tbogtsafehouse: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-safehouse.png', iconSize: [52, 52], }),
             easteregg: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-easteregg.png', iconSize: [52, 52] }),
             beach: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-beach.png', iconSize: [52, 52] }),
-            highway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ushighway.png', iconSize: [52, 52] })
+            highway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ushighway.png', iconSize: [52, 52] }),
+            golf: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-tbogt-golf.png', iconSize: [52, 52] }),
+            vendor: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-vendor.png', iconSize: [52, 52] }),
+            binocular: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-binocular.png', iconSize: [52, 52] }),
+            glitch: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-glitch.png', iconSize: [52, 52] }),
+            railway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-rail.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -369,7 +379,7 @@
             { id: "park-1", name: "Outlook Park", icon: "park", type: "park", y: 590, x: 1848, image: "" },
             { id: "park-2", name: "Meadows Park", icon: "park", type: "park", y: 986, x: 2079, image: "" },
             { id: "park-3", name: "Gantry Park / Dukes Bay Park", icon: "park", type: "park", y: 1179, x: 1924, image: "" },
-            { id: "park-4", name: "Steinway Park", icon: "park", type: "park", y: 1100, x: 1802, image: "" },
+            { id: "park-4", name: "Steinway Park", icon: "park", type: "park", y: 1038, x: 1779, image: "" },
             { id: "park-5", name: "Welham Parkway", icon: "park", type: "park", y: 1632, x: 1637, image: "" },
             { id: "park-6", name: "Charge Island Park", icon: "park", type: "park", y: 1193, x: 1633, image: "" },
             { id: "park-7", name: "Middle Park", icon: "park", type: "park", y: 1112, x: 1212, image: "" },
@@ -381,6 +391,12 @@
             { id: "park-13", name: "Happiness Park", icon: "park", type: "park", y: 175, x: 1006, image: "" },
             { id: "park-14", name: "Alderney Promenade", icon: "park", type: "park", y: 1098, x: 912, image: "" },
             { id: "park-15", name: "Colony Park", icon: "park", type: "park", y: 835, x: 1557, image: "" },
+            { id: "park-16", name: "Dukes Park", icon: "park", type: "park", y: 920, x: 1741, image: "" },
+            { id: "park-17", name: "Rotterdam Hill Park", icon: "park", type: "park", y: 726, x: 1761, image: "" },
+            { id: "park-18", name: "Firefly Projects Park", icon: "park", type: "park", y: 527, x: 2005, image: "" },
+            { id: "park-19", name: "Lancet Courtyard Park", icon: "park", type: "park", y: 817, x: 1359, image: "" },
+            { id: "park-20", name: "Acter Park", icon: "park", type: "park", y: 780, x: 412, image: "" },
+            { id: "park-21", name: "Rubin Swinger Basketball Courts", icon: "park", type: "park", y: 1402, x: 1205, image: "" },
             // Islands
             { id: "island-1", name: "Alderney Island", icon: "island", type: "island", y: 929, x: 777, image: "" },
             { id: "island-2", name: "Algonquin Island", icon: "island", type: "island", y: 990, x: 999, image: "" },
