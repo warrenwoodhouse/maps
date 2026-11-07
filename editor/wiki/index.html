@@ -2,7 +2,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediaWiki Map Generator & Editor - Maps - Warren Woodhouse</title>
+  <title>MapThis! Map Generator & Editor for Leaflet and MediaWiki - Maps - Warren Woodhouse</title>
   <!-- Leaflet CSS & JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -40,10 +40,12 @@
 <body>
 
 <header>
-  <h1>Fandom / MediaWiki Map Editor</h1>
+  <h1>MapThis! Map Generator & Editor for Leaflet and MediaWiki</h1>
+  <h2>&copy;2026-present <a href="https://warrenwoodhouse.blogspot.com/">Warren Woodhouse</a>.</h2>
+  <h3><a href="https://youtube.com/user/warrenwoodhouse">CLICK HERE</a> to subscribe and support my work and creations.</h3>
   <div class="api-bar">
     <input type="text" id="wikiUrl" value="" placeholder="Wiki Base URL" style="width: 240px;">
-    <button class="btn" onclick="fetchMapList()">Load Wiki Maps</button>
+    <button class="btn" onclick="fetchMapList()">Load Maps</button>
     <select id="mapList" onchange="loadSelectedMap()" style="padding: 6px; background: #2a2a2a; color: #fff; border: 1px solid #444; border-radius: 4px;">
       <option value="">-- Select Map --</option>
     </select>
@@ -62,7 +64,7 @@
       </div>
       <div class="form-group">
         <label>Background Image URL / File Name</label>
-        <input type="text" id="mapImage" value="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.png" onchange="updateMapBackground()">
+        <input type="text" id="mapImage" value="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" onchange="updateMapBackground()">
       </div>
       <div class="form-group">
         <label>Origin Point</label>
@@ -116,12 +118,12 @@
       </div>
       <div style="display: flex; gap: 8px;">
         <div class="form-group" style="flex:1;">
-          <label>X Position</label>
-          <input type="number" id="markerX" readonly>
-        </div>
-        <div class="form-group" style="flex:1;">
           <label>Y Position</label>
           <input type="number" id="markerY" readonly>
+        </div>
+        <div class="form-group" style="flex:1;">
+          <label>X Position</label>
+          <input type="number" id="markerX" readonly>
         </div>
       </div>
       <button class="btn btn-success" style="width: 100%; margin-top: 4px;" onclick="saveActiveMarker()">Save Marker</button>
@@ -172,18 +174,18 @@
 
     // Map Click Listener to Create/Move Marker
     mapInstance.on('click', function(e) {
-      const x = Math.round(e.latlng.lng);
       const y = Math.round(e.latlng.lat);
+      const x = Math.round(e.latlng.lng);
       
-      document.getElementById('markerX').value = x;
       document.getElementById('markerY').value = y;
+      document.getElementById('markerX').value = x;
 
       if (!activeMarker) {
         activeMarker = L.marker([y, x], { draggable: true }).addTo(mapInstance);
         activeMarker.on('drag', function(evt) {
           const pos = evt.target.getLatLng();
-          document.getElementById('markerX').value = Math.round(pos.lng);
           document.getElementById('markerY').value = Math.round(pos.lat);
+          document.getElementById('markerX').value = Math.round(pos.lng);
         });
       } else {
         activeMarker.setLatLng([y, x]);
@@ -224,13 +226,13 @@
 
   // Marker Save Logic
   function saveActiveMarker() {
-    const x = parseFloat(document.getElementById('markerX').value);
     const y = parseFloat(document.getElementById('markerY').value);
+    const x = parseFloat(document.getElementById('markerX').value);
     const title = document.getElementById('markerTitle').value.trim() || 'Untitled Pin';
     const description = document.getElementById('markerDesc').value.trim();
     const category = document.getElementById('markerCat').value;
 
-    if (isNaN(x) || isNaN(y)) {
+    if (isNaN(y) || isNaN(x)) {
       alert('Please click on the map first to select coordinates!');
       return;
     }
@@ -239,8 +241,8 @@
       id: Date.now(),
       title,
       description,
-      x,
       y,
+      x,
       category
     };
 
@@ -253,8 +255,8 @@
     // Reset Form
     document.getElementById('markerTitle').value = '';
     document.getElementById('markerDesc').value = '';
-    document.getElementById('markerX').value = '';
     document.getElementById('markerY').value = '';
+    document.getElementById('markerX').value = '';
 
     redrawAllMarkers();
     generateJSON();
