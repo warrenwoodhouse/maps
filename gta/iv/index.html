@@ -236,7 +236,9 @@
             railway: { name: "Abandoned Railways", group: L.layerGroup() },
             glitch: { name: "Glitches", group: L.layerGroup() },
             binocular: { name: "Binoculars", group: L.layerGroup() },
-            multiplayer: { name: "Multiplayer", group: L.layerGroup() }
+            multiplayer: { name: "Multiplayer", group: L.layerGroup() },
+            laundromat: { name: "Laundromats", group: L.layerGroup() },
+            ferry: { name: "Ferry Stops & Ferry Terminals", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -244,7 +246,9 @@
             tlad: { name: "DLC: The Lost and Damned", group: L.layerGroup() },
             tbogt: { name: "DLC: The Ballad of Gay Tony", group: L.layerGroup() },
             eflc: { name: "Edition: Episodes from Liberty City", group: L.layerGroup() },
-            gtao: { name: "Feature: Grand Theft Auto Online & Multiplayer", group: L.layerGroup() }
+            gtao: { name: "Feature: Grand Theft Auto Online & Multiplayer", group: L.layerGroup() },
+            complete: { name: "Edition: Complete Edition", group: L.layerGroup() },
+            remake: { name: "Edition: Remake", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -323,7 +327,11 @@
             glitch: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-glitch.png', iconSize: [52, 52] }),
             railway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-rail.png', iconSize: [52, 52] }),
             multiplayer: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-multiplayer.png', iconSize: [52, 52] }),
-            laundromat: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-laundromat.png', iconSize: [52, 52] })
+            laundromat: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-laundromat.png', iconSize: [52, 52] }),
+            ferry: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ferrystop.png', iconSize: [52, 52] }),
+            ferryterminal: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-ferryterminal.png', iconSize: [52, 52] }),
+            bus: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-busstop.png', iconSize: [52, 52] }),
+            busdepot: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-busdepot.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -660,6 +668,24 @@
             { id: "gas-8", name: "Globe Oil Gas Station", icon: "globeoil", type: "gas", y: 542, x: 1076, image: "" },
             { id: "gas-9", name: "Globe Oil Gas Station", icon: "globeoil", type: "gas", y: 681, x: 616, image: "" },
             { id: "gas-10", name: "Terroil Gas Station", icon: "terroil", type: "gas", y: 1235, x: 1374, image: "" },
+            // Laundromats & Dry Cleaning Services
+            { id: "laundromat-1", name: "Vinewood Laundromat", icon: "laundromat", type: "laundromat", y: 483, x: 1842, image: "" },
+            { id: "laundromat-2", name: "Downtown Broker Laundromat", icon: "laundromat", type: "laundromat", y: 708, x: 1821, image: "" },
+            { id: "laundromat-3", name: "Coin Wash Laundromat", icon: "laundromat", type: "laundromat", y: 983, x: 1877, image: "" },
+            { id: "laundromat-4", name: "Come Clean Laundromat", icon: "laundromat", type: "laundromat", y: 665, x: 1974, image: "" },
+            { id: "laundromat-5", name: "Cayuga Avenue Laundromat", icon: "laundromat", type: "laundromat", y: 655, x: 2002, image: "" },
+            { id: "laundromat-6", name: "Earp Street Laundromat", icon: "laundromat", type: "laundromat", y: 670, x: 1908, image: "" },
+            { id: "laundromat-7", name: "Tinconderoga Avenue Laundromat", icon: "laundromat", type: "laundromat", y: 1018, x: 1898, image: "" },
+            { id: "laundromat-8", name: "Mr. Wong’s Launderette", icon: "laundromat", type: "laundromat", y: 706, x: 1938, image: "" },
+            { id: "laundromat-9", name: "Stains Laundromat", icon: "laundromat", type: "laundromat", y: 929, x: 518, image: "" },
+            { id: "laundromat-10", name: "Star Planet Laundromat", icon: "laundromat", type: "laundromat", y: 983, x: 1912, image: "" },
+            { id: "laundromat-11", name: "Capital Laundromat", icon: "laundromat", type: "laundromat", y: 698, x: 2043, image: "" },
+            { id: "laundromat-12", name: "Cleaners Laundromat", icon: "laundromat", type: "laundromat", y: 1491, x: 1631, image: "" },
+            { id: "laundromat-13", name: "Cockerell Avenue Laundromat", icon: "laundromat", type: "laundromat", y: 990, x: 533, image: "" },
+            { id: "laundromat-14", name: "Koresh Square Laundromat", icon: "laundromat", type: "laundromat", y: 1050, x: 594, image: "" },
+            { id: "laundromat-15", name: "San Quentin Avenue Laundromat", icon: "laundromat", type: "laundromat", y: 1366, x: 1581, image: "" },
+            { id: "laundromat-16", name: "Willis Laundromat", icon: "laundromat", type: "laundromat", y: 902, x: 2240, image: "" },
+            { id: "laundromat-17", name: "Alderney Laundromat", icon: "laundromat", type: "laundromat", y: 1231, x: 790, image: "" },
             // MAINTENANCE
             // Construction Sites
             { id: "construction-1", name: "Construction Site", icon: "construction", type: "construction", y: 696, x: 1295, image: "" },
@@ -775,6 +801,15 @@
             // Skycar Stations
             { id: "skycar-1", name: "Algonquin Island Skycar Station", icon: "skycar", type: "skycar", y: 767, x: 1415, image: "" },
             { id: "skycar-2", name: "Colony Island Skycar Station", icon: "skycar", type: "skycar", y: 770, x: 1545, image: "" },
+            // Ferry Stops & Ferry Terminals
+            { id: "ferry-1", name: "Liberty Ferry Terminal", icon: "ferryterminal", type: "ferry", y: 991, x: 831, image: "" },
+            { id: "ferry-2", name: "The Exchange Ferry Stop", icon: "ferry", type: "ferry", y: 320, x: 1131, image: "" },
+            { id: "ferry-3", name: "Castle Gardens Ferry Terminal", icon: "ferryterminal", type: "ferry", y: 171, x: 1407, image: "" },
+            { id: "ferry-4", name: "Charge Island Ferry Stop", icon: "ferry", type: "ferry", y: 1209, x: 1533, image: "" },
+            { id: "ferry-5", name: "Dukes Ferry Stop", icon: "ferry", type: "ferry", y: 1183, x: 1912, image: "" },
+            { id: "ferry-6", name: "East Island Ferry Terminal", icon: "ferryterminal", type: "ferry", y: 677, x: 1639, image: "" },
+            // Bus Stops & Bus Depots
+            { id: "bus-1", name: "FIA Francis International Airport Bus Stop", icon: "bus", type: "bus", y: 853, x: 2512, image: "" },
             // Abandoned Railway Lines
             { id: "railway-1", name: "Westminster Disused Subway Spur", icon: "railway", type: "railway", y: 618, x: 1102, image: "" },
             // LOCAL GOVERNMENT & PUBLIC SERVICES
@@ -816,6 +851,9 @@
             { id: "computer-3", name: "Computer", icon: "computer", type: "computer", y: 522, x: 1809, image: "" },
             // Binoculars
             { id: "binocular-1", name: "Binoculars", icon: "binocular", type: "binocular", y: 918, x: 1732, image: "" },
+            { id: "binocular-2", name: "Binoculars", icon: "binocular", type: "binocular", y: 304, x: 1879, image: "" },
+            { id: "binocular-3", name: "Binoculars", icon: "binocular", type: "binocular", y: 314, x: 1777, image: "" },
+            { id: "binocular-4", name: "Binoculars", icon: "binocular", type: "binocular", y: 372, x: 1704, image: "" },
             // SPAWNING
             // Vehicles
             { id: "vehicle-1", name: "Bus", icon: "vehicle", type: "vehicle", y: 792, x: 1849, image: "" },
