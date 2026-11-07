@@ -239,7 +239,15 @@
             multiplayer: { name: "Multiplayer", group: L.layerGroup() },
             laundromat: { name: "Laundromats", group: L.layerGroup() },
             ferry: { name: "Ferry Stops & Ferry Terminals", group: L.layerGroup() },
-            bus: { name: "Bus Stops & Bus Depots", group: L.layerGroup() }
+            bus: { name: "Bus Stops & Bus Depots", group: L.layerGroup() },
+            assassination: { name: "Assassinations", group: L.layerGroup() },
+            helitour: { name: "Heli Tour", group: L.layerGroup() },
+            boattour: { name: "Boat Tour", group: L.layerGroup() },
+            lawfirm: { name: "Law Firm", group: L.layerGroup() },
+            taxi: { name: "Taxi Service", group: L.layerGroup() },
+            turfwar: { name: "Turf War", group: L.layerGroup() },
+            jamaicangangbase: { name: "Jamaican Gang Base (Turf War)", group: L.layerGroup() },
+            russiangangbase: { name: "Russian Gang Base (Turf War)", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -736,6 +744,8 @@
             { id: "windowlift-9", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 978, x: 1105, image: "" },
             { id: "windowlift-10", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1073, x: 670, image: "" },
             { id: "windowlift-11", name: "Window Washing Lift", icon: "windowlift", type: "windowlift", y: 1199, x: 596, image: "" },
+            // Taxi Services
+            { id: "taxi-1", name: "Express Car Service (Also Known As: Bellic & Bellic Enterprises)", description: "Roman Bellic and his cousin Niko Bellic run this failing taxi cab service in the Russian occupied area of Hove Beach.", icon: "taxi", type: "taxi", y: 524, x: 1739, image: "" },
             // ENTERTAINMENT & NIGHTLIFE
             // Air Hockey
             { id: "airhockey-1", name: "Air Hockey", icon: "airhockey", type: "airhockey", dlc: "eflc", y: 310, x: 1919, image: "" },
@@ -949,6 +959,7 @@
                         <strong>${loc.name}</strong>
                         <strong>ID: ${loc.id}</strong>
                         ${loc.description ? `<strong>Description: ${loc.description}</strong>` : ''}
+                        ${loc.phone ? `<strong>Telephone Number: ${loc.phone}</strong>` : ''}
                         ${loc.address ? `<strong>Address: ${loc.address}</strong>` : ''}
                         ${loc.dlc ? `<strong>DLC Related: ${loc.dlc.toUpperCase()}</strong>` : ''}
                     </div>
