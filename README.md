@@ -8,8 +8,8 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 * greyed out means it’s part of the same item
 * WIP means Work in Progress, not 100% ready so expect errors and issues with these
 
-# Documentation & Plugins
-[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki/Documentation-&-Plugins) to see Documentation & Plugins for Leaflet maps that are available on my Warren Maps Wiki. These include scripts for allowing your maps to work on Amazon Silk along with various other data structures.
+# Documentations & Plugins
+[CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki/Documentation-&-Plugins) to see Documentations & Plugins for Leaflet maps that are available on my Warren Maps Wiki. These include scripts for allowing your maps to work on Amazon Silk along with various other data structures.
 
 # Contribute
 If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions).
@@ -24,29 +24,32 @@ Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.c
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/search/label/maps) to read the latest posts in the blog category.
 
 # Map Editor
-Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor/wiki) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
+Want to build your own maps easily with Leaflet? With local a save feature so you can continue where you left off on your current device? With an import feature that supports .json and .geojson? With the ability to export your map to wherever you fancy? Well look no further, [CLICK HERE](https://warrenwoodhouse.github.io/maps/editor) to try the freely available and freely accessible Map Editor! Your welcome! [Give Praise](https://github.com/warrenwoodhouse/forums/issues/new?title=Thanks%20Warren&assignees=&labels=feedback)
 
 ## Alternative Editors - Map Editor
 Here are some other editors and map generators by me as well!
 
-* [Basic Leaflet Editor & Generator](https://warrenwoodhouse.github.io/maps/editor)
-* [Alternative Leaflet Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/alternative)
-* [MediaWiki Leaflet Editor & Generator](https://warrenwoodhouse.github.io/maps/editor/wiki) (default editor for my maps)
-* Simple Leaflet Editor & Generator
+* [MapThis! for Leaflet and MediaWiki Generator & Editor](https://warrenwoodhouse.github.io/maps/editor): Default generator and editor for my Leaflet flat maps, perfect for those who are using the MediaWiki framework.
+* [MapThis! Simple Version for Leaflet Generator & Editor](https://warrenwoodhouse.github.io/maps/editor/simple): Default generator and editor for my Leaflet globe maps, perfect for beginners.
+* [MapThis! Alternative Version for Leaflet Generator & Editor](https://warrenwoodhouse.github.io/maps/editor/alternative)
+* [MapThis! for Leaflet and MediaWiki Generator & Editor](https://warrenwoodhouse.github.io/maps/editor/wiki): If you have a technician who can integrate this into your MediaWiki framework, you’ll be able to create interactive maps directly in your wiki.
 
 # My Inspirations
 I get inspired from seeing maps by MapGenie, Game-Maps, historical paper maps and maps by legendary cartographers such as Gerardus Mercator, Piri Reis and Maria Tharp, all of which contributed to the creation of various historically accurate world maps.
 
 ## My Favourite Mapping Sites
-* MapGenie
-* IGN Maps
-* Google Maps
-* Google MyMaps
-* Leaflet
-* OpenStreetMap
-* Historic England
-* Game-Maps
-* Wand Maps
+* [IGN MapGenie](https://www.mapgenie.io/)
+* [IGN Maps](https://ign.com/maps)
+* [Google Maps](https://google.com/maps)
+* [Google MyMaps](https://google.com/maps/d/u/0/)
+* [Google Earth (formerly: Keyhole)](https://earth.google.com/)
+* [Leaflet](https://www.leafletjs.com/)
+* [OpenStreetMap](https://www.openstreetmap.org/)
+* [Historic England](https://www.historic-england.org.uk/)
+* [Game-Maps.com](https://www.game-maps.com/)
+* [GameMaps.net](https://www.gamemaps.net/)
+* [GameMappers](https://www.gamemappers.com/)
+* [Wand Maps](https://wand.com/maps)
 
 # Community
 [CLICK HERE](https://reddit.com/r/warrenwoodhouse) to join the Community on Reddit and discuss topics of interest from gaming to maps and beyond!
