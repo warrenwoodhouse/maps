@@ -235,7 +235,8 @@
             vendor: { name: "Street Vendors", group: L.layerGroup() },
             railway: { name: "Abandoned Railways", group: L.layerGroup() },
             glitch: { name: "Glitches", group: L.layerGroup() },
-            binocular: { name: "Binoculars", group: L.layerGroup() }
+            binocular: { name: "Binoculars", group: L.layerGroup() },
+            multiplayer: { name: "Multiplayer", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -243,7 +244,7 @@
             tlad: { name: "DLC: The Lost and Damned", group: L.layerGroup() },
             tbogt: { name: "DLC: The Ballad of Gay Tony", group: L.layerGroup() },
             eflc: { name: "Edition: Episodes from Liberty City", group: L.layerGroup() },
-            gtao: { name: "Feature: Grand Theft Auto Online", group: L.layerGroup() }
+            gtao: { name: "Feature: Grand Theft Auto Online & Multiplayer", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -320,7 +321,8 @@
             vendor: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-vendor.png', iconSize: [52, 52] }),
             binocular: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-binocular.png', iconSize: [52, 52] }),
             glitch: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-glitch.png', iconSize: [52, 52] }),
-            railway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-rail.png', iconSize: [52, 52] })
+            railway: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-rail.png', iconSize: [52, 52] }),
+            multiplayer: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-multiplayer.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -362,6 +364,18 @@
             { id: "poi-33", name: "253 Liberty Lane", icon: "poi", type: "poi", y: 444, x: 1198, image: "" },
             { id: "poi-34", name: "Civic Citadel", icon: "poi", type: "poi", y: 444, x: 1273, image: "" },
             { id: "poi-35", name: "FIB Building", icon: "poi", type: "poi", y: 708, x: 1371, image: "" },
+            { id: "poi-36", name: "Funland Miniature Golf", icon: "poi", type: "poi", y: 313, x: 1899, image: "" },
+            { id: "poi-37", name: "The Platypus", icon: "poi", type: "poi", y: 532, x: 1687, image: "" },
+            { id: "poi-38", name: "LTA Liberty City Transport Authority", icon: "poi", type: "poi", y: 658, x: 1820, image: "" },
+            { id: "poi-39", name: "Chinatown Torii Gate", icon: "poi", type: "poi", y: 444, x: 1385, image: "" },
+            { id: "poi-40", name: "Broker Bridge Gate", icon: "poi", type: "poi", y: 446, x: 1398, image: "" },
+            { id: "poi-41", name: "The Zirconium Building", icon: "poi", type: "poi", y: 741, x: 1319, image: "" },
+            { id: "poi-42", name: "The Triangle Building", icon: "poi", type: "poi", y: 600, x: 1279, image: "" },
+            { id: "poi-43", name: "Dragon Heart Plaza", icon: "poi", type: "poi", y: 433, x: 1372, image: "" },
+            { id: "poi-44", name: "150 Diamond Street", icon: "poi", type: "poi", y: 435, x: 1311, image: "" },
+            { id: "poi-45", name: "Albany Avenue Oriental Building", icon: "poi", type: "poi", y: 482, x: 1406, image: "" },
+            { id: "poi-46", name: "Bridge Lane North Building", icon: "poi", type: "poi", y: 478, x: 1425, image: "" },
+            { id: "poi-47", name: "Bank of Liberty", icon: "poi", type: "poi", y: 415, x: 1314, image: "" },
             // Safehouses
             { id: "safehouse-1", name: "Broker Safehouse", icon: "safehouse", type: "safehouse", y: 390, x: 1782, image: "" },
             { id: "safehouse-2", name: "South Bohan Safehouse", icon: "safehouse", type: "safehouse", y: 1373, x: 1626, image: "" },
@@ -397,6 +411,7 @@
             { id: "park-19", name: "Lancet Courtyard Park", icon: "park", type: "park", y: 817, x: 1359, image: "" },
             { id: "park-20", name: "Acter Park", icon: "park", type: "park", y: 780, x: 412, image: "" },
             { id: "park-21", name: "Rubin Swinger Basketball Courts", icon: "park", type: "park", y: 1402, x: 1205, image: "" },
+            { id: "park-22", name: "Westminster Park", icon: "park", type: "park", y: 619, x: 1106, image: "" },
             // Islands
             { id: "island-1", name: "Alderney Island", icon: "island", type: "island", y: 929, x: 777, image: "" },
             { id: "island-2", name: "Algonquin Island", icon: "island", type: "island", y: 990, x: 999, image: "" },
@@ -619,15 +634,17 @@
             { id: "parking-30", name: "Hooper Street-Dukes Boulevard Car Park", icon: "parking", type: "parking", y: 940, x: 1913, image: "" },
             { id: "parking-31", name: "Freetown Avenue Car Park", icon: "parking", type: "parking", y: 858, x: 2220, image: "" },
             { id: "parking-32", name: "Silverback Studios Car Park", icon: "parking", type: "parking", y: 952, x: 1862, image: "" },
-            { id: "parking-33", name: "FMA Park", icon: "fma", type: "parking", y: 768, x: 1071, image: "" },
-            { id: "parking-34", name: "FMA Park", icon: "fma", type: "parking", y: 758, x: 1113, image: "" },
-            { id: "parking-35", name: "FMA Park", icon: "fma", type: "parking", y: 886, x: 1147, image: "" },
-            { id: "parking-36", name: "FMA Park", icon: "fma", type: "parking", y: 751, x: 1187, image: "" },
-            { id: "parking-37", name: "FMA Park", icon: "fma", type: "parking", y: 481, x: 1426, image: "" },
-            { id: "parking-38", name: "FMA Park", icon: "fma", type: "parking", y: 618, x: 1104, image: "" },
-            { id: "parking-39", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1244, image: "" },
-            { id: "parking-40", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1153, image: "" },
-            { id: "parking-41", name: "FMA Park", icon: "fma", type: "parking", y: 1016, x: 571, image: "" },
+            { id: "parking-33", name: "Francis International Airport Overnight & Long Stay Parking", icon: "parking", type: "parking", y: 794, x: 2481, image: "" },
+            { id: "parking-34", name: "Colony Island Car Park", icon: "parking", type: "parking", y: 807, x: 1553, image: "" },
+            { id: "parking-35", name: "FMA Park", icon: "fma", type: "parking", y: 768, x: 1071, image: "" },
+            { id: "parking-36", name: "FMA Park", icon: "fma", type: "parking", y: 758, x: 1113, image: "" },
+            { id: "parking-37", name: "FMA Park", icon: "fma", type: "parking", y: 886, x: 1147, image: "" },
+            { id: "parking-38", name: "FMA Park", icon: "fma", type: "parking", y: 751, x: 1187, image: "" },
+            { id: "parking-39", name: "FMA Park", icon: "fma", type: "parking", y: 481, x: 1426, image: "" },
+            { id: "parking-40", name: "FMA Park", icon: "fma", type: "parking", y: 618, x: 1104, image: "" },
+            { id: "parking-41", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1244, image: "" },
+            { id: "parking-42", name: "FMA Park", icon: "fma", type: "parking", y: 938, x: 1153, image: "" },
+            { id: "parking-43", name: "FMA Park", icon: "fma", type: "parking", y: 1016, x: 571, image: "" },
             // Toll Booths
             { id: "toll-1", name: "Toll Booth", icon: "toll", type: "toll", y: 1062, x: 1600, image: "" },
             { id: "toll-2", name: "Toll Booth", icon: "toll", type: "toll", y: 1155, x: 2008, image: "" },
@@ -711,7 +728,7 @@
             { id: "police-1", name: "Broker Police Precinct", icon: "police", type: "police", y: 484, x: 1778, image: "" },
             { id: "police-2", name: "Schottler Police Precinct", icon: "police", type: "police", y: 602, x: 1946, image: "" },
             { id: "police-3", name: "Dukes Police Precinct", icon: "police", type: "police", y: 930, x: 1949, image: "" },
-            { id: "police-4", name: "North Bohan Police Precinct", icon: "police", type: "police", y: 1622, x: 1828, image: "" },
+            { id: "police-4", name: "Northern Gardens Police Precinct", icon: "police", type: "police", y: 1622, x: 1828, image: "" },
             { id: "police-5", name: "South Bohan Police Precinct", icon: "police", type: "police", y: 1464, x: 1546, image: "" },
             { id: "police-6", name: "North Holland Police Precinct", icon: "police", type: "police", y: 1347, x: 1330, image: "" },
             { id: "police-7", name: "Varsity Heights Police Precinct", icon: "police", type: "police", y: 1221, x: 1111, image: "" },
@@ -723,6 +740,7 @@
             { id: "police-13", name: "Alderney Police Precinct", icon: "police", type: "police", y: 1302, x: 852, image: "" },
             { id: "police-14", name: "Tudor Police Precinct", icon: "police", type: "police", y: 795, x: 436, image: "" },
             { id: "police-15", name: "Acter Police Precinct", icon: "police", type: "police", y: 522, x: 692, image: "" },
+            { id: "police-16", name: "FIA Francis International Airport Police Precinct", icon: "police", type: "police", y: 876, x: 2431, image: "" },
             // PUBLIC TRANSPORT
             // Subway Stations & El-Train Stations
             { id: "subway-1", name: "Hove Beach Station", icon: "38", type: "subway", y: 360, x: 1847, image: "" },
@@ -831,7 +849,8 @@
             // Easter Eggs
             { id: "easteregg-1", name: "AC/DC “For Those About to Rock (We Salute You)” Easter Egg", description: "A monument with the inscription “Roll of Honor - War of the Deadline 1869-1869” referencing the band AC/DC.", icon: "easteregg", type: "easteregg", y: 1013, x: 2014 },
             // Glitches
-            { id: "glitch-1", name: "Swingset Glitch", icon: "glitch", type: "glitch", y: 527, x: 2011, image: "" }
+            { id: "glitch-1", name: "Swingset Glitch", icon: "glitch", type: "glitch", y: 527, x: 2011, image: "" },
+            { id: "glitch-2", name: "Express Car Service Office Door Glitch", icon: "glitch", type: "glitch", y: 524, x: 1739, image: "" }
         ];
 
         // 7. Registry to look up markers by ID
