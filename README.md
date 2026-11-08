@@ -33,7 +33,11 @@ If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/
 * [Geographic Information System - Wikipedia](https://en.wikipedia.org/wiki/Geographic_information_system)
 
 # Issues
-* [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/maps/issues/8) (help wanted)
+If you run into any issues, please [CLICK HERE](https://github.com/warrenwoodhouse/forums/issues/new?labels=bug,maps&title=) to create a New Issue Ticket or [CLICK HERE](https://github.com/warrenwoodhouse/forums/labels/maps) to find existing solutions.
+
+## Issues Tracker
+* [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/forums/issues/32) (help wanted)
+* [Suggest a Location > Assassin’s Creed Real Life Map](https://github.com/warrenwoodhouse/forums/issues/15) (help wanted)
 
 # Support Me
 ## Subscribe
