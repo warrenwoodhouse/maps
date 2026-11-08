@@ -86,6 +86,9 @@ I get inspired from seeing maps by MapGenie, Game-Maps, historical paper maps an
 ## Discussions
 [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions) to join the Discussions.
 
+## Real Filming Locations Discussions
+add topics here
+
 # Interactive Maps
 Here is the full list of Interactive Maps. Enjoy!
 
