@@ -4,23 +4,42 @@
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
-# Denotes
+# Information
+# About
+Warren Maps began as a simple idea: to bring static drawn maps to my gaming site on Piczo.
+
+Since 2001, my blog grew to include game guides, tutorials and maps by the late part of the year. In 2007, I set up a blog called Real Filming Locations which includes real life locations from films, tv series and video games. I’ve expanded my blog to include interactive maps built using Google MyMaps. On the 12th September 2012, Piczo closed down permanently. By then, my blog was already fully migrated to Webs/Freewebs. Webs closed down in 2023 and my site by then already moved to Blogger and GitHub.
+
+## Denotes
 * greyed out means it’s part of the same item
 * WIP means Work in Progress, not 100% ready so expect errors and issues with these
 
 # Documentations & Plugins
 [CLICK HERE](https://github.com/warrenwoodhouse/maps/wiki/Documentation-&-Plugins) to see Documentations & Plugins for Leaflet maps that are available on my Warren Maps Wiki. These include scripts for allowing your maps to work on Amazon Silk along with various other data structures.
 
+## Plugins
+* [Amazon Silk Plugin for Leaflet](https://github.com/warrenwoodhouse/maps/tree/main/plugins/amazonsilk)
+
+## Tools & Plugins by Others that are Useful
+* [MAGIC API - DEFRA Department for Environment, Food & Rural Affairs - Departments - UK Government](https://magic.defra.gov.uk/)
+* [ArcGIS - GIS Solutions](https://www.gis-solutions.co.uk/webgis.htm)
+
 # Contribute
 If you would like to help, [CLICK HERE](https://github.com/warrenwoodhouse/maps/discussions).
+
+## Contribute to the Leaflet Mapping Project
+* [Leaflet on GIS Stack Exchange](https://gis.stackexchange.com/questions/tagged/leaflet)
+* [Contribute to Leaflet](https://github.com/Leaflet/Leaflet/blob/main/CONTRIBUTING.md)
+* [Geographic Information System - Wikipedia](https://en.wikipedia.org/wiki/Geographic_information_system)
 
 # Issues
 * [I need help with importing my Fandom Wiki maps to my GitHub repository](https://github.com/warrenwoodhouse/maps/issues/8) (help wanted)
 
-# Subscribe
+# Support Me
+## Subscribe
 Please feel free to subscribe to my YouTube by [CLICKING HERE](https://youtube.com/user/warrenwoodhouse), you can also check out my blog by [CLICKING HERE](https://warrenwoodhouse.blogspot.com/search/label/maps).
 
-# Blog
+## Blog
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/search/label/maps) to read the latest posts in the blog category.
 
 # Map Editor
@@ -287,7 +306,7 @@ I'll add some here
 * [Fort Independence in Boston, MA.](https://warrenwoodhouse.github.io/maps/fortindependence) (converted from Google MyMaps)
 
 ## Service - Interactive Maps
-[Northern Powergrid’s Power Cuts Map](https://warrenwoodhouse.github.io/maps/northernpowergrid/powercuts) (WIP)
+[Northern Powergrid’s Power Cuts Map](https://warrenwoodhouse.github.io/maps/northernpowergrid/powercuts) (WIP) (originally created by Northern Powergrid, Ltd.)
 
 # Static Game Maps
 [CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
@@ -341,8 +360,9 @@ I'll add some here
         });
 ```
 
-# License
+# Important Boffin Data
+## License
 [CLICK HERE](https://warrenwoodhouse.blogspot.com/license) to read the License Agreement.
 
-# Copyright
-All maps and content herein &copy;2001-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express. Some maps are by others.
+## Copyright
+All maps and content herein &copy;2001-present [Warren Woodhouse](https://warrenwoodhouse.blogspot.com/). Maps made using Leaflet. Map icons created using Adobe Express. Some maps were originally created by other developers and have since gone under changes to be improved and developed here.
