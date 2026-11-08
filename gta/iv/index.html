@@ -184,7 +184,7 @@
             restaurant: { name: "Restaurants", group: L.layerGroup() },
             cluckinbell: { name: "Cluckin’ Bell", group: L.layerGroup() },
             burgershot: { name: "Burger Shot", group: L.layerGroup() },
-            hiddenpackage: { name: "Hidden Packages", group: L.layerGroup() },
+            flyingrat: { name: "Hidden Packages", group: L.layerGroup() },
             police: { name: "Police Stations", group: L.layerGroup() },
             fire: { name: "Fire Departments", group: L.layerGroup() },
             hospital: { name: "Hospitals", group: L.layerGroup() },
@@ -233,7 +233,7 @@
             beach: { name: "Beaches", group: L.layerGroup() },
             golf: { name: "Golf Clubs", group: L.layerGroup() },
             vendor: { name: "Street Vendors", group: L.layerGroup() },
-            railway: { name: "Abandoned Railways", group: L.layerGroup() },
+            railway: { name: "Abandoned Railways & Abandoned Railway Lines", group: L.layerGroup() },
             glitch: { name: "Glitches", group: L.layerGroup() },
             binocular: { name: "Binoculars", group: L.layerGroup() },
             multiplayer: { name: "Multiplayer", group: L.layerGroup() },
@@ -241,13 +241,18 @@
             ferry: { name: "Ferry Stops & Ferry Terminals", group: L.layerGroup() },
             bus: { name: "Bus Stops & Bus Depots", group: L.layerGroup() },
             assassination: { name: "Assassinations", group: L.layerGroup() },
-            helitour: { name: "Heli Tour", group: L.layerGroup() },
-            boattour: { name: "Boat Tour", group: L.layerGroup() },
-            lawfirm: { name: "Law Firm", group: L.layerGroup() },
-            taxi: { name: "Taxi Service", group: L.layerGroup() },
+            helitour: { name: "Heli Tours", group: L.layerGroup() },
+            boattour: { name: "Boat Tours", group: L.layerGroup() },
+            lawfirm: { name: "Law Firms", group: L.layerGroup() },
+            taxi: { name: "Taxi Services", group: L.layerGroup() },
             turfwar: { name: "Turf War", group: L.layerGroup() },
-            jamaicangangbase: { name: "Jamaican Gang Base (Turf War)", group: L.layerGroup() },
-            russiangangbase: { name: "Russian Gang Base (Turf War)", group: L.layerGroup() }
+            jamaicangangbase: { name: "Jamaican Gang Bases (Turf War)", group: L.layerGroup() },
+            russiangangbase: { name: "Russian Gang Bases (Turf War)", group: L.layerGroup() },
+            bank: { name: "Banks", group: L.layerGroup() },
+            education: { name: "Schools, Colleges, Universities & Educational Institutions", group: L.layerGroup() },
+            museum: { name: "Museums", group: L.layerGroup() },
+            art: { name: "Art Galleries", group: L.layerGroup() },
+            library: { name: "Libraries", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -271,7 +276,7 @@
             restaurant: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-restaurant.png', iconSize: [42, 42] }),
             cluckinbell: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-cluckinbell.png', iconSize: [42, 42] }),
             burgershot: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-burgershot.png', iconSize: [42, 42] }),
-            hiddenpackage: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png', iconSize: [52, 52] }),
+            flyingrat: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hiddenpackage.png', iconSize: [52, 52] }),
             police: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png', iconSize: [52, 52] }),
             fire: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png', iconSize: [52, 52] }),
             hospital: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png', iconSize: [52, 52] }),
@@ -370,7 +375,12 @@
             smg: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon-smg.png', iconSize: [52, 52] }),
             sniperrifle: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon-sniperrifle.png', iconSize: [52, 52] }),
             jamaicangangbaseturfwar: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-multiplayer-turfwar-jamaicangangbase.png', iconSize: [52, 52] }),
-            russiangangbaseturfwar: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-multiplayer-turfwar-russiangangbase.png', iconSize: [52, 52] })
+            russiangangbaseturfwar: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-multiplayer-turfwar-russiangangbase.png', iconSize: [52, 52] }),
+            bank: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-bank.png', iconSize: [52, 52] }),
+            museum: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-museum.png', iconSize: [52, 52] }),
+            library: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-library.png', iconSize: [52, 52] }),
+            education: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-education.png', iconSize: [52, 52] }),
+            art: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-art.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -629,6 +639,15 @@
             { id: "cemetery-3", name: "Suffolk Church Cemetery", icon: "cemetery", type: "cemetery", y: 506, x: 1155 },
             { id: "cemetery-4", name: "Colony Island Cemetery", icon: "cemetery", type: "cemetery", y: 825, x: 1558 },
             { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 },
+            // Banks
+            { id: "bank-1", name: "Bank of Liberty", enterable: "yes via glitching", icon: "bank", type: "bank", y: 415, x: 1314, image: "https://warrenwoodhouse.github.io/maps/gta/iv/images-tbogt-bankofliberty.gif" },
+            // Museums
+            { id: "museum-1", name: "LTA Museum", enterable: "no", icon: "museum", type: "museum", y: 660, x: 1826, image: "" },
+            // Libraries
+            { id: "library-1", name: "Broker Library", enterable: "no", icon: "library", type: "library", y: 633, x: 1901, image: "" },
+            // Art Galleries
+            { id: "art-1", name: "NUCA National Union of Contemporary Arts", icon: "art", type: "art", y: 1006, x: 1988, image: "" },
+            { id: "art-2", name: "Randolf Art Center", icon: "art", type: "art", y: 1002, x: 1071, image: "" },
             // RESTAURANTS
             // Restaurants
             // Cluckin’ Bell
@@ -852,7 +871,8 @@
             { id: "ferry-6", name: "East Island Ferry Terminal", icon: "ferryterminal", type: "ferry", y: 677, x: 1639, image: "" },
             // Bus Stops & Bus Depots
             { id: "bus-1", name: "FIA Francis International Airport Bus Stop", icon: "bus", type: "bus", y: 853, x: 2512, image: "" },
-            // Abandoned Railway Lines
+            { id: "bus-2", name: "Broker Bus Depot", icon: "busdepot", type: "bus", y: 789, x: 1858, image: "" },
+            // Abandoned Railways & Abandoned Railway Lines
             { id: "railway-1", name: "Westminster Disused Subway Spur", icon: "railway", type: "railway", y: 618, x: 1102, image: "" },
             // LOCAL GOVERNMENT & PUBLIC SERVICES
             // Local Government & Public Services
