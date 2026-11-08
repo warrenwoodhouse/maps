@@ -260,6 +260,11 @@
             remake: { name: "Edition: Remake", group: L.layerGroup() }
         };
 
+        // Enterable Locations Tracking Filter
+        const enterableGroups = {
+            enterable: { name: "Enterable", group: L.layerGroup() }
+        };
+
         // Create custom icons for each marker type
         const customIcons = {
             poi: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-poi.png', iconSize: [42, 42] }),
@@ -948,6 +953,7 @@
         const urlMarkerId = urlParams.get('marker');
         const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
         const urlDlc = urlParams.get('dlc') ? urlParams.get('dlc').split(',') : null;
+        const urlEnterable = urlParams.get('enterable') ? urlParama.get('enterable').split(',') : null;
 
         // 9. Add Markers & Populate Layer Groups
         locations.forEach(loc => {
@@ -962,6 +968,7 @@
                         ${loc.phone ? `<strong>Telephone Number: ${loc.phone}</strong>` : ''}
                         ${loc.address ? `<strong>Address: ${loc.address}</strong>` : ''}
                         ${loc.dlc ? `<strong>DLC Related: ${loc.dlc.toUpperCase()}</strong>` : ''}
+                        ${loc.enterable ? `<strong>Can this location be Entered?: ${loc.enterable.toUpperCase()}</strong>` : ''}
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
@@ -969,7 +976,7 @@
 
             const markerIcon = customIcons[loc.icon] || customIcons[loc.type] || customIcons.poi;
             const marker = L.marker([loc.y, loc.x], { icon: markerIcon }).bindPopup(popupContent);
-            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, coords: [loc.y, loc.x] };
+            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, enterable: loc.enterable, coords: [loc.y, loc.x] };
 
             // Add marker to category filter group
             if (filterGroups[loc.type]) {
@@ -979,6 +986,11 @@
             // Add marker to DLC filter tracking group if specified
             if (loc.dlc && dlcGroups[loc.dlc]) {
                 marker.addTo(dlcGroups[loc.dlc].group);
+            }
+
+            // Add marker to Enterable filter tracking group if specified
+            if (loc.enterable && enterableGroups[loc.enterable]) {
+                marker.addTo(enterableGroups[loc.enterable].group);
             }
 
             // Update URL when a marker popup is opened/closed
@@ -1021,6 +1033,19 @@
             }
         });
 
+        // Add Enterable filter tracking list
+        Object.keys(enterableGroups).forEach(key => {
+            const enterableInfo = enterableGroups[key];
+            layerControls[enterableInfo.name] = enterableInfo.group;
+
+            if (urlEnterable && urlEnterable.includes(key)) {
+                enterableInfo.group.addTo(map);
+            } else if (!urlFilters && !urlEnterable) {
+                // By default display all Enterable filters on initial load
+                enterableInfo.group.addTo(map);
+            }
+        });
+
         // Add Leaflet Layer Control
         L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
 
@@ -1031,6 +1056,7 @@
         function updateURL() {
             const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
             const activeDlcs = Object.keys(dlcGroups).filter(key => map.hasLayer(dlcGroups[key].group));
+            const activeEnterables = Object.keys(enterableGroups).filter(key => map.hasLayer(enterableGroups[key].group));
             const params = new URLSearchParams();
 
             if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
@@ -1039,6 +1065,10 @@
 
             if (activeDlcs.length > 0 && activeDlcs.length < Object.keys(dlcGroups).length) {
                 params.set('dlc', activeDlcs.join(','));
+            }
+
+            if (activeEnterables.length > 0 && activeEnterables.length < Object.keys(enterableGroups).length) {
+                params.set('enterable', activeEnterables.join(','));
             }
 
             if (currentOpenMarkerId) {
@@ -1073,6 +1103,11 @@
             // Ensure target DLC tracking layer group is visible if applicable
             if (target.dlc && dlcGroups[target.dlc] && !map.hasLayer(dlcGroups[target.dlc].group)) {
                 dlcGroups[target.dlc].group.addTo(map);
+            }
+
+            // Ensure target Enterable tracking layer group is visible if applicable
+            if (target.enterable && enterableGroups[target.enterable] && !map.hasLayer(enterableGroups[target.enterable].group)) {
+                enterableGroups[target.enterable].group.addTo(map);
             }
 
             map.setView(target.coords, 1);
