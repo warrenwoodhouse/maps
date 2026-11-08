@@ -5,7 +5,7 @@
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
 # Information
-# About
+## About
 Warren Maps began as a simple idea: to bring static drawn maps to my gaming site on Piczo.
 
 Since 2001, my blog grew to include game guides, tutorials and maps by the late part of the year. In 2007, I set up a blog called Real Filming Locations which includes real life locations from films, tv series and video games. I’ve expanded my blog to include interactive maps built using Google MyMaps. On the 12th September 2012, Piczo closed down permanently. By then, my blog was already fully migrated to Webs/Freewebs. Webs closed down in 2023 and my site by then already moved to Blogger and GitHub.
