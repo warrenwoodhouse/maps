@@ -1,5 +1,7 @@
 # Warren Maps - Warren Woodhouse
-* [Jump to the list of interactive maps](#interactive-maps)
+![logo](https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/logo-maps.png)
+
+[CLICK HERE](#interactive-maps) to jump directly to the list of interactive maps.
 
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
@@ -299,30 +301,32 @@ Here is the full list of Interactive Maps. Enjoy!
 * [Submerged](https://warrenwoodhouse.github.io/maps/submerged) (WIP)
 * [Submerged: Hidden Depths](https://warrenwoodhouse.github.io/maps/submerged/hiddendepths)
 
-## TV Series - Interactive Maps
+# Static Game Maps
+[CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
+
+# Real Life Maps
+![logo](https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/logo-realfilminglocations-maps.png)
+
+* Everybody’s Gone to the Rapture
+* Atomfall
+* The Order 1886
+* Tomb Raider Franchise
+
+## TV Series - Real Life Maps
 * [Coronation Street](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet) (WIP, converting from Google MyMaps)
 * > [Street Finder Map by The Sun Newspaper (1996)](https://warrenwoodhouse.github.io/maps/reallife/coronationstreet/streetfinder) (WIP)
 
-## Films - Interactive Maps
+## Films - Real Life Maps
 I'll add some here
 
-## Historical - Interactive Maps
+## Historical - Real Life Maps
 ### Boston, MA.
 * [Battle of Bunker Hill, Charlestown, MA.](https://warrenwoodhouse.github.io/maps/battleofbunkerhill) (converted from Google MyMaps)
 * [Fort Hill in Boston, MA.](https://warrenwoodhouse.github.io/maps/forthill) (converted from Google MyMaps)
 * [Fort Independence in Boston, MA.](https://warrenwoodhouse.github.io/maps/fortindependence) (converted from Google MyMaps)
 
-## Service - Interactive Maps
+## Service - Real Life Maps
 [Northern Powergrid’s Power Cuts Map](https://warrenwoodhouse.github.io/maps/northernpowergrid/powercuts) (WIP) (originally created by Northern Powergrid, Ltd.)
-
-# Static Game Maps
-[CLICK HERE](https://warrenwoodhouse.github.io/maps/static) to see all of the static game maps.
-
-# Real Life Maps
-* Everybody’s Gone to the Rapture
-* Atomfall
-* The Order 1886
-* Tomb Raider Franchise
 
 ## Creations - Real Life Maps
 * [Ouseburn Farm Water Feature by Warren Woodhouse](https://warrenwoodhouse.github.io/maps/reallife/ouseburnfarmwaterfeature) (converted from Google MyMaps)
