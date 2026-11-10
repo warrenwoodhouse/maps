@@ -188,6 +188,7 @@
             police: { name: "Police Stations", group: L.layerGroup() },
             fire: { name: "Fire Departments", group: L.layerGroup() },
             hospital: { name: "Hospitals", group: L.layerGroup() },
+            paynspray: { name: "Pay ’n’ Sprays", group: L.layerGroup() },
             weapon: { name: "Weapons", group: L.layerGroup() },
             landmark: { name: "Landmarks", group: L.layerGroup() },
             park: { name: "Parks", group: L.layerGroup() },
@@ -252,7 +253,8 @@
             education: { name: "Schools, Colleges, Universities & Educational Institutions", group: L.layerGroup() },
             museum: { name: "Museums", group: L.layerGroup() },
             art: { name: "Art Galleries", group: L.layerGroup() },
-            library: { name: "Libraries", group: L.layerGroup() }
+            library: { name: "Libraries", group: L.layerGroup() },
+            showroom: { name: "Car Showrooms", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -280,6 +282,7 @@
             police: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-police.png', iconSize: [52, 52] }),
             fire: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-fire.png', iconSize: [52, 52] }),
             hospital: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-hospital.png', iconSize: [52, 52] }),
+            paynspray: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-paynspray.png', iconSize: [52, 52] }),
             weapon: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-weapon.png', iconSize: [52, 52] }),
             landmark: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-landmark.png', iconSize: [52, 52] }),
             park: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-park.png', iconSize: [52, 52] }),
@@ -380,7 +383,9 @@
             museum: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-museum.png', iconSize: [52, 52] }),
             library: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-library.png', iconSize: [52, 52] }),
             education: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-education.png', iconSize: [52, 52] }),
-            art: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-art.png', iconSize: [52, 52] })
+            art: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-art.png', iconSize: [52, 52] }),
+            showroom: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-showroom.png', iconSize: [52, 52] }),
+            toilet: L.icon({ iconUrl: 'https://warrenwoodhouse.github.io/maps/gta/iv/icon-toilet.png', iconSize: [52, 52] })
         };
 
         // 6. Location Database
@@ -434,6 +439,12 @@
             { id: "poi-45", name: "Albany Avenue Oriental Building", icon: "poi", type: "poi", y: 482, x: 1406, image: "" },
             { id: "poi-46", name: "Bridge Lane North Building", icon: "poi", type: "poi", y: 478, x: 1425, image: "" },
             { id: "poi-47", name: "Bank of Liberty", enterable: "yes via glitching", icon: "poi", type: "poi", y: 415, x: 1314, image: "https://warrenwoodhouse.github.io/maps/gta/iv/images-tbogt-bankofliberty.gif" },
+            { id: "poi-48", name: "East Holland Cinema", icon: "poi", type: "poi", y: 1405, x: 1194, image: "" },
+            { id: "poi-49", name: "Middle Park Toilet Block", icon: "poi", type: "poi", y: 1060, x: 1199, image: "" },
+            { id: "poi-50", name: "Cleethorpes Tower", icon: "poi", type: "poi", y: 992, x: 1321, image: "" },
+            { id: "poi-51", name: "Africa Tower", icon: "poi", type: "poi", y: 916, x: 1370, image: "" },
+            { id: "poi-52", name: "The Panoramic Towers", icon: "poi", type: "poi", y: 901, x: 1352, image: "" },
+            { id: "poi-53", name: "Jantet’s", icon: "poi", type: "poi", y: 1004, x: 1372, image: "" },
             // Safehouses
             { id: "safehouse-1", name: "Broker Safehouse", enterable: "yes, story specific", icon: "safehouse", type: "safehouse", y: 390, x: 1782, image: "" },
             { id: "safehouse-2", name: "South Bohan Safehouse", enterable: "yes", icon: "safehouse", type: "safehouse", y: 1373, x: 1626, image: "" },
@@ -641,13 +652,20 @@
             { id: "cemetery-5", name: "Leftwood Church Cemetery", icon: "cemetery", type: "cemetery", y: 1376, x: 757 },
             // Banks
             { id: "bank-1", name: "Bank of Liberty", enterable: "yes via glitching", icon: "bank", type: "bank", y: 415, x: 1314, image: "https://warrenwoodhouse.github.io/maps/gta/iv/images-tbogt-bankofliberty.gif" },
+            { id: "bank-2", name: "Bank of Liberty (East Holland Branch)", icon: "bank", type: "bank", y: 1411, x: 1195, image: "" },
             // Museums
             { id: "museum-1", name: "LTA Museum", enterable: "no", icon: "museum", type: "museum", y: 660, x: 1826, image: "" },
+            { id: "museum-2", name: "The Libertonian", icon: "museum", type: "museum", y: 1119, x: 1265, image: "" },
             // Libraries
             { id: "library-1", name: "Broker Library", enterable: "no", icon: "library", type: "library", y: 633, x: 1901, image: "" },
             // Art Galleries
             { id: "art-1", name: "NUCA National Union of Contemporary Arts", icon: "art", type: "art", y: 1006, x: 1988, image: "" },
             { id: "art-2", name: "Randolf Art Center", icon: "art", type: "art", y: 1002, x: 1071, image: "" },
+            // Car Showrooms
+            { id: "showroom-1", name: "Grotti", icon: "showroom", type: "showroom", y: 1111, x: 1349, image: "" },
+            { id: "showroom-2", name: "Westdyke Autos", icon: "showroom", type: "showroom", y: 1464, x: 769, image: "" },
+            { id: "showroom-3", name: "Used Cars", icon: "showroom", type: "showroom", y: 793, x: 2044, image: "" },
+            { id: "showroom-4", name: "Auto Eroticar", icon: "showroom", type: "showroom", y: 1272, x: 562, image: "" },
             // RESTAURANTS
             // Restaurants
             // Cluckin’ Bell
@@ -669,6 +687,12 @@
             { id: "vendor-1", name: "News Stand", icon: "vendor", type: "vendor", y: 616, x: 1989, image: "" },
             { id: "vendor-2", name: "News Stand", icon: "vendor", type: "vendor", y: 914, x: 1741, image: "" },
             // SERVICES
+            // Pay ’n’ Sprays
+            { id: "paynspray-1", name: "Pay ’n’ Spray", icon: "paynspray", type: "paynspray", y: 528, x: 1862, image: "" },
+            { id: "paynspray-2", name: "Pay ’n’ Spray", icon: "paynspray", type: "paynspray", y: 880, x: 1057, image: "" },
+            { id: "paynspray-3", name: "Pay ’n’ Spray", icon: "paynspray", type: "paynspray", y: 1504, x: 1162, image: "" },
+            { id: "paynspray-4", name: "Pay ’n’ Spray", icon: "paynspray", type: "paynspray", y: 1309, x: 740, image: "" },
+            { id: "paynspray-5", name: "Pay ’n’ Spray", icon: "paynspray", type: "paynspray", y: 823, x: 655, image: "" },
             // Car Parks & Parking Garages
             { id: "parking-1", name: "Crockett Avenue Car Park", icon: "parking", type: "parking", y: 368, x: 1872, image: "" },
             { id: "parking-2", name: "Lancaster Underground Car Park", enterable: "yes", icon: "parking", type: "parking", y: 1232, x: 1333, image: "" },
@@ -829,6 +853,23 @@
             { id: "police-14", name: "Tudor Police Precinct", icon: "police", type: "police", y: 795, x: 436, image: "" },
             { id: "police-15", name: "Acter Police Precinct", icon: "police", type: "police", y: 522, x: 692, image: "" },
             { id: "police-16", name: "FIA Francis International Airport Police Precinct", icon: "police", type: "police", y: 876, x: 2431, image: "" },
+            // Fire Departments
+            { id: "fire-1", name: "Broker Fire Department", icon: "fire", type: "fire", y: 736, x: 1807, image: "" },
+            { id: "fire-2", name: "FIA Francis International Airport Fire Department", icon: "fire", type: "fire", y: 788, x: 2524, image: "" },
+            { id: "fire-3", name: "Bohan Fire Department", icon: "fire", type: "fire", y: 1612, x: 1902, image: "" },
+            { id: "fire-4", name: "Northwood Fire Department", icon: "fire", type: "fire", y: 1495, x: 1180, image: "" },
+            { id: "fire-5", name: "Fishmarket Fire Department", icon: "fire", type: "fire", y: 483, x: 1465, image: "" },
+            { id: "fire-6", name: "Alderney Fire Department", icon: "fire", type: "fire", y: 978, x: 520, image: "" },
+            { id: "fire-7", name: "Tudor Fire Department", icon: "fire", type: "fire", y: 764, x: 224, image: "" },
+            // Hospitals
+            { id: "hospital-1", name: "Schottler Hospital", icon: "hospital", type: "hospital", y: 784, x: 1943, image: "" },
+            { id: "hospital-2", name: "Dukes Hospital", icon: "hospital", type: "hospital", y: 943, x: 1964, image: "" },
+            { id: "hospital-3", name: "Northern Gardens Medical & Dental Center", icon: "hospital", type: "hospital", y: 1663, x: 1825, image: "" },
+            { id: "hospital-4", name: "South Algonquin Hospital", icon: "hospital", type: "hospital", y: 384, x: 1213, image: "" },
+            { id: "hospital-5", name: "Hatton Gardens Hospital", icon: "hospital", type: "hospital", y: 765, x: 1371, image: "" },
+            { id: "hospital-6", name: "North Holland Hospital", icon: "hospital", type: "hospital", y: 1366, x: 1118, image: "" },
+            { id: "hospital-7", name: "Westdyke Hospital", icon: "hospital", type: "hospital", y: 1367, x: 649, image: "" },
+            { id: "hospital-8", name: "Alderney Hospital", icon: "hospital", type: "hospital", y: 881, x: 544, image: "" },
             // PUBLIC TRANSPORT
             // Subway Stations & El-Train Stations
             { id: "subway-1", name: "Hove Beach Station", icon: "38", type: "subway", y: 360, x: 1847, image: "https://warrenwoodhouse.github.io/maps/gta/iv/images-hovebeachstation2.gif" },
@@ -896,7 +937,7 @@
             { id: "atm-10", name: "ATM", icon: "atm", type: "atm", y: 976, x: 1937, image: "" },
             { id: "atm-11", name: "ATM", icon: "atm", type: "atm", y: 1520, x: 1927, image: "" },
             { id: "atm-12", name: "ATM", icon: "atm", type: "atm", y: 1359, x: 1616, image: "" },
-            { id: "atm-13", name: "ATM", icon: "atm", type: "atm", y: 1354, x: 1184, image: "" },
+            { id: "atm-13", name: "ATM", icon: "atm", type: "atm", y: 1409, x: 1192, image: "" },
             { id: "atm-14", name: "ATM", icon: "atm", type: "atm", y: 1220, x: 1344, image: "" },
             { id: "atm-15", name: "ATM", icon: "atm", type: "atm", y: 1259, x: 1124, image: "" },
             { id: "atm-16", name: "ATM", icon: "atm", type: "atm", y: 914, x: 1345, image: "" },
