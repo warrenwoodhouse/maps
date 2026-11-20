@@ -181,74 +181,72 @@
         // 5. Create Layer Groups for Filters
         const filterGroups = {
             poi: { name: "Points of Interests", group: L.layerGroup() },
-            restaurant: { name: "Restaurants", group: L.layerGroup() },
-            cluckinbell: { name: "Cluckin’ Bell", group: L.layerGroup() },
-            burgershot: { name: "Burger Shot", group: L.layerGroup() },
-            collectible: { name: "Collectibles", group: L.layerGroup() },
-            police: { name: "Police Stations", group: L.layerGroup() },
-            fire: { name: "Fire Departments", group: L.layerGroup() },
-            hospital: { name: "Hospitals", group: L.layerGroup() },
-            paynspray: { name: "Pay ’n’ Sprays", group: L.layerGroup() },
-            weapon: { name: "Weapons", group: L.layerGroup() },
-            landmark: { name: "Landmarks", group: L.layerGroup() },
-            park: { name: "Parks", group: L.layerGroup() },
-            parking: { name: "Car Parks & Parking Garages", group: L.layerGroup() },
-            gas: { name: "Gas Stations", group: L.layerGroup() },
-            subway: { name: "Subway Stations & El-Train Stations", group: L.layerGroup() },
-            skycar: { name: "Skycar Stations", group: L.layerGroup() },
-            river: { name: "Rivers", group: L.layerGroup() },
-            bay: { name: "Bays", group: L.layerGroup() },
-            lake: { name: "Lakes", group: L.layerGroup() },
-            bridge: { name: "Bridges", group: L.layerGroup() },
-            tunnel: { name: "Tunnels", group: L.layerGroup() },
-            toll: { name: "Toll Booths", group: L.layerGroup() },
-            airport: { name: "Airports", group: L.layerGroup() },
-            island: { name: "Islands", group: L.layerGroup() },
-            county: { name: "Counties", group: L.layerGroup() },
-            district: { name: "Districts", group: L.layerGroup() },
-            vehicletheft: { name: "Vehicle Thefts", group: L.layerGroup() },
-            church: { name: "Churches", group: L.layerGroup() },
-            cemetery: { name: "Cemeteries", group: L.layerGroup() },
-            government: { name: "Local Government & Public Services", group: L.layerGroup() },
-            bar: { name: "Bars", group: L.layerGroup() },
-            comedy: { name: "Comedy Clubs", group: L.layerGroup() },
-            club: { name: "Clubs", group: L.layerGroup() },
-            nightclub: { name: "Nightclubs", group: L.layerGroup() },
-            strip: { name: "Strip Clubs / Gentlemen’s Clubs", group: L.layerGroup() },
-            pool: { name: "Pool Halls", group: L.layerGroup() },
-            dart: { name: "Dart Clubs", group: L.layerGroup() },
-            bowling: { name: "Bowling Alleys", group: L.layerGroup() },
-            cabaret: { name: "Cabaret Clubs", group: L.layerGroup() },
-            airhockey: { name: "Air Hockey", group: L.layerGroup() },
-            dancing: { name: "Dancing", group: L.layerGroup() },
-            construction: { name: "Construction Sites", group: L.layerGroup() },
-            atm: { name: "ATMs", group: L.layerGroup() },
-            vehicle: { name: "Vehicles", group: L.layerGroup() },
-            computer: { name: "Computers", group: L.layerGroup() },
-            card: { name: "Cards", group: L.layerGroup() },
             safehouse: { name: "Safehouses", group: L.layerGroup() },
-            easteregg: { name: "Easter Eggs", group: L.layerGroup() },
-            highway: { name: "Highways", group: L.layerGroup() },
-            beach: { name: "Beaches", group: L.layerGroup() },
-            golf: { name: "Golf Clubs", group: L.layerGroup() },
-            vendor: { name: "Street Vendors", group: L.layerGroup() },
-            railway: { name: "Abandoned Railways & Abandoned Railway Lines", group: L.layerGroup() },
-            glitch: { name: "Glitches", group: L.layerGroup() },
-            online: { name: "GTA Online", group: L.layerGroup() },
-            laundromat: { name: "Laundromats", group: L.layerGroup() },
-            ferry: { name: "Ferry Stops & Ferry Terminals", group: L.layerGroup() },
-            bus: { name: "Bus Stops & Bus Depots", group: L.layerGroup() },
-            assassination: { name: "Assassinations", group: L.layerGroup() },
-            helitour: { name: "Heli Tours", group: L.layerGroup() },
-            boattour: { name: "Boat Tours", group: L.layerGroup() },
-            lawfirm: { name: "Law Firms", group: L.layerGroup() },
-            taxi: { name: "Taxi Services", group: L.layerGroup() },
+            operation: { name: "Illegal Operations", group: L.layerGroup() },
             bank: { name: "Banks", group: L.layerGroup() },
-            store: { name: "Stores", group: L.layerGroup() },
-            museum: { name: "Museums", group: L.layerGroup() },
-            art: { name: "Art Galleries", group: L.layerGroup() },
-            library: { name: "Libraries", group: L.layerGroup() },
-            showroom: { name: "Car Showrooms", group: L.layerGroup() }
+            bigbank: { name: "Big Banks", group: L.layerGroup() },
+            payday: { name: "Payday Loans", group: L.layerGroup() },
+            smash: { name: "Smash ’n’ Grabs", group: L.layerGroup() },
+            atm: { name: "ATMs", group: L.layerGroup() },
+            garage: { name: "Garages", group: L.layerGroup() },
+            fence: { name: "Fences", group: L.layerGroup() },
+            safe: { name: "Safes", group: L.layerGroup() },
+            randy: { name: "Randy’s Wishlist", group: L.layerGroup() },
+            mose: { name: "Vehicles for Moses", group: L.layerGroup() },
+            card: { name: "Collectible Cards", group: L.layerGroup() },
+            jackofheartscard: { name: "Jack of Hearts Cards", group: L.layerGroup() },
+            delightcard: { name: "Delights Cards", group: L.layerGroup() },
+            wainklandmark: { name: "WAiNK Landmarks", group: L.layerGroup() },
+            wainksculpture: { name: "WAiNK Sculptures", group: L.layerGroup() },
+            wainkcuriosity: { name: "WAiNK Curiosities", group: L.layerGroup() },
+            book: { name: "Book Swaps", group: L.layerGroup() },
+            magazine: { name: "Magazines", group: L.layerGroup() },
+            standoutvehicle: { name: "Standout Vehicles", group: L.layerGroup() },
+            basketball: { name: "Basketball Hoops", group: L.layerGroup() },
+            flightstunt: { name: "Flight Stunts", group: L.layerGroup() },
+            uniqueplaylist: { name: "Unique Playlists", group: L.layerGroup() },
+            mural: { name: "Murals", group: L.layerGroup() },
+            story: { name: "Story Missions", group: L.layerGroup() },
+            random: { name: "Random Events", group: L.layerGroup() },
+            race: { name: "Races", group: L.layerGroup() },
+            shooting: { name: "Shooting Ranges", group: L.layerGroup() },
+            drone: { name: "Drone Races", group: L.layerGroup() },
+            stunt: { name: "Stunt Jumps", group: L.layerGroup() },
+            base: { name: "BASE Jumps", group: L.layerGroup() },
+            gym: { name: "Gyms", group: L.layerGroup() },
+            golf: { name: "Golf Clubs", group: L.layerGroup() },
+            fishing: { name: "Fishing Spots", group: L.layerGroup() },
+            pool: { name: "Pool Tables", group: L.layerGroup() },
+            arcade: { name: "Arcade Machines", group: L.layerGroup() },
+            nightclub: { name: "Nightclubs", group: L.layerGroup() },
+            airhockey: { name: "Air Hockey", group: L.layerGroup() },
+            bowling: { name: "Bowling Alleys", group: L.layerGroup() },
+            club: { name: "Clubs", group: L.layerGroup() },
+            comedy: { name: "Comedy Clubs", group: L.layerGroup() },
+            dart: { name: "Dart Halls", group: L.layerGroup() },
+            strip: { name: "Strip Clubs", group: L.layerGroup() },
+            dancing: { name: "Dancing", group: L.layerGroup() },
+            mod: { name: "Vehicle Mod Shops", group: L.layerGroup() },
+            paynspray: { name: "Pay ’n’ Sprays", group: L.layerGroup() },
+            gas: { name: "Gas Stations", group: L.layerGroup() },
+            carwash: { name: "Car Washes", group: L.layerGroup() },
+            evcharger: { name: "EV Chargers & EV Car Parks", group: L.layerGroup() },
+            parking: { name: "Car Parks & Parking Garages", group: L.layerGroup() },
+            toll: { name: "Toll Booths", group: L.layerGroup() },
+            laundromat: { name: "Laundromats & Dry Cleaning Services", group: L.layerGroup() },
+            rental: { name: "Vehicle Rentals", group: L.layerGroup() },
+            ammunation: { name: "Ammu-Nation", group: L.layerGroup() },
+            ammunationpremium: { name: "Ammu-Nation - Premium", group: L.layerGroup() },
+            ammunationhunting: { name: "Ammu-Nation - Hunting", group: L.layerGroup() },
+            ammunationpawn: { name: "Ammu-Nation - Pawn", group: L.layerGroup() },
+            taxi: { name: "Taxi Companies", group: L.layerGroup() },
+            stores: { name: "All Stores", group: L.layerGroup() },
+            casualandstreetwear: { name: "Casualwear & Streetwear Stores", group: L.layerGroup() },
+            sportswear: { name: "Sportswear Stores", group: L.layerGroup() },
+            formalwear: { name: "Formalwear Stores", group: L.layerGroup() },
+            souvenir: { name: "Souvenir Stores", group: L.layerGroup() },
+            swimwear: { name: "Swimwear Stores", group: L.layerGroup() },
+            thrift: { name: "Thrift Stores", group: L.layerGroup() }
         };
 
         // DLCs & Editions Tracking Filters
@@ -262,6 +260,11 @@
         // Enterable Locations Tracking Filter
         const enterableGroups = {
             enterable: { name: "Enterable", group: L.layerGroup() }
+        };
+
+        // Stores Tracking Filter
+        const storeGroups = {
+            store: { name: "Store", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -386,7 +389,7 @@
             // Art Galleries
             // FOOD & DRINK
             // Convenience Stores
-            { id: "store-1", name: "Iron & Oak", icon: "store", type: "store", y: 169, x: 350, image: "" }
+            { id: "store-1", name: "Iron & Oak", icon: "store", type: "store", store: "all", y: 169, x: 350, image: "" }
             // Cafes & Takeouts
             // Fast Food
             // Street Vendors
@@ -442,7 +445,8 @@
         const urlMarkerId = urlParams.get('marker');
         const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
         const urlDlc = urlParams.get('dlc') ? urlParams.get('dlc').split(',') : null;
-        const urlEnterable = urlParams.get('enterable') ? urlParama.get('enterable').split(',') : null;
+        const urlEnterable = urlParams.get('enterable') ? urlParamas.get('enterable').split(',') : null;
+        const urlStore = urlParams.get('store') ? urlParams.get('store').split(',') : null;
 
         // 9. Add Markers & Populate Layer Groups
         locations.forEach(loc => {
@@ -459,6 +463,7 @@
                         ${loc.county ? `<strong>County: ${loc.county}</strong>` : ''}
                         ${loc.dlc ? `<strong>DLC Related: ${loc.dlc.toUpperCase()}</strong>` : ''}
                         ${loc.enterable ? `<strong>Can this location be Entered?: ${loc.enterable.toUpperCase()}</strong>` : ''}
+                        ${loc.store ? `<italic>Filter function for all Stores (set all for the full list of Stores in the url string: maps/gta/vi/?store=all): ${loc.store}</italic>` : ''}
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
@@ -466,7 +471,7 @@
 
             const markerIcon = customIcons[loc.icon] || customIcons[loc.type] || customIcons.poi;
             const marker = L.marker([loc.y, loc.x], { icon: markerIcon }).bindPopup(popupContent);
-            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, enterable: loc.enterable, coords: [loc.y, loc.x] };
+            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, enterable: loc.enterable, store: loc.store, coords: [loc.y, loc.x] };
 
             // Add marker to category filter group
             if (filterGroups[loc.type]) {
@@ -481,6 +486,11 @@
             // Add marker to Enterable filter tracking group if specified
             if (loc.enterable && enterableGroups[loc.enterable]) {
                 marker.addTo(enterableGroups[loc.enterable].group);
+            }
+
+            // Add marker to Store filter tracking group if specified
+            if (loc.store && storeGroups[loc.store]) {
+                marker.addTo(storeGroups[loc.store].group);
             }
 
             // Update URL when a marker popup is opened/closed
@@ -536,6 +546,19 @@
             }
         });
 
+        // Add Store filter tracking list
+        Object.keys(storeGroups).forEach(key => {
+            const storeInfo = storeGroups[key];
+            layerControls[storeInfo.name] = storeInfo.group;
+
+            if (urlStore && urlStore.includes(key)) {
+                storeInfo.group.addTo(map);
+            } else if (!urlFilters && !urlStore) {
+                // By default display all Store filters on initial load
+                storeInfo.group.addTo(map);
+            }
+        });
+
         // Add Leaflet Layer Control
         L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
 
@@ -547,6 +570,7 @@
             const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
             const activeDlcs = Object.keys(dlcGroups).filter(key => map.hasLayer(dlcGroups[key].group));
             const activeEnterables = Object.keys(enterableGroups).filter(key => map.hasLayer(enterableGroups[key].group));
+            const activeStores = Object.keys(storeGroups).filter(key => map.hasLayer(storeGroups[key].group));
             const params = new URLSearchParams();
 
             if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
@@ -559,6 +583,10 @@
 
             if (activeEnterables.length > 0 && activeEnterables.length < Object.keys(enterableGroups).length) {
                 params.set('enterable', activeEnterables.join(','));
+            }
+
+            if (activeStores.length > 0 && activeStores.length < Object.keys(storeGroups).length) {
+                params.set('store', activeStores.join(','));
             }
 
             if (currentOpenMarkerId) {
@@ -598,6 +626,11 @@
             // Ensure target Enterable tracking layer group is visible if applicable
             if (target.enterable && enterableGroups[target.enterable] && !map.hasLayer(enterableGroups[target.enterable].group)) {
                 enterableGroups[target.enterable].group.addTo(map);
+            }
+
+            // Ensure target Store tracking layer group is visible if applicable
+            if (target.store && storeGroups[target.store] && !map.hasLayer(storeGroups[target.store].group)) {
+                storeGroups[target.store].group.addTo(map);
             }
 
             map.setView(target.coords, 1);
