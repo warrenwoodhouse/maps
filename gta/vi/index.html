@@ -161,8 +161,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
         // 1. Define Map Dimensions
-        const mapWidth = 17000;
-        const mapHeight = 22000;
+        const mapWidth = 3446;
+        const mapHeight = 3446;
 
         // 2. Initialize Map with CRS.Simple (for flat images instead of globes)
         const map = L.map('map', {
@@ -174,7 +174,7 @@
         // 3. Set Bounds [Bottom-Left, Top-Right]
         const bounds = [[0, 0], [mapHeight, mapWidth]];
 
-        // 4. Load the 17000x22000 Image Overlay
+        // 4. Load the 3446x3446 Image Overlay
         L.imageOverlay('https://warrenwoodhouse.github.io/maps/gta/vi/map.png', bounds).addTo(map);
         map.fitBounds(bounds);
 
@@ -386,7 +386,7 @@
             // Art Galleries
             // FOOD & DRINK
             // Convenience Stores
-            { id: "store-1", name: "Iron & Oak", icon: "store", type: "store", y: 1081, x: -266, image: "" }
+            { id: "store-1", name: "Iron & Oak", icon: "store", type: "store", y: 169, x: 350, image: "" }
             // Cafes & Takeouts
             // Fast Food
             // Street Vendors
