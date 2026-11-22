@@ -3,6 +3,8 @@
 
 [CLICK HERE](#interactive-maps) to jump directly to the list of interactive maps.
 
+![GitHub followers](https://img.shields.io/github/followers/warrenwoodhouse?style=for-the-badge&logo=leaflet&label=Follow%20Warren%20Maps%20on%20Leaflet&labelColor=ff0000&color=grey&cacheSeconds=3600)
+
 # Welcome
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
