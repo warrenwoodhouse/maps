@@ -240,7 +240,6 @@
             ammunationhunting: { name: "Ammu-Nation - Hunting", group: L.layerGroup() },
             ammunationpawn: { name: "Ammu-Nation - Pawn", group: L.layerGroup() },
             taxi: { name: "Taxi Companies", group: L.layerGroup() },
-            stores: { name: "All Stores", group: L.layerGroup() },
             casualandstreetwear: { name: "Casualwear & Streetwear Stores", group: L.layerGroup() },
             sportswear: { name: "Sportswear Stores", group: L.layerGroup() },
             formalwear: { name: "Formalwear Stores", group: L.layerGroup() },
@@ -264,7 +263,7 @@
 
         // Stores Tracking Filter
         const storeGroups = {
-            store: { name: "Store", group: L.layerGroup() }
+            store: { name: "All Stores", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -445,7 +444,7 @@
         const urlMarkerId = urlParams.get('marker');
         const urlFilters = urlParams.get('filters') ? urlParams.get('filters').split(',') : null;
         const urlDlc = urlParams.get('dlc') ? urlParams.get('dlc').split(',') : null;
-        const urlEnterable = urlParams.get('enterable') ? urlParamas.get('enterable').split(',') : null;
+        const urlEnterable = urlParams.get('enterable') ? urlParams.get('enterable').split(',') : null;
         const urlStore = urlParams.get('store') ? urlParams.get('store').split(',') : null;
 
         // 9. Add Markers & Populate Layer Groups
@@ -463,7 +462,7 @@
                         ${loc.county ? `<strong>County: ${loc.county}</strong>` : ''}
                         ${loc.dlc ? `<strong>DLC Related: ${loc.dlc.toUpperCase()}</strong>` : ''}
                         ${loc.enterable ? `<strong>Can this location be Entered?: ${loc.enterable.toUpperCase()}</strong>` : ''}
-                        ${loc.store ? `<italic>Filter function for all Stores (set all for the full list of Stores in the url string: maps/gta/vi/?store=all): ${loc.store}</italic>` : ''}
+                        ${loc.store ? `<italic>Filter function for all Stores (set all for the full list of Stores in the url string):</italic> <strong>${loc.store.toUpperCase}</strong>` : ''}
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
