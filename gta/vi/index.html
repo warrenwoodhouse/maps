@@ -71,8 +71,6 @@
     }
 
     #map {
-        position: fixed;
-        inset: 0;
         width: 100vw;
         height: 100vh;
         background-color: #111;
@@ -261,11 +259,6 @@
         // Enterable Locations Tracking Filter
         const enterableGroups = {
             enterable: { name: "Enterable", group: L.layerGroup() }
-        };
-
-        // Stores Tracking Filter
-        const storeGroups = {
-            store: { name: "All Stores", group: L.layerGroup() }
         };
 
         // Create custom icons for each marker type
@@ -470,7 +463,6 @@
                         ${loc.county ? `<strong>County: ${loc.county}</strong>` : ''}
                         ${loc.dlc ? `<strong>DLC Related: ${loc.dlc.toUpperCase()}</strong>` : ''}
                         ${loc.enterable ? `<strong>Can this location be Entered?: ${loc.enterable.toUpperCase()}</strong>` : ''}
-                        ${loc.store ? `<italic>Filter function for all Stores (set all for the full list of Stores in the url string):</italic> <strong>${loc.store.toUpperCase}</strong>` : ''}
                     </div>
                     <button class="share-btn" onclick="copyShareableUrl('${loc.id}')">📋 Copy Share Link</button>
                 </div>
@@ -478,7 +470,7 @@
 
             const markerIcon = customIcons[loc.icon] || customIcons[loc.type] || customIcons.poi;
             const marker = L.marker([loc.y, loc.x], { icon: markerIcon }).bindPopup(popupContent);
-            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, enterable: loc.enterable, store: loc.store, coords: [loc.y, loc.x] };
+            markerRegistry[loc.id] = { marker, type: loc.type, dlc: loc.dlc, enterable: loc.enterable, coords: [loc.y, loc.x] };
 
             // Add marker to category filter group
             if (filterGroups[loc.type]) {
@@ -493,11 +485,6 @@
             // Add marker to Enterable filter tracking group if specified
             if (loc.enterable && enterableGroups[loc.enterable]) {
                 marker.addTo(enterableGroups[loc.enterable].group);
-            }
-
-            // Add marker to Store filter tracking group if specified
-            if (loc.store && storeGroups[loc.store]) {
-                marker.addTo(storeGroups[loc.store].group);
             }
 
             // Update URL when a marker popup is opened/closed
@@ -553,19 +540,6 @@
             }
         });
 
-        // Add Store filter tracking list
-        Object.keys(storeGroups).forEach(key => {
-            const storeInfo = storeGroups[key];
-            layerControls[storeInfo.name] = storeInfo.group;
-
-            if (urlStore && urlStore.includes(key)) {
-                storeInfo.group.addTo(map);
-            } else if (!urlFilters && !urlStore) {
-                // By default display all Store filters on initial load
-                storeInfo.group.addTo(map);
-            }
-        });
-
         // Add Leaflet Layer Control
         L.control.layers(null, layerControls, { collapsed: true }).addTo(map);
 
@@ -577,7 +551,6 @@
             const activeFilters = Object.keys(filterGroups).filter(key => map.hasLayer(filterGroups[key].group));
             const activeDlcs = Object.keys(dlcGroups).filter(key => map.hasLayer(dlcGroups[key].group));
             const activeEnterables = Object.keys(enterableGroups).filter(key => map.hasLayer(enterableGroups[key].group));
-            const activeStores = Object.keys(storeGroups).filter(key => map.hasLayer(storeGroups[key].group));
             const params = new URLSearchParams();
 
             if (activeFilters.length > 0 && activeFilters.length < Object.keys(filterGroups).length) {
@@ -590,10 +563,6 @@
 
             if (activeEnterables.length > 0 && activeEnterables.length < Object.keys(enterableGroups).length) {
                 params.set('enterable', activeEnterables.join(','));
-            }
-
-            if (activeStores.length > 0 && activeStores.length < Object.keys(storeGroups).length) {
-                params.set('store', activeStores.join(','));
             }
 
             if (currentOpenMarkerId) {
@@ -633,11 +602,6 @@
             // Ensure target Enterable tracking layer group is visible if applicable
             if (target.enterable && enterableGroups[target.enterable] && !map.hasLayer(enterableGroups[target.enterable].group)) {
                 enterableGroups[target.enterable].group.addTo(map);
-            }
-
-            // Ensure target Store tracking layer group is visible if applicable
-            if (target.store && storeGroups[target.store] && !map.hasLayer(storeGroups[target.store].group)) {
-                storeGroups[target.store].group.addTo(map);
             }
 
             map.setView(target.coords, 1);
