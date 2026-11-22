@@ -211,7 +211,14 @@ Here is the full list of Interactive Maps. Enjoy!
 * > Lenny Avery Real Estates Map
 * > Los Santos Freegans Map
 * > Grand Theft Auto V: Grand Theft Auto Online (WIP)
-* Grand Theft Auto VI (WIP)
+* [Grand Theft Auto VI](https://warrenwoodhouse.github.io/maps/gta/vi) (WIP)
+* > [Stores](https://warrenwoodhouse.github.io/maps/gta/vi/?store=all)
+* > [Missions](https://warrenwoodhouse.github.io/maps/gta/vi/?mission=all)
+* > [Collectibles](https://warrenwoodhouse.github.io/maps/gta/vi/?collectible=all)
+* > [Activities](https://warrenwoodhouse.github.io/maps/gta/vi/?activity=all)
+* > [Public Transport](https://warrenwoodhouse.github.io/maps/gta/vi/?transport=all)
+* > [Emergency Services](https://warrenwoodhouse.github.io/maps/gta/vi/?emergency=all)
+* > [Points of Interest](https://warrenwoodhouse.github.io/maps/gta/vi/?pois=all)
 
 ## Horizon - Games - Interactive Maps
 * Horizon: Zero Dawn & Horizon: Zero Dawn Remastered
