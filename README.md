@@ -7,13 +7,13 @@
 Hello, welcome to my Interactive Maps website, which you can just remember as Warren Maps. Here, you'll find Interactive Maps that I've made as well as Static Maps that I've made as well. Check out the list below for your convenience.
 
 ## Follow
-![GitHub followers](https://img.shields.io/github/followers/warrenwoodhouse?style=for-the-badge&logo=leaflet&label=Follow%20Warren%20Maps%20on%20Leaflet&labelColor=ff0000&color=grey&cacheSeconds=3600)
+![GitHub followers](https://img.shields.io/github/followers/warrenwoodhouse?style=for-the-badge&logo=leaflet&label=Follow%20Warren%20Maps%20on%20Leaflet&labelColor=ff0000&color=grey&cacheSeconds=3600&link=https%3A%2F%2Fgithub.com%2Fwarrenwoodhouse)
 
 ## Status
-![GitHub commit activity](https://img.shields.io/github/commit-activity/t/warrenwoodhouse/maps?style=for-the-badge&logo=github&labelColor=ff0000&color=grey)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/warrenwoodhouse/maps?style=for-the-badge&logo=github&labelColor=ff0000&color=grey&link=https%3A%2F%2Fgithub.com%2Fwarrenwoodhouse%2Fmaps%2Fcommits)
 
 ## Contributors
-![GitHub contributors](https://img.shields.io/github/contributors/warrenwoodhouse/maps?style=for-the-badge&logo=leaflet&labelColor=ff0000&color=grey)
+![GitHub contributors](https://img.shields.io/github/contributors/warrenwoodhouse/maps?style=for-the-badge&logo=leaflet&labelColor=ff0000&color=grey&link=https%3A%2F%2Fgithub.com%2Fwarrenwoodhouse%2Fmaps%2Fgraphs%2Fcontributors)
 
 # Information
 ## About
