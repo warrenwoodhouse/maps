@@ -15,6 +15,9 @@ Hello, welcome to my Interactive Maps website, which you can just remember as Wa
 ## Contributors
 <a href="https://github.com/warrenwoodhouse/maps/graphs/contributors" target="_blank"><img src="https://img.shields.io/github/contributors/warrenwoodhouse/maps?style=for-the-badge&logo=leaflet&labelColor=ff0000&color=grey"></a>
 
+## Powered By
+<a href="https://www.leafletjs.com/" target="_blank"><img src="https://raw.githubusercontent.com/warrenwoodhouse/maps/refs/heads/main/button-poweredbyleaflet.png"></a>
+
 # Information
 ## About
 Warren Maps began as a simple idea: to bring static drawn maps to my gaming site on Piczo.
